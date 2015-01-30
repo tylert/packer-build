@@ -1,0 +1,8 @@
+.DS_Store
+*.sw?
+
+ansible.cfg
+inventory
+
+packer_cache
+build
