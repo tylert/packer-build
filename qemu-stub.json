@@ -1,0 +1,12 @@
+{
+  "builders": [
+    {
+      "type": "qemu",
+      "machine_type": "pc",
+      "accelerator": "kvm",
+      "format": "raw",
+      "disk_interface": "virtio",
+      "net_device": "virtio"
+    }
+  ]
+}
