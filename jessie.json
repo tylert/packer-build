@@ -62,6 +62,7 @@
       "only": [
         "vbox"
       ],
+      "output": "build/workstation-{{isotime}}-{{.BuildName}}.box",
       "type": "vagrant"
     }
   ],
