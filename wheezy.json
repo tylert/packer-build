@@ -2,8 +2,8 @@
   "builders": [
     {
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz initrd=/install/initrd.gz auto=true ",
+        "<down><down><down><down><down><enter>",
+        "/install.amd/vmlinuz initrd=/install.amd/initrd.gz auto=true ",
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "debian-installer/language=en debian-installer/country=CA ",
         "debian-installer/locale=en_CA.UTF-8 hostname={{user `hostname`}} ",
