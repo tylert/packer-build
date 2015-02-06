@@ -5,10 +5,8 @@
         "<down><down><down><down><down><enter>",
         "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "debian-installer/language=en debian-installer/country=CA ",
-        "debian-installer/locale=en_CA.UTF-8 auto-install/enable=true ",
+        "auto-install/enable=true ",
         "netcfg/get_hostname={{user `hostname`}} ",
-        "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "3s",
