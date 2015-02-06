@@ -28,8 +28,10 @@ d-i netcfg/get_hostname string debian
 d-i netcfg/get_domain string
 
 # Package Setup
+d-i mirror/country string manual
+d-i mirror/http/hostname string ftp.ca.debian.org
+d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
-#d-i pkgsel/update-policy select none
 #tasksel tasksel/first multiselect standard
 #d-i pkgsel/include string openssh-server
 popularity-contest popularity-contest/participate boolean false
