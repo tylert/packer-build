@@ -7,6 +7,7 @@
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "auto-install/enable=true ",
         "netcfg/get_hostname={{user `hostname`}} ",
+        "netcfg/get_domain={{user `domain`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "3s",
@@ -89,6 +90,7 @@
   ],
   "variables": {
     "disk_size": 7500,
+    "domain": "",
     "hostname": "debian",
     "mysql_root_password": "afailsafepassword",
     "preseed_file": "wheezy.seed",

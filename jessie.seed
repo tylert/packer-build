@@ -11,6 +11,8 @@ d-i keyboard-configuration/xkb-keymap select us
 # Clock Setup
 d-i time/zone string UTC
 d-i clock-setup/utc boolean true
+#   set above to false if making a bootable USB for Windows users
+#   (if you want to be nicer to them)
 
 # User Setup
 d-i passwd/user-fullname string debian
@@ -19,29 +21,30 @@ d-i passwd/user-password password debian
 d-i passwd/user-password-again password debian
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
+d-i passwd/root-login boolean false
 
 # Network Setup
-#d-i netcfg/get_hostname string debian
-# must be passed in on the init line as well
-#d-i netcfg/get_domain string
+d-i netcfg/get_hostname string debian
+d-i netcfg/get_domain string
 
 # Package Setup
-#d-i mirror/http/proxy string
+d-i mirror/http/proxy string
 #d-i pkgsel/update-policy select none
 #tasksel tasksel/first multiselect standard
 #d-i pkgsel/include string openssh-server
+popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
-#d-i partman-auto/method string lvm
-#d-i partman-auto-lvm/guided_size string max
-#d-i partman-auto/choose_recipe select atomic
-#d-i partman-lvm/device_remove_lvm boolean true
-#d-i partman-md/device_remove_md boolean true
-#d-i partman-partitioning/confirm_write_new_label boolean true
-#d-i partman/choose_partition select finish
-#d-i partman/confirm boolean true
-#d-i partman-lvm/confirm_nooverwrite boolean true
-#d-i partman/confirm_nooverwrite boolean true
+d-i partman-auto/method string lvm
+d-i partman-auto-lvm/guided_size string max
+d-i partman-auto/choose_recipe select atomic
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/device_remove_md boolean true
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman-lvm/confirm_nooverwrite boolean true
+d-i partman/confirm_nooverwrite boolean true
 
 # Final Setup
 #d-i grub-installer/only_debian boolean true
