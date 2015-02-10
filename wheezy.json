@@ -35,7 +35,7 @@
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": 22,
       "ssh_username": "{{user `ssh_username`}}",
-      "ssh_wait_timeout": "20m",
+      "ssh_wait_timeout": "30m",
       "type": "virtualbox-iso",
       "vboxmanage": [
         [
@@ -92,7 +92,6 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "debian",
-    "mysql_root_password": "afailsafepassword",
     "preseed_file": "wheezy.seed",
     "ram_size": 512,
     "ssh_username": "debian",
