@@ -19,7 +19,7 @@
       "guest_os_type": "Debian_64",
       "hard_drive_interface": "sata",
       "headless": false,
-      "http_directory": ".",
+      "http_directory": "{{user `http_directory`}}",
       "http_port_max": 9000,
       "http_port_min": 8000,
       "iso_checksum": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
@@ -27,7 +27,7 @@
       "iso_interface": "sata",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
       "name": "vbox",
-      "output_directory": "build",
+      "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "5m",
       "ssh_host_port_max": 7000,
@@ -52,7 +52,7 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "workstation-{{isotime}}"
+      "vm_name": "{{user `vm_name`}}"
     },
     {
       "accelerator": "kvm",
@@ -66,11 +66,12 @@
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "3s",
+      "disk_cache": "none",
       "disk_interface": "virtio",
       "disk_size": "{{user `disk_size`}}",
       "format": "raw",
       "headless": false,
-      "http_directory": ".",
+      "http_directory": "{{user `http_directory`}}",
       "http_port_max": 9000,
       "http_port_min": 8000,
       "iso_checksum": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
@@ -79,7 +80,7 @@
       "machine_type": "pc",
       "name": "qemu",
       "net_device": "virtio",
-      "output_directory": "build",
+      "output_directory": "{{user `output_directory`}}",
       "qemu_binary": "qemu-kvm",
       "qemuargs": [
         [
@@ -96,7 +97,7 @@
       "ssh_username": "{{user `ssh_username`}}",
       "ssh_wait_timeout": "30m",
       "type": "qemu",
-      "vm_name": "workstation-{{isotime}}"
+      "vm_name": "{{user `vm_name`}}"
     }
   ],
   "description": "Yay",
@@ -106,7 +107,7 @@
       "only": [
         "vbox"
       ],
-      "output": "build/workstation-{{isotime}}-{{.BuildName}}.box",
+      "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant"
     }
   ],
@@ -136,10 +137,14 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "debian",
+    "http_directory": ".",
+    "output_directory": "build",
     "preseed_file": "wheezy.seed",
     "ram_size": 512,
     "ssh_username": "debian",
-    "sudo_password": "debian"
+    "sudo_password": "debian",
+    "vagrant_box_file": "build/workstation-{{isotime}}-{{.BuildName}}.box",
+    "vm_name": "workstation-{{isotime}}"
   }
 }
 
