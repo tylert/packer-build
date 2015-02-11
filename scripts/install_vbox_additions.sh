@@ -9,10 +9,10 @@ if [ ! -r ${iso_name} ]; then exit; fi
 # Put a full kernel build environment here just to make virtualbox happy.
 apt-get -y install build-essential dkms
 
-mkdir ${mount_location}
+mkdir -p ${mount_location}
 mount -o loop ${iso_name} ${mount_location}
 
-bash ${mount_location}/VBoxLinuxAdditions.run
+echo "yes" | bash ${mount_location}/VBoxLinuxAdditions.run
 
 umount ${mount_location}
 rm -rf ${mount_location}

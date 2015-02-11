@@ -50,5 +50,5 @@ d-i partman/confirm_nooverwrite boolean true
 
 # Final Setup
 #d-i grub-installer/only_debian boolean true
-#d-i finish-install/reboot_in_progress note
+d-i finish-install/reboot_in_progress note
 #d-i cdrom-detect/eject boolean false
