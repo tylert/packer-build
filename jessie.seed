@@ -49,6 +49,7 @@ d-i partman-lvm/confirm_nooverwrite boolean true
 d-i partman/confirm_nooverwrite boolean true
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/with_other_os boolean true
+d-i grub-installer/bootdev string default
 
 # Final Setup
 d-i finish-install/reboot_in_progress note
