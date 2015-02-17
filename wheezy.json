@@ -142,7 +142,7 @@
     "preseed_file": "wheezy.seed",
     "ram_size": 512,
     "ssh_username": "debian",
-    "ssh_wait_timeout": "40m",
+    "ssh_wait_timeout": "60m",
     "sudo_password": "debian",
     "vagrant_box_file": "build-{{isotime}}/wheezy.box",
     "vm_name": "wheezy"
