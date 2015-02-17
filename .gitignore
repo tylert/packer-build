@@ -5,4 +5,4 @@ ansible.cfg
 inventory
 
 packer_cache
-build
+build*

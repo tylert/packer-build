@@ -35,7 +35,7 @@
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": 22,
       "ssh_username": "{{user `ssh_username`}}",
-      "ssh_wait_timeout": "30m",
+      "ssh_wait_timeout": "40m",
       "type": "virtualbox-iso",
       "vboxmanage": [
         [
@@ -138,13 +138,13 @@
     "domain": "",
     "hostname": "debian",
     "http_directory": ".",
-    "output_directory": "build",
+    "output_directory": "build-{{isotime}}",
     "preseed_file": "wheezy.seed",
     "ram_size": 512,
     "ssh_username": "debian",
     "sudo_password": "debian",
-    "vagrant_box_file": "build/workstation-{{isotime}}.box",
-    "vm_name": "workstation-{{isotime}}"
+    "vagrant_box_file": "build-{{isotime}}/wheezy.box",
+    "vm_name": "wheezy"
   }
 }
 
