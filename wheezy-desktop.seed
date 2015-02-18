@@ -1,0 +1,56 @@
+# =============================================================================
+
+# Locale Setup
+d-i debian-installer/language string en
+d-i debian-installer/country string CA
+d-i debian-installer/locale string en_CA.UTF-8
+
+# Keyboard Setup
+d-i keyboard-configuration/xkb-keymap select us
+
+# Clock Setup
+d-i time/zone string UTC
+d-i clock-setup/utc boolean true
+#   set above to false if making a bootable USB for Windows users
+#   (if you want to be nicer to them)
+
+# User Setup
+d-i passwd/user-fullname string debian
+d-i passwd/username string debian
+d-i passwd/user-password password debian
+d-i passwd/user-password-again password debian
+d-i user-setup/allow-password-weak boolean true
+d-i user-setup/encrypt-home boolean false
+d-i passwd/root-login boolean false
+
+# Network Setup
+d-i netcfg/get_hostname string debian
+d-i netcfg/get_domain string
+
+# Package Setup
+d-i mirror/country string manual
+d-i mirror/http/hostname string ftp.ca.debian.org
+d-i mirror/http/directory string /debian
+d-i mirror/http/proxy string
+tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, xfce-desktop
+#d-i pkgsel/include string sudo, openssh-server, cryptsetup, lvm
+popularity-contest popularity-contest/participate boolean false
+
+# Drive Setup
+d-i partman-auto/method string lvm
+d-i partman-auto-lvm/guided_size string max
+d-i partman-auto/choose_recipe select atomic
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/device_remove_md boolean true
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman-lvm/confirm_nooverwrite boolean true
+d-i partman/confirm_nooverwrite boolean true
+d-i grub-installer/only_debian boolean true
+d-i grub-installer/with_other_os boolean true
+d-i grub-installer/bootdev string default
+
+# Final Setup
+d-i finish-install/reboot_in_progress note
+#d-i cdrom-detect/eject boolean false
