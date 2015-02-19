@@ -56,7 +56,17 @@
       "vm_name": "{{user `vm_name`}}"
     }
   ],
-  "post-processors": null,
+  "description": "Yay",
+  "post-processors": [
+    {
+      "keep_input_artifact": true,
+      "only": [
+        "vbox"
+      ],
+      "output": "{{user `vagrant_box_file`}}",
+      "type": "vagrant"
+    }
+  ],
   "variables": {
     "disk_size": 7500,
     "http_directory": ".",
@@ -66,6 +76,7 @@
     "ssh_username": "ubuntu",
     "ssh_wait_timeout": "60m",
     "sudo_password": "ubuntu",
+    "vagrant_box_file": "build-{{isotime}}/trusty.box",
     "vm_name": "trusty"
   }
 }
