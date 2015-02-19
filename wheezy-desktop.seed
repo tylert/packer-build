@@ -1,5 +1,3 @@
-# =============================================================================
-
 # Locale Setup
 d-i debian-installer/language string en
 d-i debian-installer/country string CA
@@ -33,6 +31,7 @@ d-i mirror/http/hostname string ftp.ca.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
 tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, xfce-desktop
+lightdm shared/default-x-display-manager select lightdm
 #d-i pkgsel/include string sudo, openssh-server, cryptsetup, lvm
 popularity-contest popularity-contest/participate boolean false
 

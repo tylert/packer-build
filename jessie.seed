@@ -1,5 +1,3 @@
-# =============================================================================
-
 # Locale Setup
 d-i debian-installer/language string en
 d-i debian-installer/country string CA
