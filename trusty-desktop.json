@@ -71,13 +71,13 @@
     "disk_size": 7500,
     "http_directory": ".",
     "output_directory": "build-{{isotime}}",
-    "preseed_file": "trusty.seed",
+    "preseed_file": "trusty-desktop.seed",
     "ram_size": 512,
     "ssh_username": "ubuntu",
     "ssh_wait_timeout": "60m",
     "sudo_password": "ubuntu",
-    "vagrant_box_file": "build-{{isotime}}/trusty.box",
-    "vm_name": "trusty"
+    "vagrant_box_file": "build-{{isotime}}/trusty-desktop.box",
+    "vm_name": "trusty-desktop"
   }
 }
 
