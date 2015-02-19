@@ -5,13 +5,13 @@
         "<esc><esc><esc><enter><wait>",
         "/casper/vmlinuz.efi initrd=/casper/initrd.lz ",
         "boot=casper automatic-ubiquity ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/xubuntu-14.04.seed ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "debian-installer/language=en debian-installer/country=CA ",
         "debian-installer/locale=en_CA.UTF-8 ",
         "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
         "noprompt quiet splash --<enter>"
       ],
-      "boot_wait": "5s",
+      "boot_wait": "3s",
       "disk_size": "{{user `disk_size`}}",
       "format": "ova",
       "guest_additions_mode": "upload",
@@ -20,22 +20,23 @@
       "guest_os_type": "Ubuntu_64",
       "hard_drive_interface": "sata",
       "headless": false,
-      "http_directory": ".",
+      "http_directory": "{{user `http_directory`}}",
       "http_port_max": 9000,
       "http_port_min": 8000,
       "iso_checksum": "a51db36fa80fb39c74b98e449d62898b326e4b1154d74c3dc49e65ca94a3e2c1",
       "iso_checksum_type": "sha256",
       "iso_interface": "sata",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.1/release/xubuntu-14.04.1-desktop-amd64.iso",
-      "output_directory": "build",
-      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "name": "vbox",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "5m",
       "ssh_host_port_max": 7000,
       "ssh_host_port_min": 6000,
-      "ssh_password": "packer",
+      "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": 22,
-      "ssh_username": "packer",
-      "ssh_wait_timeout": "20m",
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "virtualbox-iso",
       "vboxmanage": [
         [
@@ -52,13 +53,20 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "xubuntu-{{timestamp}}"
+      "vm_name": "{{user `vm_name`}}"
     }
   ],
   "post-processors": null,
   "variables": {
-    "disk_size": 7900,
-    "ram_size": 512
+    "disk_size": 7500,
+    "http_directory": ".",
+    "output_directory": "build-{{isotime}}",
+    "preseed_file": "trusty.seed",
+    "ram_size": 512,
+    "ssh_username": "ubuntu",
+    "ssh_wait_timeout": "60m",
+    "sudo_password": "ubuntu",
+    "vm_name": "trusty"
   }
 }
 
