@@ -136,7 +136,7 @@
   "variables": {
     "disk_size": 7500,
     "domain": "",
-    "hostname": "debian",
+    "hostname": "wheezy-desktop",
     "http_directory": ".",
     "output_directory": "build-{{isotime}}",
     "preseed_file": "wheezy-desktop.seed",

@@ -8,6 +8,8 @@
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "debian-installer/language=en debian-installer/country=CA ",
         "debian-installer/locale=en_CA.UTF-8 ",
+        "netcfg/get_hostname={{user `hostname`}} ",
+        "netcfg/get_domain={{user `domain`}} ",
         "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
         "noprompt quiet splash --<enter>"
       ],
@@ -67,8 +69,32 @@
       "type": "vagrant"
     }
   ],
+  "provisioners": [
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vbox"
+      ],
+      "scripts": [
+        "scripts/install_vbox_additions.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vbox"
+      ],
+      "scripts": [
+        "scripts/zero_image_drive.sh"
+      ],
+      "type": "shell"
+    }
+  ],
   "variables": {
     "disk_size": 7500,
+    "domain": "",
+    "hostname": "trusty-desktop",
     "http_directory": ".",
     "output_directory": "build-{{isotime}}",
     "preseed_file": "trusty-desktop.seed",

@@ -1,0 +1,74 @@
+# Suggest LVM by default.
+d-i	partman-auto/init_automatically_partition	string some_device_lvm
+d-i	partman-auto/init_automatically_partition	seen false
+# Install the Ubuntu Server seed.
+tasksel	tasksel/force-tasks	string server
+# Only install basic language packs. Let tasksel ask about tasks.
+d-i	pkgsel/language-pack-patterns	string
+# No language support packages.
+d-i	pkgsel/install-language-support	boolean false
+# Only ask the UTC question if there are other operating systems installed.
+d-i	clock-setup/utc-auto	boolean true
+# Verbose output and no boot splash screen.
+d-i	debian-installer/quiet	boolean false
+d-i	debian-installer/splash	boolean false
+# Install the debconf oem-config frontend (if in OEM mode).
+d-i	oem-config-udeb/frontend	string debconf
+# Wait for two seconds in grub
+d-i	grub-installer/timeout	string 2
+# Add the network and tasks oem-config steps by default.
+oem-config	oem-config/steps	multiselect language, timezone, keyboard, user, network, tasks
+
+# =============================================================================
+# Everything above is from Ubuntu Server 14.04.1 amd64 'ubuntu-server.seed'.
+
+# Locale Setup
+d-i debian-installer/language string en
+d-i debian-installer/country string CA
+d-i debian-installer/locale string en_CA.UTF-8
+# must be passed in on the init line as well
+
+# Keyboard Setup
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/layoutcode string us
+# must be passed in on the init line as well
+
+# Clock Setup
+d-i time/zone string UTC
+d-i clock-setup/utc boolean true
+
+# User Setup
+d-i passwd/user-fullname string ubuntu
+d-i passwd/username string ubuntu
+d-i passwd/user-password password ubuntu
+d-i passwd/user-password-again password ubuntu
+d-i user-setup/allow-password-weak boolean true
+d-i user-setup/encrypt-home boolean false
+
+# Network Setup
+d-i netcfg/get_hostname string ubuntu
+# must be passed in on the init line as well
+d-i netcfg/get_domain string
+
+# Package Setup
+d-i mirror/http/proxy string
+d-i pkgsel/update-policy select none
+tasksel tasksel/first multiselect standard
+d-i pkgsel/include string openssh-server
+
+# Drive Setup
+d-i partman-auto/method string lvm
+d-i partman-auto-lvm/guided_size string max
+d-i partman-auto/choose_recipe select atomic
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/device_remove_md boolean true
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman-lvm/confirm_nooverwrite boolean true
+d-i partman/confirm_nooverwrite boolean true
+
+# Final Setup
+d-i grub-installer/only_debian boolean true
+d-i finish-install/reboot_in_progress note
+d-i cdrom-detect/eject boolean false
