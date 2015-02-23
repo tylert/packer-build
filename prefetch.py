@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# https://github.com/mitchellh/packer/issues/1826
+
 
 import sys
 
