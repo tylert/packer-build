@@ -1,3 +1,18 @@
+::
+
+  python prefetch.py
+
+  packer build -only=vbox wheezy.json
+  packer build -only=vbox wheezy-desktop.json
+  packer build -only=vbox jessie.json
+  packer build -only=vbox jessie-desktop.json
+
+  packer build -only=vbox trusty.json
+  packer build -only=vbox trusty-desktop.json
+  packer build -only=vbox utopic.json
+  packer build -only=vbox utopic-desktop.json
+
+
 http://askubuntu.com/questions/423946/unattended-installation-xubuntu
 https://wiki.ubuntu.com/UbiquityAutomation
 https://help.ubuntu.com/14.04/installation-guide/amd64/apbs04.html
