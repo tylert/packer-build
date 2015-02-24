@@ -98,6 +98,45 @@
       "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "boot_command": [
+        "<down><down><down><down><down><enter>",
+        "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "auto-install/enable=true ",
+        "netcfg/get_hostname={{user `hostname`}} ",
+        "netcfg/get_domain={{user `domain`}} ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "3s",
+      "disk_size": "{{user `disk_size`}}",
+      "guest_os_type": "Debian_64",
+      "headless": false,
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": 9000,
+      "http_port_min": 8000,
+      "iso_checksum": "1674e225c2bfe8c6c6ee3efe3147e1e774849add78bc2a5c4ea86877126c405700b427a2b12ee5d3d68873470bdc37066cc43c02e492efd7de2af45ac506c046",
+      "iso_checksum_type": "sha512",
+      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc1/multi-arch/iso-cd/debian-jessie-DI-rc1-amd64-i386-netinst.iso",
+      "name": "vmwf",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "5m",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": 22,
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "tools_upload_flavor": "linux",
+      "tools_upload_path": "{{.Flavor}}.iso",
+      "type": "vmware-iso",
+      "vm_name": "{{user `vm_name`}}",
+      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "{{user `ram_size`}}",
+        "numvcpus": "1"
+      }
     }
   ],
   "description": "Yay",
@@ -105,7 +144,8 @@
     {
       "keep_input_artifact": true,
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant"
@@ -125,7 +165,8 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "scripts": [
         "scripts/zero_image_drive.sh"
@@ -145,7 +186,8 @@
     "ssh_wait_timeout": "60m",
     "sudo_password": "debian",
     "vagrant_box_file": "build-{{isotime}}/jessie-desktop.box",
-    "vm_name": "jessie-desktop"
+    "vm_name": "jessie-desktop",
+    "vmdk_name": "jessie-desktop"
   }
 }
 

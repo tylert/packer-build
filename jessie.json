@@ -144,7 +144,8 @@
     {
       "keep_input_artifact": true,
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant"
@@ -164,7 +165,8 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "scripts": [
         "scripts/zero_image_drive.sh"

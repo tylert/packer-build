@@ -98,6 +98,45 @@
       "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "boot_command": [
+        "<down><down><down><down><down><enter>",
+        "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "auto-install/enable=true ",
+        "netcfg/get_hostname={{user `hostname`}} ",
+        "netcfg/get_domain={{user `domain`}} ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "3s",
+      "disk_size": "{{user `disk_size`}}",
+      "guest_os_type": "Debian_64",
+      "headless": false,
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": 9000,
+      "http_port_min": 8000,
+      "iso_checksum": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
+      "iso_checksum_type": "sha512",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
+      "name": "vmwf",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "5m",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": 22,
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "tools_upload_flavor": "linux",
+      "tools_upload_path": "{{.Flavor}}.iso",
+      "type": "vmware-iso",
+      "vm_name": "{{user `vm_name`}}",
+      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "{{user `ram_size`}}",
+        "numvcpus": "1"
+      }
     }
   ],
   "description": "Yay",
@@ -105,7 +144,8 @@
     {
       "keep_input_artifact": true,
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant"
@@ -125,7 +165,8 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "scripts": [
         "scripts/zero_image_drive.sh"
@@ -145,7 +186,8 @@
     "ssh_wait_timeout": "60m",
     "sudo_password": "debian",
     "vagrant_box_file": "build-{{isotime}}/wheezy-desktop.box",
-    "vm_name": "wheezy-desktop"
+    "vm_name": "wheezy-desktop",
+    "vmdk_name": "wheezy-desktop"
   }
 }
 
