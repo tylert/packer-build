@@ -76,5 +76,4 @@ if __name__ == '__main__':
             print('Found {url_hash}'.format(url_hash=url_hash))
         else:
             print('Creating {url_hash}'.format(url_hash=url_hash))
-            os.symlink(image_file,
-                os.path.join('packer_cache', url_hash))
+            os.symlink(image_file, os.path.join('packer_cache', url_hash))
