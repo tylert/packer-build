@@ -16,13 +16,13 @@
       "method": "sha512"
     },
     {
-      "url": "http://cdimage.ubuntu.com/releases/14.04.1/release/ubuntu-14.04.1-server-amd64+mac.iso",
-      "hash": "175a080fdf87f8dd9d9454a3b92d5ef93fe403f7de07ba816a3175f3f544521b",
+      "url": "http://cdimage.ubuntu.com/releases/14.04.2/release/ubuntu-14.04.2-server-amd64+mac.iso",
+      "hash": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
       "method": "sha256"
     },
     {
-      "url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.1/release/xubuntu-14.04.1-desktop-amd64.iso",
-      "hash": "a51db36fa80fb39c74b98e449d62898b326e4b1154d74c3dc49e65ca94a3e2c1",
+      "url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
+      "hash": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
       "method": "sha256"
     }
   ]
