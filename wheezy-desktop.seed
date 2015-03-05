@@ -42,6 +42,7 @@ d-i partman-crypto/erase_data boolean false
 d-i partman-crypto/passphrase password hello
 d-i partman-crypto/passphrase-again password hello
 d-i partman-crypto/weak_passphrase boolean true
+  #https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=656710
 d-i partman-lvm/device_remove_lvm boolean true
 d-i partman-md/device_remove_md boolean true
 d-i partman-lvm/confirm boolean true
