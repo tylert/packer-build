@@ -31,14 +31,16 @@ d-i mirror/http/hostname string ftp.ca.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
 tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, cinnamon-desktop
+lightdm shared/default-x-display-manager select lightdm
 #d-i pkgsel/include string sudo, openssh-server, cryptsetup, lvm
 popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
 #d-i partman-auto/disk string /dev/sda
 d-i partman-auto/method string crypto
+d-i partman-auto-lvm/new_vg_name string machine
 d-i partman-crypto/erase_data boolean false
-  #https://bugs.kali.org/view.php?id=1140
+#https://bugs.kali.org/view.php?id=1140
 d-i partman-crypto/passphrase password hello
 d-i partman-crypto/passphrase-again password hello
 d-i partman-crypto/weak_passphrase boolean true
