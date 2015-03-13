@@ -184,7 +184,7 @@
     "ram_size": 512,
     "ssh_username": "debian",
     "ssh_wait_timeout": "60m",
-    "sudo_password": "debian",
+    "sudo_password": "1ma63b0rk3d",
     "vagrant_box_file": "build-{{isotime}}/wheezy-desktop.box",
     "vm_name": "wheezy-desktop",
     "vmdk_name": "wheezy-desktop"

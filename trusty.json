@@ -147,7 +147,7 @@
     "ram_size": 512,
     "ssh_username": "ubuntu",
     "ssh_wait_timeout": "60m",
-    "sudo_password": "ubuntu",
+    "sudo_password": "1ma63b0rk3d",
     "vagrant_box_file": "build-{{isotime}}/trusty.box",
     "vm_name": "trusty"
   }

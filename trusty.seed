@@ -40,8 +40,8 @@ d-i clock-setup/utc boolean true
 # User Setup
 d-i passwd/user-fullname string ubuntu
 d-i passwd/username string ubuntu
-d-i passwd/user-password password ubuntu
-d-i passwd/user-password-again password ubuntu
+d-i passwd/user-password password 1ma63b0rk3d
+d-i passwd/user-password-again password 1ma63b0rk3d
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 

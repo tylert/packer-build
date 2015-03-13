@@ -15,8 +15,8 @@ d-i clock-setup/utc boolean true
 # User Setup
 d-i passwd/user-fullname string debian
 d-i passwd/username string debian
-d-i passwd/user-password password debian
-d-i passwd/user-password-again password debian
+d-i passwd/user-password password 1ma63b0rk3d
+d-i passwd/user-password-again password 1ma63b0rk3d
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 d-i passwd/root-login boolean false
@@ -41,8 +41,8 @@ d-i partman-auto/method string crypto
 d-i partman-auto-lvm/new_vg_name string machine
 d-i partman-crypto/erase_data boolean false
 #https://bugs.kali.org/view.php?id=1140
-d-i partman-crypto/passphrase password hello
-d-i partman-crypto/passphrase-again password hello
+d-i partman-crypto/passphrase password 1ma63b0rk3d
+d-i partman-crypto/passphrase-again password 1ma63b0rk3d
 d-i partman-crypto/weak_passphrase boolean true
 d-i partman-lvm/device_remove_lvm boolean true
 d-i partman-md/device_remove_md boolean true
