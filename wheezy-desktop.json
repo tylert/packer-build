@@ -182,7 +182,7 @@
     "output_directory": "build-{{isotime}}",
     "preseed_file": "wheezy-desktop.seed",
     "ram_size": 512,
-    "ssh_username": "debian",
+    "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
     "vagrant_box_file": "build-{{isotime}}/wheezy-desktop.box",

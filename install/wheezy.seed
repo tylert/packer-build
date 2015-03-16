@@ -13,8 +13,8 @@ d-i clock-setup/utc boolean true
 #   (if you want to be nicer to them)
 
 # User Setup
-d-i passwd/user-fullname string debian
-d-i passwd/username string debian
+d-i passwd/user-fullname string Ghost Writer
+d-i passwd/username string ghost
 d-i passwd/user-password password 1ma63b0rk3d
 d-i passwd/user-password-again password 1ma63b0rk3d
 d-i user-setup/allow-password-weak boolean true
@@ -22,7 +22,7 @@ d-i user-setup/encrypt-home boolean false
 d-i passwd/root-login boolean false
 
 # Network Setup
-d-i netcfg/get_hostname string debian
+d-i netcfg/get_hostname string wheezy
 d-i netcfg/get_domain string
 
 # Package Setup
