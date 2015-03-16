@@ -178,7 +178,7 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "wheezy-desktop",
-    "http_directory": ".",
+    "http_directory": "install",
     "output_directory": "build-{{isotime}}",
     "preseed_file": "wheezy-desktop.seed",
     "ram_size": 512,

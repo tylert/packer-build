@@ -143,7 +143,7 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "trusty-desktop",
-    "http_directory": ".",
+    "http_directory": "install",
     "output_directory": "build-{{isotime}}",
     "preseed_file": "trusty-desktop.seed",
     "ram_size": 512,

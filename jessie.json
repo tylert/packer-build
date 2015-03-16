@@ -178,7 +178,7 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "jessie",
-    "http_directory": ".",
+    "http_directory": "install",
     "output_directory": "build-{{isotime}}",
     "preseed_file": "jessie.seed",
     "ram_size": 512,
