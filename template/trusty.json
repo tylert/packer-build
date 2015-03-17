@@ -102,6 +102,47 @@
       "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "boot_command": [
+        "<esc><esc><enter><wait>",
+        "/install/vmlinuz initrd=/install/initrd.gz ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "debian-installer/language=en debian-installer/country=CA ",
+        "debian-installer/locale=en_CA.UTF-8 auto-install/enable=true ",
+        "netcfg/get_hostname={{user `hostname`}} ",
+        "netcfg/get_domain={{user `domain`}} ",
+        "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "3s",
+      "disk_size": "{{user `disk_size`}}",
+      "guest_os_type": "ubuntu-64",
+      "headless": false,
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": 9000,
+      "http_port_min": 8000,
+      "iso_checksum": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://cdimage.ubuntu.com/releases/14.04.2/release/ubuntu-14.04.2-server-amd64+mac.iso",
+      "name": "vmwf",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "5m",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": 22,
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "tools_upload_flavor": "linux",
+      "tools_upload_path": "{{.Flavor}}.iso",
+      "type": "vmware-iso",
+      "vm_name": "{{user `vm_name`}}",
+      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "{{user `ram_size`}}",
+        "numvcpus": "1"
+      }
     }
   ],
   "description": "Yay",
@@ -109,7 +150,8 @@
     {
       "keep_input_artifact": true,
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant"
@@ -129,7 +171,8 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "scripts": [
         "scripts/zero_image_drive.sh"
@@ -149,7 +192,8 @@
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
     "vagrant_box_file": "build-{{isotime}}/trusty.box",
-    "vm_name": "trusty"
+    "vm_name": "trusty",
+    "vmdk_name": "trusty"
   }
 }
 
