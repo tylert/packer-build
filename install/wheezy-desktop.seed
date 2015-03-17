@@ -38,7 +38,7 @@ popularity-contest popularity-contest/participate boolean false
 # Drive Setup
 #d-i partman-auto/disk string /dev/sda
 d-i partman-auto/method string crypto
-d-i partman-auto-lvm/new_vg_name string machine
+d-i partman-auto-lvm/new_vg_name string primary
 d-i partman-crypto/erase_data boolean false
 d-i partman-crypto/passphrase password 1ma63b0rk3d
 d-i partman-crypto/passphrase-again password 1ma63b0rk3d
