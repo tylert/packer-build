@@ -142,7 +142,9 @@
         "cpuid.coresPerSocket": "1",
         "memsize": "{{user `ram_size`}}",
         "numvcpus": "1"
-      }
+      },
+      "vnc_port_max": 6000,
+      "vnc_port_min": 5900
     }
   ],
   "description": "Yay",

@@ -2,7 +2,7 @@
   "builders": [
     {
       "boot_command": [
-        "<down><down><down><down><down><enter>",
+        "<down><down><down><down><down><enter><wait>",
         "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "auto-install/enable=true ",
@@ -57,7 +57,7 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<down><down><down><down><down><enter>",
+        "<down><down><down><down><down><enter><wait>",
         "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "auto-install/enable=true ",
@@ -101,7 +101,7 @@
     },
     {
       "boot_command": [
-        "<down><down><down><down><down><enter>",
+        "<down><down><down><down><down><enter><wait>",
         "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
         "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "auto-install/enable=true ",
@@ -136,7 +136,9 @@
         "cpuid.coresPerSocket": "1",
         "memsize": "{{user `ram_size`}}",
         "numvcpus": "1"
-      }
+      },
+      "vnc_port_max": 6000,
+      "vnc_port_min": 5900
     }
   ],
   "description": "Yay",
