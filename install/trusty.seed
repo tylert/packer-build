@@ -23,12 +23,14 @@ oem-config	oem-config/steps	multiselect language, timezone, keyboard, user, netw
 # Everything above is from Ubuntu Server 14.04.1 amd64 'ubuntu-server.seed'.
 
 # Locale Setup
+# must be passed in on the init line as well
 d-i debian-installer/language string en
 d-i debian-installer/country string CA
 d-i debian-installer/locale string en_CA.UTF-8
 # must be passed in on the init line as well
 
 # Keyboard Setup
+# must be passed in on the init line as well
 d-i console-setup/ask_detect boolean false
 d-i keyboard-configuration/layoutcode string us
 # must be passed in on the init line as well
@@ -46,9 +48,10 @@ d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 
 # Network Setup
-d-i netcfg/get_hostname string trusty
 # must be passed in on the init line as well
+d-i netcfg/get_hostname string trusty
 d-i netcfg/get_domain string
+# must be passed in on the init line as well
 
 # Package Setup
 d-i mirror/http/proxy string

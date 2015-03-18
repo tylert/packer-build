@@ -31,7 +31,7 @@ d-i mirror/http/hostname string ftp.ca.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
 tasksel tasksel/first multiselect print-server, ssh-server, standard
-#d-i pkgsel/include string sudo, openssh-server, cryptsetup, lvm
+d-i pkgsel/include string openssh-server, sudo, ansible, cryptsetup, lvm
 popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
