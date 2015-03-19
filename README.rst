@@ -1,16 +1,19 @@
+packer-build
+============
+
 ::
 
   python prefetch.py
 
-  packer build -only=vbox wheezy.json
-  packer build -only=vbox wheezy-desktop.json
-  packer build -only=vbox jessie.json
-  packer build -only=vbox jessie-desktop.json
+  packer build -only=vbox template/wheezy.json
+  packer build -only=vbox template/wheezy-desktop.json
+  packer build -only=vbox template/jessie.json
+  packer build -only=vbox template/jessie-desktop.json
 
-  packer build -only=vbox trusty.json
-  packer build -only=vbox trusty-desktop.json
-  packer build -only=vbox utopic.json
-  packer build -only=vbox utopic-desktop.json
+  packer build -only=vbox template/trusty.json
+  packer build -only=vbox template/trusty-desktop.json
+  packer build -only=vbox template/vivid.json
+  packer build -only=vbox template/vivid-desktop.json
 
 
 http://askubuntu.com/questions/423946/unattended-installation-xubuntu
