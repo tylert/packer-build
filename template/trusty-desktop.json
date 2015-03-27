@@ -124,7 +124,17 @@
         "vbox"
       ],
       "scripts": [
-        "scripts/install_vbox_additions.sh"
+        "scripts/install_vbox_tools.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vmwf"
+      ],
+      "scripts": [
+        "scripts/install_vmwf_tools.sh"
       ],
       "type": "shell"
     },
