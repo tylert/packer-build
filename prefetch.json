@@ -6,13 +6,13 @@
       "method": "sha256"
     },
     {
-      "url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
-      "hash": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
+      "url": "http://cdimage.debian.org/cdimage/jessie_di_rc2/multi-arch/iso-cd/debian-jessie-DI-rc2-amd64-i386-netinst.iso",
+      "hash": "44b4af661aaaeb21d110494aa66b1d31a097d942a51d81003347293173688e4760d9c361a8efcb1271b09e58583f21ab14c83c7f8a2e48b79138d524e6118c98",
       "method": "sha512"
     },
     {
-      "url": "http://cdimage.debian.org/cdimage/jessie_di_rc1/multi-arch/iso-cd/debian-jessie-DI-rc1-amd64-i386-netinst.iso",
-      "hash": "1674e225c2bfe8c6c6ee3efe3147e1e774849add78bc2a5c4ea86877126c405700b427a2b12ee5d3d68873470bdc37066cc43c02e492efd7de2af45ac506c046",
+      "url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
+      "hash": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
       "method": "sha512"
     },
     {
