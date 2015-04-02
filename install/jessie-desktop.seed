@@ -15,8 +15,9 @@ d-i clock-setup/utc boolean true
 # User Setup
 d-i passwd/user-fullname string Ghost Writer
 d-i passwd/username string ghost
-d-i passwd/user-password password 1ma63b0rk3d
-d-i passwd/user-password-again password 1ma63b0rk3d
+#d-i passwd/user-password password 1ma63b0rk3d
+#d-i passwd/user-password-again password 1ma63b0rk3d
+d-i passwd/user-password-crypted password $6$w5yFawT.$d51yQ513SdzariRCjomBwO9IMtMh6.TjnRwQqTBlOMwGhyyVXlJeYC9kanFp65bpoS1tn9x7r8gLP5Dg4CtEP1
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 d-i passwd/root-login boolean false
@@ -36,7 +37,7 @@ d-i pkgsel/include string sudo, ansible
 popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
-#d-i partman-auto/disk string /dev/sda
+d-i partman-auto/disk string /dev/sda
 d-i partman-auto/method string crypto
 d-i partman-auto-lvm/new_vg_name string primary
 #https://bugs.kali.org/view.php?id=1140
