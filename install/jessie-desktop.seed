@@ -11,7 +11,7 @@ d-i keyboard-configuration/xkb-keymap select us
 d-i time/zone string UTC
 d-i clock-setup/utc boolean true
 #   set above to false if making a bootable USB for Windows users
-#   (if you want to be nicer to them)
+#   (if you want to take pity on them)
 
 # User Setup
 d-i passwd/user-fullname string Ghost Writer
@@ -39,20 +39,47 @@ popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
 d-i partman-auto/disk string /dev/sda
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/device_remove_md boolean true
+#???
 d-i partman-auto/method string crypto
-d-i partman-auto-lvm/new_vg_name string primary
-#https://bugs.kali.org/view.php?id=1140
-d-i partman-crypto/erase_data boolean false
-#https://bugs.kali.org/view.php?id=1140
 d-i partman-crypto/passphrase password 1ma63b0rk3d
 d-i partman-crypto/passphrase-again password 1ma63b0rk3d
 d-i partman-crypto/weak_passphrase boolean true
-d-i partman-lvm/device_remove_lvm boolean true
-d-i partman-md/device_remove_md boolean true
+#https://bugs.kali.org/view.php?id=1140
+d-i partman-crypto/erase_data boolean false
+#https://bugs.kali.org/view.php?id=1140
+d-i partman/default_filesystem string ext4
+d-i partman-auto-lvm/new_vg_name string primary
+d-i partman-auto-lvm/guided_size string max
 d-i partman-lvm/confirm boolean true
 d-i partman-lvm/confirm_nooverwrite boolean true
-d-i partman-auto-lvm/guided_size string max
-d-i partman-auto/choose_recipe select atomic
+# http://ptomusk.blogspot.ca/2012/09/ubuntu-preseedcfg-with-encrypted-lvm.html
+# http://serverfault.com/questions/674137/preeseding-a-debian-stable-install-with-a-complex-partitioning-scheme-missing
+# http://anonscm.debian.org/gitweb/?p=d-i/debian-installer.git;a=blob_plain;f=doc/devel/partman-auto-recipe.txt;hb=HEAD
+# http://www.bishnet.net/tim/blog/2015/01/29/understanding-partman-autoexpert_recipe/
+# http://askubuntu.com/questions/361348/efi-and-working-lvm-partman-auto-expert-recipe
+# http://superuser.com/questions/520068/efi-partition-vs-boot-partition
+d-i partman-auto/choose_recipe select fling-the-bling
+d-i partman-auto/expert_recipe string fling-the-bling :: \
+  1 1 1 free \
+    $bios_boot{ } method{ biosgrub } \
+  . \
+  256 256 256 fat32 \
+    $primary{ } $lvmignore{ } \
+    method{ efi } format{ } \
+  . \
+  100% 200% 200% linux-swap \
+    $lvmok{ } lv_name{ swap } in_vg{ primary } \
+    method{ swap } format{ } \
+  . \
+  10000 10000 -1 ext4 \
+    $lvmok{ } lv_name{ root } in_vg{ primary } \
+    method{ format } format{ } use_filesystem{ } filesystem{ ext4 } \
+    mountpoint{ / } \
+  . \
+.
+#???
 d-i partman-partitioning/confirm_write_new_label boolean true
 d-i partman/choose_partition select finish
 d-i partman/confirm boolean true

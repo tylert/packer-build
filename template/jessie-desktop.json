@@ -2,13 +2,14 @@
   "builders": [
     {
       "boot_command": [
-        "<down><down><down><down><down><enter><wait>",
-        "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "<wait>c<wait>linux /install.amd/vmlinuz ",
         "auto-install/enable=true ",
         "netcfg/get_hostname={{user `hostname`}} ",
         "netcfg/get_domain={{user `domain`}} ",
-        "vga=788 noprompt quiet --<enter>"
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "vga=788 --- quiet<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "3s",
       "disk_size": "{{user `disk_size`}}",
@@ -49,6 +50,12 @@
           "{{.Name}}",
           "--cpus",
           "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--firmware",
+          "efi"
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
@@ -57,13 +64,14 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<down><down><down><down><down><enter><wait>",
-        "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "<wait>c<wait>linux /install.amd/vmlinuz ",
         "auto-install/enable=true ",
         "netcfg/get_hostname={{user `hostname`}} ",
         "netcfg/get_domain={{user `domain`}} ",
-        "vga=788 noprompt quiet --<enter>"
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "vga=788 --- quiet<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "3s",
       "disk_cache": "none",
@@ -101,13 +109,14 @@
     },
     {
       "boot_command": [
-        "<down><down><down><down><down><enter><wait>",
-        "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "<wait>c<wait>linux /install.amd/vmlinuz ",
         "auto-install/enable=true ",
         "netcfg/get_hostname={{user `hostname`}} ",
         "netcfg/get_domain={{user `domain`}} ",
-        "vga=788 noprompt quiet --<enter>"
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "vga=788 --- quiet<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "3s",
       "disk_size": "{{user `disk_size`}}",
@@ -135,7 +144,8 @@
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
         "memsize": "{{user `ram_size`}}",
-        "numvcpus": "1"
+        "numvcpus": "1",
+        "firmware": "efi"
       },
       "vnc_port_max": 6000,
       "vnc_port_min": 5900
