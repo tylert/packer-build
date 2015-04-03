@@ -7,6 +7,7 @@ d-i debian-installer/locale string en_CA.UTF-8
 d-i keyboard-configuration/xkb-keymap select us
 
 # Clock Setup
+#d-i time/zone string Canada/Eastern
 d-i time/zone string UTC
 d-i clock-setup/utc boolean true
 #   set above to false if making a bootable USB for Windows users

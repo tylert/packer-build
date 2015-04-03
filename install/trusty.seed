@@ -36,8 +36,11 @@ d-i keyboard-configuration/layoutcode string us
 # must be passed in on the init line as well
 
 # Clock Setup
+#d-i time/zone string Canada/Eastern
 d-i time/zone string UTC
 d-i clock-setup/utc boolean true
+#   set above to false if making a bootable USB for Windows users
+#   (if you want to be nicer to them)
 
 # User Setup
 d-i passwd/user-fullname string Ghost Writer
