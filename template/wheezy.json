@@ -4,10 +4,10 @@
       "boot_command": [
         "<down><down><down><down><down><enter><wait>",
         "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "auto-install/enable=true ",
-        "netcfg/get_hostname={{user `hostname`}} ",
-        "netcfg/get_domain={{user `domain`}} ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "3s",
@@ -59,10 +59,10 @@
       "boot_command": [
         "<down><down><down><down><down><enter><wait>",
         "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "auto-install/enable=true ",
-        "netcfg/get_hostname={{user `hostname`}} ",
-        "netcfg/get_domain={{user `domain`}} ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "3s",
@@ -103,10 +103,10 @@
       "boot_command": [
         "<down><down><down><down><down><enter><wait>",
         "/install.amd/vmlinuz initrd=/install.amd/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "auto-install/enable=true ",
-        "netcfg/get_hostname={{user `hostname`}} ",
-        "netcfg/get_domain={{user `domain`}} ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "3s",

@@ -34,7 +34,7 @@ d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
 tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, xfce-desktop
 lightdm shared/default-x-display-manager select lightdm
-d-i pkgsel/include string sudo, ansible
+d-i pkgsel/include string sudo, git, ansible
 popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
