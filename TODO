@@ -1,1 +1,4 @@
+Find out if partman-crypto has a pending patch to allow passphrase-crypted
+Handle "Install missing firmware" installer prompt
+Handle "Force UEFI Install" installer prompt
 Convert from ext4 to btrfs for all root volumes
