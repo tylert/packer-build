@@ -70,7 +70,8 @@
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "3s",
-      "disk_cache": "none",
+      "disk_cache": "writethrough",
+      "disk_image": "false",
       "disk_interface": "virtio",
       "disk_size": "{{user `disk_size`}}",
       "format": "raw",
@@ -85,7 +86,7 @@
       "name": "qemu",
       "net_device": "virtio",
       "output_directory": "{{user `output_directory`}}",
-      "qemu_binary": "qemu-kvm",
+      "qemu_binary": "qemu-system-x86_64",
       "qemuargs": [
         [
           "-m",
