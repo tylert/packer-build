@@ -4,11 +4,11 @@
       "boot_command": [
         "<esc><esc><enter><wait>",
         "/install/vmlinuz initrd=/install/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "debian-installer/language=en debian-installer/country=CA ",
         "debian-installer/locale=en_CA.UTF-8 auto-install/enable=true ",
-        "netcfg/get_hostname={{user `hostname`}} ",
-        "netcfg/get_domain={{user `domain`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
         "vga=788 noprompt quiet --<enter>"
       ],
@@ -61,11 +61,11 @@
       "boot_command": [
         "<esc><esc><enter><wait>",
         "/install/vmlinuz initrd=/install/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "debian-installer/language=en debian-installer/country=CA ",
         "debian-installer/locale=en_CA.UTF-8 auto-install/enable=true ",
-        "netcfg/get_hostname={{user `hostname`}} ",
-        "netcfg/get_domain={{user `domain`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
         "vga=788 noprompt quiet --<enter>"
       ],
@@ -108,11 +108,11 @@
       "boot_command": [
         "<esc><esc><enter><wait>",
         "/install/vmlinuz initrd=/install/initrd.gz ",
-        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "debian-installer/language=en debian-installer/country=CA ",
         "debian-installer/locale=en_CA.UTF-8 auto-install/enable=true ",
-        "netcfg/get_hostname={{user `hostname`}} ",
-        "netcfg/get_domain={{user `domain`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
         "vga=788 noprompt quiet --<enter>"
       ],

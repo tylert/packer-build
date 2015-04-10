@@ -5,8 +5,6 @@
         "<wait>c<wait>linux /install.amd/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "hostname={{user `hostname`}} ",
-        "domain={{user `domain`}} ",
         "vga=788 --- quiet<enter>",
         "initrd /install.amd/initrd.gz<enter>",
         "boot<enter>"
@@ -67,8 +65,6 @@
         "<wait>c<wait>linux /install.amd/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "hostname={{user `hostname`}} ",
-        "domain={{user `domain`}} ",
         "vga=788 --- quiet<enter>",
         "initrd /install.amd/initrd.gz<enter>",
         "boot<enter>"
@@ -113,8 +109,6 @@
         "<wait>c<wait>linux /install.amd/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "hostname={{user `hostname`}} ",
-        "domain={{user `domain`}} ",
         "vga=788 --- quiet<enter>",
         "initrd /install.amd/initrd.gz<enter>",
         "boot<enter>"
