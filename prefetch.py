@@ -5,7 +5,7 @@
 
 import sys
 
-if sys.version_info[:1] == (3,):
+if sys.version_info[:1] == 3:
     from urllib.request import urlretrieve
 else:
     from urllib import urlretrieve
@@ -46,9 +46,12 @@ def reporthook(block_count, block_size, total_size):
 
 if __name__ == '__main__':
 
+    local_directory = 'packer_cache'
+
     with open('prefetch.json', 'r') as filehandle:
         temp_dict = json.load(filehandle)
 
+    #os.path.islink(os.path.join(local_directory, url_hash)):
     #for url in sys.argv[1:]:
     for entry in temp_dict['images']:
 
@@ -59,12 +62,12 @@ if __name__ == '__main__':
         index = image_url.rfind('/')
         image_file = image_url[index + 1:]
 
-        calculated_hash = hash_file(directory='packer_cache',
+        calculated_hash = hash_file(directory=local_directory,
             filename=image_file, hash_method=hash_method)
 
         if calculated_hash != expected_hash:
             print('Fetching {image_file}'.format(image_file=image_file))
-            urlretrieve(image_url, os.path.join('packer_cache', image_file),
+            urlretrieve(image_url, os.path.join(local_directory, image_file),
                 reporthook)
             print('')
         else:
@@ -72,8 +75,8 @@ if __name__ == '__main__':
 
         url_hash = hashlib.sha256(image_url).hexdigest() + '.iso'
 
-        if os.path.exists(os.path.join('packer_cache', url_hash)):
+        if os.path.exists(os.path.join(local_directory, url_hash)):
             print('Found {url_hash}'.format(url_hash=url_hash))
         else:
             print('Creating {url_hash}'.format(url_hash=url_hash))
-            os.symlink(image_file, os.path.join('packer_cache', url_hash))
+            os.symlink(image_file, os.path.join(local_directory, url_hash))
