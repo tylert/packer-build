@@ -5,15 +5,14 @@ packer-build
 
   python prefetch.py
 
-  packer build -only=vbox template/wheezy.json
-  packer build -only=vbox template/wheezy-desktop.json
-  packer build -only=vbox template/jessie.json
-  packer build -only=vbox template/jessie-desktop.json
-
-  packer build -only=vbox template/trusty.json
-  packer build -only=vbox template/trusty-desktop.json
-  packer build -only=vbox template/vivid.json
-  packer build -only=vbox template/vivid-desktop.json
+  packer build -only=vbox template/jessie/cinnamon-crypt-efi.json
+  packer build -only=vbox template/jessie/base.json
+  packer build -only=vbox template/wheezy/xfce-crypt.json
+  packer build -only=vbox template/wheezy/base.json
+  packer build -only=vbox template/trusty/base.json
+  packer build -only=vbox template/trusty/xfce.json
+  packer build -only=vbox template/vivid/base.json
+  packer build -only=vbox template/vivid/???.json
 
 
 https://www.debian.org/releases/stable/amd64/

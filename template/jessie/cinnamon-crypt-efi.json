@@ -2,16 +2,12 @@
   "builders": [
     {
       "boot_command": [
-        "<esc><esc><esc><enter><wait>",
-        "/casper/vmlinuz.efi initrd=/casper/initrd.lz ",
-        "boot=casper automatic-ubiquity ",
+        "<wait>c<wait>linux /install.amd/vmlinuz ",
+        "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "debian-installer/language=en debian-installer/country=CA ",
-        "debian-installer/locale=en_CA.UTF-8 ",
-        "hostname={{user `hostname`}} ",
-        "domain={{user `domain`}} ",
-        "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
-        "noprompt quiet splash --<enter>"
+        "vga=788 --- quiet<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "3s",
       "disk_size": "{{user `disk_size`}}",
@@ -19,16 +15,16 @@
       "guest_additions_mode": "upload",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "Ubuntu_64",
+      "guest_os_type": "Debian_64",
       "hard_drive_interface": "sata",
       "headless": false,
       "http_directory": "{{user `http_directory`}}",
       "http_port_max": 9000,
       "http_port_min": 8000,
-      "iso_checksum": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
-      "iso_checksum_type": "sha256",
+      "iso_checksum": "44b4af661aaaeb21d110494aa66b1d31a097d942a51d81003347293173688e4760d9c361a8efcb1271b09e58583f21ab14c83c7f8a2e48b79138d524e6118c98",
+      "iso_checksum_type": "sha512",
       "iso_interface": "sata",
-      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc2/multi-arch/iso-cd/debian-jessie-DI-rc2-amd64-i386-netinst.iso",
       "name": "vbox",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
@@ -52,6 +48,12 @@
           "{{.Name}}",
           "--cpus",
           "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--firmware",
+          "efi"
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
@@ -60,16 +62,12 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<esc><esc><esc><enter><wait>",
-        "/casper/vmlinuz.efi initrd=/casper/initrd.lz ",
-        "boot=casper automatic-ubiquity ",
+        "<wait>c<wait>linux /install.amd/vmlinuz ",
+        "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "debian-installer/language=en debian-installer/country=CA ",
-        "debian-installer/locale=en_CA.UTF-8 ",
-        "hostname={{user `hostname`}} ",
-        "domain={{user `domain`}} ",
-        "console-setup/ask_detect=false keyboard-configuration/layoutcode=us ",
-        "noprompt quiet splash --<enter>"
+        "vga=788 --- quiet<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "3s",
       "disk_cache": "writethrough",
@@ -81,9 +79,9 @@
       "http_directory": "{{user `http_directory`}}",
       "http_port_max": 9000,
       "http_port_min": 8000,
-      "iso_checksum": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
-      "iso_checksum_type": "sha256",
-      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
+      "iso_checksum": "44b4af661aaaeb21d110494aa66b1d31a097d942a51d81003347293173688e4760d9c361a8efcb1271b09e58583f21ab14c83c7f8a2e48b79138d524e6118c98",
+      "iso_checksum_type": "sha512",
+      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc2/multi-arch/iso-cd/debian-jessie-DI-rc2-amd64-i386-netinst.iso",
       "machine_type": "pc",
       "name": "qemu",
       "net_device": "virtio",
@@ -105,6 +103,47 @@
       "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "boot_command": [
+        "<wait>c<wait>linux /install.amd/vmlinuz ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "vga=788 --- quiet<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
+      ],
+      "boot_wait": "3s",
+      "disk_size": "{{user `disk_size`}}",
+      "guest_os_type": "debian7-64",
+      "headless": false,
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": 9000,
+      "http_port_min": 8000,
+      "iso_checksum": "44b4af661aaaeb21d110494aa66b1d31a097d942a51d81003347293173688e4760d9c361a8efcb1271b09e58583f21ab14c83c7f8a2e48b79138d524e6118c98",
+      "iso_checksum_type": "sha512",
+      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc2/multi-arch/iso-cd/debian-jessie-DI-rc2-amd64-i386-netinst.iso",
+      "name": "vmwf",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "5m",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": 22,
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "tools_upload_flavor": "linux",
+      "tools_upload_path": "{{.Flavor}}.iso",
+      "type": "vmware-iso",
+      "vm_name": "{{user `vm_name`}}",
+      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "{{user `ram_size`}}",
+        "numvcpus": "1",
+        "firmware": "efi"
+      },
+      "vnc_port_max": 6000,
+      "vnc_port_min": 5900
     }
   ],
   "description": "Yay",
@@ -112,7 +151,8 @@
     {
       "keep_input_artifact": true,
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant"
@@ -142,7 +182,8 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "scripts": [
         "scripts/zero_image_drive.sh"
@@ -153,16 +194,17 @@
   "variables": {
     "disk_size": 7500,
     "domain": "",
-    "hostname": "trusty-desktop",
+    "hostname": "jessie-desktop",
     "http_directory": "install",
     "output_directory": "build-{{isotime}}",
-    "preseed_file": "trusty-desktop.seed",
+    "preseed_file": "jessie/cinnamon-crypt-efi.seed",
     "ram_size": 512,
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build-{{isotime}}/trusty-desktop.box",
-    "vm_name": "trusty-desktop"
+    "vagrant_box_file": "build-{{isotime}}/jessie-desktop.box",
+    "vm_name": "jessie-desktop",
+    "vmdk_name": "jessie-desktop"
   }
 }
 
