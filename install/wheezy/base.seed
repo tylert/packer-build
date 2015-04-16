@@ -13,6 +13,10 @@ d-i clock-setup/utc boolean true
 #   set above to false if making a bootable USB for Windows users
 #   (if you want to take pity on them)
 
+# Network Setup
+d-i netcfg/get_hostname string wheezy
+d-i netcfg/get_domain string
+
 # User Setup
 d-i passwd/user-fullname string Ghost Writer
 d-i passwd/username string ghost
@@ -22,10 +26,6 @@ d-i passwd/user-password-crypted password $6$w5yFawT.$d51yQ513SdzariRCjomBwO9IMt
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 d-i passwd/root-login boolean false
-
-# Network Setup
-d-i netcfg/get_hostname string wheezy
-d-i netcfg/get_domain string
 
 # Package Setup
 d-i mirror/country string manual
