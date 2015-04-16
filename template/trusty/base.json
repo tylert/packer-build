@@ -165,8 +165,7 @@
     {
       "keep_input_artifact": true,
       "only": [
-        "vbox",
-        "vmwf"
+        "vbox"
       ],
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant"

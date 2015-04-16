@@ -115,6 +115,55 @@
       "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "boot_command": [
+        "<esc><esc><esc><enter><wait>",
+        "/casper/vmlinuz.efi ",
+        "initrd=/casper/initrd.lz ",
+        "boot=casper ",
+        "auto=true ",
+        "automatic-ubiquity ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "language=en ",
+        "country=CA ",
+        "locale=en_CA.UTF-8 ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
+        "console-setup/ask_detect=false ",
+        "keyboard-configuration/layoutcode=us ",
+        "noprompt quiet splash --<enter>"
+      ],
+      "boot_wait": "3s",
+      "disk_size": "{{user `disk_size`}}",
+      "guest_os_type": "ubuntu-64",
+      "headless": false,
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": 9000,
+      "http_port_min": 8000,
+      "iso_checksum": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
+      "name": "vmwf",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "5m",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": 22,
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "tools_upload_flavor": "linux",
+      "tools_upload_path": "{{.Flavor}}.iso",
+      "type": "vmware-iso",
+      "vm_name": "{{user `vm_name`}}",
+      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "{{user `ram_size`}}",
+        "numvcpus": "1"
+      },
+      "vnc_port_max": 6000,
+      "vnc_port_min": 5900
     }
   ],
   "description": "Yay",
@@ -152,7 +201,8 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
-        "vbox"
+        "vbox",
+        "vmwf"
       ],
       "scripts": [
         "scripts/zero_image_drive.sh"
