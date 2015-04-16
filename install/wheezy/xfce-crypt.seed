@@ -38,28 +38,32 @@ d-i pkgsel/include string sudo, git, ansible
 popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
+d-i grub-installer/only_debian boolean true
+d-i grub-installer/with_other_os boolean true
+d-i grub-installer/bootdev string default
 d-i partman-auto/disk string /dev/sda
+d-i partman-lvm/device_remove_lvm boolean true
+d-i partman-md/device_remove_md boolean true
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+#???
 d-i partman-auto/method string crypto
-d-i partman-auto-lvm/new_vg_name string primary
-d-i partman-crypto/erase_data boolean false
 #https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=656710
 d-i partman-crypto/passphrase password 1ma63b0rk3d
 d-i partman-crypto/passphrase-again password 1ma63b0rk3d
 d-i partman-crypto/weak_passphrase boolean true
 #https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=656710
-d-i partman-lvm/device_remove_lvm boolean true
-d-i partman-md/device_remove_md boolean true
+#https://bugs.kali.org/view.php?id=1140
+d-i partman-crypto/erase_data boolean false
+#https://bugs.kali.org/view.php?id=1140
+d-i partman/default_filesystem string ext4
+d-i partman-auto-lvm/new_vg_name string primary
+d-i partman-auto-lvm/guided_size string max
 d-i partman-lvm/confirm boolean true
 d-i partman-lvm/confirm_nooverwrite boolean true
-d-i partman-auto-lvm/guided_size string max
 d-i partman-auto/choose_recipe select atomic
-d-i partman-partitioning/confirm_write_new_label boolean true
-d-i partman/choose_partition select finish
-d-i partman/confirm boolean true
-d-i partman/confirm_nooverwrite boolean true
-d-i grub-installer/only_debian boolean true
-d-i grub-installer/with_other_os boolean true
-d-i grub-installer/bootdev string default
 
 # Final Setup
 d-i finish-install/reboot_in_progress note
