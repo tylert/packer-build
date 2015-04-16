@@ -164,6 +164,7 @@
         "vbox"
       ],
       "scripts": [
+        "scripts/config_uefi_shell.sh",
         "scripts/install_vbox_tools.sh"
       ],
       "type": "shell"
