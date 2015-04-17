@@ -92,7 +92,7 @@
       "iso_url": "http://cdimage.ubuntu.com/releases/14.04.2/release/ubuntu-14.04.2-server-amd64+mac.iso",
       "machine_type": "pc",
       "name": "qemu",
-      "net_device": "virtio",
+      "net_device": "virtio-net",
       "output_directory": "{{user `output_directory`}}",
       "qemu_binary": "qemu-system-x86_64",
       "qemuargs": [
