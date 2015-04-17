@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 # https://github.com/mitchellh/packer/issues/1826
+# http://cdimage.debian.org/cdimage
+# http://cdimage.ubuntu.com
 
 
 import sys
