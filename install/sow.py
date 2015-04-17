@@ -3,13 +3,16 @@
 # https://docs.python.org/3.4/library/http.server.html
 # https://docs.python.org/2.7/library/simplehttpserver.html
 
+
 import sys
-if sys.version[:1] == '3':
+
+if sys.version_info[:1] == 3:
     import http.server
     import socketserver
 else:
     import SimpleHTTPServer
     import SocketServer
+
 
 PORT = 8000
 
