@@ -192,13 +192,13 @@
     "domain": "",
     "hostname": "wheezy",
     "http_directory": "install",
-    "output_directory": "build-{{isotime \"2006-01-02\"}}",
+    "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "wheezy/base.seed",
     "ram_size": 512,
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build-{{isotime \"2006-01-02\"}}/wheezy.box",
+    "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/wheezy.box",
     "vm_name": "wheezy",
     "vmdk_name": "wheezy"
   }

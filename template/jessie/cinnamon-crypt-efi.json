@@ -200,13 +200,13 @@
     "domain": "",
     "hostname": "jessie-desktop",
     "http_directory": "install",
-    "output_directory": "build-{{isotime \"2006-01-02\"}}",
+    "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "jessie/cinnamon-crypt-efi.seed",
     "ram_size": 512,
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build-{{isotime \"2006-01-02\"}}/jessie-desktop.box",
+    "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/jessie-desktop.box",
     "vm_name": "jessie-desktop",
     "vmdk_name": "jessie-desktop"
   }
