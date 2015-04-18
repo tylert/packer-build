@@ -191,6 +191,7 @@
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
         "vbox",
+        "qemu",
         "vmwf"
       ],
       "scripts": [
