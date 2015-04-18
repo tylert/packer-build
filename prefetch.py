@@ -16,6 +16,7 @@ import hashlib
 import os
 #import argparse
 import json
+import glob
 
 
 def hash_file(directory, filename, blocksize=2**20, hash_method='sha512'):
@@ -53,8 +54,17 @@ if __name__ == '__main__':
     with open('prefetch.json', 'r') as filehandle:
         temp_dict = json.load(filehandle)
 
-    #os.path.islink(os.path.join(local_directory, url_hash)):
-    #for url in sys.argv[1:]:
+    # Clear out the symlinks here since they are probably ones we made earlier.
+    for filename in glob.glob(local_directory + os.sep + '*'):
+
+        if os.path.islink(filename):
+            try:
+                os.unlink(filename)
+            except OSError:
+                print('Failed to remove symlink {filename}.'.format(filename=filename))
+            else:
+                print('Removed symlink {filename}.'.format(filename=filename))
+
     for entry in temp_dict['images']:
 
         image_url = entry['url']
@@ -68,17 +78,21 @@ if __name__ == '__main__':
             filename=image_file, hash_method=hash_method)
 
         if calculated_hash != expected_hash:
-            print('Fetching {image_file}'.format(image_file=image_file))
+            print('Fetching {image_file}.'.format(image_file=image_file))
             urlretrieve(image_url, os.path.join(local_directory, image_file),
                 reporthook)
             print('')
         else:
-            print('Already have {image_file}'.format(image_file=image_file))
+            print('Already have {image_file}.'.format(image_file=image_file))
 
         url_hash = hashlib.sha256(image_url).hexdigest() + '.iso'
 
         if os.path.exists(os.path.join(local_directory, url_hash)):
-            print('Found {url_hash}'.format(url_hash=url_hash))
+            print('Found {url_hash}.'.format(url_hash=url_hash))
         else:
-            print('Creating {url_hash}'.format(url_hash=url_hash))
-            os.symlink(image_file, os.path.join(local_directory, url_hash))
+            try:
+                os.symlink(image_file, os.path.join(local_directory, url_hash))
+            except OSError:
+                print('Failed to create {url_hash}.'.format(url_hash=url_hash))
+            else:
+                print('Created {url_hash}.'.format(url_hash=url_hash))

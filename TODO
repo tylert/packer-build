@@ -1,4 +1,4 @@
-Fix prefetch script to cleanup stale symlinks
+Make prefetch script print symlink cleanup using os.path.basename()
 Find out if partman-crypto will allow passphrase-crypted
 Handle "Install missing firmware" installer prompt
 Handle "Force UEFI Install" installer prompt
