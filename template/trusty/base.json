@@ -213,13 +213,13 @@
     "domain": "",
     "hostname": "trusty",
     "http_directory": "install",
-    "output_directory": "build-{{isotime}}",
+    "output_directory": "build-{{isotime \"2006-01-02\"}}",
     "preseed_file": "trusty/base.seed",
     "ram_size": 512,
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build-{{isotime}}/trusty.box",
+    "vagrant_box_file": "build-{{isotime \"2006-01-02\"}}/trusty.box",
     "vm_name": "trusty",
     "vmdk_name": "trusty"
   }

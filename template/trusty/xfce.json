@@ -219,13 +219,13 @@
     "domain": "",
     "hostname": "trusty-desktop",
     "http_directory": "install",
-    "output_directory": "build-{{isotime}}",
+    "output_directory": "build-{{isotime \"2006-01-02\"}}",
     "preseed_file": "trusty/xfce.seed",
     "ram_size": 512,
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build-{{isotime}}/trusty-desktop.box",
+    "vagrant_box_file": "build-{{isotime \"2006-01-02\"}}/trusty-desktop.box",
     "vm_name": "trusty-desktop"
   }
 }
