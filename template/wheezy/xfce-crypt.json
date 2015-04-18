@@ -87,6 +87,10 @@
           "{{user `ram_size`}}M"
         ],
         [
+          "-smp",
+          "1"
+        ],
+        [
           "-hda",
           "{{user `output_directory`}}/{{user `vm_name`}}.raw"
         ]
