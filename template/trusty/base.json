@@ -217,7 +217,7 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "trusty",
-    "http_directory": "install",
+    "http_directory": "template",
     "iso_checksum": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
     "iso_checksum_type": "sha256",
     "iso_url": "http://cdimage.ubuntu.com/releases/14.04.2/release/ubuntu-14.04.2-server-amd64+mac.iso",

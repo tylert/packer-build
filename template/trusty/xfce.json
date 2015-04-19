@@ -223,7 +223,7 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "trusty-desktop",
-    "http_directory": "install",
+    "http_directory": "template",
     "iso_checksum": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
     "iso_checksum_type": "sha256",
     "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",

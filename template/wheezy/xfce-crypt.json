@@ -196,7 +196,7 @@
     "disk_size": 7500,
     "domain": "",
     "hostname": "wheezy-desktop",
-    "http_directory": "install",
+    "http_directory": "template",
     "iso_checksum": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
     "iso_checksum_type": "sha512",
     "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
