@@ -1,11 +1,6 @@
 {
   "images": [
     {
-      "url": "http://download.virtualbox.org/virtualbox/4.3.26/VBoxGuestAdditions_4.3.26.iso",
-      "hash": "c5e46533a6ff8df177ed5c9098624f6cec46ca392bab16de2017195580088670",
-      "method": "sha256"
-    },
-    {
       "url": "http://cdimage.debian.org/cdimage/jessie_di_rc2/multi-arch/iso-cd/debian-jessie-DI-rc2-amd64-i386-netinst.iso",
       "hash": "44b4af661aaaeb21d110494aa66b1d31a097d942a51d81003347293173688e4760d9c361a8efcb1271b09e58583f21ab14c83c7f8a2e48b79138d524e6118c98",
       "method": "sha512"
@@ -23,6 +18,16 @@
     {
       "url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
       "hash": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
+      "method": "sha256"
+    },
+    {
+      "url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-i386.iso",
+      "hash": "5f993985ce965c2fd8ce9410696a81a1c3fd0b89cd097e6caff63d6dd88c54ac",
+      "method": "sha256"
+    },
+    {
+      "url": "http://download.virtualbox.org/virtualbox/4.3.26/VBoxGuestAdditions_4.3.26.iso",
+      "hash": "c5e46533a6ff8df177ed5c9098624f6cec46ca392bab16de2017195580088670",
       "method": "sha256"
     }
   ]
