@@ -67,9 +67,9 @@ if __name__ == '__main__':
 
     for entry in temp_dict['images']:
 
-        image_url = entry['url']
-        expected_hash = entry['hash']
-        hash_method = entry['method']
+        image_url = entry['iso_url']
+        expected_hash = entry['iso_checksum']
+        hash_method = entry['iso_checksum_type']
 
         index = image_url.rfind('/')
         image_file = image_url[index + 1:]
@@ -78,7 +78,7 @@ if __name__ == '__main__':
             filename=image_file, hash_method=hash_method)
 
         if calculated_hash != expected_hash:
-            print('Fetching {image_file}.'.format(image_file=image_file))
+            print('Prefetching {image_file}.'.format(image_file=image_file))
             urlretrieve(image_url, os.path.join(local_directory, image_file),
                 reporthook)
             print('')

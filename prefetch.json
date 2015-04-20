@@ -1,34 +1,34 @@
 {
   "images": [
     {
-      "url": "http://cdimage.debian.org/cdimage/jessie_di_rc2/multi-arch/iso-cd/debian-jessie-DI-rc2-amd64-i386-netinst.iso",
-      "hash": "44b4af661aaaeb21d110494aa66b1d31a097d942a51d81003347293173688e4760d9c361a8efcb1271b09e58583f21ab14c83c7f8a2e48b79138d524e6118c98",
-      "method": "sha512"
+      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc3/multi-arch/iso-cd/debian-jessie-DI-rc3-amd64-i386-netinst.iso",
+      "iso_checksum": "0cc00ac5ebf267fbb8efd5137c98233da59ff4a542a4fd6e3a60d7c661ce7a7d8bdb6bc55a718df4093dbfbbcdd18c2e021f01c5809515e118da914e3ab6c95a",
+      "iso_checksum_type": "sha512"
     },
     {
-      "url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
-      "hash": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
-      "method": "sha512"
+      "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
+      "iso_checksum": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
+      "iso_checksum_type": "sha512"
     },
     {
-      "url": "http://cdimage.ubuntu.com/releases/14.04.2/release/ubuntu-14.04.2-server-amd64+mac.iso",
-      "hash": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
-      "method": "sha256"
+      "iso_url": "http://cdimage.ubuntu.com/releases/14.04.2/release/ubuntu-14.04.2-server-amd64+mac.iso",
+      "iso_checksum": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
+      "iso_checksum_type": "sha256"
     },
     {
-      "url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
-      "hash": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
-      "method": "sha256"
+      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
+      "iso_checksum": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
+      "iso_checksum_type": "sha256"
     },
     {
-      "url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-i386.iso",
-      "hash": "5f993985ce965c2fd8ce9410696a81a1c3fd0b89cd097e6caff63d6dd88c54ac",
-      "method": "sha256"
+      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-i386.iso",
+      "iso_checksum": "5f993985ce965c2fd8ce9410696a81a1c3fd0b89cd097e6caff63d6dd88c54ac",
+      "iso_checksum_type": "sha256"
     },
     {
-      "url": "http://download.virtualbox.org/virtualbox/4.3.26/VBoxGuestAdditions_4.3.26.iso",
-      "hash": "c5e46533a6ff8df177ed5c9098624f6cec46ca392bab16de2017195580088670",
-      "method": "sha256"
+      "iso_url": "http://download.virtualbox.org/virtualbox/4.3.26/VBoxGuestAdditions_4.3.26.iso",
+      "iso_checksum": "c5e46533a6ff8df177ed5c9098624f6cec46ca392bab16de2017195580088670",
+      "iso_checksum_type": "sha256"
     }
   ]
 }
