@@ -29,8 +29,8 @@
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
-      "ssh_host_port_max": 7000,
-      "ssh_host_port_min": 6000,
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_username": "{{user `ssh_username`}}",
@@ -97,8 +97,8 @@
       ],
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
-      "ssh_host_port_max": 7000,
-      "ssh_host_port_min": 6000,
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_username": "{{user `ssh_username`}}",
@@ -143,8 +143,8 @@
         "memsize": "{{user `ram_size`}}",
         "numvcpus": "1"
       },
-      "vnc_port_max": 6000,
-      "vnc_port_min": 5900
+      "vnc_port_max": "{{user `vnc_port_max`}}",
+      "vnc_port_min": "{{user `vnc_port_min`}}"
     }
   ],
   "description": "Yay",
@@ -208,13 +208,17 @@
     "preseed_file": "jessie/base.seed",
     "ram_size": 512,
     "shutdown_timeout": "5m",
+    "ssh_host_port_max": 7000,
+    "ssh_host_port_min": 6000,
     "ssh_port": 22,
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
     "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/jessie.box",
     "vm_name": "jessie",
-    "vmdk_name": "jessie"
+    "vmdk_name": "jessie",
+    "vnc_port_max": 6000,
+    "vnc_port_min": 5900
   }
 }
 
