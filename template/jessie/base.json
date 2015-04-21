@@ -9,7 +9,7 @@
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
-      "boot_wait": "3s",
+      "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
       "format": "ova",
       "guest_additions_mode": "upload",
@@ -28,7 +28,7 @@
       "name": "vbox",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
-      "shutdown_timeout": "5m",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "ssh_host_port_max": 7000,
       "ssh_host_port_min": 6000,
       "ssh_password": "{{user `sudo_password`}}",
@@ -63,7 +63,7 @@
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
-      "boot_wait": "3s",
+      "boot_wait": "{{user `boot_wait`}}",
       "disk_cache": "writethrough",
       "disk_image": "false",
       "disk_interface": "virtio",
@@ -96,7 +96,7 @@
         ]
       ],
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
-      "shutdown_timeout": "5m",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "ssh_host_port_max": 7000,
       "ssh_host_port_min": 6000,
       "ssh_password": "{{user `sudo_password`}}",
@@ -115,7 +115,7 @@
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
-      "boot_wait": "3s",
+      "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
       "guest_os_type": "debian7-64",
       "headless": "{{user `headless`}}",
@@ -128,7 +128,7 @@
       "name": "vmwf",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
-      "shutdown_timeout": "5m",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": 22,
       "ssh_username": "{{user `ssh_username`}}",
@@ -193,6 +193,7 @@
     }
   ],
   "variables": {
+    "boot_wait": "3s",
     "disk_size": 7500,
     "domain": "",
     "headless": false,
@@ -204,6 +205,7 @@
     "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "jessie/base.seed",
     "ram_size": 512,
+    "shutdown_timeout": "5m",
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
