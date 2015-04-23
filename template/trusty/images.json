@@ -4,43 +4,50 @@
       "iso_filename": "ubuntu-14.04.2-server-amd64+mac.iso",
       "iso_url": "http://cdimage.ubuntu.com/releases/14.04.2/release/ubuntu-14.04.2-server-amd64+mac.iso",
       "iso_checksum": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     },
     {
       "iso_filename": "SHA256SUMS-ubuntu-14.04.2.txt",
       "iso_url": "http://cdimage.ubuntu.com/releases/14.04.2/release/SHA256SUMS",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     },
     {
       "iso_filename": "SHA256SUMS-ubuntu-14.04.2.gpg",
       "iso_url": "http://cdimage.ubuntu.com/releases/14.04.2/release/SHA256SUMS.gpg",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     },
     {
       "iso_filename": "xubuntu-14.04.2-desktop-amd64.iso",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-amd64.iso",
       "iso_checksum": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     },
     {
       "iso_filename": "xubuntu-14.04.2-desktop-i386.iso",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-i386.iso",
       "iso_checksum": "5f993985ce965c2fd8ce9410696a81a1c3fd0b89cd097e6caff63d6dd88c54ac",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     },
     {
       "iso_filename": "SHA256SUMS-xubuntu-14.04.2.txt",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/SHA256SUMS",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     },
     {
       "iso_filename": "SHA256SUMS-xubuntu-14.04.2.gpg",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/SHA256SUMS.gpg",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     }
   ]
 }

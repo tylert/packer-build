@@ -4,49 +4,57 @@
       "iso_filename": "ubuntu-mate-15.04-desktop-amd64.iso",
       "iso_url": "http://cdimage.ubuntu.com/ubuntu-mate/releases/15.04/release/ubuntu-mate-15.04-desktop-amd64.iso",
       "iso_checksum": "30ad36985d5c190da1fd2e0b83a9f06ce3c0de58ea902696ed55fcc8feb4fd25",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     },
     {
       "iso_filename": "ubuntu-mate-15.04-desktop-i386.iso",
       "iso_url": "http://cdimage.ubuntu.com/ubuntu-mate/releases/15.04/release/ubuntu-mate-15.04-desktop-i386.iso",
       "iso_checksum": "1941c3e5af926c75d5fcb3d413eb0a20b43738ff2754c0b7d884150167711820",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     },
     {
       "iso_filename": "SHA256SUMS-ubuntu-mate-15.04.txt",
       "iso_url": "http://cdimage.ubuntu.com/ubuntu-mate/releases/15.04/release/SHA256SUMS",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     },
     {
       "iso_filename": "SHA256SUMS-ubuntu-mate-15.04.gpg",
       "iso_url": "http://cdimage.ubuntu.com/ubuntu-mate/releases/15.04/release/SHA256SUMS.gpg",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     },
     {
       "iso_filename": "xubuntu-15.04-desktop-amd64.iso",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release/xubuntu-15.04-desktop-amd64.iso",
       "iso_checksum": "539c3ae45f4197bda920cd912020ce6571a1f553a319e4620af0f9bc72c2a134",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     },
     {
       "iso_filename": "xubuntu-15.04-desktop-i386.iso",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release/xubuntu-15.04-desktop-i386.iso",
       "iso_checksum": "5a1ead560df5697da056afdd3d800a152099af8d8543e34738cf37bcbfbd61cc",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     },
     {
       "iso_filename": "SHA256SUMS-xubuntu-15.04.txt",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release/SHA256SUMS",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     },
     {
       "iso_filename": "SHA256SUMS-xubuntu-15.04.gpg",
       "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release/SHA256SUMS.gpg",
       "iso_checksum": "",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
     }
   ]
 }

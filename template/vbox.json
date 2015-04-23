@@ -4,7 +4,8 @@
       "iso_filename": "VBoxGuestAdditions_4.3.26.iso",
       "iso_url": "http://download.virtualbox.org/virtualbox/4.3.26/VBoxGuestAdditions_4.3.26.iso",
       "iso_checksum": "c5e46533a6ff8df177ed5c9098624f6cec46ca392bab16de2017195580088670",
-      "iso_checksum_type": "sha256"
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
     }
   ]
 }
