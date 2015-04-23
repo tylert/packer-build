@@ -19,6 +19,8 @@ import json
 import glob
 
 
+local_directory = 'packer_cache'
+
 description = '''
 
 This script will attempt to download specified image files.
@@ -56,7 +58,7 @@ def reporthook(block_count, block_size, total_size):
     sys.stdout.flush()
 
 
-def remove_symlinks(local_directory='packer_cache'):
+def remove_symlinks(local_directory=local_directory):
     '''Remove all symlinks found in the specified local_directory.'''
 
     for filename in glob.glob(local_directory + os.sep + '*'):
@@ -70,6 +72,23 @@ def remove_symlinks(local_directory='packer_cache'):
                 print('Removed symlink {filename}.'.format(filename=filename))
 
 
+def create_symlink(iso_url, iso_filename, local_directory=local_directory):
+    '''Create URL hash symlink for file found in local_directory'''
+
+    # packer.io expects ISO files have been renamed to their SHA256 URLs.
+    url_hash = hashlib.sha256(iso_url).hexdigest() + '.iso'
+
+    if os.path.exists(os.path.join(local_directory, url_hash)):
+        print('Found {url_hash}.'.format(url_hash=url_hash))
+    else:
+        try:
+            os.symlink(iso_filename, os.path.join(local_directory, url_hash))
+        except OSError:
+            print('Failed to create {url_hash}.'.format(url_hash=url_hash))
+        else:
+            print('Created {url_hash}.'.format(url_hash=url_hash))
+
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description=description)
@@ -80,8 +99,6 @@ if __name__ == '__main__':
 
     with open(args.prefetch_file, 'r') as filehandle:
         temp_dict = json.load(filehandle)
-
-    local_directory = 'packer_cache'
 
     # Remove all symlinks here since they are probably ones we made earlier.
     #remove_symlinks(local_directory)
@@ -111,15 +128,5 @@ if __name__ == '__main__':
         if iso_symlink is False:
             continue
 
-        # packer.io expects ISO files have been renamed to their SHA256 URLs.
-        url_hash = hashlib.sha256(iso_url).hexdigest() + '.iso'
-
-        if os.path.exists(os.path.join(local_directory, url_hash)):
-            print('Found {url_hash}.'.format(url_hash=url_hash))
-        else:
-            try:
-                os.symlink(iso_filename, os.path.join(local_directory, url_hash))
-            except OSError:
-                print('Failed to create {url_hash}.'.format(url_hash=url_hash))
-            else:
-                print('Created {url_hash}.'.format(url_hash=url_hash))
+        create_symlink(iso_url=iso_url, iso_filename=iso_filename,
+            local_directory=local_directory)
