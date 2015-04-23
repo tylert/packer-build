@@ -7,13 +7,13 @@
       "iso_checksum_type": "sha512"
     },
     {
-      "iso_filename": "SHA512SUMS-debian-7.8.0.txt",
+      "iso_filename": "SHA512SUMS-debian-7.8.0-amd64-i386.txt",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/SHA512SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha512"
     },
     {
-      "iso_filename": "SHA512SUMS-debian-7.8.0.sign",
+      "iso_filename": "SHA512SUMS-debian-7.8.0-amd64-i386.sign",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/SHA512SUMS.sign",
       "iso_checksum": "",
       "iso_checksum_type": "sha512"
