@@ -92,6 +92,7 @@ if __name__ == '__main__':
         iso_url = entry['iso_url']
         iso_checksum = entry['iso_checksum']
         iso_checksum_type = entry['iso_checksum_type']
+        iso_symlink = entry['iso_symlink']
 
         #index = iso_url.rfind('/')
         #image_file = iso_url[index + 1:]
@@ -106,6 +107,9 @@ if __name__ == '__main__':
             print('')
         else:
             print('Already have {iso_filename}.'.format(iso_filename=iso_filename))
+
+        if iso_symlink is False:
+            continue
 
         # packer.io expects ISO files have been renamed to their SHA256 URLs.
         url_hash = hashlib.sha256(iso_url).hexdigest() + '.iso'
