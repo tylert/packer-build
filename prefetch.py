@@ -14,12 +14,20 @@ else:
 
 import hashlib
 import os
-#import argparse
+import argparse
 import json
 import glob
 
 
+description = '''
+
+This script will attempt to download specified image files.
+
+'''
+
+
 def hash_file(directory, filename, blocksize=2**20, hash_method='sha512'):
+    '''Calculate the checksum of a file using the specified method.'''
 
     if hash_method == 'sha256':
         file_hash = hashlib.sha256()
@@ -40,6 +48,7 @@ def hash_file(directory, filename, blocksize=2**20, hash_method='sha512'):
 
 
 def reporthook(block_count, block_size, total_size):
+    '''Display a percentage counter for the number of blocks to download.'''
 
     percentage = float(block_count * block_size) / total_size * 100
 
@@ -47,14 +56,9 @@ def reporthook(block_count, block_size, total_size):
     sys.stdout.flush()
 
 
-if __name__ == '__main__':
+def remove_symlinks(local_directory='packer_cache'):
+    '''Remove all symlinks found in the specified local_directory.'''
 
-    local_directory = 'packer_cache'
-
-    with open('prefetch.json', 'r') as filehandle:
-        temp_dict = json.load(filehandle)
-
-    # Clear out the symlinks here since they are probably ones we made earlier.
     for filename in glob.glob(local_directory + os.sep + '*'):
 
         if os.path.islink(filename):
@@ -65,33 +69,52 @@ if __name__ == '__main__':
             else:
                 print('Removed symlink {filename}.'.format(filename=filename))
 
+
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description=description)
+
+    parser.add_argument('prefetch_file', help='List of image files to fetch')
+
+    args = parser.parse_args()
+
+    with open(args.prefetch_file, 'r') as filehandle:
+        temp_dict = json.load(filehandle)
+
+    local_directory = 'packer_cache'
+
+    # Remove all symlinks here since they are probably ones we made earlier.
+    #remove_symlinks(local_directory)
+
     for entry in temp_dict['images']:
 
-        image_url = entry['iso_url']
-        expected_hash = entry['iso_checksum']
-        hash_method = entry['iso_checksum_type']
+        iso_filename = entry['iso_filename']
+        iso_url = entry['iso_url']
+        iso_checksum = entry['iso_checksum']
+        iso_checksum_type = entry['iso_checksum_type']
 
-        index = image_url.rfind('/')
-        image_file = image_url[index + 1:]
+        #index = iso_url.rfind('/')
+        #image_file = iso_url[index + 1:]
 
         calculated_hash = hash_file(directory=local_directory,
-            filename=image_file, hash_method=hash_method)
+            filename=iso_filename, hash_method=iso_checksum_type)
 
-        if calculated_hash != expected_hash:
-            print('Prefetching {image_file}.'.format(image_file=image_file))
-            urlretrieve(image_url, os.path.join(local_directory, image_file),
+        if calculated_hash != iso_checksum:
+            print('Prefetching {iso_filename}.'.format(iso_filename=iso_filename))
+            urlretrieve(iso_url, os.path.join(local_directory, iso_filename),
                 reporthook)
             print('')
         else:
-            print('Already have {image_file}.'.format(image_file=image_file))
+            print('Already have {iso_filename}.'.format(iso_filename=iso_filename))
 
-        url_hash = hashlib.sha256(image_url).hexdigest() + '.iso'
+        # packer.io expects ISO files have been renamed to their SHA256 URLs.
+        url_hash = hashlib.sha256(iso_url).hexdigest() + '.iso'
 
         if os.path.exists(os.path.join(local_directory, url_hash)):
             print('Found {url_hash}.'.format(url_hash=url_hash))
         else:
             try:
-                os.symlink(image_file, os.path.join(local_directory, url_hash))
+                os.symlink(iso_filename, os.path.join(local_directory, url_hash))
             except OSError:
                 print('Failed to create {url_hash}.'.format(url_hash=url_hash))
             else:
