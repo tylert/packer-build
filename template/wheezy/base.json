@@ -80,7 +80,7 @@
       "name": "qemu",
       "net_device": "virtio-net",
       "output_directory": "{{user `output_directory`}}",
-      "qemu_binary": "qemu-system-x86_64",
+      "qemu_binary": "{{user `qemu_binary`}}",
       "qemuargs": [
         [
           "-m",
@@ -206,6 +206,7 @@
     "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
     "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "wheezy/base.seed",
+    "qemu_binary": "qemu-system-x86_64",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
