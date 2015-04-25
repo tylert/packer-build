@@ -7,6 +7,8 @@
         "initrd=/install.amd/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
@@ -61,6 +63,8 @@
         "initrd=/install.amd/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
@@ -113,6 +117,8 @@
         "initrd=/install.amd/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
