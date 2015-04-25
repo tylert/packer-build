@@ -1,0 +1,25 @@
+{
+  "images": [
+    {
+      "iso_filename": "xubuntu-15.04-desktop-amd64.iso",
+      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release/xubuntu-15.04-desktop-amd64.iso",
+      "iso_checksum": "539c3ae45f4197bda920cd912020ce6571a1f553a319e4620af0f9bc72c2a134",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA256SUMS-xubuntu-15.04.txt",
+      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release/SHA256SUMS",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    },
+    {
+      "iso_filename": "SHA256SUMS-xubuntu-15.04.gpg",
+      "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release/SHA256SUMS.gpg",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    }
+  ]
+}

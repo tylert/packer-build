@@ -1,0 +1,25 @@
+{
+  "images": [
+    {
+      "iso_filename": "debian-7.8.0-amd64-i386-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/debian-7.8.0-amd64-i386-netinst.iso",
+      "iso_checksum": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
+      "iso_checksum_type": "sha512",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA512SUMS-debian-7.8.0-amd64-i386.txt",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/SHA512SUMS",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha512",
+      "iso_symlink": false
+    },
+    {
+      "iso_filename": "SHA512SUMS-debian-7.8.0-amd64-i386.sign",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd/SHA512SUMS.sign",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha512",
+      "iso_symlink": false
+    }
+  ]
+}
