@@ -225,7 +225,7 @@
     "domain": "",
     "headless": false,
     "hostname": "trusty-desktop",
-    "http_directory": "template",
+    "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
     "iso_checksum": "5f993985ce965c2fd8ce9410696a81a1c3fd0b89cd097e6caff63d6dd88c54ac",

@@ -225,7 +225,7 @@
     "domain": "",
     "headless": false,
     "hostname": "vivid-desktop",
-    "http_directory": "template",
+    "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
     "iso_checksum": "539c3ae45f4197bda920cd912020ce6571a1f553a319e4620af0f9bc72c2a134",

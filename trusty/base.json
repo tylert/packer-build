@@ -219,7 +219,7 @@
     "domain": "",
     "headless": false,
     "hostname": "trusty",
-    "http_directory": "template",
+    "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
     "iso_checksum": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
