@@ -3,13 +3,13 @@ packer-build
 
 ::
 
-    ./prefetch.py template/jessie/cinnamon-crypt-efi.list
-    ./prefetch.py template/wheezy/xfce-crypt.list
-    ./prefetch.py template/trusty/base.list
+    ./prefetch.py jessie/cinnamon-crypt-efi.list
+    ./prefetch.py wheezy/xfce-crypt.list
+    ./prefetch.py trusty/base.list
 
-    packer build -only=vbox template/jessie/cinnamon-crypt-efi.json
-    packer build -only=qemu template/wheezy/xfce-crypt.json
-    packer build -only=vmwf template/trusty/base.json
+    packer build -only=vbox jessie/cinnamon-crypt-efi.json
+    packer build -only=qemu wheezy/xfce-crypt.json
+    packer build -only=vmwf trusty/base.json
 
 
 https://www.debian.org/releases/stable/amd64/
