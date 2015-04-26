@@ -1,22 +1,22 @@
 {
   "images": [
     {
-      "iso_filename": "debian-jessie-DI-rc3-amd64-i386-netinst.iso",
-      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc3/multi-arch/iso-cd/debian-jessie-DI-rc3-amd64-i386-netinst.iso",
-      "iso_checksum": "0cc00ac5ebf267fbb8efd5137c98233da59ff4a542a4fd6e3a60d7c661ce7a7d8bdb6bc55a718df4093dbfbbcdd18c2e021f01c5809515e118da914e3ab6c95a",
+      "iso_filename": "debian-8.0.0-amd64-i386-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/8.0.0/multi-arch/iso-cd/debian-8.0.0-amd64-i386-netinst.iso",
+      "iso_checksum": "3014ac46ee61c58d977a45e08e1e97e997023937bc49a254ddd0d6b4440a180c322ed416955a0c4812aea2e1fb2eed6516addc7fe236e57880e84c275d5cbf4b",
       "iso_checksum_type": "sha512",
       "iso_symlink": true
     },
     {
-      "iso_filename": "SHA512SUMS-debian-jessie-DI-rc3-amd64-i386.txt",
-      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc3/multi-arch/iso-cd/SHA512SUMS",
+      "iso_filename": "SHA512SUMS-debian-8.0.0-amd64-i386.txt",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/8.0.0/multi-arch/iso-cd/SHA512SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha512",
       "iso_symlink": false
     },
     {
-      "iso_filename": "SHA512SUMS-debian-jessie-DI-rc3-amd64-i386.sign",
-      "iso_url": "http://cdimage.debian.org/cdimage/jessie_di_rc3/multi-arch/iso-cd/SHA512SUMS.sign",
+      "iso_filename": "SHA512SUMS-debian-8.0.0-amd64-i386.sign",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/8.0.0/multi-arch/iso-cd/SHA512SUMS.sign",
       "iso_checksum": "",
       "iso_checksum_type": "sha512",
       "iso_symlink": false
