@@ -98,7 +98,7 @@
       "name": "qemu",
       "net_device": "virtio-net",
       "output_directory": "{{user `output_directory`}}",
-      "qemu_binary": "{{user `qemu_binary`}}",
+      "qemu_binary": "qemu-system-i386",
       "qemuargs": [
         [
           "-m",
@@ -233,7 +233,6 @@
     "iso_url": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release/xubuntu-14.04.2-desktop-i386.iso",
     "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "trusty/32bit-xfce.seed",
-    "qemu_binary": "qemu-system-i386",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
