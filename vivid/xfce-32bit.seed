@@ -6,7 +6,7 @@ tasksel	tasksel/first	multiselect xubuntu-desktop
 d-i	pkgsel/language-pack-patterns	string
 
 # =============================================================================
-# Everything above is from xubuntu.seed in xubuntu-15.04-desktop-amd64.iso.
+# Everything above is from xubuntu.seed in xubuntu-15.04-desktop-i386.iso.
 
 # Locale Setup
 # must be passed in on the init line as well
