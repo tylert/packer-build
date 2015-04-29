@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 
+# Packer can download ISO files, however, it insists on renaming them when it
+# does so.  Packer will also not bother redownloading ISOs if they are already
+# in its local packer_cache directory.  This script attempts to pre-popluate
+# this cache but rather than rename the original ISO files, it simply makes a
+# symlink to it instead.
+
 # https://github.com/mitchellh/packer/issues/1826
-# http://cdimage.debian.org/cdimage
-# http://cdimage.ubuntu.com
 
 
 import sys

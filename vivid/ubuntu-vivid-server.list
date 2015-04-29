@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+      "iso_filename": "vivid-server-amd64.iso",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/20150422/vivid-server-amd64.iso",
+      "iso_checksum": "6501c8545374665823384bbb6235f865108f56d8a30bbf69dd18df73c14ccb84",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "vivid-server-i386.iso",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/20150422/vivid-server-i386.iso",
+      "iso_checksum": "f510169ddc03121d11a627ae3a231e1272d8e4d75f9ef76f73daa5b809c5b6d8",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA256SUMS-vivid-server.txt",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/20150422/SHA256SUMS",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    },
+    {
+      "iso_filename": "SHA256SUMS-vivid-server.gpg",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/20150422/SHA256SUMS.gpg",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    }
+  ]
+}
