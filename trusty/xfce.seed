@@ -1,7 +1,7 @@
 # Enable extras.ubuntu.com.
 d-i	apt-setup/extras	boolean true
 # Install the Xubuntu desktop.
-tasksel	tasksel/first	multiselect xubuntu-desktop
+#tasksel	tasksel/first	multiselect xubuntu-desktop
 # No XFCE translation packages yet.
 d-i	pkgsel/language-pack-patterns	string
 d-i  base-installer/kernel/altmeta   string lts-utopic
@@ -47,7 +47,7 @@ d-i netcfg/get_domain string
 # Package Setup
 d-i mirror/http/proxy string
 d-i pkgsel/update-policy select none
-#tasksel tasksel/first multiselect standard
+tasksel tasksel/first multiselect xubuntu-desktop
 d-i pkgsel/include string openssh-server
 d-i pkgsel/upgrade select full-upgrade
 
