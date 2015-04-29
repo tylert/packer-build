@@ -1,0 +1,231 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<down><down><down><down><down><enter><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd=/install.amd/initrd.gz ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "disk_size": "{{user `disk_size`}}",
+      "format": "ova",
+      "guest_additions_mode": "upload",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_os_type": "Debian_64",
+      "hard_drive_interface": "sata",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_interface": "sata",
+      "iso_url": "{{user `iso_path_external`}}/{{user `iso_file`}}",
+      "name": "vbox",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "{{user `ram_size`}}"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "accelerator": "kvm",
+      "boot_command": [
+        "<down><down><down><down><down><enter><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd=/install.amd/initrd.gz ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "disk_cache": "writethrough",
+      "disk_image": false,
+      "disk_interface": "virtio",
+      "disk_size": "{{user `disk_size`}}",
+      "format": "raw",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_url": "{{user `iso_path_external`}}/{{user `iso_file`}}",
+      "machine_type": "pc",
+      "name": "qemu",
+      "net_device": "virtio-net",
+      "output_directory": "{{user `output_directory`}}",
+      "qemu_binary": "qemu-system-x86_64",
+      "qemuargs": [
+        [
+          "-m",
+          "{{user `ram_size`}}M"
+        ],
+        [
+          "-smp",
+          "1"
+        ],
+        [
+          "-hda",
+          "{{user `output_directory`}}/{{user `vm_name`}}.raw"
+        ]
+      ],
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "type": "qemu",
+      "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "boot_command": [
+        "<down><down><down><down><down><enter><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd=/install.amd/initrd.gz ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "hostname={{user `hostname`}} ",
+        "domain={{user `domain`}} ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "disk_size": "{{user `disk_size`}}",
+      "guest_os_type": "debian7-64",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_url": "{{user `iso_path_external`}}/{{user `iso_file`}}",
+      "name": "vmwf",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+      "tools_upload_flavor": "linux",
+      "tools_upload_path": "{{.Flavor}}.iso",
+      "type": "vmware-iso",
+      "vm_name": "{{user `vm_name`}}",
+      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "{{user `ram_size`}}",
+        "numvcpus": "1"
+      },
+      "vnc_port_max": "{{user `vnc_port_max`}}",
+      "vnc_port_min": "{{user `vnc_port_min`}}"
+    }
+  ],
+  "description": "Yay",
+  "post-processors": [
+    {
+      "keep_input_artifact": true,
+      "only": [
+        "vbox"
+      ],
+      "output": "{{user `vagrant_box_file`}}",
+      "type": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vbox"
+      ],
+      "scripts": [
+        "scripts/install_vbox_tools.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vmwf"
+      ],
+      "scripts": [
+        "scripts/install_vmwf_tools.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vbox",
+        "qemu",
+        "vmwf"
+      ],
+      "scripts": [
+        "scripts/zero_image_drive.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "boot_wait": "3s",
+    "disk_size": 7500,
+    "domain": "",
+    "headless": false,
+    "hostname": "jessie-desktop",
+    "http_directory": ".",
+    "http_port_max": 9000,
+    "http_port_min": 8000,
+    "iso_checksum": "3014ac46ee61c58d977a45e08e1e97e997023937bc49a254ddd0d6b4440a180c322ed416955a0c4812aea2e1fb2eed6516addc7fe236e57880e84c275d5cbf4b",
+    "iso_checksum_type": "sha512",
+    "iso_file": "debian-8.0.0-amd64-i386-netinst.iso",
+    "iso_path_external": "http://cdimage.debian.org/cdimage/release/8.0.0/multi-arch/iso-cd",
+    "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
+    "preseed_file": "jessie/cinnamon.seed",
+    "ram_size": 512,
+    "shutdown_timeout": "5m",
+    "ssh_host_port_max": 7000,
+    "ssh_host_port_min": 6000,
+    "ssh_port": 22,
+    "ssh_username": "ghost",
+    "ssh_wait_timeout": "60m",
+    "sudo_password": "1ma63b0rk3d",
+    "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/jessie-desktop.box",
+    "vm_name": "jessie-desktop",
+    "vmdk_name": "jessie-desktop",
+    "vnc_port_max": 6000,
+    "vnc_port_min": 5900
+  }
+}
+
