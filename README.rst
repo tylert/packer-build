@@ -37,6 +37,9 @@ http://blog.codeship.io/2013/11/07/building-vagrant-machines-with-packer.html
 https://groups.google.com/forum/#!msg/packer-tool/4lB4OqhILF8/NPoMYeew0sEJ
 http://pretengineer.com/post/packer-vagrant-infra/
 
+https://github.com/jpadilla/juicebox
+https://github.com/boxcutter/ubuntu
+
 
 Why did you use the Ubuntu Server installer to create desktop systems?
 ----------------------------------------------------------------------
