@@ -2,21 +2,21 @@
   "images": [
     {
       "iso_filename": "trusty-server-amd64+mac.iso",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/trusty/daily/20150504/trusty-server-amd64+mac.iso",
-      "iso_checksum": "d30fa152086b031c26387470a88199b2a632c96740c9b66159e6bfa7533f5453",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/trusty/daily/20150218.1/trusty-server-amd64+mac.iso",
+      "iso_checksum": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
       "iso_checksum_type": "sha256",
       "iso_symlink": true
     },
     {
       "iso_filename": "SHA256SUMS-trusty-server-amd64+mac.txt",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/trusty/daily/20150504/SHA256SUMS",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/trusty/daily/20150218.1/SHA256SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false
     },
     {
       "iso_filename": "SHA256SUMS-trusty-server-amd64+mac.gpg",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/trusty/daily/20150504/SHA256SUMS.gpg",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/trusty/daily/20150218.1/SHA256SUMS.gpg",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false

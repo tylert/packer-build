@@ -31,7 +31,10 @@
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_interface": "sata",
-      "iso_url": "{{user `iso_path_external`}}/{{user `iso_file`}}",
+      "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
       "name": "vbox",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
@@ -89,7 +92,10 @@
       "http_port_min": "{{user `http_port_min`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
-      "iso_url": "{{user `iso_path_external`}}/{{user `iso_file`}}",
+      "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
       "machine_type": "pc",
       "name": "qemu",
       "net_device": "virtio-net",
@@ -145,7 +151,10 @@
       "http_port_min": "{{user `http_port_min`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
-      "iso_url": "{{user `iso_path_external`}}/{{user `iso_file`}}",
+      "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
       "name": "vmwf",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
@@ -224,8 +233,9 @@
     "http_port_min": 8000,
     "iso_checksum": "81bed02ad95a7f2c0f4f73233aa7e0041edfc4e7395040d0ec24c8724c01cf6c",
     "iso_checksum_type": "sha256",
-    "iso_file": "ubuntu-14.04.2-server-amd64+mac.iso",
-    "iso_path_external": "http://cdimage.ubuntu.com/releases/14.04.2/release",
+    "iso_file": "trusty-server-amd64+mac.iso",
+    "iso_path_internal": "http://localhost:8000",
+    "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/trusty/daily/20150218.1",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "ubuntu/trusty/base.seed",
     "ram_size": 512,
