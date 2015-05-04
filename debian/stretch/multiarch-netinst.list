@@ -1,0 +1,25 @@
+{
+  "images": [
+    {
+      "iso_filename": "debian-testing-amd64-i386-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/debian-testing-amd64-i386-netinst.iso",
+      "iso_checksum": "9b6ce036cd5a733c6444427323cb7f3a2a2252dc91ca6784be94f792c760b55c801812958d171aabee2b6e003175f2f3d29227951711baa874d718d79f310553",
+      "iso_checksum_type": "sha512",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA512SUMS-debian-testing-amd64-i386-netinst.txt",
+      "iso_url": "http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/SHA512SUMS",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha512",
+      "iso_symlink": false
+    },
+    {
+      "iso_filename": "SHA512SUMS-debian-testing-amd64-i386-netinst.sign",
+      "iso_url": "http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/SHA512SUMS.sign",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha512",
+      "iso_symlink": false
+    }
+  ]
+}
