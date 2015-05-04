@@ -186,7 +186,7 @@
         "vbox"
       ],
       "scripts": [
-        "scripts/install_vbox_tools.sh"
+        "virtualbox/install_vbox_tools.sh"
       ],
       "type": "shell"
     },
