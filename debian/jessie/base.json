@@ -2,21 +2,14 @@
   "builders": [
     {
       "boot_command": [
-        "<esc><esc><esc><enter><wait>",
-        "/casper/vmlinuz ",
-        "initrd=/casper/initrd.lz ",
-        "boot=casper ",
+        "<down><down><down><down><down><enter><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd=/install.amd/initrd.gz ",
         "auto=true ",
-        "automatic-ubiquity ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "language=en ",
-        "country=CA ",
-        "locale=en_CA.UTF-8 ",
         "hostname={{user `hostname`}} ",
         "domain={{user `domain`}} ",
-        "console-setup/ask_detect=false ",
-        "keyboard-configuration/layoutcode=us ",
-        "noprompt quiet splash --<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
@@ -24,7 +17,7 @@
       "guest_additions_mode": "upload",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "Ubuntu_64",
+      "guest_os_type": "Debian_64",
       "hard_drive_interface": "sata",
       "headless": "{{user `headless`}}",
       "http_directory": "{{user `http_directory`}}",
@@ -65,21 +58,14 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<esc><esc><esc><enter><wait>",
-        "/casper/vmlinuz ",
-        "initrd=/casper/initrd.lz ",
-        "boot=casper ",
+        "<down><down><down><down><down><enter><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd=/install.amd/initrd.gz ",
         "auto=true ",
-        "automatic-ubiquity ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "language=en ",
-        "country=CA ",
-        "locale=en_CA.UTF-8 ",
         "hostname={{user `hostname`}} ",
         "domain={{user `domain`}} ",
-        "console-setup/ask_detect=false ",
-        "keyboard-configuration/layoutcode=us ",
-        "noprompt quiet splash --<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_cache": "writethrough",
@@ -126,25 +112,18 @@
     },
     {
       "boot_command": [
-        "<esc><esc><esc><enter><wait>",
-        "/casper/vmlinuz ",
-        "initrd=/casper/initrd.lz ",
-        "boot=casper ",
+        "<down><down><down><down><down><enter><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd=/install.amd/initrd.gz ",
         "auto=true ",
-        "automatic-ubiquity ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "language=en ",
-        "country=CA ",
-        "locale=en_CA.UTF-8 ",
         "hostname={{user `hostname`}} ",
         "domain={{user `domain`}} ",
-        "console-setup/ask_detect=false ",
-        "keyboard-configuration/layoutcode=us ",
-        "noprompt quiet splash --<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
-      "guest_os_type": "ubuntu-64",
+      "guest_os_type": "debian7-64",
       "headless": "{{user `headless`}}",
       "http_directory": "{{user `http_directory`}}",
       "http_port_max": "{{user `http_port_max`}}",
@@ -202,7 +181,7 @@
         "vmwf"
       ],
       "scripts": [
-        "scripts/install_vmwf_tools.sh"
+        "vmware_fusion/install_vmwf_tools.sh"
       ],
       "type": "shell"
     },
@@ -224,16 +203,16 @@
     "disk_size": 7500,
     "domain": "",
     "headless": false,
-    "hostname": "vivid-desktop",
+    "hostname": "jessie",
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
-    "iso_checksum": "539c3ae45f4197bda920cd912020ce6571a1f553a319e4620af0f9bc72c2a134",
-    "iso_checksum_type": "sha256",
-    "iso_file": "xubuntu-15.04-desktop-i386.iso",
-    "iso_path_external": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release",
+    "iso_checksum": "3014ac46ee61c58d977a45e08e1e97e997023937bc49a254ddd0d6b4440a180c322ed416955a0c4812aea2e1fb2eed6516addc7fe236e57880e84c275d5cbf4b",
+    "iso_checksum_type": "sha512",
+    "iso_file": "debian-8.0.0-amd64-i386-netinst.iso",
+    "iso_path_external": "http://cdimage.debian.org/cdimage/release/8.0.0/multi-arch/iso-cd",
     "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "vivid/xfce-32bit.seed",
+    "preseed_file": "debian/jessie/base.seed",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
@@ -242,9 +221,9 @@
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/vivid-desktop.box",
-    "vm_name": "vivid-desktop",
-    "vmdk_name": "vivid-desktop",
+    "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/jessie.box",
+    "vm_name": "jessie",
+    "vmdk_name": "jessie",
     "vnc_port_max": 6000,
     "vnc_port_min": 5900
   }

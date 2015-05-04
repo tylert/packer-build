@@ -202,7 +202,7 @@
         "vmwf"
       ],
       "scripts": [
-        "scripts/install_vmwf_tools.sh"
+        "vmware_fusion/install_vmwf_tools.sh"
       ],
       "type": "shell"
     },
@@ -224,16 +224,16 @@
     "disk_size": 7500,
     "domain": "",
     "headless": false,
-    "hostname": "vivid-desktop",
+    "hostname": "trusty-desktop",
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
-    "iso_checksum": "539c3ae45f4197bda920cd912020ce6571a1f553a319e4620af0f9bc72c2a134",
+    "iso_checksum": "fc61fc23c41fc6faf35f831d9f9515108cee5aeaf69c4b3fb1c5df6024ed0e30",
     "iso_checksum_type": "sha256",
-    "iso_file": "xubuntu-15.04-desktop-amd64.iso",
-    "iso_path_external": "http://cdimage.ubuntu.com/xubuntu/releases/15.04/release",
+    "iso_file": "xubuntu-14.04.2-desktop-amd64.iso",
+    "iso_path_external": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release",
     "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "vivid/xfce.seed",
+    "preseed_file": "ubuntu/trusty/xfce.seed",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
@@ -242,9 +242,9 @@
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/vivid-desktop.box",
-    "vm_name": "vivid-desktop",
-    "vmdk_name": "vivid-desktop",
+    "vagrant_box_file": "build-{{isotime \"2006-01-02-15-04\"}}/trusty-desktop.box",
+    "vm_name": "trusty-desktop",
+    "vmdk_name": "trusty-desktop",
     "vnc_port_max": 6000,
     "vnc_port_min": 5900
   }

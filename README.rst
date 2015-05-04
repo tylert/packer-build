@@ -4,13 +4,14 @@ packer-build
 ::
 
     ./prefetch.py vbox/guest-additions.list
-    ./prefetch.py jessie/debian-multiarch-netinst.list
-    ./prefetch.py wheezy/debian-multiarch-netinst.list
-    ./prefetch.py trusty/ubuntu-server-amd64-mac.list
+    ./prefetch.py debian/jessie/multiarch-netinst.list
+    ./prefetch.py debian/wheezy/multiarch-netinst.list
+    ./prefetch.py ubuntu/trusty/server-amd64.list
+    ./prefetch.py ubuntu/precise/server-i386.list
 
-    packer build -only=vbox jessie/cinnamon-crypt-efi.json
-    packer build -only=qemu wheezy/xfce-crypt.json
-    packer build -only=vmwf trusty/base.json
+    packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
+    packer build -only=qemu debian/wheezy/xfce-crypt.json
+    packer build -only=vmwf ubuntu/trusty/base.json
 
 
 http://cdimage.debian.org/cdimage

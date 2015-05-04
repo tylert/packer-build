@@ -196,7 +196,7 @@
         "vmwf"
       ],
       "scripts": [
-        "scripts/install_vmwf_tools.sh"
+        "vmware_fusion/install_vmwf_tools.sh"
       ],
       "type": "shell"
     },
@@ -227,7 +227,7 @@
     "iso_file": "vivid-server-amd64.iso",
     "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current",
     "output_directory": "build-{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "vivid/base.seed",
+    "preseed_file": "ubuntu/vivid/base.seed",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
