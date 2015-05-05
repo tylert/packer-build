@@ -20,5 +20,5 @@ Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 
 httpd = SocketServer.TCPServer(('', PORT), Handler)
 
-print('serving at port {0}'.format(PORT))
+print('Serving at port {0}'.format(PORT))
 httpd.serve_forever()
