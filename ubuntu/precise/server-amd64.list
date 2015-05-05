@@ -5,21 +5,21 @@
       "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/precise/daily/20150123/precise-server-amd64.iso",
       "iso_checksum": "ba88d9bb51468c067ff6276ac4ae019ca486685f737eef803abc64415d22a501",
       "iso_checksum_type": "sha256",
-      "iso_symlink": "true"
+      "iso_symlink": true
     },
     {
       "iso_filename": "SHA256SUMS-precise-server-amd64.txt",
       "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/precise/daily/20150123/SHA256SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
-      "iso_symlink": "false"
+      "iso_symlink": false
     },
     {
       "iso_filename": "SHA256SUMS-precise-server-amd64.gpg",
       "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/precise/daily/20150123/SHA256SUMS.gpg",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
-      "iso_symlink": "false"
+      "iso_symlink": false
     }
   ]
 }
