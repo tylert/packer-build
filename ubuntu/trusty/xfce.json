@@ -186,6 +186,7 @@
   "description": "Yay",
   "post-processors": [
     {
+      "compression_level": 6,
       "keep_input_artifact": true,
       "only": [
         "vbox"
