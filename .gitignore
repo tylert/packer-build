@@ -3,3 +3,6 @@
 
 packer_cache
 build*
+
+Vagrantfile
+.vagrant
