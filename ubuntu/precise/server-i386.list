@@ -1,22 +1,22 @@
 {
   "images": [
     {
-      "iso_filename": "precise-server-i386.iso",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/precise/daily/20150123/precise-server-i386.iso",
-      "iso_checksum": "43c8931f276ca6738d332e29c8fed356facdbc109ae1300c7bec19ea084d68e4",
+      "iso_filename": "ubuntu-12.04.5-server-i386.iso",
+      "iso_url": "http://releases.ubuntu.com/12.04.5/ubuntu-12.04.5-server-i386.iso",
+      "iso_checksum": "bec39e79664aa189dea338993f636e54c5eda2f84c27def7b06bd6373ab87628",
       "iso_checksum_type": "sha256",
       "iso_symlink": true
     },
     {
-      "iso_filename": "SHA256SUMS-precise-server-i386.txt",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/precise/daily/20150123/SHA256SUMS",
+      "iso_filename": "SHA256SUMS-ubuntu-12.04.5-server-i386.txt",
+      "iso_url": "http://releases.ubuntu.com/12.04.5/SHA256SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false
     },
     {
-      "iso_filename": "SHA256SUMS-precise-server-i386.gpg",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/precise/daily/20150123/SHA256SUMS.gpg",
+      "iso_filename": "SHA256SUMS-ubuntu-12.04.5-server-i386.gpg",
+      "iso_url": "http://releases.ubuntu.com/12.04.5/SHA256SUMS.gpg",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false

@@ -1,22 +1,22 @@
 {
   "images": [
     {
-      "iso_filename": "vivid-server-amd64.iso",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/20150422/vivid-server-amd64.iso",
+      "iso_filename": "ubuntu-15.04-server-amd64.iso",
+      "iso_url": "http://releases.ubuntu.com/15.04/ubuntu-15.04-server-amd64.iso",
       "iso_checksum": "6501c8545374665823384bbb6235f865108f56d8a30bbf69dd18df73c14ccb84",
       "iso_checksum_type": "sha256",
       "iso_symlink": true
     },
     {
-      "iso_filename": "SHA256SUMS-vivid-server-amd64.txt",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/20150422/SHA256SUMS",
+      "iso_filename": "SHA256SUMS-ubuntu-15.04-server-amd64.txt",
+      "iso_url": "http://releases.ubuntu.com/15.04/SHA256SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false
     },
     {
-      "iso_filename": "SHA256SUMS-vivid-server-amd64.gpg",
-      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/20150422/SHA256SUMS.gpg",
+      "iso_filename": "SHA256SUMS-ubuntu-15.04-server-amd64.gpg",
+      "iso_url": "http://releases.ubuntu.com/15.04/SHA256SUMS.gpg",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false
