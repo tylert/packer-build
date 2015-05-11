@@ -15,7 +15,7 @@ Fetching ISO Files
 Under normal circumstances, packer can fetch its own ISO files just fine.
 However, Packer likes to rename all ISOs that it downloads.  If you wish to
 avoid this behaviour, simply create symlinks in the packer_cache directory that
-have the SHA256 hash of the original URL referenced in the packer templates.
+have the SHA256 hash of the original URL referenced in the Packer templates.
 
 ::
 
@@ -32,9 +32,10 @@ Using Packer Templates
     packer build -only=qemu debian/wheezy/xfce-crypt.json
     packer build -only=vmwf ubuntu/trusty/base.json
 
-NOTE:  Only the virtualbox builder is used to create vagrant box files.  This
-is intentional as, currently, the vagrant vmware plugin requires a paid license
-in order to use it.
+Only the VirtualBox builder is used to create Vagrant box files.  This is
+intentional as, currently, the Vagrant VMware plugin requires a paid license in
+order to use it.  Beware that this license expires frequently as new versions
+of VMware and/or Vagrant get released.
 
 
 Using Vagrant Box Files
@@ -42,6 +43,7 @@ Using Vagrant Box Files
 
 ::
 
+    packer build -only=vbox ubuntu/trusty/base.json
     vagrant init build/2015-05-08-18-10/trusty.box
     vagrant up
     vagrant ssh
@@ -51,8 +53,10 @@ Using Vagrant Box Files
 Making Bootable USB Drives
 --------------------------
 
-Be sure to use the qemu kvm builder.  This allows the use of raw block device
-image files which are ideal for writing to USB drives.
+Be sure to use the Qemu "kvm" builder when trying to create bootable USB
+images.  This allows the use of the "raw" block device format which is ideal
+for writing directly to USB drives.  Alternately, you may use "qemu-img
+convert" to convert an exiting image in another format to raw mode.
 
 ::
 
