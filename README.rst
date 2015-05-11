@@ -1,17 +1,46 @@
 packer-build
 ============
 
+
+Release Names
+-------------
+
+* Debian:  Wheezy (7.x), Jessie (8.x)
+* Ubuntu:  Precise (12.04), Trusty (14.04), Utopic (14.10), Vivid (15.04)
+
+
+Fetching ISO Files
+------------------
+
+Under normal circumstances, packer can fetch its own ISO files just fine.
+However, Packer likes to rename all ISOs that it downloads.  If you wish to
+avoid this behaviour, simply create symlinks in the packer_cache directory that
+have the SHA256 hash of the original URL referenced in the packer templates.
+
 ::
 
     ./prefetch.py vbox/guest-additions.list
     ./prefetch.py debian/jessie/multiarch-netinst.list
-    ./prefetch.py debian/wheezy/multiarch-netinst.list
-    ./prefetch.py ubuntu/trusty/server-amd64.list
-    ./prefetch.py ubuntu/precise/server-i386.list
+
+
+Using Packer Templates
+----------------------
+
+::
 
     packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
     packer build -only=qemu debian/wheezy/xfce-crypt.json
     packer build -only=vmwf ubuntu/trusty/base.json
+
+NOTE:  Only the virtualbox builder is used to create vagrant box files.  This
+is intentional as, currently, the vagrant vmware plugin requires a paid license
+in order to use it.
+
+
+Using Vagrant Box Files
+-----------------------
+
+::
 
     vagrant init build/2015-05-08-18-10/trusty.box
     vagrant up
@@ -19,13 +48,43 @@ packer-build
     vagrant destroy
 
 
+Making Bootable USB Drives
+--------------------------
+
+Be sure to use the qemu kvm builder.  This allows the use of raw block device
+image files which are ideal for writing to USB drives.
+
+::
+
+    packer build -only=qemu debian/jessie/base.json
+    qemu build/2015-05-10-20-55/jessie.img
+    dd of=build/2015-05-10-20-55/jessie.img of=/dev/sdb bs=4M
+    grub-install /dev/sdb
+
+
+Install Tools
+-------------
+
 https://packer.io/docs
+https://docs.vagrantup.com/v2/
+
+
+Preseed Documentation
+---------------------
+
+https://www.debian.org/releases/stable/amd64/
+https://help.ubuntu.com/lts/installation-guide/amd64/index.html
+
+
+Offical ISO Files
+-----------------
 
 http://cdimage.debian.org/cdimage
 http://releases.ubuntu.com
 
-https://www.debian.org/releases/stable/amd64/
-https://help.ubuntu.com/lts/installation-guide/amd64/index.html
+
+Other
+-----
 
 http://www.preining.info/blog/2014/05/usb-stick-tails-systemrescuecd/
 
