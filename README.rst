@@ -1,21 +1,19 @@
 packer-build
 ============
 
-
-Release Names
--------------
-
-* Debian:  Wheezy (7.x), Jessie (8.x)
-* Ubuntu:  Precise (12.04), Trusty (14.04), Utopic (14.10), Vivid (15.04)
+These Packer templates may be used to build fresh virtual machines.  The
+provided preseed files may also be used to build fresh real machines as well.
 
 
-Fetching ISO Files
-------------------
+Prefetching ISO Files
+---------------------
 
-Under normal circumstances, packer can fetch its own ISO files just fine.
+Under normal circumstances, Packer can fetch its own ISO files just fine.
 However, Packer likes to rename all ISOs that it downloads.  If you wish to
 avoid this behaviour, simply create symlinks in the packer_cache directory that
 have the SHA256 hash of the original URL referenced in the Packer templates.
+
+Do this before "packer build" for each planned target:
 
 ::
 
@@ -32,14 +30,22 @@ Using Packer Templates
     packer build -only=qemu debian/wheezy/xfce-crypt.json
     packer build -only=vmwf ubuntu/trusty/base.json
 
-Only the VirtualBox builder is used to create Vagrant box files.  This is
-intentional as, currently, the Vagrant VMware plugin requires a paid license in
-order to use it.  Beware that this license expires frequently as new versions
-of VMware and/or Vagrant get released.
+To verify your templates, force them to be re-sorted and/or to upgrade your
+templates whenever the version of Packer changes:
+
+::
+
+    packer fix ubuntu/trusty/base.json > intermediate.json
+    mv intermediate.json ubuntu/trusty/base.json
 
 
 Using Vagrant Box Files
 -----------------------
+
+Only the VirtualBox builder is used to create Vagrant box files.  This is
+intentional as, currently, the Vagrant VMware plugin requires a paid license in
+order to use it.  Beware that this license expires frequently as new versions
+of VMware and/or Vagrant get released.
 
 ::
 
@@ -53,7 +59,7 @@ Using Vagrant Box Files
 Making Bootable USB Drives
 --------------------------
 
-Be sure to use the Qemu "kvm" builder when trying to create bootable USB
+Be sure to use the Packer QEMU "kvm" builder when trying to create bootable USB
 images.  This allows the use of the "raw" block device format which is ideal
 for writing directly to USB drives.  Alternately, you may use "qemu-img
 convert" to convert an exiting image in another format to raw mode.
@@ -62,7 +68,7 @@ convert" to convert an exiting image in another format to raw mode.
 
     packer build -only=qemu debian/jessie/base.json
     qemu build/2015-05-10-20-55/jessie.img
-    dd of=build/2015-05-10-20-55/jessie.img of=/dev/sdb bs=4M
+    dd if=build/2015-05-10-20-55/jessie.img of=/dev/sdb bs=4M
     grub-install /dev/sdb
 
 
@@ -112,3 +118,25 @@ Why did you use the Ubuntu Server installer to create desktop systems?
 
 http://askubuntu.com/questions/467804/preseeding-does-not-work-properly-in-ubuntu-14-04
 https://wiki.ubuntu.com/UbiquityAutomation
+
+
+Distro Release Names
+--------------------
+
+Debian
+^^^^^^
+
+* Squeeze (6.x) supported until 2016-02
+* Wheezy (7.x) supported until 20??-??
+* Jessie (8.x) supported until 20??-??
+* Stretch (9.x) supported until 20??-??
+* Buster (10.x) supported until 20??-??
+
+Ubuntu
+^^^^^^
+
+* Precise (12.04) supported until 2017-04-26
+* Trusty (14.04) supported until 2019-04
+* Utopic (14.10) supported until 2015-07
+* Vivid (15.04) supported until 2016-01
+* Wily (15.10) supported until 2016-06
