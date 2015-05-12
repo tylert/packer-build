@@ -18,10 +18,9 @@ d-i	oem-config-udeb/frontend	string debconf
 d-i	grub-installer/timeout	string 2
 # Add the network and tasks oem-config steps by default.
 oem-config	oem-config/steps	multiselect language, timezone, keyboard, user, network, tasks
-d-i  base-installer/kernel/altmeta   string lts-utopic
 
 # =============================================================================
-# Everything above is from ubuntu-server.seed in trusty-server-amd64+mac.iso.
+# Everything above is from ubuntu-server.seed in ubuntu-15.04-server-i386.iso
 
 # Locale Setup
 # must be passed in on the init line as well
@@ -45,7 +44,7 @@ d-i clock-setup/utc boolean true
 
 # Network Setup
 # must be passed in on the init line as well
-d-i netcfg/get_hostname string trusty
+d-i netcfg/get_hostname string vivid
 d-i netcfg/get_domain string
 # must be passed in on the init line as well
 
