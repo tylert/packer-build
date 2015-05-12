@@ -27,7 +27,6 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_interface": "sata",
       "iso_urls": [
-        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "name": "vbox",
@@ -83,7 +82,6 @@
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_urls": [
-        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "machine_type": "pc",
@@ -137,7 +135,6 @@
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_urls": [
-        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "name": "vmwf",
@@ -222,7 +219,6 @@
     "iso_checksum": "1859fedf9089330a493a964ded52796a179135113ec4fe8bb470941484af956a537e7afeb068cf7fab2e5657ca819bbaa552bba0b3161bf839ca75e6165193ac",
     "iso_checksum_type": "sha512",
     "iso_file": "debian-testing-amd64-i386-netinst.iso",
-    "iso_path_internal": "http://localhost:8000",
     "iso_path_external": "http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "debian/stretch/base-amd64.seed",
