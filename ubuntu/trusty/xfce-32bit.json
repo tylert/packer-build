@@ -242,7 +242,7 @@
     "iso_file": "xubuntu-14.04.2-desktop-i386.iso",
     "iso_path_external": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "ubuntu/trusty/xfce-32bit.seed",
+    "preseed_file": "ubuntu/trusty/xfce.seed",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,

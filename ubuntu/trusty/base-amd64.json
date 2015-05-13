@@ -236,7 +236,7 @@
     "iso_file": "ubuntu-14.04.2-server-amd64.iso",
     "iso_path_external": "http://releases.ubuntu.com/14.04.2",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "ubuntu/trusty/base-amd64.seed",
+    "preseed_file": "ubuntu/trusty/base.seed",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,

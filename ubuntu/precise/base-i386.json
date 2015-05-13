@@ -236,7 +236,7 @@
     "iso_file": "ubuntu-12.04.5-server-i386.iso",
     "iso_path_external": "http://releases.ubuntu.com/12.04.5",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "ubuntu/precise/base-i386.seed",
+    "preseed_file": "ubuntu/precise/base.seed",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
