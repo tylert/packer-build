@@ -28,15 +28,15 @@ Using Packer Templates
 
     $ packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
     $ packer build -only=qemu debian/wheezy/xfce-crypt.json
-    $ packer build -only=vmwf ubuntu/trusty/base.json
+    $ packer build -only=vmwf ubuntu/trusty/base-amd64.json
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes:
 
 ::
 
-    $ packer fix ubuntu/trusty/base.json > intermediate.json
-    $ mv intermediate.json ubuntu/trusty/base.json
+    $ packer fix ubuntu/trusty/base-amd64.json > temporary.json
+    $ mv temporary.json ubuntu/trusty/base-amd64.json
 
 
 Using Vagrant Box Files
@@ -49,7 +49,7 @@ of VMware and/or Vagrant get released.
 
 ::
 
-    $ packer build -only=vbox ubuntu/trusty/base.json
+    $ packer build -only=vbox ubuntu/trusty/base-amd64.json
     $ vagrant init build/2015-05-08-18-10/trusty.box
     $ vagrant up
     $ vagrant ssh
@@ -67,7 +67,7 @@ convert" to convert an exiting image in another format to raw mode.
 
 ::
 
-    $ packer build -only=qemu debian/jessie/base.json
+    $ packer build -only=qemu debian/jessie/base-amd64.json
     $ dd if=build/2015-05-10-20-55/jessie.img of=/dev/sdb bs=4M
     $ grub-install /dev/sdb
 
@@ -75,7 +75,7 @@ convert" to convert an exiting image in another format to raw mode.
 
 ::
 
-    $ qemu build/2015-05-10-20-55/jessie.img
+    $ qemu-system-x86_64 build/2015-05-10-20-55/jessie.img
 
 
 Install Tools

@@ -2,7 +2,7 @@
 *.sw?
 
 packer_cache
-build*
+build
 
 Vagrantfile
 .vagrant
