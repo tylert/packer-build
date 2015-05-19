@@ -23,7 +23,7 @@ import json
 import glob
 
 
-local_directory = 'packer_cache'
+local_directory = os.getenv('PACKER_CACHE_DIR', 'packer_cache')
 
 description = '''
 
