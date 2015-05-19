@@ -1,0 +1,18 @@
+{
+  "images": [
+    {
+      "iso_filename": "CentOS-5.11-x86_64-netinstall.iso",
+      "iso_url": "http://centos.mirror.iweb.ca/5/isos/x86_64/CentOS-5.11-x86_64-netinstall.iso",
+      "iso_checksum": "9729c04a8a3ba57ed4e34ee5b96522879e6a3bcbf5582c3b6bcfd02bcfbacf8c",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA256SUMS-CentOS-5.11-x86_64-netinstall.txt.asc",
+      "iso_url": "http://centos.mirror.iweb.ca/5/isos/x86_64/sha256sum.txt.asc",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    }
+  ]
+}

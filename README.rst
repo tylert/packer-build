@@ -132,17 +132,27 @@ Distro Release Names
 Debian
 ^^^^^^
 
-* Squeeze (6.x) supported until 2016-02
-* Wheezy (7.x) supported until 20??-??
-* Jessie (8.x) supported until 20??-??
-* Stretch (9.x) supported until 20??-??
 * Buster (10.x) supported until 20??-??
+* Stretch (9.x) supported until 20??-??
+* Jessie (8.x) supported until 20??-??
+* Wheezy (7.x) supported until 20??-??
+* Squeeze (6.x) supported until 2016-02
 
 Ubuntu
 ^^^^^^
 
-* Precise (12.04) supported until 2017-04-26
-* Trusty (14.04) supported until 2019-04
-* Utopic (14.10) supported until 2015-07
+* Wily (15.10) supported until 2016-07
 * Vivid (15.04) supported until 2016-01
-* Wily (15.10) supported until 2016-06
+* Utopic (14.10) supported until 2015-07
+* Trusty (14.04) supported until 2019-04
+* Precise (12.04) supported until 2017-04-26
+
+Fedora
+^^^^^^
+
+CentOS
+^^^^^^
+
+* 7.x supported until 2024-06-30
+* 6.x supported until 2020-11-30
+* 5.x supported until 2017-03-31

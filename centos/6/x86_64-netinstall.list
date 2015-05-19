@@ -1,0 +1,18 @@
+{
+  "images": [
+    {
+      "iso_filename": "CentOS-6.6-x86_64-netinstall.iso",
+      "iso_url": "http://centos.mirror.iweb.ca/6/isos/x86_64/CentOS-6.6-x86_64-netinstall.iso",
+      "iso_checksum": "ad8f6de098503174c7609d172679fa0dd276f4b669708933d9c4927bd3fe1017",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA256SUMS-CentOS-6.6-x86_64-netinstall.txt.asc",
+      "iso_url": "http://centos.mirror.iweb.ca/6/isos/x86_64/sha256sum.txt.asc",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    }
+  ]
+}
