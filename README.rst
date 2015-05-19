@@ -14,13 +14,21 @@ However, Packer likes to rename all ISOs that it downloads.  If you wish to
 avoid this behaviour, simply create symlinks in the packer_cache directory that
 have the SHA256 hash of the original URL referenced in the Packer templates.
 
-Do this before "packer build" for each planned target using the 'prefetch'
-script:
-
-::
+Do this before 'packer build' for each planned target using the 'prefetch'
+script::
 
     $ ./prefetch.py vbox/guest-additions.list
     $ ./prefetch.py debian/jessie/multiarch-netinst.list
+
+
+Overriding Local ISO Cache Location
+-----------------------------------
+
+You may override the default directory used instead of 'packer_cache' by
+specifying it with the environment variable 'PACKER_CACHE_DIR'::
+
+    $ PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/multiarch-netinst.list
+    $ PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base.json
 
 
 Using Packer Templates
@@ -33,9 +41,7 @@ Using Packer Templates
     $ packer build -only=vmwf ubuntu/trusty/base-amd64.json
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
-templates whenever the version of Packer changes:
-
-::
+templates whenever the version of Packer changes::
 
     $ packer fix ubuntu/trusty/base-amd64.json > temporary.json
     $ mv temporary.json ubuntu/trusty/base-amd64.json
@@ -47,9 +53,7 @@ Using Vagrant Box Files
 Only the VirtualBox builder is used to create Vagrant box files.  This is
 intentional as, currently, the Vagrant VMware plugin requires a paid license in
 order to use it.  Beware that this license expires frequently as new versions
-of VMware and/or Vagrant get released.
-
-::
+of VMware and/or Vagrant get released::
 
     $ packer build -only=vbox ubuntu/trusty/base-amd64.json
     $ vagrant init build/2015-05-08-18-10/trusty.box
@@ -65,9 +69,7 @@ Making Bootable USB Drives
 Be sure to use the Packer QEMU "kvm" builder when trying to create bootable USB
 images.  This allows the use of the "raw" block device format which is ideal
 for writing directly to USB drives.  Alternately, you may use "qemu-img
-convert" to convert an exiting image in another format to raw mode.
-
-::
+convert" to convert an exiting image in another format to raw mode::
 
     $ packer build -only=qemu debian/jessie/base-amd64.json
     $ dd if=build/2015-05-10-20-55/jessie.img of=/dev/sdb bs=4M
@@ -78,18 +80,6 @@ convert" to convert an exiting image in another format to raw mode.
 ::
 
     $ qemu-system-x86_64 build/2015-05-10-20-55/jessie.img
-
-
-Overriding Local ISO Cache Location
------------------------------------
-
-You may override the default directory used instead of 'packer_cache' by
-specifying it with the environment variable 'PACKER_CACHE_DIR':
-
-::
-
-    $ PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/multiarch-netinst.list
-    $ PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base.json
 
 
 Serving Local Files via HTTP
