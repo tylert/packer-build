@@ -186,8 +186,8 @@
         "vbox"
       ],
       "scripts": [
-        "virtualbox/config_uefi_shell.sh",
-        "virtualbox/install_vbox_tools.sh"
+        "scripts/config_uefi_shell.sh",
+        "scripts/install_vbox_tools.sh"
       ],
       "type": "shell"
     },
