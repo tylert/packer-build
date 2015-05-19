@@ -127,7 +127,7 @@
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
-      "guest_os_type": "debian7-64",
+      "guest_os_type": "debian6-64",
       "headless": "{{user `headless`}}",
       "http_directory": "{{user `http_directory`}}",
       "http_port_max": "{{user `http_port_max`}}",
