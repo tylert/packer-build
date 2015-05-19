@@ -189,7 +189,7 @@
         "vmwf"
       ],
       "scripts": [
-        "vmware_fusion/install_vmwf_tools.sh"
+        "scripts/install_vmwf_tools.sh"
       ],
       "type": "shell"
     },
