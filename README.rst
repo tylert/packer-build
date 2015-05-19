@@ -2,7 +2,8 @@ packer-build
 ============
 
 These Packer templates may be used to build fresh virtual machines.  The
-provided preseed files may also be used to build fresh real machines as well.
+provided preseed and kickstart files may also be used to build fresh real
+machines on bare metal as well.
 
 
 Prefetching ISO Files
@@ -13,7 +14,8 @@ However, Packer likes to rename all ISOs that it downloads.  If you wish to
 avoid this behaviour, simply create symlinks in the packer_cache directory that
 have the SHA256 hash of the original URL referenced in the Packer templates.
 
-Do this before "packer build" for each planned target...
+Do this before "packer build" for each planned target using the 'prefetch'
+script:
 
 ::
 
@@ -76,6 +78,27 @@ convert" to convert an exiting image in another format to raw mode.
 ::
 
     $ qemu-system-x86_64 build/2015-05-10-20-55/jessie.img
+
+
+Overriding Local ISO Cache Location
+-----------------------------------
+
+You may override the default directory used instead of 'packer_cache' by
+specifying it with the environment variable 'PACKER_CACHE_DIR':
+
+::
+
+    $ PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/multiarch-netinst.list
+    $ PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base.json
+
+
+Serving Local Files via HTTP
+----------------------------
+
+::
+
+    $ cd packer_cache
+    $ ../sow.py
 
 
 Install Tools
