@@ -17,8 +17,8 @@ have the SHA256 hash of the original URL referenced in the Packer templates.
 Do this before 'packer build' for each planned target using the 'prefetch'
 script::
 
-    $ ./prefetch.py vbox/guest-additions.list
-    $ ./prefetch.py debian/jessie/multiarch-netinst.list
+    $ ./prefetch.py guest-additions.list
+    $ ./prefetch.py debian/jessie/netinst-multiarch.list
 
 
 Overriding Local ISO Cache Location
@@ -27,8 +27,8 @@ Overriding Local ISO Cache Location
 You may override the default directory used instead of 'packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
-    $ PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/multiarch-netinst.list
-    $ PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base.json
+    $ PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/netinst-multiarch.list
+    $ PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base-64.json
 
 
 Using Packer Templates
@@ -38,13 +38,13 @@ Using Packer Templates
 
     $ packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
     $ packer build -only=qemu debian/wheezy/xfce-crypt.json
-    $ packer build -only=vmwf ubuntu/trusty/base-amd64.json
+    $ packer build -only=vmwf ubuntu/trusty/base-64.json
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
 
-    $ packer fix ubuntu/trusty/base-amd64.json > temporary.json
-    $ mv temporary.json ubuntu/trusty/base-amd64.json
+    $ packer fix debian/jessie/base-64.json > temporary.json
+    $ mv temporary.json debian/jessie/base-64.json
 
 
 Using Vagrant Box Files
@@ -55,8 +55,8 @@ intentional as, currently, the Vagrant VMware plugin requires a paid license in
 order to use it.  Beware that this license expires frequently as new versions
 of VMware and/or Vagrant get released::
 
-    $ packer build -only=vbox ubuntu/trusty/base-amd64.json
-    $ vagrant init build/2015-05-08-18-10/trusty.box
+    $ packer build -only=vbox debian/jessie/base-64.json
+    $ vagrant init build/2015-05-20-12-34/jessie.box
     $ vagrant up
     $ vagrant ssh
     ...
@@ -71,15 +71,15 @@ images.  This allows the use of the "raw" block device format which is ideal
 for writing directly to USB drives.  Alternately, you may use "qemu-img
 convert" to convert an exiting image in another format to raw mode::
 
-    $ packer build -only=qemu debian/jessie/base-amd64.json
-    $ dd if=build/2015-05-10-20-55/jessie.img of=/dev/sdb bs=4M
+    $ packer build -only=qemu debian/jessie/base-64.json
+    $ dd if=build/2015-05-20-12-34/jessie.img of=/dev/sdb bs=4M
     $ grub-install /dev/sdb
 
 ... or, if you just want to "boot" it...
 
 ::
 
-    $ qemu-system-x86_64 build/2015-05-10-20-55/jessie.img
+    $ qemu-system-x86_64 build/2015-05-20-12-34/jessie.img
 
 
 Serving Local Files via HTTP
