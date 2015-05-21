@@ -169,7 +169,7 @@
       ],
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant",
-      "vagrantfile_template": "Vagrantfile.template"
+      "vagrantfile_template": "{{user `vagrantfile_template`}}"
     }
   ],
   "provisioners": [
@@ -231,6 +231,7 @@
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/wheezy.box",
+    "vagrantfile_template": "Vagrantfile.template",
     "vm_name": "wheezy",
     "vmdk_name": "wheezy",
     "vnc_port_max": 6000,
