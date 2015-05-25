@@ -216,7 +216,7 @@
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
-    "iso_checksum": "1859fedf9089330a493a964ded52796a179135113ec4fe8bb470941484af956a537e7afeb068cf7fab2e5657ca819bbaa552bba0b3161bf839ca75e6165193ac",
+    "iso_checksum": "e33fdb98eda81a5d371d46eef4128a7727fc68c00add8232fa868f48ba60daa1867f04b41979ab1bea5cc5802f9a82824933cfac04937112fb1486a669c7fee9",
     "iso_checksum_type": "sha512",
     "iso_file": "debian-testing-amd64-i386-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd",

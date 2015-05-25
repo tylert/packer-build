@@ -110,6 +110,8 @@ Offical ISO Files
 
 * http://cdimage.debian.org/cdimage
 * http://releases.ubuntu.com
+* http://fedora.mirror.iweb.ca  (https://admin.fedoraproject.org/mirrormanager/)
+* http://centos.mirror.iweb.ca  (http://www.centos.org/download/mirrors/)
 
 
 Other
@@ -162,6 +164,11 @@ Ubuntu
 
 Fedora
 ^^^^^^
+
+* 23 supported until 20??-??
+* 22 supported until 20??-??
+* 21 supported until 20??-??
+* 20 supported until 20??-??
 
 CentOS
 ^^^^^^

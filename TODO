@@ -1,5 +1,27 @@
-Make prefetch script print symlink cleanup using os.path.basename()
-Find out if partman-crypto will allow passphrase-crypted
-Handle "Install missing firmware" installer prompt
-Handle "Force UEFI Install" installer prompt
-Convert from ext4 to btrfs for all root volumes
+Other
+-----
+
+* Ensure prefetch script handles pre-existing non-symlink ISO downloads
+* Make prefetch script announce symlink cleanup using os.path.basename()
+* Enhance prefetch script to resume partial ISO downloads
+
+
+CentOS
+------
+
+* [PRIORITY] Make sudo as non-root not stupid (WWDD = What Would Debian Do?)
+
+
+Fedora
+------
+
+* Everything
+
+
+Debian
+------
+
+* Convert from ext4 to btrfs for all root volumes
+* Find out if partman-crypto will allow passphrase-crypted
+* Skip past "Install missing firmware" installer prompt
+* Skip past "Force UEFI Install" installer prompt
