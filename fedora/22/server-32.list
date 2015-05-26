@@ -1,0 +1,18 @@
+{
+  "images": [
+    {
+      "iso_filename": "Fedora-Server-netinst-i386-22.iso",
+      "iso_url": "http://fedora.mirror.iweb.ca/linux/releases/22/Server/i386/iso/Fedora-Server-netinst-i386-22.iso",
+      "iso_checksum": "39df8a90c82ad62b1f1afe25bcb1fed7324179c9ba91d2278c72798721d3702f",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA256SUMS-Fedora-Server-netinst-i386-22.asc",
+      "iso_url": "http://fedora.mirror.iweb.ca/linux/releases/22/Server/i386/iso/Fedora-Server-22-i386-CHECKSUM",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    }
+  ]
+}
