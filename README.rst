@@ -119,7 +119,9 @@ Other
 
 * http://www.preining.info/blog/2014/05/usb-stick-tails-systemrescuecd/
 
+* https://5pi.de/2015/03/13/building-aws-amis-from-scratch/
 * http://www.scalehorizontally.com/2013/02/24/introduction-to-cloud-init/
+* https://julien.danjou.info/blog/2013/cloud-init-utils-debian
 * http://thornelabs.net/2014/04/07/create-a-kvm-based-debian-7-openstack-cloud-image.html
 
 * http://blog.codeship.com/packer-ansible/
@@ -132,6 +134,7 @@ Other
 
 * https://github.com/jpadilla/juicebox
 * https://github.com/boxcutter/ubuntu
+* https://github.com/katzj/ami-creator
 
 
 Why did you use the Ubuntu Server installer to create desktop systems?
@@ -147,32 +150,33 @@ Distro Release Names
 Debian
 ^^^^^^
 
-* Buster (10.x) supported until 20??-??
-* Stretch (9.x) supported until 20??-??
-* Jessie (8.x) supported until 20??-??
-* Wheezy (7.x) supported until 20??-??
-* Squeeze (6.x) supported until 2016-02
+* Buster (10.x) released on 20??-??-??, supported until 20??-??
+* Stretch (9.x) released on 20??-??-??, supported until 20??-??
+* Jessie (8.x) released on 2015-04-25, supported until 20??-??
+* Wheezy (7.x) released on 2013-05-04, supported until 20??-??
+* Squeeze (6.x) released on 2011-02-06, supported until 2016-02
 
 Ubuntu
 ^^^^^^
 
-* Wily (15.10) supported until 2016-07
-* Vivid (15.04) supported until 2016-01
-* Utopic (14.10) supported until 2015-07
-* Trusty (14.04) supported until 2019-04
-* Precise (12.04) supported until 2017-04-26
+* Xanthic? (16.04 LTS) released on 2016-04-??, supported until 2021-??
+* Wily (15.10) released on 2015-10-22, supported until 2016-07
+* Vivid (15.04) released on 2015-04-23, supported until 2016-01
+* Utopic (14.10) released on 2014-10-23, supported until 2015-07
+* Trusty (14.04 LTS) released on 2014-04-17, supported until 2019-04
+* Precise (12.04 LTS) released on 2012-04-26, supported until 2017-04-26
 
 Fedora
 ^^^^^^
 
-* 23 supported until 20??-??
-* 22 supported until 20??-??
-* 21 supported until 20??-??
-* 20 supported until 20??-??
+* 23 released on 2015-10-27, supported until 20??-??
+* 22 released on 2015-05-26, supported until 20??-??
+* 21 released on 2014-12-09, supported until 20??-??
+* 20 (Heisenbug) released on 2013-12-17, supported until 20??-??
 
 CentOS
 ^^^^^^
 
-* 7.x supported until 2024-06-30
-* 6.x supported until 2020-11-30
-* 5.x supported until 2017-03-31
+* 7.x released on 2014-07-07, supported until 2024-06-30
+* 6.x released on 2011-07-10, supported until 2020-11-30
+* 5.x released on 2007-04-12, supported until 2017-03-31
