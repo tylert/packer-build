@@ -5,6 +5,8 @@ d-i debian-installer/locale string en_CA.UTF-8
 
 # Keyboard Setup
 d-i keyboard-configuration/xkb-keymap select us
+# Needed to skip "Select a keyboard layout, Keymap to use:  American English"
+d-i console-keymaps-at/keymap select us
 
 # Clock Setup
 #d-i time/zone string Canada/Eastern
