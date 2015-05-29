@@ -252,7 +252,7 @@
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-utopic-64.box",
+    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-utopic-64.vbox.box",
     "vagrantfile_template": "Vagrantfile.template",
     "vm_name": "base-utopic-64",
     "vmdk_name": "base-utopic-64",
