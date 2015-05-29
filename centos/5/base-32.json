@@ -180,7 +180,7 @@
     },
     {
       "inline": [
-        "yum clean all"
+        "sudo yum clean all"
       ],
       "type": "shell"
     },

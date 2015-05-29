@@ -195,7 +195,7 @@
     },
     {
       "inline": [
-        "apt-get clean"
+        "sudo apt-get clean"
       ],
       "type": "shell"
     },
