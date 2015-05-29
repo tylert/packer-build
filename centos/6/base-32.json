@@ -179,6 +179,12 @@
       "type": "shell"
     },
     {
+      "inline": [
+        "yum clean all"
+      ],
+      "type": "shell"
+    },
+    {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
         "vbox",
@@ -187,7 +193,7 @@
       ],
       "scripts": [
         "scripts/enable_passwordless_sudo.sh",
-        "scripts/zero_image_drive_centos.sh"
+        "scripts/zero_image_drive.sh"
       ],
       "type": "shell"
     }
