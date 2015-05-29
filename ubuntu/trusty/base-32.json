@@ -209,8 +209,9 @@
       "type": "shell"
     },
     {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "inline": [
-        "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S apt-get clean"
+        "apt-get clean"
       ],
       "type": "shell"
     },
