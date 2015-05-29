@@ -195,7 +195,7 @@
     },
     {
       "inline": [
-        "sudo apt-get clean"
+        "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S apt-get clean"
       ],
       "type": "shell"
     },

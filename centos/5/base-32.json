@@ -180,7 +180,7 @@
     },
     {
       "inline": [
-        "sudo yum clean all"
+        "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S yum clean all"
       ],
       "type": "shell"
     },
