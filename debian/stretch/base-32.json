@@ -218,7 +218,7 @@
     "disk_size": 7500,
     "domain": "",
     "headless": false,
-    "hostname": "stretch",
+    "hostname": "base-stretch-32",
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
@@ -236,10 +236,10 @@
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/stretch.box",
+    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-stretch-32.box",
     "vagrantfile_template": "Vagrantfile.template",
-    "vm_name": "stretch",
-    "vmdk_name": "stretch",
+    "vm_name": "base-stretch-32",
+    "vmdk_name": "base-stretch-32",
     "vnc_port_max": 6000,
     "vnc_port_min": 5900
   }

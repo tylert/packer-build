@@ -203,7 +203,7 @@
     "disk_size": 7500,
     "domain": "",
     "headless": false,
-    "hostname": "centos5",
+    "hostname": "base-centos5-64",
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
@@ -221,10 +221,10 @@
     "ssh_username": "root",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/centos5.box",
+    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-centos5-64.box",
     "vagrantfile_template": "Vagrantfile.template",
-    "vm_name": "centos5",
-    "vmdk_name": "centos5",
+    "vm_name": "base-centos5-64",
+    "vmdk_name": "base-centos5-64",
     "vnc_port_max": 6000,
     "vnc_port_min": 5900
   }
