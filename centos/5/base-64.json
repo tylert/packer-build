@@ -219,7 +219,7 @@
     "ssh_host_port_max": 7000,
     "ssh_host_port_min": 6000,
     "ssh_port": 22,
-    "ssh_username": "root",
+    "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-centos5-64.vbox.box",

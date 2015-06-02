@@ -178,5 +178,5 @@ CentOS
 ^^^^^^
 
 * 7.x released on 2014-07-07, supported until 2024-06-30
-* 6.x released on 2011-07-10, supported until 2020-11-30
+* 6.x released on 2011-07-10, supported until 2020-11-30 (Err?  2021-11-30?)
 * 5.x released on 2007-04-12, supported until 2017-03-31

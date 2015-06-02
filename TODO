@@ -1,21 +1,10 @@
-Other
------
+All
+---
 
+* Allow prefetch script to build symlinks for other URLs than the original
 * Ensure prefetch script handles pre-existing non-symlink ISO downloads
 * Make prefetch script announce symlink cleanup using os.path.basename()
 * Enhance prefetch script to resume partial ISO downloads
-
-
-CentOS
-------
-
-* [PRIORITY] Make sudo as non-root not stupid (WWDD = What Would Debian Do?)
-
-
-Fedora
-------
-
-* Everything
 
 
 Debian
@@ -25,3 +14,21 @@ Debian
 * Find out if partman-crypto will allow passphrase-crypted
 * Skip past "Install missing firmware" installer prompt
 * Skip past "Force UEFI Install" installer prompt
+
+
+Ubuntu
+------
+
+* Get all the desktop stuff working from the server installers properly
+
+
+Fedora
+------
+
+* Get supported releases of Fedora working properly with kickstarts and such
+
+
+CentOS
+------
+
+* CentOS 5.x currently doesn't seem to get past the installing packages step
