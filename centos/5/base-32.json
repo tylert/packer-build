@@ -165,7 +165,7 @@
         "vmwf"
       ],
       "inline": [
-        "yum install --yes gcc make kernel-devel kernel-headers dkms bzip2 perl"
+        "yum -y install gcc make kernel-devel kernel-headers dkms bzip2 perl"
       ],
       "type": "shell"
     },
