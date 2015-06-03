@@ -9,9 +9,6 @@ tmp_location="${HOME}/vmwf_tmp"
 # Don't try to install anything if stuff isn't available.
 if [ ! -r ${iso_name} ]; then exit; fi
 
-# Pull in an entire development environment just to make the installer happy.
-apt-get --yes install build-essential linux-headers-$(uname -r)
-
 # Mount the ISO file so we can extract files from it.
 mkdir --parents ${mount_location}
 mount --options loop ${iso_name} ${mount_location}

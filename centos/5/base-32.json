@@ -161,10 +161,21 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
+        "vbox",
+        "vmwf"
+      ],
+      "inline": [
+        "yum install --yes gcc make kernel-devel kernel-headers dkms bzip2 perl"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
         "vbox"
       ],
       "scripts": [
-        "scripts/install_vbox_tools_centos.sh"
+        "scripts/install_vbox_tools.sh"
       ],
       "type": "shell"
     },
@@ -174,7 +185,7 @@
         "vmwf"
       ],
       "scripts": [
-        "scripts/install_vmwf_tools_centos.sh"
+        "scripts/install_vmwf_tools.sh"
       ],
       "type": "shell"
     },

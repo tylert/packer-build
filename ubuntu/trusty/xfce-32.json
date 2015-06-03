@@ -197,6 +197,17 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "only": [
+        "vbox",
+        "vmwf"
+      ],
+      "inline": [
+        "apt-get --yes install build-essential dkms"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
         "vbox"
       ],
       "scripts": [
