@@ -17,8 +17,8 @@ have the SHA256 hash of the original URL referenced in the Packer templates.
 Do this before 'packer build' for each planned target using the 'prefetch'
 script::
 
-    $ ./prefetch.py guest-additions.list
-    $ ./prefetch.py debian/jessie/netinst-multiarch.list
+    ./prefetch.py guest-additions.list
+    ./prefetch.py debian/jessie/netinst-multiarch.list
 
 
 Overriding Local ISO Cache Location
@@ -27,8 +27,24 @@ Overriding Local ISO Cache Location
 You may override the default directory used instead of 'packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
-    $ PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/netinst-multiarch.list
-    $ PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base-64.json
+    PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/netinst-multiarch.list
+    PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base-64.json
+
+
+Disabling Hashicorp Checkpoint Version Checks
+---------------------------------------------
+
+Both Packer and Vagrant will contact Hashicorp with some anonymous information
+each time it is being run for the purposes of announcing new versions and other
+alerts.  If you would prefer to disable this feature, simply add the following
+environment variables::
+
+    CHECKPOINT_DISABLE=1
+    VAGRANT_CHECKPOINT_DISABLE=1
+
+* https://checkpoint.hashicorp.com/
+* https://github.com/hashicorp/go-checkpoint
+* https://docs.vagrantup.com/v2/other/environmental-variables.html
 
 
 Using Packer Templates
@@ -36,15 +52,16 @@ Using Packer Templates
 
 ::
 
-    $ packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
-    $ packer build -only=qemu debian/wheezy/xfce-crypt.json
-    $ packer build -only=vmwf ubuntu/trusty/base-64.json
+    packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
+    packer build -only=qemu debian/wheezy/xfce-crypt.json
+    packer build -only=vmwf ubuntu/trusty/base-64.json
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
 
-    $ packer fix debian/jessie/base-64.json > temporary.json
-    $ mv temporary.json debian/jessie/base-64.json
+    packer validate debian/jessie/base-64.json
+    packer fix debian/jessie/base-64.json > temporary.json
+    mv temporary.json debian/jessie/base-64.json
 
 
 Using Vagrant Box Files
@@ -55,12 +72,12 @@ intentional as, currently, the Vagrant VMware plugin requires a paid license in
 order to use it.  Beware that this license expires frequently as new versions
 of VMware and/or Vagrant get released::
 
-    $ packer build -only=vbox debian/jessie/base-64.json
-    $ vagrant init build/2015-05-20-12-34/jessie.box
-    $ vagrant up
-    $ vagrant ssh
+    packer build -only=vbox debian/jessie/base-64.json
+    vagrant init build/2015-05-20-12-34/base-jessie-64.vbox.box
+    vagrant up
+    vagrant ssh
     ...
-    $ vagrant destroy
+    vagrant destroy
 
 
 Making Bootable USB Drives
@@ -71,15 +88,15 @@ images.  This allows the use of the "raw" block device format which is ideal
 for writing directly to USB drives.  Alternately, you may use "qemu-img
 convert" to convert an exiting image in another format to raw mode::
 
-    $ packer build -only=qemu debian/jessie/base-64.json
-    $ dd if=build/2015-05-20-12-34/jessie.img of=/dev/sdb bs=4M
-    $ grub-install /dev/sdb
+    packer build -only=qemu debian/jessie/base-64.json
+    dd if=build/2015-05-20-12-34/jessie.img of=/dev/sdb bs=4M
+    grub-install /dev/sdb
 
 ... or, if you just want to "boot" it...
 
 ::
 
-    $ qemu-system-x86_64 build/2015-05-20-12-34/jessie.img
+    qemu-system-x86_64 build/2015-05-20-12-34/jessie.img
 
 
 Serving Local Files via HTTP
@@ -87,8 +104,7 @@ Serving Local Files via HTTP
 
 ::
 
-    $ cd packer_cache
-    $ ../sow.py
+    ./sow.py
 
 
 Install Tools
@@ -131,6 +147,7 @@ Other
 * http://blog.codeship.io/2013/11/07/building-vagrant-machines-with-packer.html
 * https://groups.google.com/forum/#!msg/packer-tool/4lB4OqhILF8/NPoMYeew0sEJ
 * http://pretengineer.com/post/packer-vagrant-infra/
+* http://stackoverflow.com/questions/13065576/override-vagrant-configuration-settings-locally-per-dev
 
 * https://github.com/jpadilla/juicebox
 * https://github.com/boxcutter/ubuntu
@@ -147,36 +164,44 @@ Why did you use the Ubuntu Server installer to create desktop systems?
 Distro Release Names
 --------------------
 
-Debian
+Debian_
 ^^^^^^
 
-* Buster (10.x) released on 20??-??-??, supported until 20??-??
-* Stretch (9.x) released on 20??-??-??, supported until 20??-??
-* Jessie (8.x) released on 2015-04-25, supported until 20??-??
-* Wheezy (7.x) released on 2013-05-04, supported until 20??-??
-* Squeeze (6.x) released on 2011-02-06, supported until 2016-02
+.. _Debian: https://en.wikipedia.org/wiki/Debian#Release_timeline
 
-Ubuntu
+* Buster (10.x);  released on 20??-??-??, supported until 20??-??
+* Stretch (9.x);  released on 20??-??-??, supported until 20??-??
+* Jessie (8.x);  released on 2015-04-25, supported until 20??-??
+* Wheezy (7.x);  released on 2013-05-04, supported until 20??-??
+* Squeeze (6.x);  released on 2011-02-06, supported until 2016-02
+
+Ubuntu_
 ^^^^^^
 
-* Xanthic? (16.04 LTS) released on 2016-04-??, supported until 2021-??
-* Wily (15.10) released on 2015-10-22, supported until 2016-07
-* Vivid (15.04) released on 2015-04-23, supported until 2016-01
-* Utopic (14.10) released on 2014-10-23, supported until 2015-07
-* Trusty (14.04 LTS) released on 2014-04-17, supported until 2019-04
-* Precise (12.04 LTS) released on 2012-04-26, supported until 2017-04-26
+.. _Ubuntu: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
-Fedora
+* Xanthic? (16.04 LTS);  released on 2016-04-??, supported until 2021-??
+* Wily (15.10);  released on 2015-10-22, supported until 2016-07
+* Vivid (15.04);  released on 2015-04-23, supported until 2016-01
+* Utopic (14.10);  released on 2014-10-23, supported until 2015-07
+* Trusty (14.04 LTS);  released on 2014-04-17, supported until 2019-04
+* Precise (12.04 LTS);  released on 2012-04-26, supported until 2017-04-26
+
+Fedora_
 ^^^^^^
 
-* 23 released on 2015-10-27, supported until 20??-??
-* 22 released on 2015-05-26, supported until 20??-??
-* 21 released on 2014-12-09, supported until 20??-??
-* 20 (Heisenbug) released on 2013-12-17, supported until 20??-??
+.. _Fedora: https://en.wikipedia.org/wiki/List_of_Fedora_releases#Version_history
 
-CentOS
+* 23;  released on 2015-10-27, supported until 20??-??
+* 22;  released on 2015-05-26, supported until 20??-??
+* 21;  released on 2014-12-09, supported until 20??-??
+* 20 (Heisenbug);  released on 2013-12-17, supported until 20??-??
+
+CentOS_
 ^^^^^^
 
-* 7.x released on 2014-07-07, supported until 2024-06-30
-* 6.x released on 2011-07-10, supported until 2020-11-30 (Err?  2021-11-30?)
-* 5.x released on 2007-04-12, supported until 2017-03-31
+.. _CentOS: https://en.wikipedia.org/wiki/CentOS#End-of-support_schedule
+
+* 7.x;  released on 2014-07-07, supported until 2024-06-30
+* 6.x;  released on 2011-07-10, supported until 2020-11-30 (2021-11-30?)
+* 5.x;  released on 2007-04-12, supported until 2017-03-31
