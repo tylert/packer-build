@@ -195,7 +195,7 @@
   ],
   "provisioners": [
     {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "apt-get --yes install dkms build-essential"
       ],
@@ -206,7 +206,7 @@
       "type": "shell"
     },
     {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "only": [
         "vbox"
       ],
@@ -216,7 +216,7 @@
       "type": "shell"
     },
     {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "only": [
         "vmwf"
       ],
@@ -226,7 +226,7 @@
       "type": "shell"
     },
     {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "only": [
         "vbox",
         "qemu",
@@ -238,14 +238,14 @@
       "type": "shell"
     },
     {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "apt-get clean"
       ],
       "type": "shell"
     },
     {
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "dd if=/dev/zero of=/zerofill bs=4M",
         "rm /zerofill",
