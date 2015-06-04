@@ -159,7 +159,7 @@
       "vnc_port_min": "{{user `vnc_port_min`}}"
     }
   ],
-  "description": "Yay",
+  "description": "{{user `description`}}",
   "post-processors": [
     {
       "compression_level": 6,
@@ -240,6 +240,7 @@
   ],
   "variables": {
     "boot_wait": "3s",
+    "description": "Base box for 64-bit x86 Debian Squeeze 6.x",
     "disk_size": 7500,
     "domain": "",
     "headless": false,

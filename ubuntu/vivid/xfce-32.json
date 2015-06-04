@@ -180,7 +180,7 @@
       "vnc_port_min": "{{user `vnc_port_min`}}"
     }
   ],
-  "description": "Yay",
+  "description": "{{user `description`}}",
   "post-processors": [
     {
       "compression_level": 6,
@@ -261,6 +261,7 @@
   ],
   "variables": {
     "boot_wait": "3s",
+    "description": "Desktop box for 32-bit x86 Ubuntu Vivid Vervet 15.04",
     "disk_size": 7500,
     "domain": "",
     "headless": false,
