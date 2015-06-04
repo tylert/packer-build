@@ -160,12 +160,12 @@
   "provisioners": [
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "inline": [
+        "yum -y install gcc make kernel-devel kernel-headers dkms bzip2 perl"
+      ],
       "only": [
         "vbox",
         "vmwf"
-      ],
-      "inline": [
-        "yum -y install gcc make kernel-devel kernel-headers dkms bzip2 perl"
       ],
       "type": "shell"
     },
@@ -236,8 +236,8 @@
     "iso_checksum_type": "sha256",
     "iso_file": "CentOS-6.6-i386-netinstall.iso",
     "iso_path_external": "http://centos.mirror.iweb.ca/6/isos/i386",
-    "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "kickstart_file": "centos/6/base-32.cfg",
+    "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
