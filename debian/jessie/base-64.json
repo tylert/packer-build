@@ -175,12 +175,12 @@
   "provisioners": [
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "inline": [
+        "apt-get --yes install build-essential dkms"
+      ],
       "only": [
         "vbox",
         "vmwf"
-      ],
-      "inline": [
-        "apt-get --yes install build-essential dkms"
       ],
       "type": "shell"
     },
@@ -206,6 +206,18 @@
     },
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "only": [
+        "vbox",
+        "qemu",
+        "vmwf"
+      ],
+      "scripts": [
+        "scripts/enable_passwordless_sudo.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "inline": [
         "apt-get clean"
       ],
@@ -213,14 +225,15 @@
     },
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "inline": [
+        "dd if=/dev/zero of=/zerofill bs=4M",
+        "rm /zerofill",
+        "sync"
+      ],
       "only": [
         "vbox",
         "qemu",
         "vmwf"
-      ],
-      "scripts": [
-        "scripts/enable_passwordless_sudo.sh",
-        "scripts/zero_image_drive.sh"
       ],
       "type": "shell"
     }
