@@ -161,7 +161,7 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "inline": [
-        "yum -y install gcc make kernel-devel kernel-headers dkms bzip2 perl"
+        "yum -y install dkms gcc make kernel-devel kernel-headers bzip2 perl"
       ],
       "only": [
         "vbox",
