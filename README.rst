@@ -73,7 +73,7 @@ order to use it.  Beware that this license expires frequently as new versions
 of VMware and/or Vagrant get released::
 
     packer build -only=vbox debian/jessie/base-64.json
-    vagrant init build/2015-05-20-12-34/base-jessie-64.vbox.box
+    vagrant init build/2015-06-31-12-34/base-jessie-64.vbox.box
     vagrant up
     vagrant ssh
     ...
@@ -89,14 +89,14 @@ for writing directly to USB drives.  Alternately, you may use "qemu-img
 convert" to convert an exiting image in another format to raw mode::
 
     packer build -only=qemu debian/jessie/base-64.json
-    dd if=build/2015-05-20-12-34/jessie.img of=/dev/sdb bs=4M
+    dd if=build/2015-06-31-12-34/base-jessie-64.img of=/dev/sdb bs=4M
     grub-install /dev/sdb
 
 ... or, if you just want to "boot" it...
 
 ::
 
-    qemu-system-x86_64 build/2015-05-20-12-34/jessie.img
+    qemu-system-x86_64 build/2015-06-31-12-34/base-jessie-64.img
 
 
 Serving Local Files via HTTP
