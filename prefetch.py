@@ -62,7 +62,7 @@ def reporthook(block_count, block_size, total_size):
     sys.stdout.flush()
 
 
-def remove_symlinks(local_directory=local_directory):
+def remove_all_symlinks(local_directory=local_directory):
     '''Remove all symlinks found in the specified local_directory.'''
 
     for filename in glob.glob(local_directory + os.sep + '*'):
@@ -105,7 +105,7 @@ if __name__ == '__main__':
         temp_dict = json.load(filehandle)
 
     # Remove all symlinks here since they are probably ones we made earlier.
-    #remove_symlinks(local_directory)
+    #remove_all_symlinks(local_directory)
 
     for entry in temp_dict['images']:
 
@@ -123,8 +123,19 @@ if __name__ == '__main__':
 
         if calculated_hash != iso_checksum:
             print('Prefetching {iso_filename}.'.format(iso_filename=iso_filename))
+
+            if not os.path.exists(local_directory):
+                try:
+                    os.mkdir(local_directory)
+                except OSError:
+                    print('Failed to create {local_directory}.'.format(local_directory=local_directory))
+                else:
+                    print('Created {local_directory}.'.format(local_directory=local_directory))
+
+            # Fetch the specified URL.
             urlretrieve(iso_url, os.path.join(local_directory, iso_filename),
                 reporthook)
+
             print('')
         else:
             print('Already have {iso_filename}.'.format(iso_filename=iso_filename))
