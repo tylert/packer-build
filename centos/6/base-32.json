@@ -90,7 +90,7 @@
         ],
         [
           "-hda",
-          "{{user `output_directory`}}/{{user `vm_name`}}.raw"
+          "{{user `qemu_image_file`}}"
         ]
       ],
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
@@ -155,6 +155,15 @@
       "output": "{{user `vagrant_box_file`}}",
       "type": "vagrant",
       "vagrantfile_template": "{{user `vagrantfile_template`}}"
+    },
+    {
+      "format": "gz",
+      "keep_input_artifact": true,
+      "only": [
+        "qemu"
+      ],
+      "output": "{{user `qemu_image_file`}}.gz",
+      "type": "compress"
     }
   ],
   "provisioners": [
@@ -239,6 +248,7 @@
     "iso_path_external": "http://centos.mirror.iweb.ca/6/isos/i386",
     "kickstart_file": "centos/6/base-32.cfg",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
+    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-centos6-32.img",
     "ram_size": 512,
     "shutdown_timeout": "5m",
     "ssh_host_port_max": 7000,
