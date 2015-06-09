@@ -195,7 +195,7 @@ Fedora_
 * 23;  released on 2015-10-27, supported until 20??-??
 * 22;  released on 2015-05-26, supported until 20??-??
 * 21;  released on 2014-12-09, supported until 20??-??
-* 20 (Heisenbug);  released on 2013-12-17, supported until 20??-??
+* 20 (Heisenbug);  released on 2013-12-17, supported until 2015-06-23
 
 CentOS_
 ^^^^^^

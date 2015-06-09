@@ -230,13 +230,14 @@
     },
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "echo 'ghost ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99ghost",
+        "chmod 0440 /etc/sudoers.d/99ghost"
+      ],
       "only": [
         "vbox",
         "qemu",
         "vmwf"
-      ],
-      "scripts": [
-        "scripts/enable_passwordless_sudo.sh"
       ],
       "type": "shell"
     },
