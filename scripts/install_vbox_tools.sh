@@ -2,7 +2,7 @@
 
 # Attempt to install the proprietary VM guest additions/tools thing.
 
-iso_name="${HOME}/VBoxGuestAdditions_$(cat ${HOME}/.vbox_version).iso"
+iso_name="/tmp/VBoxGuestAdditions_$(cat /tmp/.vbox_version).iso"
 mount_location="/media/vbox_tmp"
 
 # Don't try to install anything if stuff isn't available.
