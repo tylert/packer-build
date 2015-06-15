@@ -201,9 +201,9 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
-        "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "echo 'Defaults:{{user `ssh_username`}} !requiretty' >> /etc/sudoers.d/99{{user `ssh_username`}}",
         "echo 'Defaults:{{user `ssh_username`}} env_keep += \"SSH_AUTH_SOCK\"' >> /etc/sudoers.d/99{{user `ssh_username`}}",
+        "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
       "only": [
