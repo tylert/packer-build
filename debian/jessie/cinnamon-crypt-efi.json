@@ -224,8 +224,8 @@
     {
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
-        "echo 'ghost ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99ghost",
-        "chmod 0440 /etc/sudoers.d/99ghost"
+        "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
+        "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
       "only": [
         "vbox",
