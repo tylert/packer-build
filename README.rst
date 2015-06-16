@@ -134,6 +134,7 @@ Other
 -----
 
 * http://www.preining.info/blog/2014/05/usb-stick-tails-systemrescuecd/
+* http://www.boehmi.net/index.php/blog/14-how-to-setup-an-apt-cacher-ng-server-in-ubuntu
 
 * https://5pi.de/2015/03/13/building-aws-amis-from-scratch/
 * http://www.scalehorizontally.com/2013/02/24/introduction-to-cloud-init/
