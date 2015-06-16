@@ -183,7 +183,6 @@ Ubuntu_
 * Xanthic? (16.04 LTS);  released on 2016-04-??, supported until 2021-??
 * Wily (15.10);  released on 2015-10-22, supported until 2016-07
 * Vivid (15.04);  released on 2015-04-23, supported until 2016-01
-* Utopic (14.10);  released on 2014-10-23, supported until 2015-07
 * Trusty (14.04 LTS);  released on 2014-04-17, supported until 2019-04
 * Precise (12.04 LTS);  released on 2012-04-26, supported until 2017-04-26
 
@@ -195,7 +194,6 @@ Fedora_
 * 23;  released on 2015-10-27, supported until 20??-??
 * 22;  released on 2015-05-26, supported until 20??-??
 * 21;  released on 2014-12-09, supported until 20??-??
-* 20 (Heisenbug);  released on 2013-12-17, supported until 2015-06-23
 
 CentOS_
 ^^^^^^
