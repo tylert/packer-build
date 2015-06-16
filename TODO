@@ -31,4 +31,4 @@ Fedora
 CentOS
 ------
 
-* CentOS 5.x currently doesn't seem to get past the installing packages step
+* CentOS 5.x:  "ghost is not in the sudoers file"
