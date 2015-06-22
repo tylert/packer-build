@@ -243,6 +243,8 @@
     }
   ],
   "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
     "description": "Base box for 32-bit x86 CentOS 5.x",
     "disk_size": 7500,

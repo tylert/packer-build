@@ -271,6 +271,8 @@
     }
   ],
   "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
     "description": "Base box for 32-bit x86 Ubuntu Vivid Vervet 15.04",
     "disk_size": 7500,
