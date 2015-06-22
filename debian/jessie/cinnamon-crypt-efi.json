@@ -201,6 +201,7 @@
         "vmwf"
       ],
       "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
       "type": "shell"
     },
     {
@@ -214,6 +215,7 @@
         "scripts/config_uefi_shell.sh",
         "scripts/install_vbox_tools.sh"
       ],
+      "start_retry_timeout": "5m",
       "type": "shell"
     },
     {
@@ -226,6 +228,7 @@
       "scripts": [
         "scripts/install_vmwf_tools.sh"
       ],
+      "start_retry_timeout": "5m",
       "type": "shell"
     },
     {
@@ -241,6 +244,7 @@
         "vmwf"
       ],
       "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
       "type": "shell"
     },
     {
@@ -250,6 +254,7 @@
         "apt-get clean"
       ],
       "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
       "type": "shell"
     },
     {
@@ -266,6 +271,7 @@
         "vmwf"
       ],
       "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
       "type": "shell"
     }
   ],
