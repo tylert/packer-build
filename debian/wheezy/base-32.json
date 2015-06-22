@@ -184,6 +184,7 @@
   ],
   "provisioners": [
     {
+      "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "apt-get --yes install dkms build-essential"
@@ -195,6 +196,7 @@
       "type": "shell"
     },
     {
+      "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "only": [
         "vbox"
@@ -205,6 +207,7 @@
       "type": "shell"
     },
     {
+      "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "only": [
         "vmwf"
@@ -215,6 +218,7 @@
       "type": "shell"
     },
     {
+      "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
@@ -228,6 +232,7 @@
       "type": "shell"
     },
     {
+      "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "apt-get clean"
@@ -235,6 +240,7 @@
       "type": "shell"
     },
     {
+      "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "dd if=/dev/zero of=/zerofill bs=4M",
