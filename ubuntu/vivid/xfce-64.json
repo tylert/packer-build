@@ -210,6 +210,7 @@
       "inline": [
         "apt-get --yes install dkms build-essential"
       ],
+      "inline_shebang": "/bin/sh",
       "only": [
         "vbox",
         "vmwf"
@@ -251,6 +252,7 @@
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
+      "inline_shebang": "/bin/sh",
       "only": [
         "vbox",
         "qemu",
@@ -266,6 +268,7 @@
       "inline": [
         "apt-get clean"
       ],
+      "inline_shebang": "/bin/sh",
       "remote_path": "/tmp/script.sh",
       "start_retry_timeout": "5m",
       "type": "shell"
@@ -278,6 +281,7 @@
         "rm /zerofill",
         "sync"
       ],
+      "inline_shebang": "/bin/sh",
       "only": [
         "vbox",
         "qemu",
