@@ -60,6 +60,8 @@ To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
 
     packer validate debian/jessie/base-64.json
+    find {debian,ubuntu,centos} -name '*.json' -exec packer validate {} \;
+
     packer fix debian/jessie/base-64.json > temporary.json
     mv temporary.json debian/jessie/base-64.json
 

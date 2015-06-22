@@ -193,6 +193,7 @@
         "vbox",
         "vmwf"
       ],
+      "remote_path": "/tmp/script.sh",
       "type": "shell"
     },
     {
@@ -201,6 +202,7 @@
       "only": [
         "vbox"
       ],
+      "remote_path": "/tmp/script.sh",
       "scripts": [
         "scripts/install_vbox_tools.sh"
       ],
@@ -212,6 +214,7 @@
       "only": [
         "vmwf"
       ],
+      "remote_path": "/tmp/script.sh",
       "scripts": [
         "scripts/install_vmwf_tools.sh"
       ],
@@ -229,6 +232,7 @@
         "qemu",
         "vmwf"
       ],
+      "remote_path": "/tmp/script.sh",
       "type": "shell"
     },
     {
@@ -237,6 +241,7 @@
       "inline": [
         "apt-get clean"
       ],
+      "remote_path": "/tmp/script.sh",
       "type": "shell"
     },
     {
@@ -252,6 +257,7 @@
         "qemu",
         "vmwf"
       ],
+      "remote_path": "/tmp/script.sh",
       "type": "shell"
     }
   ],
