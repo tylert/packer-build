@@ -278,7 +278,7 @@
     }
   ],
   "variables": {
-    "ami_name": "base-{{isotime | clean_ami_name}}",
+    "ami_name": "base-{{isotime \"2006-01-02-15-04\"}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
