@@ -324,7 +324,7 @@
     "iso_file": "ubuntu-15.04-server-i386.iso",
     "iso_path_external": "http://releases.ubuntu.com/15.04",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "ubuntu/vivid/base.seed",
+    "preseed_file": "ubuntu/vivid/base-32.seed",
     "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-vivid-32.img",
     "ram_size": 512,
     "region": "us-east-1",

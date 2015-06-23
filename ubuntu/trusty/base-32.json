@@ -324,7 +324,7 @@
     "iso_file": "ubuntu-14.04.2-server-i386.iso",
     "iso_path_external": "http://releases.ubuntu.com/14.04.2",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "ubuntu/trusty/base.seed",
+    "preseed_file": "ubuntu/trusty/base-32.seed",
     "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-trusty-32.img",
     "ram_size": 512,
     "region": "us-east-1",

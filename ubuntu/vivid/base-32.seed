@@ -1,12 +1,26 @@
-# Enable extras.ubuntu.com.
-d-i	apt-setup/extras	boolean true
-# Install the Xubuntu desktop.
-tasksel	tasksel/first	multiselect xubuntu-desktop
-# No XFCE translation packages yet.
+# Suggest LVM by default.
+d-i	partman-auto/init_automatically_partition	string some_device_lvm
+d-i	partman-auto/init_automatically_partition	seen false
+# Install the Ubuntu Server seed.
+tasksel	tasksel/force-tasks	string server
+# Only install basic language packs. Let tasksel ask about tasks.
 d-i	pkgsel/language-pack-patterns	string
+# No language support packages.
+d-i	pkgsel/install-language-support	boolean false
+# Only ask the UTC question if there are other operating systems installed.
+d-i	clock-setup/utc-auto	boolean true
+# Verbose output and no boot splash screen.
+d-i	debian-installer/quiet	boolean false
+d-i	debian-installer/splash	boolean false
+# Install the debconf oem-config frontend (if in OEM mode).
+d-i	oem-config-udeb/frontend	string debconf
+# Wait for two seconds in grub
+d-i	grub-installer/timeout	string 2
+# Add the network and tasks oem-config steps by default.
+oem-config	oem-config/steps	multiselect language, timezone, keyboard, user, network, tasks
 
 # =============================================================================
-# Everything above is from xubuntu.seed in xubuntu-15.04-desktop-amd64.iso.
+# Everything above is from ubuntu-server.seed in ubuntu-15.04-server-amd64.iso
 
 # Locale Setup
 # must be passed in on the init line as well
@@ -28,6 +42,12 @@ d-i clock-setup/utc boolean true
 #   set above to false if making a bootable USB for Windows users
 #   (if you want to take pity on them)
 
+# Network Setup
+# must be passed in on the init line as well
+d-i netcfg/get_hostname string base-vivid-32
+d-i netcfg/get_domain string
+# must be passed in on the init line as well
+
 # User Setup
 d-i passwd/user-fullname string Ghost Writer
 d-i passwd/username string ghost
@@ -37,17 +57,12 @@ d-i passwd/user-password-again password 1ma63b0rk3d
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
 
-# Network Setup
-# must be passed in on the init line as well
-d-i netcfg/get_hostname string vivid-desktop
-d-i netcfg/get_domain string
-# must be passed in on the init line as well
-
 # Package Setup
 d-i mirror/http/proxy string
 d-i pkgsel/update-policy select none
-tasksel tasksel/first multiselect standard
+tasksel tasksel/first multiselect ubuntu-server
 d-i pkgsel/include string openssh-server
+d-i pkgsel/upgrade select full-upgrade
 
 # Drive Setup
 d-i grub-installer/only_debian boolean true

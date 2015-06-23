@@ -1,13 +1,12 @@
 # Enable extras.ubuntu.com.
 d-i	apt-setup/extras	boolean true
 # Install the Xubuntu desktop.
-#tasksel	tasksel/first	multiselect xubuntu-desktop
+tasksel	tasksel/first	multiselect xubuntu-desktop
 # No XFCE translation packages yet.
 d-i	pkgsel/language-pack-patterns	string
-d-i  base-installer/kernel/altmeta   string lts-utopic
 
 # =============================================================================
-# Everything above is from xubuntu.seed in xubuntu-14.04.2-desktop-amd64.iso.
+# Everything above is from xubuntu.seed in xubuntu-15.04-desktop-amd64.iso.
 
 # Locale Setup
 # must be passed in on the init line as well
@@ -40,16 +39,15 @@ d-i user-setup/encrypt-home boolean false
 
 # Network Setup
 # must be passed in on the init line as well
-d-i netcfg/get_hostname string trusty-desktop
+d-i netcfg/get_hostname string xfce-vivid-32
 d-i netcfg/get_domain string
 # must be passed in on the init line as well
 
 # Package Setup
 d-i mirror/http/proxy string
 d-i pkgsel/update-policy select none
-tasksel tasksel/first multiselect xubuntu-desktop
+tasksel tasksel/first multiselect standard
 d-i pkgsel/include string openssh-server
-d-i pkgsel/upgrade select full-upgrade
 
 # Drive Setup
 d-i grub-installer/only_debian boolean true
