@@ -144,6 +144,7 @@
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
+      "disk_type_id": "1",
       "guest_os_type": "debian6",
       "headless": "{{user `headless`}}",
       "http_directory": "{{user `http_directory`}}",
@@ -166,7 +167,7 @@
       "tools_upload_flavor": "linux",
       "tools_upload_path": "{{.Flavor}}.iso",
       "type": "vmware-iso",
-      "version": 9,
+      "version": "9",
       "vm_name": "{{user `vm_name`}}",
       "vmdk_name": "{{user `vm_name`}}",
       "vmx_data": {
