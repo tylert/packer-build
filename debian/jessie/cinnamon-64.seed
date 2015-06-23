@@ -5,8 +5,6 @@ d-i debian-installer/locale string en_CA.UTF-8
 
 # Keyboard Setup
 d-i keyboard-configuration/xkb-keymap select us
-# Needed to skip "Select a keyboard layout, Keymap to use:  American English"
-d-i console-keymaps-at/keymap select us
 
 # Clock Setup
 #d-i time/zone string Canada/Eastern
@@ -16,7 +14,7 @@ d-i clock-setup/utc boolean true
 #   (if you want to take pity on them)
 
 # Network Setup
-d-i netcfg/get_hostname string base-squeeze
+d-i netcfg/get_hostname string cinnamon-jessie-64
 d-i netcfg/get_domain string
 
 # User Setup
@@ -34,7 +32,8 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.ca.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
-tasksel tasksel/first multiselect print-server, ssh-server, standard
+tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, cinnamon-desktop
+lightdm shared/default-x-display-manager select lightdm
 d-i pkgsel/include string sudo, git, ansible, cryptsetup
 popularity-contest popularity-contest/participate boolean false
 

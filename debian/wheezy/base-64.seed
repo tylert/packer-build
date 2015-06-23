@@ -14,7 +14,7 @@ d-i clock-setup/utc boolean true
 #   (if you want to take pity on them)
 
 # Network Setup
-d-i netcfg/get_hostname string jessie-desktop
+d-i netcfg/get_hostname string base-wheezy-64
 d-i netcfg/get_domain string
 
 # User Setup
@@ -32,8 +32,7 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.ca.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
-tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, cinnamon-desktop
-lightdm shared/default-x-display-manager select lightdm
+tasksel tasksel/first multiselect print-server, ssh-server, standard
 d-i pkgsel/include string sudo, git, ansible, cryptsetup
 popularity-contest popularity-contest/participate boolean false
 

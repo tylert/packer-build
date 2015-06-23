@@ -309,7 +309,7 @@
     "iso_file": "debian-6.0.10-amd64-i386-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/archive/6.0.10/multi-arch/iso-cd",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "debian/squeeze/base.seed",
+    "preseed_file": "debian/squeeze/base-64.seed",
     "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-squeeze-64.img",
     "ram_size": 512,
     "region": "us-east-1",

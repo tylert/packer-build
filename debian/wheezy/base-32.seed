@@ -14,7 +14,7 @@ d-i clock-setup/utc boolean true
 #   (if you want to take pity on them)
 
 # Network Setup
-d-i netcfg/get_hostname string base-jessie
+d-i netcfg/get_hostname string base-wheezy-32
 d-i netcfg/get_domain string
 
 # User Setup
