@@ -129,6 +129,23 @@
       "vm_name": "{{user `vm_name`}}"
     },
     {
+      "access_key": "{{user `aws_access_key`}}",
+      "ami_description": "{{user `description`}}",
+      "ami_name": "{{user `ami_name`}}",
+      "instance_type": "{{user `instance_type`}}",
+      "name": "aws",
+      "region": "{{user `region`}}",
+      "run_tags": {
+        "Name": "AMI Builder"
+      },
+      "secret_key": "{{user `aws_secret_key`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_timeout": "5m",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "amazon-ebs"
+    },
+    {
       "boot_command": [
         "<esc><esc><esc><enter><wait>",
         "/casper/vmlinuz.efi ",
@@ -170,8 +187,9 @@
       "tools_upload_flavor": "linux",
       "tools_upload_path": "{{.Flavor}}.iso",
       "type": "vmware-iso",
+      "version": 9,
       "vm_name": "{{user `vm_name`}}",
-      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmdk_name": "{{user `vm_name`}}",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
         "memsize": "{{user `ram_size`}}",
@@ -293,6 +311,7 @@
     }
   ],
   "variables": {
+    "ami_name": "base-{{isotime | clean_ami_name}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
@@ -304,6 +323,7 @@
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
+    "instance_type": "t2.micro",
     "iso_checksum": "539c3ae45f4197bda920cd912020ce6571a1f553a319e4620af0f9bc72c2a134",
     "iso_checksum_type": "sha256",
     "iso_file": "xubuntu-15.04-desktop-amd64.iso",
@@ -324,7 +344,6 @@
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/desktop-vivid-64.vbox.box",
     "vagrantfile_template": "Vagrantfile.template",
     "vm_name": "desktop-vivid-64",
-    "vmdk_name": "desktop-vivid-64",
     "vnc_port_max": 6000,
     "vnc_port_min": 5900
   }

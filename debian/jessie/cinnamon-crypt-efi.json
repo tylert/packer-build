@@ -121,6 +121,23 @@
       "vm_name": "{{user `vm_name`}}"
     },
     {
+      "access_key": "{{user `aws_access_key`}}",
+      "ami_description": "{{user `description`}}",
+      "ami_name": "{{user `ami_name`}}",
+      "instance_type": "{{user `instance_type`}}",
+      "name": "aws",
+      "region": "{{user `region`}}",
+      "run_tags": {
+        "Name": "AMI Builder"
+      },
+      "secret_key": "{{user `aws_secret_key`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_timeout": "5m",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "amazon-ebs"
+    },
+    {
       "boot_command": [
         "<wait>c<wait>linux /install.amd/vmlinuz ",
         "auto=true ",
@@ -155,8 +172,9 @@
       "tools_upload_flavor": "linux",
       "tools_upload_path": "{{.Flavor}}.iso",
       "type": "vmware-iso",
+      "version": 9,
       "vm_name": "{{user `vm_name`}}",
-      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmdk_name": "{{user `vm_name`}}",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
         "firmware": "efi",
@@ -280,6 +298,7 @@
     }
   ],
   "variables": {
+    "ami_name": "base-{{isotime | clean_ami_name}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
@@ -291,6 +310,7 @@
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
+    "instance_type": "t2.micro",
     "iso_checksum": "3014ac46ee61c58d977a45e08e1e97e997023937bc49a254ddd0d6b4440a180c322ed416955a0c4812aea2e1fb2eed6516addc7fe236e57880e84c275d5cbf4b",
     "iso_checksum_type": "sha512",
     "iso_file": "debian-8.0.0-amd64-i386-netinst.iso",
@@ -311,7 +331,6 @@
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/desktop-jessie-64.vbox.box",
     "vagrantfile_template": "Vagrantfile.template",
     "vm_name": "desktop-jessie-64",
-    "vmdk_name": "desktop-jessie-64",
     "vnc_port_max": 6000,
     "vnc_port_min": 5900
   }

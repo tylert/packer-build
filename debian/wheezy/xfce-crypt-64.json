@@ -115,6 +115,23 @@
       "vm_name": "{{user `vm_name`}}"
     },
     {
+      "access_key": "{{user `aws_access_key`}}",
+      "ami_description": "{{user `description`}}",
+      "ami_name": "{{user `ami_name`}}",
+      "instance_type": "{{user `instance_type`}}",
+      "name": "aws",
+      "region": "{{user `region`}}",
+      "run_tags": {
+        "Name": "AMI Builder"
+      },
+      "secret_key": "{{user `aws_secret_key`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_timeout": "5m",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "amazon-ebs"
+    },
+    {
       "boot_command": [
         "<down><down><down><down><down><enter><wait>",
         "/install.amd/vmlinuz ",
@@ -149,8 +166,9 @@
       "tools_upload_flavor": "linux",
       "tools_upload_path": "{{.Flavor}}.iso",
       "type": "vmware-iso",
+      "version": 9,
       "vm_name": "{{user `vm_name`}}",
-      "vmdk_name": "{{user `vmdk_name`}}",
+      "vmdk_name": "{{user `vm_name`}}",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
         "memsize": "{{user `ram_size`}}",
@@ -272,6 +290,7 @@
     }
   ],
   "variables": {
+    "ami_name": "base-{{isotime | clean_ami_name}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
@@ -283,6 +302,7 @@
     "http_directory": ".",
     "http_port_max": 9000,
     "http_port_min": 8000,
+    "instance_type": "t2.micro",
     "iso_checksum": "be7661f669f6b87655af083042e8a3f0f8bc47834fb1efd38edbc33442d429114ff70e61748cb5877d8856388610bf9c18ecff7f30f4f3d6615f36136eb301aa",
     "iso_checksum_type": "sha512",
     "iso_file": "debian-7.8.0-amd64-i386-netinst.iso",
@@ -303,7 +323,6 @@
     "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/desktop-wheezy-64.vbox.box",
     "vagrantfile_template": "Vagrantfile.template",
     "vm_name": "desktop-wheezy-64",
-    "vmdk_name": "desktop-wheezy-64",
     "vnc_port_max": 6000,
     "vnc_port_min": 5900
   }
