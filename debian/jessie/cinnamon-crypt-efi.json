@@ -123,6 +123,7 @@
     {
       "access_key": "{{user `aws_access_key`}}",
       "ami_description": "{{user `description`}}",
+      "ami_groups": "all",
       "ami_name": "{{user `ami_name`}}",
       "instance_type": "{{user `instance_type`}}",
       "name": "aws",
