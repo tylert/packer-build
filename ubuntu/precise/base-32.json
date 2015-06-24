@@ -326,7 +326,7 @@
     "iso_path_external": "http://releases.ubuntu.com/12.04.5",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "ubuntu/precise/base-32.seed",
-    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-precise-32.img",
+    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-precise-32.raw",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",

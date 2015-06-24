@@ -311,7 +311,7 @@
     "iso_path_external": "http://cdimage.debian.org/cdimage/release/7.8.0/multi-arch/iso-cd",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "debian/wheezy/xfce-crypt-32.seed",
-    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/xfce-crypt-wheezy-32.img",
+    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/xfce-crypt-wheezy-32.raw",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",

@@ -332,7 +332,7 @@
     "iso_path_external": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "ubuntu/trusty/xfce-64.seed",
-    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/xfce-trusty-64.img",
+    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/xfce-trusty-64.raw",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",

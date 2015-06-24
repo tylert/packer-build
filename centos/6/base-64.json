@@ -298,7 +298,7 @@
     "iso_path_external": "http://centos.mirror.iweb.ca/6/isos/x86_64",
     "kickstart_file": "centos/6/base-64.cfg",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-centos6-64.img",
+    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-centos6-64.raw",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",

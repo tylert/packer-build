@@ -311,7 +311,7 @@
     "iso_path_external": "http://cdimage.debian.org/cdimage/release/8.1.0/multi-arch/iso-cd",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "debian/jessie/cinnamon-64.seed",
-    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/cinnamon-jessie-64.img",
+    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/cinnamon-jessie-64.raw",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",
