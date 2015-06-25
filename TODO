@@ -1,6 +1,7 @@
 All
 ---
 
+* Prefetch script now does something different then Packer 0.8.0 does for URLs
 * Allow prefetch script to build symlinks for other URLs than the original
 * Ensure prefetch script handles pre-existing non-symlink ISO downloads
 * Make prefetch script announce symlink cleanup using os.path.basename()
@@ -25,10 +26,12 @@ Ubuntu
 Fedora
 ------
 
-* Get supported releases of Fedora working properly with kickstarts and such
+* Get all supported releases of Fedora working properly with kickstarts and such
 
 
 CentOS
 ------
 
-* CentOS 5.x:  "ghost is not in the sudoers file"
+* CentOS 7.x   Gives a weird install screen (not Anaconda anymore?)
+* CentOS 5.x:  Hangs at installing packages screen.
+               Might still have "ghost is not in the sudoers file" problem.
