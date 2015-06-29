@@ -33,7 +33,8 @@ order to use it.  Beware that this license expires frequently as new versions
 of VMware and/or Vagrant get released::
 
     packer build -only=vbox debian/jessie/base-64.json
-    vagrant init build/2015-06-31-12-34/base-jessie-64.virtualbox.box
+    vagrant box add myname/jessie64 build/2015-06-31-12-34/base-jessie-64.virtualbox.box
+    vagrant init myname/jessie64
     vagrant up
     vagrant ssh
     ...
