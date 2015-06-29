@@ -6,6 +6,57 @@ provided preseed and kickstart files may also be used to build fresh real
 machines on bare metal as well.
 
 
+Using Packer Templates
+----------------------
+
+::
+
+    packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
+    packer build -only=qemu debian/wheezy/xfce-crypt.json
+    packer build -only=vmwf ubuntu/trusty/base-64.json
+
+To verify your templates, force them to be re-sorted and/or to upgrade your
+templates whenever the version of Packer changes::
+
+    find {debian,ubuntu,centos} -name '*.json' -exec packer validate {} \;
+
+    packer fix debian/jessie/base-64.json > temporary.json
+    mv temporary.json debian/jessie/base-64.json
+
+
+Building and Using Vagrant Box Files
+------------------------------------
+
+Only the VirtualBox builder is used to create Vagrant box files.  This is
+intentional as, currently, the Vagrant VMware plugin requires a paid license in
+order to use it.  Beware that this license expires frequently as new versions
+of VMware and/or Vagrant get released::
+
+    packer build -only=vbox debian/jessie/base-64.json
+    vagrant init build/2015-06-31-12-34/base-jessie-64.virtualbox.box
+    vagrant up
+    vagrant ssh
+    ...
+    vagrant destroy
+
+
+Making Bootable USB Drives
+--------------------------
+
+Be sure to use the Packer QEMU "kvm" builder when trying to create bootable USB
+images.  This allows the use of the "raw" block device format which is ideal
+for writing directly to USB drives.  Alternately, you may use "qemu-img
+convert" to convert an exiting image in another format to raw mode::
+
+    packer build -only=qemu debian/jessie/base-64.json
+    dd if=build/2015-06-31-12-34/base-jessie-64.raw of=/dev/sdb bs=4M
+    grub-install /dev/sdb
+
+... Or, if you just want to "boot" it::
+
+    qemu-system-x86_64 build/2015-06-31-12-34/base-jessie-64.raw
+
+
 Prefetching ISO Files
 ---------------------
 
@@ -45,60 +96,6 @@ environment variables::
 * https://checkpoint.hashicorp.com/
 * https://github.com/hashicorp/go-checkpoint
 * https://docs.vagrantup.com/v2/other/environmental-variables.html
-
-
-Using Packer Templates
-----------------------
-
-::
-
-    packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
-    packer build -only=qemu debian/wheezy/xfce-crypt.json
-    packer build -only=vmwf ubuntu/trusty/base-64.json
-
-To verify your templates, force them to be re-sorted and/or to upgrade your
-templates whenever the version of Packer changes::
-
-    packer validate debian/jessie/base-64.json
-    find {debian,ubuntu,centos} -name '*.json' -exec packer validate {} \;
-
-    packer fix debian/jessie/base-64.json > temporary.json
-    mv temporary.json debian/jessie/base-64.json
-
-
-Using Vagrant Box Files
------------------------
-
-Only the VirtualBox builder is used to create Vagrant box files.  This is
-intentional as, currently, the Vagrant VMware plugin requires a paid license in
-order to use it.  Beware that this license expires frequently as new versions
-of VMware and/or Vagrant get released::
-
-    packer build -only=vbox debian/jessie/base-64.json
-    vagrant init build/2015-06-31-12-34/base-jessie-64.vbox.box
-    vagrant up
-    vagrant ssh
-    ...
-    vagrant destroy
-
-
-Making Bootable USB Drives
---------------------------
-
-Be sure to use the Packer QEMU "kvm" builder when trying to create bootable USB
-images.  This allows the use of the "raw" block device format which is ideal
-for writing directly to USB drives.  Alternately, you may use "qemu-img
-convert" to convert an exiting image in another format to raw mode::
-
-    packer build -only=qemu debian/jessie/base-64.json
-    dd if=build/2015-06-31-12-34/base-jessie-64.img of=/dev/sdb bs=4M
-    grub-install /dev/sdb
-
-... or, if you just want to "boot" it...
-
-::
-
-    qemu-system-x86_64 build/2015-06-31-12-34/base-jessie-64.img
 
 
 Serving Local Files via HTTP
