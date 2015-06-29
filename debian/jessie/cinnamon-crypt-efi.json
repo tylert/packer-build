@@ -200,7 +200,7 @@
       "vagrantfile_template": "{{user `vagrantfile_template`}}"
     },
     {
-      "format": "gz",
+      "compression_level": 6,
       "keep_input_artifact": true,
       "only": [
         "qemu"
