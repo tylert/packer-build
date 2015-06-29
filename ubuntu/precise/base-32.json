@@ -110,7 +110,7 @@
         ],
         [
           "-hda",
-          "{{user `qemu_image_file`}}"
+          "{{user `output_directory`}}/{{user `vm_name`}}.raw"
         ]
       ],
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
@@ -203,7 +203,7 @@
       "only": [
         "vbox"
       ],
-      "output": "{{user `vagrant_box_file`}}",
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}.{{.Provider}}.box",
       "type": "vagrant",
       "vagrantfile_template": "{{user `vagrantfile_template`}}"
     },
@@ -213,7 +213,7 @@
       "only": [
         "qemu"
       ],
-      "output": "{{user `qemu_image_file`}}.gz",
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz",
       "type": "compress"
     }
   ],
@@ -326,7 +326,6 @@
     "iso_path_external": "http://releases.ubuntu.com/12.04.5",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "ubuntu/precise/base-32.seed",
-    "qemu_image_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-precise-32.raw",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",
@@ -337,7 +336,6 @@
     "ssh_username": "ghost",
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
-    "vagrant_box_file": "build/{{isotime \"2006-01-02-15-04\"}}/base-precise-32.vbox.box",
     "vagrantfile_template": "Vagrantfile.template",
     "vm_name": "base-precise-32",
     "vnc_port_max": "6000",
