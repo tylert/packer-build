@@ -141,58 +141,6 @@
       "ssh_timeout": "5m",
       "ssh_username": "{{user `ssh_username`}}",
       "type": "amazon-ebs"
-    },
-    {
-      "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz ",
-        "initrd=/install/initrd.gz ",
-        "auto=true ",
-        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
-        "language=en ",
-        "country=CA ",
-        "locale=en_CA.UTF-8 ",
-        "hostname={{user `hostname`}} ",
-        "domain={{user `domain`}} ",
-        "console-setup/ask_detect=false ",
-        "keyboard-configuration/layoutcode=us ",
-        "vga=788 noprompt quiet --<enter>"
-      ],
-      "boot_wait": "{{user `boot_wait`}}",
-      "disk_size": "{{user `disk_size`}}",
-      "disk_type_id": "1",
-      "guest_os_type": "ubuntu-64",
-      "headless": "{{user `headless`}}",
-      "http_directory": "{{user `http_directory`}}",
-      "http_port_max": "{{user `http_port_max`}}",
-      "http_port_min": "{{user `http_port_min`}}",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
-      "iso_urls": [
-        "{{user `iso_path_external`}}/{{user `iso_file`}}"
-      ],
-      "name": "vmwf",
-      "output_directory": "{{user `output_directory`}}",
-      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
-      "shutdown_timeout": "{{user `shutdown_timeout`}}",
-      "skip_compaction": false,
-      "ssh_password": "{{user `sudo_password`}}",
-      "ssh_port": "{{user `ssh_port`}}",
-      "ssh_username": "{{user `ssh_username`}}",
-      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
-      "tools_upload_flavor": "linux",
-      "tools_upload_path": "{{.Flavor}}.iso",
-      "type": "vmware-iso",
-      "version": "9",
-      "vm_name": "{{user `vm_name`}}",
-      "vmdk_name": "{{user `vm_name`}}",
-      "vmx_data": {
-        "cpuid.coresPerSocket": "1",
-        "memsize": "{{user `ram_size`}}",
-        "numvcpus": "1"
-      },
-      "vnc_port_max": "{{user `vnc_port_max`}}",
-      "vnc_port_min": "{{user `vnc_port_min`}}"
     }
   ],
   "description": "{{user `description`}}",
@@ -226,8 +174,7 @@
       ],
       "inline_shebang": "/bin/sh",
       "only": [
-        "vbox",
-        "vmwf"
+        "vbox"
       ],
       "remote_path": "/tmp/script.sh",
       "start_retry_timeout": "5m",
@@ -249,19 +196,6 @@
     {
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
-      "only": [
-        "vmwf"
-      ],
-      "remote_path": "/tmp/script.sh",
-      "scripts": [
-        "scripts/install_vmwf_tools.sh"
-      ],
-      "start_retry_timeout": "5m",
-      "type": "shell"
-    },
-    {
-      "binary": false,
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
@@ -269,8 +203,7 @@
       "inline_shebang": "/bin/sh",
       "only": [
         "vbox",
-        "qemu",
-        "vmwf"
+        "qemu"
       ],
       "remote_path": "/tmp/script.sh",
       "start_retry_timeout": "5m",
@@ -298,8 +231,7 @@
       "inline_shebang": "/bin/sh",
       "only": [
         "vbox",
-        "qemu",
-        "vmwf"
+        "qemu"
       ],
       "remote_path": "/tmp/script.sh",
       "start_retry_timeout": "5m",
@@ -337,9 +269,7 @@
     "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
     "vagrantfile_template": "Vagrantfile.template",
-    "vm_name": "base-trusty-64",
-    "vnc_port_max": "6000",
-    "vnc_port_min": "5900"
+    "vm_name": "base-trusty-64"
   }
 }
 

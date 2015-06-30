@@ -11,9 +11,8 @@ Using Packer Templates
 
 ::
 
-    packer build -only=vbox debian/jessie/cinnamon-crypt-efi.json
-    packer build -only=qemu debian/wheezy/xfce-crypt.json
-    packer build -only=vmwf ubuntu/trusty/base-64.json
+    packer build -only=vbox debian/jessie/base-64.json
+    packer build -only=qemu debian/wheezy/base-32.json
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
@@ -27,10 +26,7 @@ templates whenever the version of Packer changes::
 Building and Using Vagrant Box Files
 ------------------------------------
 
-Only the VirtualBox builder is used to create Vagrant box files.  This is
-intentional as, currently, the Vagrant VMware plugin requires a paid license in
-order to use it.  Beware that this license expires frequently as new versions
-of VMware and/or Vagrant get released::
+::
 
     packer build -only=vbox debian/jessie/base-64.json
     vagrant box add myname/jessie64 build/2015-06-31-12-34/base-jessie-64.virtualbox.box
