@@ -17,6 +17,7 @@
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
+      "communicator": "ssh",
       "disk_size": "{{user `disk_size`}}",
       "format": "ova",
       "guest_additions_mode": "upload",
@@ -42,8 +43,9 @@
       "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": false,
+      "ssh_timeout": "{{user `ssh_timeout`}}",
       "ssh_username": "{{user `ssh_username`}}",
-      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "virtualbox-iso",
       "vboxmanage": [
         [
@@ -80,6 +82,7 @@
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
+      "communicator": "ssh",
       "disk_cache": "writethrough",
       "disk_image": false,
       "disk_interface": "virtio",
@@ -119,8 +122,9 @@
       "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": false,
+      "ssh_timeout": "{{user `ssh_timeout`}}",
       "ssh_username": "{{user `ssh_username`}}",
-      "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}"
     },
@@ -129,6 +133,7 @@
       "ami_description": "{{user `description`}}",
       "ami_groups": "all",
       "ami_name": "{{user `ami_name`}}",
+      "communicator": "ssh",
       "instance_type": "{{user `instance_type`}}",
       "name": "aws",
       "region": "{{user `region`}}",
@@ -138,7 +143,8 @@
       "secret_key": "{{user `aws_secret_key`}}",
       "source_ami": "{{user `source_ami`}}",
       "ssh_port": "{{user `ssh_port`}}",
-      "ssh_timeout": "5m",
+      "ssh_pty": false,
+      "ssh_timeout": "{{user `ssh_timeout`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "type": "amazon-ebs"
     }
@@ -265,8 +271,8 @@
     "ssh_host_port_max": "7000",
     "ssh_host_port_min": "6000",
     "ssh_port": "22",
+    "ssh_timeout": "60m",
     "ssh_username": "ghost",
-    "ssh_wait_timeout": "60m",
     "sudo_password": "1ma63b0rk3d",
     "vagrantfile_template": "Vagrantfile.template",
     "vm_name": "base-trusty-64"
