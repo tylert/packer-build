@@ -6,6 +6,38 @@ provided preseed and kickstart files may also be used to build fresh real
 machines on bare metal as well.
 
 
+Why does this exist?
+^^^^^^^^^^^^^^^^^^^^
+
+Because.
+
+
+What does this do?
+^^^^^^^^^^^^^^^^^^
+
+Everything.
+
+
+Who needs this?
+^^^^^^^^^^^^^^^
+
+Everyone.
+
+
+How does this work?
+^^^^^^^^^^^^^^^^^^^
+
+Magic.
+
+
+What dependencies does this have?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* https://packer.io/
+* https://www.vagrantup.com/
+* https://www.virtualbox.org/
+
+
 Using Packer Templates
 ----------------------
 
@@ -124,13 +156,6 @@ Serving Local Files via HTTP
 ::
 
     ./sow.py
-
-
-Install Tools
--------------
-
-* https://packer.io/docs
-* https://docs.vagrantup.com/v2/
 
 
 Preseed Documentation
