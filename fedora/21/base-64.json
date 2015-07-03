@@ -1,0 +1,263 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<tab> ",
+        "ks=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `kickstart_file`}} ",
+        "<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "communicator": "ssh",
+      "disk_size": "{{user `disk_size`}}",
+      "format": "ova",
+      "guest_additions_mode": "upload",
+      "guest_additions_path": "/tmp/VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_os_type": "Fedora_64",
+      "hard_drive_interface": "sata",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_interface": "sata",
+      "iso_urls": [
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
+      "name": "vbox",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": false,
+      "ssh_timeout": "{{user `ssh_timeout`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "{{user `ram_size`}}"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ],
+      "virtualbox_version_file": "/tmp/.vbox_version",
+      "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "accelerator": "kvm",
+      "boot_command": [
+        "<tab> ",
+        "ks=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `kickstart_file`}} ",
+        "<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "communicator": "ssh",
+      "disk_cache": "writethrough",
+      "disk_image": false,
+      "disk_interface": "virtio",
+      "disk_size": "{{user `disk_size`}}",
+      "format": "raw",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_urls": [
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
+      "machine_type": "pc",
+      "name": "qemu",
+      "net_device": "virtio-net",
+      "output_directory": "{{user `output_directory`}}",
+      "qemu_binary": "qemu-system-x86_64",
+      "qemuargs": [
+        [
+          "-m",
+          "{{user `ram_size`}}M"
+        ],
+        [
+          "-smp",
+          "1"
+        ],
+        [
+          "-hda",
+          "{{user `output_directory`}}/{{user `vm_name`}}.raw"
+        ]
+      ],
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_password": "{{user `sudo_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": false,
+      "ssh_timeout": "{{user `ssh_timeout`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "qemu",
+      "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "access_key": "{{user `aws_access_key`}}",
+      "ami_description": "{{user `description`}}",
+      "ami_groups": "all",
+      "ami_name": "{{user `ami_name`}}",
+      "communicator": "ssh",
+      "instance_type": "{{user `instance_type`}}",
+      "name": "aws",
+      "region": "{{user `region`}}",
+      "run_tags": {
+        "Name": "AMI Builder"
+      },
+      "secret_key": "{{user `aws_secret_key`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": false,
+      "ssh_timeout": "{{user `ssh_timeout`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "amazon-ebs"
+    }
+  ],
+  "description": "{{user `description`}}",
+  "post-processors": [
+    {
+      "compression_level": 6,
+      "keep_input_artifact": true,
+      "only": [
+        "vbox"
+      ],
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}.{{.Provider}}.box",
+      "type": "vagrant",
+      "vagrantfile_template": "{{user `vagrantfile_template`}}"
+    },
+    {
+      "compression_level": 6,
+      "keep_input_artifact": true,
+      "only": [
+        "qemu"
+      ],
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz",
+      "type": "compress"
+    }
+  ],
+  "provisioners": [
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "yum -y install dkms gcc make kernel-devel kernel-headers bzip2 perl"
+      ],
+      "inline_shebang": "/bin/sh",
+      "only": [
+        "vbox"
+      ],
+      "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "only": [
+        "vbox"
+      ],
+      "remote_path": "/tmp/script.sh",
+      "scripts": [
+        "scripts/install_vbox_tools.sh"
+      ],
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "echo 'Defaults:{{user `ssh_username`}} !requiretty' >> /etc/sudoers.d/99{{user `ssh_username`}}",
+        "echo 'Defaults:{{user `ssh_username`}} env_keep += \"SSH_AUTH_SOCK\"' >> /etc/sudoers.d/99{{user `ssh_username`}}",
+        "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
+        "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
+      ],
+      "inline_shebang": "/bin/sh",
+      "only": [
+        "vbox",
+        "qemu"
+      ],
+      "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "yum clean all"
+      ],
+      "inline_shebang": "/bin/sh",
+      "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "dd if=/dev/zero of=/zerofill bs=4M",
+        "rm /zerofill",
+        "sync"
+      ],
+      "inline_shebang": "/bin/sh",
+      "only": [
+        "vbox",
+        "qemu"
+      ],
+      "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "ami_name": "base-{{isotime \"2006-01-02-15-04\"}}",
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "boot_wait": "3s",
+    "description": "Base box for 64-bit x86 Fedora 21",
+    "disk_size": "7500",
+    "domain": "",
+    "headless": "false",
+    "hostname": "base-fedora21-64",
+    "http_directory": ".",
+    "http_port_max": "9000",
+    "http_port_min": "8000",
+    "instance_type": "t2.micro",
+    "iso_checksum": "56af126a50c227d779a200b414f68ea7bcf58e21c8035500cd21ba164f85b9b4",
+    "iso_checksum_type": "sha256",
+    "iso_file": "Fedora-Server-netinst-x86_64-21.iso",
+    "iso_path_external": "http://fedora.mirror.iweb.ca/linux/releases/21/Server/x86_64/iso",
+    "kickstart_file": "fedora/21/base-64.cfg",
+    "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
+    "ram_size": "512",
+    "region": "us-east-1",
+    "shutdown_timeout": "5m",
+    "source_ami": "foo",
+    "ssh_host_port_max": "7000",
+    "ssh_host_port_min": "6000",
+    "ssh_port": "22",
+    "ssh_timeout": "60m",
+    "ssh_username": "ghost",
+    "sudo_password": "1ma63b0rk3d",
+    "vagrantfile_template": "Vagrantfile.template",
+    "vm_name": "base-fedora21-64"
+  }
+}
+
