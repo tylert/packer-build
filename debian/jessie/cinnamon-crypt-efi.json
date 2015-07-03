@@ -172,7 +172,13 @@
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
-        "apt-get --yes install dkms build-essential"
+        "apt-get --yes install dkms build-essential",
+        "mkdir --parents /media/vbox_tmp",
+        "mount --options loop /tmp/VBoxGuestAdditions_{{.Version}}.iso /media/vbox_tmp",
+        "echo 'yes' | bash /media/vbox_tmp/VBoxLinuxAdditions.run",
+        "umount /media/vbox_tmp",
+        "rm --recursive --force /media/vbox_tmp",
+        "rm --force /tmp/VBoxGuestAdditions_{{.Version}}.iso"
       ],
       "inline_shebang": "/bin/sh",
       "only": [
@@ -190,8 +196,7 @@
       ],
       "remote_path": "/tmp/script.sh",
       "scripts": [
-        "scripts/config_uefi_shell.sh",
-        "scripts/install_vbox_tools.sh"
+        "scripts/config_uefi_shell.sh"
       ],
       "start_retry_timeout": "5m",
       "type": "shell"
