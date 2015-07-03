@@ -16,7 +16,7 @@
       "disk_size": "{{user `disk_size`}}",
       "format": "ova",
       "guest_additions_mode": "upload",
-      "guest_additions_path": "/tmp/VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_path": "{{user `guest_additions_path`}}",
       "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Debian_64",
       "hard_drive_interface": "sata",
@@ -174,11 +174,11 @@
       "inline": [
         "apt-get --yes install dkms build-essential",
         "mkdir --parents /media/vbox_tmp",
-        "mount --options loop /tmp/VBoxGuestAdditions_{{.Version}}.iso /media/vbox_tmp",
+        "mount --options loop {{user `guest_additions_path`}} /media/vbox_tmp",
         "echo 'yes' | bash /media/vbox_tmp/VBoxLinuxAdditions.run",
         "umount /media/vbox_tmp",
         "rm --recursive --force /media/vbox_tmp",
-        "rm --force /tmp/VBoxGuestAdditions_{{.Version}}.iso"
+        "rm --force {{user `guest_additions_path`}}"
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
@@ -254,6 +254,7 @@
     "description": "Desktop box for 64-bit x86 Debian Jessie 8.x",
     "disk_size": "7500",
     "domain": "",
+    "guest_additions_path": "/media/VBoxGuestAdditions_{{.Version}}.iso",
     "headless": "false",
     "hostname": "desktop-jessie-64",
     "http_directory": ".",
