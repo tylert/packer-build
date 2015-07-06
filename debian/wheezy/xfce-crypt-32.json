@@ -235,7 +235,7 @@
     "description": "XFCE encrypted box for 32-bit x86 Debian Wheezy 7.x",
     "disk_size": "7500",
     "domain": "",
-    "guest_additions_path": "/media/VBoxGuestAdditions_{{.Version}}.iso",
+    "guest_additions_path": "/media/VBoxGuestAdditions.iso",
     "headless": "false",
     "hostname": "xfce-crypt-wheezy-32",
     "http_directory": ".",

@@ -245,7 +245,7 @@
     "description": "Base box for 32-bit x86 Ubuntu Precise Pangolin 12.04.x LTS",
     "disk_size": "7500",
     "domain": "",
-    "guest_additions_path": "/media/VBoxGuestAdditions_{{.Version}}.iso",
+    "guest_additions_path": "/media/VBoxGuestAdditions.iso",
     "headless": "false",
     "hostname": "base-precise-32",
     "http_directory": ".",
