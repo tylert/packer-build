@@ -227,7 +227,7 @@
     "description": "Base box for 32-bit x86 Fedora 21",
     "disk_size": "7500",
     "domain": "",
-    "guest_additions_path": "/media/VBoxGuestAdditions.iso",
+    "guest_additions_path": "/home/ghost/VBoxGuestAdditions.iso",
     "headless": "false",
     "hostname": "base-fedora21-32",
     "http_directory": ".",

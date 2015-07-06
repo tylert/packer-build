@@ -245,7 +245,7 @@
     "description": "Base box for 32-bit x86 Ubuntu Vivid Vervet 15.04",
     "disk_size": "7500",
     "domain": "",
-    "guest_additions_path": "/media/VBoxGuestAdditions.iso",
+    "guest_additions_path": "/home/ghost/VBoxGuestAdditions.iso",
     "headless": "false",
     "hostname": "base-vivid-32",
     "http_directory": ".",

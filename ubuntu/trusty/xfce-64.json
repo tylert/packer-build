@@ -249,7 +249,7 @@
     "description": "XFCE box for 64-bit x86 Ubuntu Trusty Tahr 14.04.x LTS",
     "disk_size": "7500",
     "domain": "",
-    "guest_additions_path": "/media/VBoxGuestAdditions.iso",
+    "guest_additions_path": "/home/ghost/VBoxGuestAdditions.iso",
     "headless": "false",
     "hostname": "xfce-trusty-64",
     "http_directory": ".",

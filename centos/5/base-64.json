@@ -227,7 +227,7 @@
     "description": "Base box for 64-bit x86 CentOS 5.x",
     "disk_size": "7500",
     "domain": "",
-    "guest_additions_path": "/tmp/VBoxGuestAdditions.iso",
+    "guest_additions_path": "/home/ghost/VBoxGuestAdditions.iso",
     "headless": "false",
     "hostname": "base-centos5-64",
     "http_directory": ".",

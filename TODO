@@ -1,17 +1,17 @@
 All
 ---
 
-* Prefetch script now does something different then Packer 0.8.0 does for URLs
+* [!!!] Prefetch script now does something different than Packer 0.8.1+ for URLs
+* Add command-line handling for prefetch script
 * Allow prefetch script to build symlinks for other URLs than the original
 * Ensure prefetch script handles pre-existing non-symlink ISO downloads
-* Make prefetch script announce symlink cleanup using os.path.basename()
+* Make prefetch script perform symlink cleanup
 * Enhance prefetch script to resume partial ISO downloads
 
 
 Debian
 ------
 
-* Convert from ext4 to btrfs for all root volumes
 * Find out if partman-crypto will allow passphrase-crypted
 * Skip past "Install missing firmware" installer prompt
 * Skip past "Force UEFI Install" installer prompt
@@ -26,7 +26,8 @@ Ubuntu
 Fedora
 ------
 
-* Get all supported releases of Fedora working properly with kickstarts and such
+* Has same weird install screen as CentOS 7.x.  Confirm it's all ok.
+* Get desktop versions going
 
 
 CentOS
