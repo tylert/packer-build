@@ -172,6 +172,20 @@
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
+        "echo 'FS0:\\EFI\\debian\\grubx64.efi' > /boot/efi/startup.nsh"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "only": [
+        "vbox"
+      ],
+      "remote_path": "/tmp/script.sh",
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
         "apt-get --yes install dkms build-essential",
         "mkdir --parents /media/vbox_tmp",
         "mount --options loop {{user `guest_additions_path`}} /media/vbox_tmp",
@@ -185,19 +199,6 @@
         "vbox"
       ],
       "remote_path": "/tmp/script.sh",
-      "start_retry_timeout": "5m",
-      "type": "shell"
-    },
-    {
-      "binary": false,
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
-      "only": [
-        "vbox"
-      ],
-      "remote_path": "/tmp/script.sh",
-      "scripts": [
-        "scripts/config_uefi_shell.sh"
-      ],
       "start_retry_timeout": "5m",
       "type": "shell"
     },

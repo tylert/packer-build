@@ -58,8 +58,8 @@ Using Packer Templates
 my_vars.json::
 
     {
-      "aws_access_key": "foo",
-      "aws_secret_key": "bar"
+        "aws_access_key": "foo",
+        "aws_secret_key": "bar"
     }
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
@@ -101,7 +101,7 @@ for writing directly to USB drives.  Alternately, you may use "qemu-img
 convert" to convert an exiting image in another format to raw mode::
 
     packer build -only=qemu debian/jessie/base-64.json
-    dd if=build/2015-06-31-12-34/base-jessie-64.raw of=/dev/sdb bs=4M
+    zcat build/2015-06-31-12-34/base-jessie-64.raw.gz | dd of=/dev/sdb bs=4M
     grub-install /dev/sdb
 
 ... Or, if you just want to "boot" it::
@@ -148,6 +148,58 @@ environment variables::
 * https://checkpoint.hashicorp.com/
 * https://github.com/hashicorp/go-checkpoint
 * https://docs.vagrantup.com/v2/other/environmental-variables.html
+
+
+UEFI Booting on VirtualBox
+--------------------------
+
+It isn't necessary to perform this step when running on real hardware, however,
+VirtualBox (4.3.28) seems to have a problem if you don't perform this step.
+
+* http://ubuntuforums.org/showthread.php?t=2172199&p=13104689#post13104689
+
+To examine the actual contents of the file after editing it::
+
+    hexdump /boot/efi/startup.nsh
+
+
+Using the EFI Shell Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To enter the UEFI shell text editor from the UEFI prompt::
+
+    edit startup.nsh
+
+Type in the stuff to add to the file (the path to the UEFI blob)::
+
+    FS0:\EFI\debian\grubx64.efi
+
+To exit the UEFI shell text editor::
+
+    ^S
+    ^Q
+
+Hex Result::
+
+    0000000 feff 0046 0053 0030 003a 005c 0045 0046
+    0000010 0049 005c 0064 0065 0062 0069 0061 006e
+    0000020 005c 0067 0072 0075 0062 0078 0036 0034
+    0000030 002e 0065 0066 0069
+    0000038
+
+
+Using Any Old 'nix' Text Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To populate the file in a similar manner to the UEFI Shell method above::
+
+    echo 'FS0:\EFI\debian\grubx64.efi' > /boot/efi/startup.nsh
+
+Hex Result::
+
+    0000000 5346 3a30 455c 4946 645c 6265 6169 5c6e
+    0000010 7267 6275 3678 2e34 6665 0a69
+    000001c
 
 
 Serving Local Files via HTTP
