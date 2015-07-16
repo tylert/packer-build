@@ -90,10 +90,6 @@
         [
           "-smp",
           "1"
-        ],
-        [
-          "-hda",
-          "{{user `output_directory`}}/{{user `vm_name`}}.raw"
         ]
       ],
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
