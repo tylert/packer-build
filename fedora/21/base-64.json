@@ -64,6 +64,7 @@
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "ssh",
       "disk_cache": "writethrough",
+      "disk_discard": "unmap",
       "disk_image": false,
       "disk_interface": "virtio",
       "disk_size": "{{user `disk_size`}}",
@@ -81,7 +82,7 @@
       "name": "qemu",
       "net_device": "virtio-net",
       "output_directory": "{{user `output_directory`}}",
-      "qemu_binary": "qemu-system-x86_64",
+      "qemu_binary": "{{user `qemu_binary`}}",
       "qemuargs": [
         [
           "-m",
@@ -236,6 +237,7 @@
     "iso_path_external": "http://fedora.mirror.iweb.ca/linux/releases/21/Server/x86_64/iso",
     "kickstart_file": "fedora/21/base-64.cfg",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
+    "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",

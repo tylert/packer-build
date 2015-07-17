@@ -74,6 +74,7 @@
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "ssh",
       "disk_cache": "writethrough",
+      "disk_discard": "unmap",
       "disk_image": false,
       "disk_interface": "virtio",
       "disk_size": "{{user `disk_size`}}",
@@ -91,7 +92,7 @@
       "name": "qemu",
       "net_device": "virtio-net",
       "output_directory": "{{user `output_directory`}}",
-      "qemu_binary": "qemu-system-x86_64",
+      "qemu_binary": "{{user `qemu_binary`}}",
       "qemuargs": [
         [
           "-m",
@@ -244,6 +245,7 @@
     "iso_path_external": "http://cdimage.debian.org/cdimage/archive/7.8.0/multi-arch/iso-cd",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "debian/wheezy/base-32.seed",
+    "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "region": "us-east-1",
     "shutdown_timeout": "5m",
