@@ -90,7 +90,7 @@
       "disk_cache": "writeback",
       "disk_discard": "ignore",
       "disk_image": false,
-      "disk_interface": "virtio",
+      "disk_interface": "scsi",
       "disk_size": "{{user `disk_size`}}",
       "format": "raw",
       "headless": "{{user `headless`}}",
