@@ -265,7 +265,7 @@
     "iso_file": "debian-8.1.0-amd64-i386-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/release/8.1.0/multi-arch/iso-cd",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "debian/jessie/cinnamon-crypt-efi.seed",
+    "preseed_file": "debian/jessie/cinnamon-crypt-efi-64.seed",
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "region": "us-east-1",
