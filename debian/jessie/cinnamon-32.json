@@ -3,8 +3,8 @@
     {
       "boot_command": [
         "<down><down><down><down><down><enter><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "/install.386/vmlinuz ",
+        "initrd=/install.386/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",
@@ -63,8 +63,8 @@
       "accelerator": "kvm",
       "boot_command": [
         "<down><down><down><down><down><enter><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "/install.386/vmlinuz ",
+        "initrd=/install.386/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",

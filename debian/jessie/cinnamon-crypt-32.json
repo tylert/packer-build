@@ -2,14 +2,14 @@
   "builders": [
     {
       "boot_command": [
-        "<wait>c<wait>linux /install.amd/vmlinuz ",
+        "<down><down><down><down><down><enter><wait>",
+        "/install.386/vmlinuz ",
+        "initrd=/install.386/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",
         "domain={{user `domain`}} ",
-        "vga=788 --- quiet<enter>",
-        "initrd /install.amd/initrd.gz<enter>",
-        "boot<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "ssh",
@@ -18,7 +18,7 @@
       "guest_additions_mode": "upload",
       "guest_additions_path": "{{user `guest_additions_path`}}",
       "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "Debian_64",
+      "guest_os_type": "Debian",
       "hard_drive_interface": "sata",
       "headless": "{{user `headless`}}",
       "http_directory": "{{user `http_directory`}}",
@@ -54,12 +54,6 @@
           "{{.Name}}",
           "--cpus",
           "1"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--firmware",
-          "efi"
         ]
       ],
       "virtualbox_version_file": "/tmp/.vbox_version",
@@ -68,14 +62,14 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<wait>c<wait>linux /install.amd/vmlinuz ",
+        "<down><down><down><down><down><enter><wait>",
+        "/install.386/vmlinuz ",
+        "initrd=/install.386/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",
         "domain={{user `domain`}} ",
-        "vga=788 --- quiet<enter>",
-        "initrd /install.amd/initrd.gz<enter>",
-        "boot<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "ssh",
@@ -170,20 +164,6 @@
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
-        "echo 'FS0:\\EFI\\debian\\grubx64.efi' > /boot/efi/startup.nsh"
-      ],
-      "inline_shebang": "/bin/sh -e",
-      "only": [
-        "vbox"
-      ],
-      "remote_path": "/tmp/script.sh",
-      "start_retry_timeout": "5m",
-      "type": "shell"
-    },
-    {
-      "binary": false,
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
-      "inline": [
         "apt-get --yes install dkms build-essential",
         "mkdir --parents /media/vbox_tmp",
         "mount --options loop {{user `guest_additions_path`}} /media/vbox_tmp",
@@ -250,12 +230,12 @@
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
-    "description": "Cinnamon encrypted box for 64-bit x86 Debian Jessie 8.x",
+    "description": "Cinnamon encrypted box for 32-bit x86 Debian Jessie 8.x",
     "disk_size": "7500",
     "domain": "",
     "guest_additions_path": "/home/ghost/VBoxGuestAdditions.iso",
     "headless": "false",
-    "hostname": "cinnamon-crypt-jessie-64",
+    "hostname": "cinnamon-crypt-jessie-32",
     "http_directory": ".",
     "http_port_max": "9000",
     "http_port_min": "8000",
@@ -265,7 +245,7 @@
     "iso_file": "debian-8.1.0-amd64-i386-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/release/8.1.0/multi-arch/iso-cd",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
-    "preseed_file": "debian/jessie/cinnamon-crypt-efi-64.seed",
+    "preseed_file": "debian/jessie/cinnamon-crypt-32.seed",
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "region": "us-east-1",
@@ -278,7 +258,7 @@
     "ssh_username": "ghost",
     "sudo_password": "1ma63b0rk3d",
     "vagrantfile_template": "Vagrantfile.template",
-    "vm_name": "cinnamon-crypt-jessie-64"
+    "vm_name": "cinnamon-crypt-jessie-32"
   }
 }
 
