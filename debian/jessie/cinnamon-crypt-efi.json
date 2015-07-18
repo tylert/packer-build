@@ -143,6 +143,7 @@
     }
   ],
   "description": "{{user `description`}}",
+  "min_packer_version": "0.8.2",
   "post-processors": [
     {
       "compression_level": 6,
