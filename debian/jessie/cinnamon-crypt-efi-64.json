@@ -2,14 +2,14 @@
   "builders": [
     {
       "boot_command": [
-        "<wait>c<wait>linux /install.amd/vmlinuz ",
+        "<esc><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd /install.amd/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",
         "domain={{user `domain`}} ",
-        "vga=788 --- quiet<enter>",
-        "initrd /install.amd/initrd.gz<enter>",
-        "boot<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "ssh",
@@ -69,14 +69,14 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<wait>c<wait>linux /install.amd/vmlinuz ",
+        "<esc><wait>",
+        "/install.amd/vmlinuz ",
+        "initrd /install.amd/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",
         "domain={{user `domain`}} ",
-        "vga=788 --- quiet<enter>",
-        "initrd /install.amd/initrd.gz<enter>",
-        "boot<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "ssh",

@@ -2,7 +2,7 @@
   "builders": [
     {
       "boot_command": [
-        "<down><down><down><down><down><enter><wait>",
+        "<esc><wait>",
         "/install.amd/vmlinuz ",
         "initrd=/install.amd/initrd.gz ",
         "auto=true ",
@@ -63,7 +63,7 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<down><down><down><down><down><enter><wait>",
+        "<esc><wait>",
         "/install.amd/vmlinuz ",
         "initrd=/install.amd/initrd.gz ",
         "auto=true ",
