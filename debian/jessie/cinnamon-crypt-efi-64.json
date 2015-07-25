@@ -4,7 +4,7 @@
       "boot_command": [
         "<esc><wait>",
         "/install.amd/vmlinuz ",
-        "initrd /install.amd/initrd.gz ",
+        "initrd=/install.amd/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",
@@ -71,7 +71,7 @@
       "boot_command": [
         "<esc><wait>",
         "/install.amd/vmlinuz ",
-        "initrd /install.amd/initrd.gz ",
+        "initrd=/install.amd/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `hostname`}} ",
