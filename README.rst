@@ -268,8 +268,8 @@ Debian_
 
 * Buster (10.x);  released on 20??-??-??, supported until 20??-??
 * Stretch (9.x);  released on 20??-??-??, supported until 20??-??
-* Jessie (8.x);  released on 2015-04-25, supported until 20??-??
-* Wheezy (7.x);  released on 2013-05-04, supported until 20??-??
+* Jessie (8.x);  released on 2015-04-25, supported until 2020-05
+* Wheezy (7.x);  released on 2013-05-04, supported until 2018-02
 * Squeeze (6.x);  released on 2011-02-06, supported until 2016-02
 
 Ubuntu_
@@ -298,5 +298,5 @@ CentOS_
 .. _CentOS: https://en.wikipedia.org/wiki/CentOS#End-of-support_schedule
 
 * 7.x;  released on 2014-07-07, supported until 2024-06-30
-* 6.x;  released on 2011-07-10, supported until 2020-11-30 (2021-11-30?)
+* 6.x;  released on 2011-07-10, supported until 2020-11-30 (Not 10 years?)
 * 5.x;  released on 2007-04-12, supported until 2017-03-31
