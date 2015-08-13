@@ -1,22 +1,22 @@
 {
   "images": [
     {
-      "iso_filename": "ubuntu-14.04.2-server-amd64.iso",
-      "iso_url": "http://releases.ubuntu.com/14.04.2/ubuntu-14.04.2-server-amd64.iso",
-      "iso_checksum": "8acd2f56bfcba2f7ac74a7e4a5e565ce68c024c38525c0285573e41c86ae90c0",
+      "iso_filename": "ubuntu-14.04.3-server-amd64.iso",
+      "iso_url": "http://releases.ubuntu.com/14.04.3/ubuntu-14.04.3-server-amd64.iso",
+      "iso_checksum": "a3b345908a826e262f4ea1afeb357fd09ec0558cf34e6c9112cead4bb55ccdfb",
       "iso_checksum_type": "sha256",
       "iso_symlink": true
     },
     {
-      "iso_filename": "SHA256SUMS-ubuntu-14.04.2-server-amd64.txt",
-      "iso_url": "http://releases.ubuntu.com/14.04.2/SHA256SUMS",
+      "iso_filename": "SHA256SUMS-ubuntu-14.04.3-server-amd64.txt",
+      "iso_url": "http://releases.ubuntu.com/14.04.3/SHA256SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false
     },
     {
-      "iso_filename": "SHA256SUMS-ubuntu-14.04.2-server-amd64.gpg",
-      "iso_url": "http://releases.ubuntu.com/14.04.2/SHA256SUMS.gpg",
+      "iso_filename": "SHA256SUMS-ubuntu-14.04.3-server-amd64.gpg",
+      "iso_url": "http://releases.ubuntu.com/14.04.3/SHA256SUMS.gpg",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false
