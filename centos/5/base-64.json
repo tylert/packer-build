@@ -28,6 +28,7 @@
       "name": "vbox",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
+      "ssh_disable_agent": false,
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
@@ -96,6 +97,7 @@
       ],
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "ssh_disable_agent": false,
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
       "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
       "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
@@ -121,6 +123,7 @@
       },
       "secret_key": "{{user `aws_secret_key`}}",
       "source_ami": "{{user `source_ami`}}",
+      "ssh_disable_agent": false,
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
@@ -131,7 +134,7 @@
     }
   ],
   "description": "{{user `description`}}",
-  "min_packer_version": "0.8.2",
+  "min_packer_version": "0.8.5",
   "post-processors": [
     {
       "compression_level": 6,
