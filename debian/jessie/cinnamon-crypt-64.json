@@ -18,7 +18,7 @@
       "guest_additions_mode": "upload",
       "guest_additions_path": "{{user `guest_additions_path`}}",
       "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "Debian",
+      "guest_os_type": "Debian_64",
       "hard_drive_interface": "sata",
       "headless": "{{user `headless`}}",
       "http_directory": "{{user `http_directory`}}",
