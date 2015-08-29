@@ -21,18 +21,3 @@ Ubuntu
 ------
 
 * Get all the desktop stuff working from the server installers properly
-
-
-Fedora
-------
-
-* Has same weird install screen as CentOS 7.x.  Confirm it's all ok.
-* Get desktop versions going
-
-
-CentOS
-------
-
-* CentOS 7.x   Gives a weird install screen (not Anaconda anymore?)
-* CentOS 5.x:  Hangs at installing packages screen.
-               Might still have "ghost is not in the sudoers file" problem.

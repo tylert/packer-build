@@ -65,7 +65,7 @@ my_vars.json::
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
 
-    find {debian,ubuntu,fedora,centos} -name '*.json' -exec packer validate {} \;
+    find {debian,ubuntu} -name '*.json' -exec packer validate {} \;
 
     packer fix debian/jessie/base-64.json > temporary.json
     mv temporary.json debian/jessie/base-64.json
@@ -222,8 +222,6 @@ Offical ISO Files
 
 * http://cdimage.debian.org/cdimage
 * http://releases.ubuntu.com
-* http://fedora.mirror.iweb.ca  (https://admin.fedoraproject.org/mirrormanager/)
-* http://centos.mirror.iweb.ca  (http://www.centos.org/download/mirrors/)
 
 
 Other
@@ -282,21 +280,3 @@ Ubuntu_
 * Vivid (15.04);  released on 2015-04-23, supported until 2016-01
 * Trusty (14.04 LTS);  released on 2014-04-17, supported until 2019-04
 * Precise (12.04 LTS);  released on 2012-04-26, supported until 2017-04-26
-
-Fedora_
-^^^^^^
-
-.. _Fedora: https://en.wikipedia.org/wiki/List_of_Fedora_releases#Version_history
-
-* 23;  released on 2015-10-27, supported until 20??-??
-* 22;  released on 2015-05-26, supported until 20??-??
-* 21;  released on 2014-12-09, supported until 20??-??
-
-CentOS_
-^^^^^^
-
-.. _CentOS: https://en.wikipedia.org/wiki/CentOS#End-of-support_schedule
-
-* 7.x;  released on 2014-07-07, supported until 2024-06-30
-* 6.x;  released on 2011-07-10, supported until 2020-11-30 (Not 10 years?)
-* 5.x;  released on 2007-04-12, supported until 2017-03-31
