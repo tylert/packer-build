@@ -3,7 +3,7 @@
     {
       "iso_filename": "debian-testing-amd64-i386-netinst.iso",
       "iso_url": "http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/debian-testing-amd64-i386-netinst.iso",
-      "iso_checksum": "b6ba9b49d75f6d94629c70ede5703be11e93fd375e73373a7f2eae8fbd92e3e906ac72a949f17dd2963e38a5e1c3354597aefffffd1f6ceee56fb4b001f71b6a",
+      "iso_checksum": "c3906a42d139097440416996687158c55f23cafb6550797e8d87de49f4fb368c1c72122ca9d61c70bea92e8ce941104dd0e7d7d669c532f490225bd1f64fa691",
       "iso_checksum_type": "sha512",
       "iso_symlink": true
     },
