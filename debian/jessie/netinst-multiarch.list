@@ -1,22 +1,22 @@
 {
   "images": [
     {
-      "iso_filename": "debian-8.1.0-amd64-i386-netinst.iso",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/8.1.0/multi-arch/iso-cd/debian-8.1.0-amd64-i386-netinst.iso",
-      "iso_checksum": "0437b63c2b01dcee4b1df8f9bd27a1b28f95c000bb92104463fbed714ff39906e7f36098178864496b83abcf5f4491ef62a1f00fcdb47f700a086ba25ccd5371",
+      "iso_filename": "debian-8.2.0-amd64-i386-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/debian-cd/8.2.0/multi-arch/iso-cd/debian-8.2.0-amd64-i386-netinst.iso",
+      "iso_checksum": "1e8dbe55cbdff82b262ff90a7e1cb8e0527f79f4c4f654e031aa5581456101b81f302b6dc700d27d947fd2f492dce695ba60200d6ed3d36d6e2f56308c361e33",
       "iso_checksum_type": "sha512",
       "iso_symlink": true
     },
     {
-      "iso_filename": "SHA512SUMS-debian-8.1.0-amd64-i386-netinst.txt",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/8.1.0/multi-arch/iso-cd/SHA512SUMS",
+      "iso_filename": "SHA512SUMS-debian-8.2.0-amd64-i386-netinst.txt",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/8.2.0/multi-arch/iso-cd/SHA512SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha512",
       "iso_symlink": false
     },
     {
-      "iso_filename": "SHA512SUMS-debian-8.1.0-amd64-i386-netinst.sign",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/8.1.0/multi-arch/iso-cd/SHA512SUMS.sign",
+      "iso_filename": "SHA512SUMS-debian-8.2.0-amd64-i386-netinst.sign",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/8.2.0/multi-arch/iso-cd/SHA512SUMS.sign",
       "iso_checksum": "",
       "iso_checksum_type": "sha512",
       "iso_symlink": false
