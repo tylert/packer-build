@@ -281,7 +281,7 @@
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
     "sudo_password": "1ma63b0rk3d",
-    "vagrantfile_template": "Vagrantfile.template",
+    "vagrantfile_template": "ubuntu/vivid/xfce-64.vagrant",
     "vm_name": "xfce-vivid-64"
   }
 }

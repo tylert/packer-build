@@ -277,7 +277,7 @@
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
     "sudo_password": "1ma63b0rk3d",
-    "vagrantfile_template": "Vagrantfile.template",
+    "vagrantfile_template": "ubuntu/trusty/base-64.vagrant",
     "vm_name": "base-trusty-64"
   }
 }

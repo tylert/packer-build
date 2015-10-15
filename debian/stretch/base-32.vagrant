@@ -1,0 +1,4 @@
+Vagrant.configure(2) do |config|
+  config.ssh.username = 'ghost'
+  config.ssh.password = '1ma63b0rk3d'
+end

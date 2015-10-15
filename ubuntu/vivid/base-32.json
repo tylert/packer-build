@@ -277,7 +277,7 @@
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
     "sudo_password": "1ma63b0rk3d",
-    "vagrantfile_template": "Vagrantfile.template",
+    "vagrantfile_template": "ubuntu/vivid/base-32.vagrant",
     "vm_name": "base-vivid-32"
   }
 }
