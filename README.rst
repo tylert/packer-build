@@ -244,6 +244,13 @@ Other
 * http://pretengineer.com/post/packer-vagrant-infra/
 * http://stackoverflow.com/questions/13065576/override-vagrant-configuration-settings-locally-per-dev
 
+* https://github.com/hollodotme/Helpers/blob/master/Tutorials/vagrant/self-hosted-vagrant-boxes-with-versioning.md
+* http://blog.el-chavez.me/2015/01/31/custom-vagrant-cloud-host/
+* https://www.nopsec.com/news-and-resources/blog/2015/3/27/private-vagrant-box-hosting-easy-versioning/
+
+* http://docs.docker.com/examples/apt-cacher-ng/
+* https://djaodjin.com/blog/deploying-on-ec2-with-ansible.blog.html
+
 * https://github.com/jpadilla/juicebox
 * https://github.com/boxcutter/ubuntu
 * https://github.com/katzj/ami-creator
