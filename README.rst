@@ -282,8 +282,8 @@ Ubuntu_
 
 .. _Ubuntu: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
-* Xanthic? (16.04 LTS);  released on 2016-04-??, supported until 2021-??
-* Wily (15.10);  released on 2015-10-22, supported until 2016-07
-* Vivid (15.04);  released on 2015-04-23, supported until 2016-01
-* Trusty (14.04 LTS);  released on 2014-04-17, supported until 2019-04
-* Precise (12.04 LTS);  released on 2012-04-26, supported until 2017-04-26
+* Xanthic X? (16.04 LTS);  released on 2016-04-??, supported until 2021-??
+* Wily Werewolf (15.10);  released on 2015-10-22, supported until 2016-07
+* Vivid Vervet (15.04);  released on 2015-04-23, supported until 2016-01
+* Trusty Tahr (14.04 LTS);  released on 2014-04-17, supported until 2019-04
+* Precise Pangolin (12.04 LTS);  released on 2012-04-26, supported until 2017-04-26
