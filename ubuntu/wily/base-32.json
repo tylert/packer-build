@@ -247,7 +247,7 @@
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "boot_wait": "3s",
-    "description": "Base box for 32-bit x86 Ubuntu wily Vervet 15.10",
+    "description": "Base box for 32-bit x86 Ubuntu Wily Werewolf 15.10",
     "disk_size": "7500",
     "domain": "",
     "guest_additions_path": "/home/ghost/VBoxGuestAdditions.iso",
