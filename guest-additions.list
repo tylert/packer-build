@@ -1,15 +1,15 @@
 {
   "images": [
     {
-      "iso_filename": "VBoxGuestAdditions_5.0.8.iso",
-      "iso_url": "http://download.virtualbox.org/virtualbox/5.0.8/VBoxGuestAdditions_5.0.8.iso",
-      "iso_checksum": "a6ab45a043e460c87f145ec626c1cc2a1ae74222f15aa725004cdc84bf48e9f3",
+      "iso_filename": "VBoxGuestAdditions_5.0.10.iso",
+      "iso_url": "http://download.virtualbox.org/virtualbox/5.0.10/VBoxGuestAdditions_5.0.10.iso",
+      "iso_checksum": "8f7ffee3fac75793e48d1859b65a95879b3ed5bc1c3164c967e85d69244c594b",
       "iso_checksum_type": "sha256",
       "iso_symlink": true
     },
     {
-      "iso_filename": "SHA256SUMS-VBoxGuestAdditions_5.0.8.txt",
-      "iso_url": "http://download.virtualbox.org/virtualbox/5.0.8/SHA256SUMS",
+      "iso_filename": "SHA256SUMS-VBoxGuestAdditions_5.0.10.txt",
+      "iso_url": "http://download.virtualbox.org/virtualbox/5.0.10/SHA256SUMS",
       "iso_checksum": "",
       "iso_checksum_type": "sha256",
       "iso_symlink": false
