@@ -2,6 +2,7 @@ https://github.com/mitchellh/packer/pull/1047#issuecomment-122199027
 
 + Wait for 0.8.7 to introduce https://github.com/mitchellh/packer/pull/2642
 and cull all the prefetch stuff
+(https://github.com/mitchellh/packer/issues/2600)
 
 
 All
