@@ -8,7 +8,6 @@ and cull all the prefetch stuff
 All
 ---
 
-* [!!!] Prefetch script now does something different than Packer 0.8.1+ for URLs
 * Add command-line handling for prefetch script
 * Allow prefetch script to build symlinks for other URLs than the original
 * Ensure prefetch script handles pre-existing non-symlink ISO downloads

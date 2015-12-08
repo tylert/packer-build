@@ -2,7 +2,7 @@
   "images": [
     {
       "iso_filename": "debian-8.2.0-amd64-i386-netinst.iso",
-      "iso_url": "http://cdimage.debian.org/debian-cd/8.2.0/multi-arch/iso-cd/debian-8.2.0-amd64-i386-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/8.2.0/multi-arch/iso-cd/debian-8.2.0-amd64-i386-netinst.iso",
       "iso_checksum": "1e8dbe55cbdff82b262ff90a7e1cb8e0527f79f4c4f654e031aa5581456101b81f302b6dc700d27d947fd2f492dce695ba60200d6ed3d36d6e2f56308c361e33",
       "iso_checksum_type": "sha512",
       "iso_symlink": true
