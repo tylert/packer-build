@@ -2,8 +2,8 @@ packer-build
 ============
 
 These Packer templates may be used to build fresh virtual machines.  The
-provided preseed and kickstart files may also be used to build fresh real
-machines on bare metal as well.
+provided preseed files may also be used to build fresh real machines on bare
+metal as well.
 
 
 Why does this exist?
