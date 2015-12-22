@@ -25,6 +25,7 @@
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_interface": "sata",
+      "iso_target_path": "{{user `iso_target_path`}}",
       "iso_urls": [
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
@@ -85,6 +86,7 @@
       "http_port_min": "{{user `http_port_min`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_target_path": "{{user `iso_target_path`}}",
       "iso_urls": [
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
@@ -142,7 +144,7 @@
     }
   ],
   "description": "{{user `description`}}",
-  "min_packer_version": "0.8.5",
+  "min_packer_version": "0.8.7",
   "post-processors": [
     {
       "compression_level": 6,
@@ -229,6 +231,7 @@
     "iso_checksum_type": "sha512",
     "iso_file": "debian-8.3.0-amd64-i386-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/release/8.3.0/multi-arch/iso-cd",
+    "iso_target_path": "{{env `PACKER_CACHE`}}/debian-8.3.0-amd64-i386-netinst.iso",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "preseed_file": "debian/jessie/cinnamon-32.seed",
     "qemu_binary": "qemu-system-x86_64",
