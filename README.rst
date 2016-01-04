@@ -269,11 +269,11 @@ Distro Release Names
 Debian_
 ^^^^^^
 
-.. _Debian: https://en.wikipedia.org/wiki/Debian#Release_timeline
+.. _Debian: https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table
 
 * Buster (10.x);  released on 20??-??-??, supported until 20??-??
 * Stretch (9.x);  released on 20??-??-??, supported until 20??-??
-* Jessie (8.x);  released on 2015-04-25, supported until 2020-05
+* Jessie (8.x);  released on 2015-04-25, supported until 2020-0[45]
 * Wheezy (7.x);  released on 2013-05-04, supported until 2018-05
 * Squeeze (6.x);  released on 2011-02-06, supported until 2016-02
 
