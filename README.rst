@@ -275,13 +275,13 @@ Debian_
 * Stretch (9.x);  released on 20??-??-??, supported until 20??-??
 * Jessie (8.x);  released on 2015-04-25, supported until 2020-0[45]
 * Wheezy (7.x);  released on 2013-05-04, supported until 2018-05
-* Squeeze (6.x);  released on 2011-02-06, supported until 2016-02
 
 Ubuntu_
 ^^^^^^
 
 .. _Ubuntu: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
+* Y? Y? (16.10);  released on 2016-10-??, supported until 20??-??
 * Xenial Xerus (16.04 LTS);  released on 2016-04-21, supported until 2021-04
 * Wily Werewolf (15.10);  released on 2015-10-22, supported until 2016-07
 * Trusty Tahr (14.04 LTS);  released on 2014-04-17, supported until 2019-04
