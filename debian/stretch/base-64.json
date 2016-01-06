@@ -248,7 +248,7 @@
     "http_port_max": "9000",
     "http_port_min": "8000",
     "instance_type": "t2.micro",
-    "iso_checksum": "3d19d27a21eaaa476048f2526df8b2411ea7dd2b3fc931f173c832a3e0ee99e3f96f250e568e49b8738167ce7f72ebb91d0d6dcae07e84abef6d2f2d8077211a",
+    "iso_checksum": "125a4d49233bfa8df94e1e39c71fe027c75ef03e5b56042db7f28edcc7343b731002572574ceca815b8a0b81f107631af88b1d63f3f106d49d68717c5439f9ac",
     "iso_checksum_type": "sha512",
     "iso_file": "debian-testing-amd64-i386-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd",
