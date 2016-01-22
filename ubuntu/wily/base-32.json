@@ -206,6 +206,7 @@
         "qemu"
       ],
       "remote_path": "/tmp/script.sh",
+      "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
     },
@@ -217,6 +218,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "remote_path": "/tmp/script.sh",
+      "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
     },
@@ -234,6 +236,7 @@
         "qemu"
       ],
       "remote_path": "/tmp/script.sh",
+      "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
     }
