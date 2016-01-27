@@ -20,9 +20,7 @@
       "communicator": "{{user `communicator`}}",
       "disk_size": "{{user `disk_size`}}",
       "format": "ova",
-      "guest_additions_mode": "upload",
-      "guest_additions_path": "{{user `guest_additions_path`}}",
-      "guest_additions_url": "http://download.virtualbox.org/virtualbox/{{.Version}}/VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_mode": "disable",
       "guest_os_type": "Ubuntu",
       "hard_drive_interface": "sata",
       "headless": "{{user `headless`}}",
@@ -181,26 +179,6 @@
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
-        "apt-get --yes install dkms build-essential",
-        "mkdir --parents /media/vbox_tmp",
-        "mount --options loop {{user `guest_additions_path`}} /media/vbox_tmp",
-        "echo 'yes' | bash /media/vbox_tmp/VBoxLinuxAdditions.run",
-        "umount /media/vbox_tmp",
-        "rm --recursive --force /media/vbox_tmp",
-        "rm --force {{user `guest_additions_path`}}"
-      ],
-      "inline_shebang": "/bin/sh -e",
-      "only": [
-        "vbox"
-      ],
-      "remote_path": "/tmp/script.sh",
-      "start_retry_timeout": "5m",
-      "type": "shell"
-    },
-    {
-      "binary": false,
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
-      "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
@@ -251,7 +229,6 @@
     "description": "Base box for 32-bit x86 Ubuntu Wily Werewolf 15.10",
     "disk_size": "7500",
     "domain": "",
-    "guest_additions_path": "/home/ghost/VBoxGuestAdditions.iso",
     "headless": "false",
     "hostname": "base-wily-32",
     "http_directory": ".",
