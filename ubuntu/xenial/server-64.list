@@ -1,0 +1,25 @@
+{
+  "images": [
+    {
+      "iso_filename": "xenial-server-amd64.iso",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/xenial-server-amd64.iso",
+      "iso_checksum": "1648d27a680d4f5e5862f75fe94551652d21ddc83ea01cd051f61c3a3dc401e0",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": true
+    },
+    {
+      "iso_filename": "SHA256SUMS-xenial-server-amd64.txt",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    },
+    {
+      "iso_filename": "SHA256SUMS-xenial-server-amd64.gpg",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS.gpg",
+      "iso_checksum": "",
+      "iso_checksum_type": "sha256",
+      "iso_symlink": false
+    }
+  ]
+}
