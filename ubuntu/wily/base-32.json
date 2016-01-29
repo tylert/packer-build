@@ -160,7 +160,7 @@
       "only": [
         "vbox"
       ],
-      "output": "{{user `output_directory`}}/{{user `vm_name`}}.{{.Provider}}.box",
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}.{{.Provider}}.box",
       "type": "vagrant",
       "vagrantfile_template": "{{user `vagrantfile_template`}}"
     },
@@ -256,6 +256,7 @@
     "ssh_username": "ghost",
     "sudo_password": "1ma63b0rk3d",
     "vagrantfile_template": "ubuntu/wily/base-32.vagrant",
+    "version": "0.0.0",
     "vm_name": "base-wily-32"
   }
 }
