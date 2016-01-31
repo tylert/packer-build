@@ -1,13 +1,6 @@
 {
   "images": [
     {
-      "iso_filename": "debian-8.3.0-amd64-i386-netinst.iso",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/8.3.0/multi-arch/iso-cd/debian-8.3.0-amd64-i386-netinst.iso",
-      "iso_checksum": "7ee2f9c3e8ecf26af509a6dc4c5fd3c09d2f57af1f52c43d30ca55ba1cabfb23a840b5f980b23f5672eeebb143ad950ee10193c7b5c8ffc58e0d575b65be309c",
-      "iso_checksum_type": "sha512",
-      "iso_symlink": true
-    },
-    {
       "iso_filename": "SHA512SUMS-debian-8.3.0-amd64-i386-netinst.txt",
       "iso_url": "http://cdimage.debian.org/cdimage/release/8.3.0/multi-arch/iso-cd/SHA512SUMS",
       "iso_checksum": "",

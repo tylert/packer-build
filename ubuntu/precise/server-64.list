@@ -1,13 +1,6 @@
 {
   "images": [
     {
-      "iso_filename": "ubuntu-12.04.5-server-amd64.iso",
-      "iso_url": "http://releases.ubuntu.com/12.04.5/ubuntu-12.04.5-server-amd64.iso",
-      "iso_checksum": "af224223de99e2a730b67d7785b657f549be0d63221188e105445f75fb8305c9",
-      "iso_checksum_type": "sha256",
-      "iso_symlink": true
-    },
-    {
       "iso_filename": "SHA256SUMS-ubuntu-12.04.5-server-amd64.txt",
       "iso_url": "http://releases.ubuntu.com/12.04.5/SHA256SUMS",
       "iso_checksum": "",

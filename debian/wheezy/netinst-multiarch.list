@@ -1,13 +1,6 @@
 {
   "images": [
     {
-      "iso_filename": "debian-7.9.0-amd64-i386-netinst.iso",
-      "iso_url": "http://cdimage.debian.org/cdimage/archive/7.9.0/multi-arch/iso-cd/debian-7.9.0-amd64-i386-netinst.iso",
-      "iso_checksum": "27ad08eeaf5ba3a05414312143eb0c1b478e8f5ab027daddbaecfe8998ae18549c0eca034e51cb59dd5e0b61aca82b835ce1b5ebaf9f347309c2d590e165498a",
-      "iso_checksum_type": "sha512",
-      "iso_symlink": true
-    },
-    {
       "iso_filename": "SHA512SUMS-debian-7.9.0-amd64-i386-netinst.txt",
       "iso_url": "http://cdimage.debian.org/cdimage/archive/7.9.0/multi-arch/iso-cd/SHA512SUMS",
       "iso_checksum": "",

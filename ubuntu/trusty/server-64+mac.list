@@ -1,13 +1,6 @@
 {
   "images": [
     {
-      "iso_filename": "ubuntu-14.04.3-server-amd64.iso",
-      "iso_url": "http://cdimage.ubuntu.com/releases/14.04.3/release/ubuntu-14.04.3-server-amd64+mac.iso",
-      "iso_checksum": "c2571c4c2fc17bef1fad9e5db5e7afdb4bd29cd8ab51e42f9c036238c4e54caa",
-      "iso_checksum_type": "sha256",
-      "iso_symlink": true
-    },
-    {
       "iso_filename": "SHA256SUMS-ubuntu-14.04.3-server-amd64+mac.txt",
       "iso_url": "http://cdimage.ubuntu.com/releases/14.04.3/release/SHA256SUMS",
       "iso_checksum": "",

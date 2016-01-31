@@ -1,13 +1,6 @@
 {
   "images": [
     {
-      "iso_filename": "ubuntu-15.10-server-i386.iso",
-      "iso_url": "http://releases.ubuntu.com/15.10/ubuntu-15.10-server-i386.iso",
-      "iso_checksum": "fa97768bdc3f198b82180d39bf0c26f021ab716f5da98094cd220771095e3394",
-      "iso_checksum_type": "sha256",
-      "iso_symlink": true
-    },
-    {
       "iso_filename": "SHA256SUMS-ubuntu-15.10-server-i386.txt",
       "iso_url": "http://releases.ubuntu.com/15.10/SHA256SUMS",
       "iso_checksum": "",
