@@ -228,7 +228,6 @@ Other
 -----
 
 * http://www.preining.info/blog/2014/05/usb-stick-tails-systemrescuecd/
-* http://www.boehmi.net/index.php/blog/14-how-to-setup-an-apt-cacher-ng-server-in-ubuntu
 
 * https://5pi.de/2015/03/13/building-aws-amis-from-scratch/
 * http://www.scalehorizontally.com/2013/02/24/introduction-to-cloud-init/
@@ -248,7 +247,6 @@ Other
 * http://blog.el-chavez.me/2015/01/31/custom-vagrant-cloud-host/
 * https://www.nopsec.com/news-and-resources/blog/2015/3/27/private-vagrant-box-hosting-easy-versioning/
 
-* http://docs.docker.com/examples/apt-cacher-ng/
 * https://djaodjin.com/blog/deploying-on-ec2-with-ansible.blog.html
 
 * https://github.com/jpadilla/juicebox

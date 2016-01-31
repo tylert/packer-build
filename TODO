@@ -1,20 +1,3 @@
-https://github.com/mitchellh/packer/pull/1047#issuecomment-122199027
-
-+ Wait for 0.8.7 to introduce https://github.com/mitchellh/packer/pull/2642
-and cull all the prefetch stuff
-(https://github.com/mitchellh/packer/issues/2600)
-
-
-All
----
-
-* Add command-line handling for prefetch script
-* Allow prefetch script to build symlinks for other URLs than the original
-* Ensure prefetch script handles pre-existing non-symlink ISO downloads
-* Make prefetch script perform symlink cleanup
-* Enhance prefetch script to resume partial ISO downloads
-
-
 Debian
 ------
 
