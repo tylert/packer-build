@@ -2,8 +2,16 @@
   "builders": [
     {
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz ",
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
         "initrd=/install/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
@@ -67,8 +75,16 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz ",
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
         "initrd=/install/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
