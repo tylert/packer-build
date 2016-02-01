@@ -109,28 +109,12 @@ convert" to convert an exiting image in another format to raw mode::
     qemu-system-x86_64 build/2015-06-31-12-34/base-jessie-64.raw
 
 
-Prefetching ISO Files
----------------------
-
-Under normal circumstances, Packer can fetch its own ISO files just fine.
-However, Packer likes to rename all ISOs that it downloads.  If you wish to
-avoid this behaviour, simply create symlinks in the packer_cache directory that
-have the SHA256 hash of the original URL referenced in the Packer templates.
-
-Do this before 'packer build' for each planned target using the 'prefetch'
-script::
-
-    ./prefetch.py guest-additions.list
-    ./prefetch.py debian/jessie/netinst-multiarch.list
-
-
 Overriding Local ISO Cache Location
 -----------------------------------
 
 You may override the default directory used instead of 'packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
-    PACKER_CACHE_DIR=/tmp ./prefetch.py debian/jessie/netinst-multiarch.list
     PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base-64.json
 
 
