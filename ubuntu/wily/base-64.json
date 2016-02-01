@@ -264,7 +264,7 @@
     "iso_file": "ubuntu-15.10-server-amd64.iso",
     "iso_path_external": "http://releases.ubuntu.com/15.10",
     "output_directory": "build/{{isotime \"2006-01-02-15.10\"}}",
-    "packer_cache_dir": "{{env `PACKER_CACHE_ENV`}}",
+    "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
     "preseed_file": "ubuntu/wily/base-64.seed",
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
