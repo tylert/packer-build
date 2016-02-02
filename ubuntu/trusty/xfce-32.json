@@ -34,6 +34,7 @@
       "iso_interface": "sata",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "name": "vbox",
@@ -104,6 +105,7 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "machine_type": "pc",
@@ -247,6 +249,7 @@
     "iso_checksum": "5f993985ce965c2fd8ce9410696a81a1c3fd0b89cd097e6caff63d6dd88c54ac",
     "iso_checksum_type": "sha256",
     "iso_file": "xubuntu-14.04.2-desktop-i386.iso",
+    "iso_path_internal": "http://localhost/iso/ubuntu",
     "iso_path_external": "http://cdimage.ubuntu.com/xubuntu/releases/14.04.2/release",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",

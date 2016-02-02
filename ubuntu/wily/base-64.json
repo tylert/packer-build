@@ -40,6 +40,7 @@
       "iso_interface": "sata",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "name": "vbox",
@@ -116,6 +117,7 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "machine_type": "pc",
@@ -259,6 +261,7 @@
     "iso_checksum": "86aa35a986eba6e5ad30e3d486d57efe6803ae7ea4859b0216953e9e62871131",
     "iso_checksum_type": "sha256",
     "iso_file": "ubuntu-15.10-server-amd64.iso",
+    "iso_path_internal": "http://localhost/iso/ubuntu",
     "iso_path_external": "http://releases.ubuntu.com/15.10",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",

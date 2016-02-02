@@ -33,9 +33,9 @@ Magic.
 What dependencies does this have?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* https://packer.io/
-* https://www.vagrantup.com/
-* https://www.virtualbox.org/
+* https://www.virtualbox.org/  (5.0.14, 4.3.??)
+* https://www.vagrantup.com/  (1.8.1, 1.7.4)
+* https://packer.io/  (0.9.0, 0.8.7, 0.8.6)
 
 
 Using Packer Templates

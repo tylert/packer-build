@@ -40,6 +40,7 @@
       "iso_interface": "sata",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "name": "vbox",
@@ -116,6 +117,7 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "machine_type": "pc",
@@ -259,6 +261,7 @@
     "iso_checksum": "ec72930fac4fe4c22601855529c22b25ee5ccbdafe0102a8809a4793a22d0d94",
     "iso_checksum_type": "sha256",
     "iso_file": "xenial-server-i386.iso",
+    "iso_path_internal": "http://localhost/iso/ubuntu",
     "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
