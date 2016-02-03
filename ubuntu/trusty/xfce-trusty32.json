@@ -241,7 +241,7 @@
     "disk_size": "7500",
     "domain": "",
     "headless": "false",
-    "hostname": "xfce-trusty-32",
+    "hostname": "xfce-trusty32",
     "http_directory": ".",
     "http_port_max": "9000",
     "http_port_min": "8000",
@@ -253,7 +253,7 @@
     "iso_path_internal": "http://localhost/iso/ubuntu",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
-    "preseed_file": "ubuntu/trusty/xfce-32.seed",
+    "preseed_file": "ubuntu/trusty/xfce-trusty32.seed",
     "qemu_binary": "qemu-system-i386",
     "ram_size": "512",
     "region": "us-east-1",
@@ -268,9 +268,9 @@
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
     "sudo_password": "1ma63b0rk3d",
-    "vagrantfile_template": "ubuntu/trusty/xfce-32.vagrant",
+    "vagrantfile_template": "ubuntu/trusty/xfce-trusty32.vagrant",
     "version": "0.0.0",
-    "vm_name": "xfce-trusty-32"
+    "vm_name": "xfce-trusty32"
   }
 }
 

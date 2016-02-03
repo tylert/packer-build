@@ -39,7 +39,7 @@ d-i user-setup/encrypt-home boolean false
 
 # Network Setup
 # must be passed in on the init line as well
-d-i netcfg/get_hostname string xfce-trusty-64
+d-i netcfg/get_hostname string xfce-trusty32
 d-i netcfg/get_domain string
 # must be passed in on the init line as well
 
