@@ -13,7 +13,7 @@ d-i clock-setup/utc boolean true
 #   set above to false if making a bootable USB for Windows users
 
 # Network Setup
-d-i netcfg/get_hostname string cinnamon-jessie-32
+d-i netcfg/get_hostname string cinnamon-jessie64
 d-i netcfg/get_domain string
 
 # User Setup
