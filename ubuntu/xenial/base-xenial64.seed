@@ -43,7 +43,7 @@ d-i clock-setup/utc boolean true
 
 # Network Setup
 # must be passed in on the init line as well
-d-i netcfg/get_hostname string base-xenial-64
+d-i netcfg/get_hostname string base-xenial64
 d-i netcfg/get_domain string
 # must be passed in on the init line as well
 
