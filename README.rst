@@ -35,7 +35,7 @@ What dependencies does this have?
 
 * https://www.virtualbox.org/  (5.0.14, 4.3.??)
 * https://www.vagrantup.com/  (1.8.1, 1.7.4)
-* https://packer.io/  (0.9.0, 0.8.7, 0.8.6)
+* https://packer.io/  (0.9.0, 0.8.6)
 
 
 Using Packer Templates
@@ -43,17 +43,17 @@ Using Packer Templates
 
 ::
 
-    packer build -only=vbox debian/jessie/base-64.json
-    packer build -only=qemu debian/wheezy/base-32.json
+    packer build -only=vbox debian/jessie/base-jessie64.json
+    packer build -only=qemu debian/wheezy/base-wheezy32.json
 
     AWS_ACCESS_KEY_ID=foo AWS_SECRET_ACCESS_KEY=bar packer build \
-        -only=aws debian/jessie/base-64.json
+        -only=aws debian/jessie/base-jessie64.json
 
-    packer build -var 'aws_access_key=foo' -var 'aws_secret_key=bar' \
-        -only=aws debian/jessie/base-64.json
+    packer build -var aws_access_key=foo -var aws_secret_key=bar \
+        -only=aws debian/jessie/base-jessie64.json
 
     packer build -var-file=my_vars.json \
-        -only=aws debian/jessie/base-64.json
+        -only=aws debian/jessie/base-jessie64.json
 
 my_vars.json::
 
@@ -65,10 +65,7 @@ my_vars.json::
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
 
-    find {debian,ubuntu} -name '*.json' -exec packer validate {} \;
-
-    packer fix debian/jessie/base-64.json > temporary.json
-    mv temporary.json debian/jessie/base-64.json
+    ./check_templates.sh
 
 
 Building and Using Vagrant Box Files
@@ -77,19 +74,53 @@ Building and Using Vagrant Box Files
 A Vagrant box file is actually a regular tar file containing...
 
 * box.ovf - Open Virtualization Format XML descriptor file
-* whatever.vmdk - a virtual hard drive image file
+* nameofmachine-disk1.vmdk - a virtual hard drive image file
 * Vagrantfile - derived from 'Vagrantfile.template'
 * metadata.json - containing just '{ "provider": "virtualbox" }'
 
 ::
 
-    packer build -only=vbox debian/jessie/base-64.json
-    vagrant box add myname/jessie64 build/2015-06-31-12-34/base-jessie-64.virtualbox.box
+    packer build -only=vbox -var version=1.0.0 debian/jessie/base-jessie64.json
+    vagrant box add myname/jessie64 build/2015-06-31-12-34/base-jessie64-1.0.0.virtualbox.box
     vagrant init myname/jessie64
     vagrant up
     vagrant ssh
     ...
     vagrant destroy
+
+In order to version things and self-host the box files, you will need to create
+a JSON file containing the following::
+
+    {
+      "name": "base-jessie64",
+      "description": "Base box for 64-bit x86 Debian Jessie 8.x",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "providers": [
+            {
+              "name": "virtualbox",
+              "url": "http://server/vm/base-jessie64/base-jessie64-1.0.0.virtualbox.box",
+              "checksum_type": "sha256",
+              "checksum": "THESHA256SUMOFTHEBOXFILE"
+            }
+          ]
+        }
+      ]
+    }
+
+Then, simply make sure you point your Vagrantfile at this json payload::
+
+    Vagrant.configure(2) do |config|
+      config.vm.box = "base-jessie64"
+      config.vm.box_url = "http://server/vm/base-jessie64/metadata.json"
+
+      config.vm.synced_folder ".", "/vagrant", disabled: true
+    end
+
+* https://github.com/hollodotme/Helpers/blob/master/Tutorials/vagrant/self-hosted-vagrant-boxes-with-versioning.md
+* http://blog.el-chavez.me/2015/01/31/custom-vagrant-cloud-host/
+* https://www.nopsec.com/news-and-resources/blog/2015/3/27/private-vagrant-box-hosting-easy-versioning/
 
 
 Making Bootable USB Drives
@@ -226,10 +257,6 @@ Other
 * https://groups.google.com/forum/#!msg/packer-tool/4lB4OqhILF8/NPoMYeew0sEJ
 * http://pretengineer.com/post/packer-vagrant-infra/
 * http://stackoverflow.com/questions/13065576/override-vagrant-configuration-settings-locally-per-dev
-
-* https://github.com/hollodotme/Helpers/blob/master/Tutorials/vagrant/self-hosted-vagrant-boxes-with-versioning.md
-* http://blog.el-chavez.me/2015/01/31/custom-vagrant-cloud-host/
-* https://www.nopsec.com/news-and-resources/blog/2015/3/27/private-vagrant-box-hosting-easy-versioning/
 
 * https://djaodjin.com/blog/deploying-on-ec2-with-ansible.blog.html
 
