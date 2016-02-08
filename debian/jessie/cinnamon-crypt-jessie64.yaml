@@ -217,3 +217,40 @@ variables:
   vagrantfile_template: debian/jessie/cinnamon-crypt-jessie64.vagrant
   version: 0.0.0
   vm_name: cinnamon-crypt-jessie64
+_ALIASES:
+- &common_builder_configuration_options
+  boot_command:
+    - "<esc><wait>"
+    - "/install.amd/vmlinuz "
+    - 'initrd=/install.amd/initrd.gz '
+    - 'auto=true '
+    - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
+    - 'hostname={{user `hostname`}} '
+    - 'domain={{user `domain`}} '
+    - vga=788 noprompt quiet --<enter>
+  boot_wait: "{{user `boot_wait`}}"
+  communicator: "{{user `communicator`}}"
+  disk_size: "{{user `disk_size`}}"
+  headless: "{{user `headless`}}"
+  http_directory: "{{user `http_directory`}}"
+  http_port_max: "{{user `http_port_max`}}"
+  http_port_min: "{{user `http_port_min`}}"
+  iso_checksum: "{{user `iso_checksum`}}"
+  iso_checksum_type: "{{user `iso_checksum_type`}}"
+  iso_target_path: "{{user `packer_cache_dir`}}/{{user `iso_file`}}"
+  iso_urls:
+    - "{{user `iso_path_internal`}}/{{user `iso_file`}}"
+    - "{{user `iso_path_external`}}/{{user `iso_file`}}"
+  output_directory: "{{user `output_directory`}}"
+  shutdown_command: echo '{{user `sudo_password`}}' | sudo -E -S poweroff
+  shutdown_timeout: "{{user `shutdown_timeout`}}"
+  ssh_disable_agent: "{{user `ssh_disable_agent`}}"
+  ssh_handshake_attempts: "{{user `ssh_handshake_attempts`}}"
+  ssh_host_port_max: "{{user `ssh_host_port_max`}}"
+  ssh_host_port_min: "{{user `ssh_host_port_min`}}"
+  ssh_password: "{{user `sudo_password`}}"
+  ssh_port: "{{user `ssh_port`}}"
+  ssh_pty: "{{user `ssh_pty`}}"
+  ssh_timeout: "{{user `ssh_timeout`}}"
+  ssh_username: "{{user `ssh_username`}}"
+  vm_name: "{{user `vm_name`}}"
