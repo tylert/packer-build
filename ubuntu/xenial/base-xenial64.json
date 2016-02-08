@@ -312,7 +312,7 @@
     "http_port_max": "9000",
     "http_port_min": "8000",
     "instance_type": "t2.micro",
-    "iso_checksum": "1648d27a680d4f5e5862f75fe94551652d21ddc83ea01cd051f61c3a3dc401e0",
+    "iso_checksum": "89c81c4078be7e7aa4b11e4994b5e37e390489ac46db805c46538e334450ca06",
     "iso_checksum_type": "sha256",
     "iso_file": "xenial-server-amd64.iso",
     "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/",
