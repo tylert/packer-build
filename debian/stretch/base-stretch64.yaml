@@ -163,7 +163,7 @@ variables:
   http_port_max: '9000'
   http_port_min: '8000'
   instance_type: t2.micro
-  iso_checksum: ef0e7eaef3a6d12b53e9572b018fb6b1eff0c3e70753e6f6d4973e1a043b6152dc3928c064afdf751bc1a158fde294daf0c9553e95946dc3112d429eb2f7e7b0
+  iso_checksum: 04ce29e1f008d5c3e7a92bdb3e8f01fb5aa8d460d30dc488cd005605b4e787ea06320fdf19fa6e472d0066db4129fa259bea37f5c61828123041affdaa917c85
   iso_checksum_type: sha512
   iso_file: debian-testing-amd64-i386-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd
