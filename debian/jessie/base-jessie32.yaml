@@ -2,14 +2,14 @@
 _ALIASES:
 - &common_builder_configuration_options
   boot_command:
-    - "<esc><wait>"
-    - "/install.386/vmlinuz "
-    - 'initrd=/install.386/initrd.gz '
-    - 'auto=true '
-    - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
-    - 'hostname={{user `hostname`}} '
-    - 'domain={{user `domain`}} '
-    - vga=788 noprompt quiet --<enter>
+  - "<esc><wait>"
+  - "/install.386/vmlinuz "
+  - 'initrd=/install.386/initrd.gz '
+  - 'auto=true '
+  - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
+  - 'hostname={{user `hostname`}} '
+  - 'domain={{user `domain`}} '
+  - vga=788 noprompt quiet --<enter>
   boot_wait: "{{user `boot_wait`}}"
   communicator: "{{user `communicator`}}"
   disk_size: "{{user `disk_size`}}"
@@ -21,8 +21,8 @@ _ALIASES:
   iso_checksum_type: "{{user `iso_checksum_type`}}"
   iso_target_path: "{{user `packer_cache_dir`}}/{{user `iso_file`}}"
   iso_urls:
-    - "{{user `iso_path_internal`}}/{{user `iso_file`}}"
-    - "{{user `iso_path_external`}}/{{user `iso_file`}}"
+  - "{{user `iso_path_internal`}}/{{user `iso_file`}}"
+  - "{{user `iso_path_external`}}/{{user `iso_file`}}"
   output_directory: "{{user `output_directory`}}"
   shutdown_command: echo '{{user `sudo_password`}}' | sudo -E -S poweroff
   shutdown_timeout: "{{user `shutdown_timeout`}}"
