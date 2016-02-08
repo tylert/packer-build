@@ -280,7 +280,7 @@
     "iso_path_internal": "http://localhost/iso/debian",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
-    "preseed_file": "debian/jessie/cinnamon-jessie32.seed",
+    "preseed_file": "debian/jessie/cinnamon-jessie32.preseed",
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "region": "us-east-1",

@@ -175,7 +175,7 @@ variables:
   iso_path_internal: http://localhost/iso/ubuntu
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: "{{env `PACKER_CACHE_DIR`}}"
-  preseed_file: ubuntu/trusty/base-trusty64.seed
+  preseed_file: ubuntu/trusty/base-trusty64.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   region: us-east-1
