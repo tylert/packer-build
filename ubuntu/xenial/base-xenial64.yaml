@@ -30,8 +30,8 @@ _ALIASES:
   http_directory: "{{user `http_directory`}}"
   http_port_max: "{{user `http_port_max`}}"
   http_port_min: "{{user `http_port_min`}}"
-  iso_checksum: "{{user `iso_checksum`}}"
   iso_checksum_type: "{{user `iso_checksum_type`}}"
+  iso_checksum_url: "{{user `iso_checksum_url`}}"
   iso_target_path: "{{user `packer_cache_dir`}}/{{user `iso_file`}}"
   iso_urls:
   - "{{user `iso_path_internal`}}/{{user `iso_file`}}"
@@ -176,8 +176,8 @@ variables:
   http_port_max: '9000'
   http_port_min: '8000'
   instance_type: t2.micro
-  iso_checksum: 89c81c4078be7e7aa4b11e4994b5e37e390489ac46db805c46538e334450ca06
   iso_checksum_type: sha256
+  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
   iso_file: xenial-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current/
   iso_path_internal: http://localhost/iso/ubuntu
