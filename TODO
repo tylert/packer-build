@@ -4,9 +4,3 @@ Debian
 * Find out if partman-crypto will allow passphrase-crypted
 * Skip past "Install missing firmware" installer prompt
 * Skip past "Force UEFI Install" installer prompt
-
-
-Ubuntu
-------
-
-* Get all the desktop stuff working from the server installers properly
