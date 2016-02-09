@@ -37,6 +37,16 @@ _ALIASES:
   ssh_timeout: "{{user `ssh_timeout`}}"
   ssh_username: "{{user `ssh_username`}}"
   vm_name: "{{user `vm_name`}}"
+- &shell_provisioner_options
+  binary: false
+# environment_vars:
+# - WHATEVER=whatever
+  execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
+  inline_shebang: "/bin/sh -e"
+  remote_path: "/tmp/script.sh"
+  skip_clean: false
+  start_retry_timeout: 5m
+  type: shell
 builders:
 - <<: *common_builder_configuration_options
   format: ova
@@ -113,44 +123,31 @@ post-processors:
   - qemu
   output: "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz"
   type: compress
+- execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
+  inline_shebang: "/bin/sh -e"
+  inline:
+  - shasum256 "{{user `output_directory`}}{{user `vm_name`}}*"
+  type: shell-local
 provisioners:
-- binary: false
-  execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
+- <<: *shell_provisioner_options
   inline:
   - 'echo ''{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL'' > /etc/sudoers.d/99{{user
     `ssh_username`}}'
   - chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}
-  inline_shebang: "/bin/sh -e"
   only:
   - vbox
   - qemu
-  remote_path: "/tmp/script.sh"
-  skip_clean: false
-  start_retry_timeout: 5m
-  type: shell
-- binary: false
-  execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
+- <<: *shell_provisioner_options
   inline:
   - apt-get clean
-  inline_shebang: "/bin/sh -e"
-  remote_path: "/tmp/script.sh"
-  skip_clean: false
-  start_retry_timeout: 5m
-  type: shell
-- binary: false
-  execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
+- <<: *shell_provisioner_options
   inline:
   - dd if=/dev/zero of=/zerofill bs=4M
   - rm /zerofill
   - sync
-  inline_shebang: "/bin/sh -e"
   only:
   - vbox
   - qemu
-  remote_path: "/tmp/script.sh"
-  skip_clean: false
-  start_retry_timeout: 5m
-  type: shell
 variables:
   ami_name: base-{{isotime "2006-01-02-15-04"}}
   aws_access_key: "{{env `AWS_ACCESS_KEY_ID`}}"

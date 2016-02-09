@@ -214,6 +214,14 @@
       ],
       "output": "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz",
       "type": "compress"
+    },
+    {
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "shasum256 \"{{user `output_directory`}}{{user `vm_name`}}*\""
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "type": "shell-local"
     }
   ],
   "provisioners": [
