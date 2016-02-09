@@ -71,6 +71,7 @@ builders:
   disk_image: false
   disk_interface: scsi
   format: raw
+  iso_skip_cache: false
   machine_type: pc
   name: qemu
   net_device: virtio-net
