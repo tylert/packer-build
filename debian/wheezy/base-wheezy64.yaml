@@ -1,6 +1,6 @@
 ---
 _ALIASES:
-- &common_builder_configuration_options
+- &builder_options
   boot_command:
   - "<esc><wait>"
   - "/install.amd/vmlinuz "
@@ -48,7 +48,7 @@ _ALIASES:
   start_retry_timeout: 5m
   type: shell
 builders:
-- <<: *common_builder_configuration_options
+- <<: *builder_options
   format: ova
   guest_additions_mode: disable
   guest_os_type: Debian_64
@@ -67,7 +67,7 @@ builders:
     - "--cpus"
     - '1'
   virtualbox_version_file: "/tmp/.vbox_version"
-- <<: *common_builder_configuration_options
+- <<: *builder_options
   accelerator: kvm
   disk_cache: writeback
   disk_compression: false

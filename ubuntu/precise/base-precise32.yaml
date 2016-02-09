@@ -1,6 +1,6 @@
 ---
 _ALIASES:
-- &common_builder_configuration_options
+- &builder_options
   boot_command:
   - "<esc><esc><enter><wait>"
   - "/install/vmlinuz "
@@ -43,7 +43,7 @@ _ALIASES:
   ssh_username: "{{user `ssh_username`}}"
   vm_name: "{{user `vm_name`}}"
 builders:
-- <<: *common_builder_configuration_options
+- <<: *builder_options
   format: ova
   guest_additions_mode: disable
   guest_os_type: Ubuntu
@@ -62,7 +62,7 @@ builders:
     - "--cpus"
     - '1'
   virtualbox_version_file: "/tmp/.vbox_version"
-- <<: *common_builder_configuration_options
+- <<: *builder_options
   accelerator: kvm
   disk_cache: writeback
   disk_compression: false
