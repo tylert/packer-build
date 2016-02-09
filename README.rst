@@ -33,9 +33,9 @@ Magic.
 What dependencies does this have?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* https://www.virtualbox.org/  (5.0.14, 4.3.??)
-* https://www.vagrantup.com/  (1.8.1, 1.7.4)
 * https://packer.io/  (0.9.0, 0.8.6)
+* https://vagrantup.com/  (1.8.1, 1.7.4)
+* https://virtualbox.org/  (5.0.14, 4.3.??)
 
 
 Using Packer Templates
@@ -58,8 +58,8 @@ Using Packer Templates
 my_vars.json::
 
     {
-        "aws_access_key": "foo",
-        "aws_secret_key": "bar"
+      "aws_access_key": "foo",
+      "aws_secret_key": "bar"
     }
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
@@ -232,13 +232,6 @@ Preseed Documentation
 * https://help.ubuntu.com/lts/installation-guide/amd64/index.html
 
 
-Offical ISO Files
------------------
-
-* http://cdimage.debian.org/cdimage
-* http://releases.ubuntu.com
-
-
 Other
 -----
 
@@ -270,6 +263,14 @@ Why did you use the Ubuntu Server installer to create desktop systems?
 
 * http://askubuntu.com/questions/467804/preseeding-does-not-work-properly-in-ubuntu-14-04
 * https://wiki.ubuntu.com/UbiquityAutomation
+
+
+Offical ISO Files
+-----------------
+
+* http://cdimage.debian.org/cdimage
+* http://releases.ubuntu.com
+* https://cdimage.ubuntu.com
 
 
 Distro Release Names

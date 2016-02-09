@@ -27,6 +27,7 @@ _ALIASES:
   shutdown_command: echo '{{user `sudo_password`}}' | sudo -E -S poweroff
   shutdown_timeout: "{{user `shutdown_timeout`}}"
   ssh_disable_agent: "{{user `ssh_disable_agent`}}"
+  ssh_file_transfer_method: "{{user `ssh_file_transfer_method`}}"
   ssh_handshake_attempts: "{{user `ssh_handshake_attempts`}}"
   ssh_host_port_max: "{{user `ssh_host_port_max`}}"
   ssh_host_port_min: "{{user `ssh_host_port_min`}}"
@@ -179,6 +180,7 @@ variables:
   shutdown_timeout: 5m
   source_ami: foo
   ssh_disable_agent: 'false'
+  ssh_file_transfer_method: 'scp'
   ssh_handshake_attempts: '10'
   ssh_host_port_max: '7000'
   ssh_host_port_min: '6000'
