@@ -63,7 +63,6 @@ builders:
     - "--cpus"
     - '1'
   virtualbox_version_file: "/tmp/.vbox_version"
-  vm_name: "{{user `vm_name`}}"
 - <<: *common_builder_configuration_options
   accelerator: kvm
   disk_cache: writeback
@@ -83,7 +82,6 @@ builders:
     - '1'
   skip_compaction: true
   type: qemu
-  vm_name: "{{user `vm_name`}}"
 - access_key: "{{user `aws_access_key`}}"
   ami_description: "{{user `description`}}"
   ami_groups: all
@@ -132,6 +130,7 @@ provisioners:
   - vbox
   - qemu
   remote_path: "/tmp/script.sh"
+  skip_clean: false
   start_retry_timeout: 5m
   type: shell
 - binary: false
@@ -140,6 +139,7 @@ provisioners:
   - apt-get clean
   inline_shebang: "/bin/sh -e"
   remote_path: "/tmp/script.sh"
+  skip_clean: false
   start_retry_timeout: 5m
   type: shell
 - binary: false
@@ -153,6 +153,7 @@ provisioners:
   - vbox
   - qemu
   remote_path: "/tmp/script.sh"
+  skip_clean: false
   start_retry_timeout: 5m
   type: shell
 variables:
