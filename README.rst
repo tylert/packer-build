@@ -65,20 +65,25 @@ my_vars.json::
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
 
-    ./check_templates.sh
+    ./generate_templates.sh
 
 
 Building and Using Vagrant Box Files
 ------------------------------------
 
-A Vagrant box file is actually a regular tar file containing...
+A Vagrant box file is actually a regular gzippped tar archive containing...
 
 * box.ovf - Open Virtualization Format XML descriptor file
 * nameofmachine-disk1.vmdk - a virtual hard drive image file
 * Vagrantfile - derived from 'Vagrantfile.template'
 * metadata.json - containing just '{ "provider": "virtualbox" }'
 
-::
+An OVA file is actually a regular tar archive containing identical copies of
+the first 2 files that you would normally see in a Vagrant box file (but the
+OVF file may be named nameofmachine.ovf and it *must* be the first file or
+VirtualBox will get confused).
+
+To create and use a Vagrant box file without a dedicated Vagrantfile::
 
     packer build -only=vbox -var version=1.0.0 debian/jessie/base-jessie64.json
     vagrant box add myname/jessie64 build/2015-06-31-12-34/base-jessie64-1.0.0.virtualbox.box
@@ -109,7 +114,7 @@ a JSON file containing the following::
       ]
     }
 
-Then, simply make sure you point your Vagrantfile at this json payload::
+Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure(2) do |config|
       config.vm.box = "base-jessie64"

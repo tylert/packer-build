@@ -39,6 +39,15 @@
       "ssh_timeout": "{{user `ssh_timeout`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline_shebang": "/bin/sh -e",
+      "remote_path": "/tmp/script.sh",
+      "skip_clean": false,
+      "start_retry_timeout": "5m",
+      "type": "shell"
     }
   ],
   "builders": [
