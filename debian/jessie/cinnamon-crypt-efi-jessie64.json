@@ -44,7 +44,6 @@
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline_shebang": "/bin/sh -e",
-      "remote_path": "/tmp/script.sh",
       "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
@@ -244,7 +243,6 @@
       "only": [
         "vbox"
       ],
-      "remote_path": "/tmp/script.sh",
       "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
@@ -261,7 +259,6 @@
         "vbox",
         "qemu"
       ],
-      "remote_path": "/tmp/script.sh",
       "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
@@ -273,7 +270,6 @@
         "apt-get clean"
       ],
       "inline_shebang": "/bin/sh -e",
-      "remote_path": "/tmp/script.sh",
       "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
@@ -291,7 +287,6 @@
         "vbox",
         "qemu"
       ],
-      "remote_path": "/tmp/script.sh",
       "skip_clean": false,
       "start_retry_timeout": "5m",
       "type": "shell"
