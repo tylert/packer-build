@@ -90,6 +90,8 @@ builders:
     - '1'
   skip_compaction: true
   type: qemu
+  vnc_port_max: 6000
+  vnc_port_min: 5900
 - access_key: "{{user `aws_access_key`}}"
   ami_description: "{{user `description`}}"
   ami_groups: all

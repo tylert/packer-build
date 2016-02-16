@@ -176,7 +176,9 @@
       "ssh_timeout": "{{user `ssh_timeout`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "type": "qemu",
-      "vm_name": "{{user `vm_name`}}"
+      "vm_name": "{{user `vm_name`}}",
+      "vnc_port_max": 6000,
+      "vnc_port_min": 5900
     },
     {
       "access_key": "{{user `aws_access_key`}}",

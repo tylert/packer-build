@@ -27,10 +27,13 @@ d-i user-setup/encrypt-home boolean false
 d-i passwd/root-login boolean false
 
 # Package Setup
+d-i hw-detect/load_firmware boolean false
 d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.ca.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
+d-i apt-setup/contrib boolean true
+d-i apt-setup/non-free boolean true
 tasksel tasksel/first multiselect print-server, ssh-server, standard
 d-i pkgsel/include string sudo
 popularity-contest popularity-contest/participate boolean false
