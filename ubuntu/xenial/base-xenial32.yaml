@@ -64,7 +64,7 @@ builders:
   guest_os_type: Ubuntu
   hard_drive_interface: sata
   iso_interface: sata
-  name: vbox
+  name: virtualbox
   ssh_skip_nat_mapping: false
   type: virtualbox-iso
   vboxmanage:
@@ -125,7 +125,7 @@ post-processors:
 - compression_level: 6
   keep_input_artifact: true
   only:
-  - vbox
+  - virtualbox
   output: "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box"
   type: vagrant
   vagrantfile_template: "{{user `vagrantfile_template`}}"
@@ -150,7 +150,7 @@ post-processors:
   - 'echo ''    checksum_type: sha256'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    checksum: DEADBEEF'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   only:
-  - vbox
+  - virtualbox
   type: shell-local
 provisioners:
 - <<: *shell_provisioner_options
@@ -159,7 +159,7 @@ provisioners:
     `ssh_username`}}'
   - chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}
   only:
-  - vbox
+  - virtualbox
   - qemu
 - <<: *shell_provisioner_options
   inline:
@@ -170,7 +170,7 @@ provisioners:
   - rm /zerofill
   - sync
   only:
-  - vbox
+  - virtualbox
   - qemu
 variables:
   ami_name: base-{{isotime "2006-01-02-15-04"}}

@@ -80,7 +80,7 @@
         "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
-      "name": "vbox",
+      "name": "virtualbox",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
@@ -216,7 +216,7 @@
       "compression_level": 6,
       "keep_input_artifact": true,
       "only": [
-        "vbox"
+        "virtualbox"
       ],
       "output": "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box",
       "type": "vagrant",
@@ -246,7 +246,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
-        "vbox"
+        "virtualbox"
       ],
       "type": "shell-local"
     }
@@ -260,7 +260,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
-        "vbox"
+        "virtualbox"
       ],
       "skip_clean": false,
       "start_retry_timeout": "5m",
@@ -275,7 +275,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
-        "vbox",
+        "virtualbox",
         "qemu"
       ],
       "skip_clean": false,
@@ -303,7 +303,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
-        "vbox",
+        "virtualbox",
         "qemu"
       ],
       "skip_clean": false,
