@@ -215,8 +215,8 @@
       "ssh_username": "{{user `ssh_username`}}",
       "type": "qemu",
       "vm_name": "{{user `vm_name`}}",
-      "vnc_port_max": 6000,
-      "vnc_port_min": 5900
+      "vnc_port_max": "{{user `vnc_port_max`}}",
+      "vnc_port_min": "{{user `vnc_port_min`}}"
     },
     {
       "access_key": "{{user `aws_access_key`}}",
@@ -351,7 +351,9 @@
     "sudo_password": "1ma63b0rk3d",
     "vagrantfile_template": "ubuntu/wily/base-wily64.vagrant",
     "version": "0.0.0",
-    "vm_name": "base-wily64"
+    "vm_name": "base-wily64",
+    "vnc_port_max": "6000",
+    "vnc_port_min": "5900"
   }
 }
 

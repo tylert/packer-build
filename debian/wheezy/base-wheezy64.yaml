@@ -84,8 +84,8 @@ builders:
     - '1'
   skip_compaction: true
   type: qemu
-  vnc_port_max: 6000
-  vnc_port_min: 5900
+  vnc_port_max: "{{user `vnc_port_max`}}"
+  vnc_port_min: "{{user `vnc_port_min`}}"
 - access_key: "{{user `aws_access_key`}}"
   ami_description: "{{user `description`}}"
   ami_groups: all
@@ -188,3 +188,5 @@ variables:
   vagrantfile_template: debian/wheezy/base-wheezy64.vagrant
   version: 0.0.0
   vm_name: base-wheezy64
+  vnc_port_max: '6000'
+  vnc_port_min: '5900'
