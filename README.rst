@@ -105,7 +105,7 @@ a JSON file containing the following::
           "providers": [
             {
               "name": "virtualbox",
-              "url": "http://server/vm/base-jessie64/base-jessie64-1.0.0.virtualbox.box",
+              "url": "http://server/vm/base-jessie64/base-jessie64-1.0.0-virtualbox.box",
               "checksum_type": "sha256",
               "checksum": "THESHA256SUMOFTHEBOXFILE"
             }
@@ -118,7 +118,7 @@ Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure(2) do |config|
       config.vm.box = "base-jessie64"
-      config.vm.box_url = "http://server/vm/base-jessie64/metadata.json"
+      config.vm.box_url = "http://server/vm/base-jessie64/base-jessie64.json"
 
       config.vm.synced_folder ".", "/vagrant", disabled: true
     end
