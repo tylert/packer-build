@@ -183,7 +183,7 @@ variables:
   iso_checksum_type: sha256
   iso_file: ubuntu-14.04.3-server-i386.iso
   iso_path_external: http://releases.ubuntu.com/14.04.3
-  iso_path_internal: http://localhost/iso/ubuntu
+  iso_path_internal: http://localhost/ubuntu
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: "{{env `PACKER_CACHE_DIR`}}"
   preseed_file: ubuntu/trusty/base-trusty32.preseed
