@@ -132,7 +132,7 @@ post-processors:
   - 'echo ''- version: {{user `version`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - echo '  providers:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''  - name: virtualbox'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
-  - 'echo ''    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box''
+  - 'echo ''    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-''$PACKER_BUILD_NAME''.box''
     >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    checksum_type: sha256'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    checksum: DEADBEEF'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
