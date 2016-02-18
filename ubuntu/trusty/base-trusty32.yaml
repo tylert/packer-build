@@ -10,7 +10,7 @@ _ALIASES:
   - 'language=en '
   - 'country=CA '
   - 'locale=en_CA.UTF-8 '
-  - 'hostname={{user `hostname`}} '
+  - 'hostname={{user `vm_name`}} '
   - 'domain={{user `domain`}} '
   - 'console-setup/ask_detect=false '
   - 'keyboard-configuration/layoutcode=us '
@@ -174,7 +174,6 @@ variables:
   disk_size: '7500'
   domain: ''
   headless: 'false'
-  hostname: base-trusty32
   http_directory: "."
   http_port_max: '9000'
   http_port_min: '8000'

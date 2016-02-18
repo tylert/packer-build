@@ -7,7 +7,7 @@ _ALIASES:
   - 'initrd=/install.386/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
-  - 'hostname={{user `hostname`}} '
+  - 'hostname={{user `vm_name`}} '
   - 'domain={{user `domain`}} '
   - vga=788 noprompt quiet --<enter>
   boot_wait: "{{user `boot_wait`}}"
@@ -169,7 +169,6 @@ variables:
   disk_size: '7500'
   domain: ''
   headless: 'false'
-  hostname: cinnamon-jessie32
   http_directory: "."
   http_port_max: '9000'
   http_port_min: '8000'
