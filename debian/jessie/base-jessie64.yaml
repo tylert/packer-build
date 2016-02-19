@@ -182,8 +182,8 @@ provisioners:
   - apt-get clean
 - <<: *shell_provisioner_options
   inline:
-  - dd if=/dev/zero of=/zerofill bs=4M
-  - rm /zerofill
+  - dd if=/dev/zero of=/ZEROFILL bs=4M
+  - rm /ZEROFILL
   - sync
   only:
   - virtualbox

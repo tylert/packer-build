@@ -297,8 +297,8 @@
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
-        "dd if=/dev/zero of=/zerofill bs=4M",
-        "rm /zerofill",
+        "dd if=/dev/zero of=/ZEROFILL bs=4M",
+        "rm /ZEROFILL",
         "sync"
       ],
       "inline_shebang": "/bin/sh -e",
