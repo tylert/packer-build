@@ -97,6 +97,28 @@ builders:
   type: qemu
   vnc_port_max: "{{user `vnc_port_max`}}"
   vnc_port_min: "{{user `vnc_port_min`}}"
+#- <<: *builder_options
+#  disk_type_id: 1
+#  guest_os_type: debian8
+#  guest_os_type: debian8-64
+#  guest_os_type: debian7
+#  guest_os_type: debian7-64
+#  guest_os_type: ubuntu
+#  guest_os_type: ubuntu-64
+#  name: vmware
+#  skip_compaction: false
+#  tools_upload_flavor: linux
+#  tools_upload_path: "{{.Flavor}}.iso"
+#  type: vmware-iso
+#  version: 9
+#  vmdk_name: "{{user `vm_name`}}"
+#  "vmx_data": {
+#    "cpuid.coresPerSocket": "1",
+#    "memsize": "{{user `ram_size`}}",
+#    "numvcpus": "1"
+#  },
+#  vnc_port_max: "{{user `vnc_port_max`}}"
+#  vnc_port_min: "{{user `vnc_port_min`}}"
 - access_key: "{{user `aws_access_key`}}"
   ami_description: "{{user `description`}}"
   ami_groups: all
