@@ -1,50 +1,71 @@
 packer-build
 ============
 
-These Packer templates may be used to build fresh virtual machines.  The
-provided preseed files may also be used to build fresh real machines on bare
-metal as well.
-
 
 Why does this exist?
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Because.
 
 
 What does this do?
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
-Everything.
+These Packer templates and associated files may be used to build fresh virtual
+machine images for Vagrant, VirtualBox and QEMU.
+
+The resulting virtual machine image files may be used as bootable systems on
+real machines and the provided preseed files may also be used to install
+identical systems on bare metal as well.
 
 
 Who needs this?
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Everyone.
 
 
 How does this work?
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Magic.
 
 
 What dependencies does this have?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* https://packer.io/  (0.9.0, 0.8.6)
-* https://vagrantup.com/  (1.8.1, 1.7.4)
-* https://virtualbox.org/  (5.0.14, 4.3.??)
+These templates are tested regularly on Linux (Debian Jessie 8.x) and Mac OS X
+(El Capitan 10.11.x) using recent versions of Packer and Vagrant.  All testing
+is currently done on systems that have amd64/x86_64-family processors.
+
+The QEMU and VirtualBox versions used for Linux testing are always the "stock"
+ones provided by the official Debian repositories.
+
+* Packer https://packer.io/ (0.9.0)
+* Vagrant https://vagrantup.com/ (1.8.1)
+* VirtualBox https://virtualbox.org/
+  * 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) on Debian Jessie 8.x
+  * 5.0.14 on Mac OS X El Capitan 10.11.x
+* QEMU (qemu-kvm)
+  * 2.1.2 (Debian 1:2.1+dfsg-12+deb8u5a) on Debian Jessie 8.x
+
+Currently, Vagrant does not support QEMU as an official provider but there are
+3rd party plugins that add this functionality.
 
 
 Using Packer Templates
 ----------------------
 
-::
+Usage::
 
-    packer build -only=vbox debian/jessie/base-jessie64.json
-    packer build -only=qemu debian/wheezy/base-wheezy32.json
+    ./vbox.sh [PACKER_OPTIONS] PACKER_TEMPLATE
+    ./qemu.sh [PACKER_OPTIONS] PACKER_TEMPLATE
+
+Examples::
+
+    ./vbox.sh ubuntu/trusty/base-trusty64.json
+    ./vbox.sh -var vm_name=test debian/jessie/base-jessie64.json
+    ./qemu.sh -var version=2.0.0 debian/stretch/base-stretch32.json
 
     AWS_ACCESS_KEY_ID=foo AWS_SECRET_ACCESS_KEY=bar packer build \
         -only=aws debian/jessie/base-jessie64.json
@@ -55,7 +76,7 @@ Using Packer Templates
     packer build -var-file=my_vars.json \
         -only=aws debian/jessie/base-jessie64.json
 
-my_vars.json::
+Contents of example file ``my_vars.json`` used above::
 
     {
       "aws_access_key": "foo",
@@ -68,8 +89,8 @@ templates whenever the version of Packer changes::
     ./generate_templates.sh
 
 
-Building and Using Vagrant Box Files
-------------------------------------
+Using Vagrant Box Files
+-----------------------
 
 A Vagrant box file is actually a regular gzippped tar archive containing...
 
@@ -184,7 +205,7 @@ To examine the actual contents of the file after editing it::
 
 
 Using the EFI Shell Editor
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To enter the UEFI shell text editor from the UEFI prompt::
 
@@ -209,7 +230,7 @@ Hex Result::
 
 
 Using Any Old 'nix' Text Editor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To populate the file in a similar manner to the UEFI Shell method above::
 
@@ -281,8 +302,9 @@ Offical ISO Files
 Distro Release Names
 --------------------
 
+
 Debian_
-^^^^^^
+~~~~~~
 
 .. _Debian: https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table
 
@@ -292,7 +314,7 @@ Debian_
 * Wheezy (7.x);  released on 2013-05-04, supported until 2018-05
 
 Ubuntu_
-^^^^^^
+~~~~~~
 
 .. _Ubuntu: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
