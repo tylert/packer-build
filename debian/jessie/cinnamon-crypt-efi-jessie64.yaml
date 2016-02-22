@@ -99,12 +99,7 @@ builders:
   vnc_port_min: "{{user `vnc_port_min`}}"
 #- <<: *builder_options
 #  disk_type_id: 1
-#  guest_os_type: debian8
 #  guest_os_type: debian8-64
-#  guest_os_type: debian7
-#  guest_os_type: debian7-64
-#  guest_os_type: ubuntu
-#  guest_os_type: ubuntu-64
 #  name: vmware
 #  skip_compaction: false
 #  tools_upload_flavor: linux
