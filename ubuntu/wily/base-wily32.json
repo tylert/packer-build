@@ -39,7 +39,7 @@
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "output_directory": "{{user `output_directory`}}",
-      "shutdown_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S poweroff",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
@@ -108,7 +108,7 @@
       ],
       "name": "virtualbox",
       "output_directory": "{{user `output_directory`}}",
-      "shutdown_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S poweroff",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
@@ -200,7 +200,7 @@
           "1"
         ]
       ],
-      "shutdown_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S poweroff",
+      "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "skip_compaction": true,
       "ssh_disable_agent": "{{user `ssh_disable_agent`}}",

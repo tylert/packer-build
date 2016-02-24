@@ -37,7 +37,7 @@ _ALIASES:
   - "{{user `iso_path_internal`}}/{{user `iso_file`}}"
   - "{{user `iso_path_external`}}/{{user `iso_file`}}"
   output_directory: "{{user `output_directory`}}"
-  shutdown_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S poweroff
+  shutdown_command: echo '{{user `sudo_password`}}' | sudo -E -S poweroff
   shutdown_timeout: "{{user `shutdown_timeout`}}"
 # ssh_bastion_host
 # ssh_bastion_password
