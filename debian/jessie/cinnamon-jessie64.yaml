@@ -2,53 +2,53 @@
 _ALIASES:
 - &builder_options
   boot_command:
-  - "<esc><wait>"
-  - "/install.amd/vmlinuz "
+  - '<esc><wait>'
+  - '/install.amd/vmlinuz '
   - 'initrd=/install.amd/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
   - 'hostname={{user `vm_name`}} '
   - 'domain={{user `domain`}} '
   - vga=788 noprompt quiet --<enter>
-  boot_wait: "{{user `boot_wait`}}"
-  communicator: "{{user `communicator`}}"
-  disk_size: "{{user `disk_size`}}"
-  headless: "{{user `headless`}}"
-  http_directory: "{{user `http_directory`}}"
-  http_port_max: "{{user `http_port_max`}}"
-  http_port_min: "{{user `http_port_min`}}"
-  iso_checksum: "{{user `iso_checksum`}}"
-  iso_checksum_type: "{{user `iso_checksum_type`}}"
-  iso_target_path: "{{user `packer_cache_dir`}}/{{user `iso_file`}}"
+  boot_wait: '{{user `boot_wait`}}'
+  communicator: '{{user `communicator`}}'
+  disk_size: '{{user `disk_size`}}'
+  headless: '{{user `headless`}}'
+  http_directory: '{{user `http_directory`}}'
+  http_port_max: '{{user `http_port_max`}}'
+  http_port_min: '{{user `http_port_min`}}'
+  iso_checksum: '{{user `iso_checksum`}}'
+  iso_checksum_type: '{{user `iso_checksum_type`}}'
+  iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
   iso_urls:
-  - "{{user `iso_path_internal`}}/{{user `iso_file`}}"
-  - "{{user `iso_path_external`}}/{{user `iso_file`}}"
-  output_directory: "{{user `output_directory`}}"
+  - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
+  - '{{user `iso_path_external`}}/{{user `iso_file`}}'
+  output_directory: '{{user `output_directory`}}'
   shutdown_command: echo '{{user `sudo_password`}}' | sudo -E -S poweroff
-  shutdown_timeout: "{{user `shutdown_timeout`}}"
-# ssh_bastion_host
-# ssh_bastion_password
-# ssh_bastion_port
-# ssh_bastion_private_key_file
-# ssh_bastion_username
-  ssh_disable_agent: "{{user `ssh_disable_agent`}}"
-  ssh_file_transfer_method: "{{user `ssh_file_transfer_method`}}"
-  ssh_handshake_attempts: "{{user `ssh_handshake_attempts`}}"
-# ssh_host
-  ssh_host_port_max: "{{user `ssh_host_port_max`}}"
-  ssh_host_port_min: "{{user `ssh_host_port_min`}}"
-  ssh_password: "{{user `sudo_password`}}"
-  ssh_port: "{{user `ssh_port`}}"
-# ssh_private_key_file
-  ssh_pty: "{{user `ssh_pty`}}"
-  ssh_timeout: "{{user `ssh_timeout`}}"
-  ssh_username: "{{user `ssh_username`}}"
-  vm_name: "{{user `vm_name`}}"
+  shutdown_timeout: '{{user `shutdown_timeout`}}'
+# ssh_bastion_host: ''
+# ssh_bastion_password: ''
+# ssh_bastion_port: ''
+# ssh_bastion_private_key_file: ''
+# ssh_bastion_username: ''
+  ssh_disable_agent: '{{user `ssh_disable_agent`}}'
+  ssh_file_transfer_method: '{{user `ssh_file_transfer_method`}}'
+  ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
+# ssh_host: ''
+  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
+  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
+  ssh_password: '{{user `sudo_password`}}'
+  ssh_port: '{{user `ssh_port`}}'
+# ssh_private_key_file: ''
+  ssh_pty: '{{user `ssh_pty`}}'
+  ssh_timeout: '{{user `ssh_timeout`}}'
+  ssh_username: '{{user `ssh_username`}}'
+  vm_name: '{{user `vm_name`}}'
 - &shell_provisioner_options
   binary: false
 # environment_vars
   execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
-  inline_shebang: "/bin/sh -e"
+  inline_shebang: '/bin/sh -e'
 # remote_path: '/tmp/script_nnn.sh'
   skip_clean: false
   start_retry_timeout: 5m
@@ -65,14 +65,14 @@ builders:
   type: virtualbox-iso
   vboxmanage:
   - - modifyvm
-    - "{{.Name}}"
-    - "--memory"
-    - "{{user `ram_size`}}"
+    - '{{.Name}}'
+    - '--memory'
+    - '{{user `ram_size`}}'
   - - modifyvm
-    - "{{.Name}}"
-    - "--cpus"
+    - '{{.Name}}'
+    - '--cpus'
     - '1'
-  virtualbox_version_file: "/tmp/.vbox_version"
+  virtualbox_version_file: '/tmp/.vbox_version'
 - <<: *builder_options
   accelerator: kvm
   disk_cache: writeback
@@ -85,70 +85,69 @@ builders:
   machine_type: pc
   name: qemu
   net_device: virtio-net
-  qemu_binary: "{{user `qemu_binary`}}"
+  qemu_binary: '{{user `qemu_binary`}}'
   qemuargs:
-  - - "-m"
-    - "{{user `ram_size`}}M"
-  - - "-smp"
+  - - '-m'
+    - '{{user `ram_size`}}M'
+  - - '-smp'
     - '1'
   skip_compaction: true
   type: qemu
-  vnc_port_max: "{{user `vnc_port_max`}}"
-  vnc_port_min: "{{user `vnc_port_min`}}"
+  vnc_port_max: '{{user `vnc_port_max`}}'
+  vnc_port_min: '{{user `vnc_port_min`}}'
 #- <<: *builder_options
 #  disk_type_id: 1
 #  guest_os_type: debian8-64
 #  name: vmware
 #  skip_compaction: false
 #  tools_upload_flavor: linux
-#  tools_upload_path: "{{.Flavor}}.iso"
+#  tools_upload_path: '{{.Flavor}}.iso'
 #  type: vmware-iso
 #  version: 9
-#  vmdk_name: "{{user `vm_name`}}"
-#  "vmx_data": {
-#    "cpuid.coresPerSocket": "1",
-#    "memsize": "{{user `ram_size`}}",
-#    "numvcpus": "1"
-#  },
-#  vnc_port_max: "{{user `vnc_port_max`}}"
-#  vnc_port_min: "{{user `vnc_port_min`}}"
-- access_key: "{{user `aws_access_key`}}"
-  ami_description: "{{user `description`}}"
+#  vmdk_name: '{{user `vm_name`}}'
+#  vmx_data:
+#    cpuid.coresPerSocket: '1'
+#    memsize: '{{user `ram_size`}}'
+#    numvcpus: '1'
+#  vnc_port_max: '{{user `vnc_port_max`}}'
+#  vnc_port_min: '{{user `vnc_port_min`}}'
+- access_key: '{{user `aws_access_key`}}'
+  ami_description: '{{user `description`}}'
   ami_groups: all
-  ami_name: "{{user `ami_name`}}"
-  communicator: "{{user `communicator`}}"
-  instance_type: "{{user `instance_type`}}"
+  ami_name: '{{user `ami_name`}}'
+  communicator: '{{user `communicator`}}'
+  instance_type: '{{user `instance_type`}}'
   name: aws
-  region: "{{user `region`}}"
+  region: '{{user `region`}}'
   run_tags:
     Name: AMI Builder
-  secret_key: "{{user `aws_secret_key`}}"
-  source_ami: "{{user `source_ami`}}"
-  ssh_disable_agent: "{{user `ssh_disable_agent`}}"
-  ssh_handshake_attempts: "{{user `ssh_handshake_attempts`}}"
-  ssh_password: "{{user `sudo_password`}}"
-  ssh_port: "{{user `ssh_port`}}"
-  ssh_pty: "{{user `ssh_pty`}}"
-  ssh_timeout: "{{user `ssh_timeout`}}"
-  ssh_username: "{{user `ssh_username`}}"
+  secret_key: '{{user `aws_secret_key`}}'
+  source_ami: '{{user `source_ami`}}'
+  ssh_disable_agent: '{{user `ssh_disable_agent`}}'
+  ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
+  ssh_password: '{{user `sudo_password`}}'
+  ssh_port: '{{user `ssh_port`}}'
+  ssh_pty: '{{user `ssh_pty`}}'
+  ssh_timeout: '{{user `ssh_timeout`}}'
+  ssh_username: '{{user `ssh_username`}}'
   type: amazon-ebs
-description: "{{user `description`}}"
+description: '{{user `description`}}'
 min_packer_version: 0.9.0
 post-processors:
 - compression_level: 6
   keep_input_artifact: true
   only:
   - virtualbox
-  output: "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box"
+  output: '{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box'
   type: vagrant
-  vagrantfile_template: "{{user `vagrantfile_template`}}"
+  vagrantfile_template: '{{user `vagrantfile_template`}}'
 - compression_level: 6
   keep_input_artifact: true
   only:
   - qemu
-  output: "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz"
+  output: '{{user `output_directory`}}/{{user `vm_name`}}.raw.gz'
   type: compress
-- inline_shebang: "/bin/sh -e"
+- inline_shebang: '/bin/sh -e'
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
@@ -187,15 +186,15 @@ provisioners:
   - qemu
 variables:
   ami_name: base-{{isotime "2006-01-02-15-04"}}
-  aws_access_key: "{{env `AWS_ACCESS_KEY_ID`}}"
-  aws_secret_key: "{{env `AWS_SECRET_ACCESS_KEY`}}"
+  aws_access_key: '{{env `AWS_ACCESS_KEY_ID`}}'
+  aws_secret_key: '{{env `AWS_SECRET_ACCESS_KEY`}}'
   boot_wait: 3s
   communicator: ssh
   description: Cinnamon box for 64-bit x86 Debian Jessie 8.x
   disk_size: '7500'
   domain: ''
   headless: 'false'
-  http_directory: "."
+  http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
   instance_type: t2.micro
@@ -205,7 +204,7 @@ variables:
   iso_path_external: http://cdimage.debian.org/cdimage/release/8.3.0/multi-arch/iso-cd
   iso_path_internal: http://localhost/debian
   output_directory: build/{{isotime "2006-01-02-15-04"}}
-  packer_cache_dir: "{{env `PACKER_CACHE_DIR`}}"
+  packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: debian/jessie/cinnamon-jessie64.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
