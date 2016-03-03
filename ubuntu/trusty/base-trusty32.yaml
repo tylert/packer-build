@@ -52,7 +52,7 @@ _ALIASES:
   ssh_username: '{{user `ssh_username`}}'
 - &shell_provisioner_options
   binary: false
-# environment_vars:
+# environment_vars: (array of strings)
   execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
   inline_shebang: '/bin/sh -e'
 # remote_path: /tmp/script_nnn.sh
