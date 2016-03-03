@@ -39,35 +39,37 @@ _ALIASES:
   output_directory: '{{user `output_directory`}}'
   shutdown_command: echo '{{user `sudo_password`}}' | sudo -E -S poweroff
   shutdown_timeout: '{{user `shutdown_timeout`}}'
-# ssh_bastion_host: ''
-# ssh_bastion_password: ''
-# ssh_bastion_port: ''
-# ssh_bastion_private_key_file: ''
-# ssh_bastion_username: ''
+  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
+  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
+  vm_name: '{{user `vm_name`}}'
+- &ssh_communicator_options
+# ssh_bastion_host: (string)
+# ssh_bastion_password: (string)
+# ssh_bastion_port: (integer)
+# ssh_bastion_private_key_file: (string)
+# ssh_bastion_username: (string)
   ssh_disable_agent: '{{user `ssh_disable_agent`}}'
   ssh_file_transfer_method: '{{user `ssh_file_transfer_method`}}'
   ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
-# ssh_host: ''
-  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
-  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
+# ssh_host: (string)
   ssh_password: '{{user `sudo_password`}}'
   ssh_port: '{{user `ssh_port`}}'
-# ssh_private_key_file: ''
+# ssh_private_key_file: (string)
   ssh_pty: '{{user `ssh_pty`}}'
   ssh_timeout: '{{user `ssh_timeout`}}'
   ssh_username: '{{user `ssh_username`}}'
-  vm_name: '{{user `vm_name`}}'
 - &shell_provisioner_options
   binary: false
-# environment_vars
+# environment_vars:
   execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
   inline_shebang: '/bin/sh -e'
-# remote_path: '/tmp/script_nnn.sh'
+# remote_path: /tmp/script_nnn.sh
   skip_clean: false
   start_retry_timeout: 5m
   type: shell
 builders:
 - <<: *builder_options
+  <<: *ssh_communicator_options
   format: ova
   guest_additions_mode: disable
   guest_os_type: Ubuntu
@@ -87,6 +89,7 @@ builders:
     - '1'
   virtualbox_version_file: '/tmp/.vbox_version'
 - <<: *builder_options
+  <<: *ssh_communicator_options
   accelerator: kvm
   disk_cache: writeback
   disk_compression: false
@@ -109,6 +112,7 @@ builders:
   vnc_port_max: '{{user `vnc_port_max`}}'
   vnc_port_min: '{{user `vnc_port_min`}}'
 #- <<: *builder_options
+#  <<: *ssh_communicator_options
 #  disk_type_id: 1
 #  guest_os_type: ubuntu
 #  name: vmware
