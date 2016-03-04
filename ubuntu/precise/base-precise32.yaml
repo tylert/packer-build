@@ -18,6 +18,7 @@ _ALIASES:
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
   disk_size: '{{user `disk_size`}}'
+# floppy_files: (array of strings)
   headless: '{{user `headless`}}'
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
@@ -62,8 +63,12 @@ _ALIASES:
 builders:
 - <<: *builder_options
   <<: *ssh_communicator_options
+# export_options: (array of strings)
   format: ova
   guest_additions_mode: disable
+# guest_additions_path: (string)
+# guest_additions_sha256: (string)
+# guest_additions_url (string)
   guest_os_type: Ubuntu
   hard_drive_interface: sata
   iso_interface: sata
@@ -79,7 +84,10 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '1'
+# vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
+# vrdp_port_max: (integer)
+# vrdp_port_min: (integer)
 - <<: *builder_options
   <<: *ssh_communicator_options
   accelerator: kvm
@@ -105,9 +113,19 @@ builders:
   vnc_port_min: '{{user `vnc_port_min`}}'
 #- <<: *builder_options
 #  <<: *ssh_communicator_options
+#  disk_additional_size: (array of integers)
 #  disk_type_id: 1
+#  fusion_app_path: (string)
 #  guest_os_type: ubuntu
 #  name: vmware
+#  remote_cache_datastore: (string)
+#  remote_cache_directory: (string)
+#  remote_datastore: (string)
+#  remote_host: (string)
+#  remote_password: (string)
+#  remote_private_key_file: (string)
+#  remote_type: (string)
+#  remote_username: (string)
 #  skip_compaction: false
 #  tools_upload_flavor: linux
 #  tools_upload_path: '{{.Flavor}}.iso'
@@ -115,9 +133,14 @@ builders:
 #  version: 9
 #  vmdk_name: '{{user `vm_name`}}'
 #  vmx_data:
-#    cpuid.coresPerSocket: '1'
-#    memsize: '{{user `ram_size`}}'
-#    numvcpus: '1'
+#  - - 'cpuid.coresPerSocket'
+#    - '1'
+#  - - 'memsize'
+#    - '{{user `ram_size`}}'
+#  - - 'numvcpus'
+#    - '1'
+#  vmx_data_post: (object of key/value strings)
+#  vmx_template_path: (string)
 #  vnc_port_max: '{{user `vnc_port_max`}}'
 #  vnc_port_min: '{{user `vnc_port_min`}}'
 - access_key: '{{user `aws_access_key`}}'
