@@ -349,7 +349,7 @@
     "iso_checksum_type": "sha256",
     "iso_checksum_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS",
     "iso_file": "xenial-server-i386.iso",
-    "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/",
+    "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current",
     "iso_path_internal": "http://localhost/ubuntu",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
