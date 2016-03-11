@@ -1,14 +1,3 @@
-# Enable extras.ubuntu.com.
-d-i	apt-setup/extras	boolean true
-# Install the Xubuntu desktop.
-#tasksel	tasksel/first	multiselect xubuntu-desktop
-# No XFCE translation packages yet.
-d-i	pkgsel/language-pack-patterns	string
-d-i  base-installer/kernel/altmeta   string lts-utopic
-
-# =============================================================================
-# Everything above is from xubuntu.seed in xubuntu-14.04.2-desktop-amd64.iso.
-
 # Locale Setup
 # must be passed in on the init line as well
 d-i debian-installer/language string en
