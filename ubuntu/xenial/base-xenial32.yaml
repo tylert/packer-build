@@ -230,7 +230,7 @@ variables:
   aws_secret_key: '{{env `AWS_SECRET_ACCESS_KEY`}}'
   boot_wait: 3s
   communicator: ssh
-  description: Base box for 32-bit x86 Ubuntu Xenial Xerus 16.04
+  description: Base box for 32-bit x86 Ubuntu Xenial Xerus 16.04 LTS
   disk_size: '7500'
   domain: ''
   headless: 'false'
