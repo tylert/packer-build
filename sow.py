@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# https://docs.python.org/3.4/library/http.server.html
+# https://docs.python.org/3.5/library/http.server.html
 # https://docs.python.org/2.7/library/simplehttpserver.html
 
 
