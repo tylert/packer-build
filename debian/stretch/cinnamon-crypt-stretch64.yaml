@@ -165,6 +165,7 @@ post-processors:
   keep_input_artifact: true
   only:
   - virtualbox
+# - qemu
   output: '{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box'
   type: vagrant
   vagrantfile_template: '{{user `vagrantfile_template`}}'
@@ -190,6 +191,7 @@ post-processors:
   - 'echo ''    checksum: DEADBEEF'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   only:
   - virtualbox
+# - qemu
   type: shell-local
 provisioners:
 - <<: *shell_provisioner_options
