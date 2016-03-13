@@ -50,7 +50,7 @@ _ALIASES:
   binary: false
 # environment_vars: (array of strings)
   execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
-  inline_shebang: '/bin/sh -e'
+  inline_shebang: /bin/sh -e
 # remote_path: /tmp/script_nnn.sh
   skip_clean: false
   start_retry_timeout: 5m
@@ -178,7 +178,7 @@ post-processors:
   - qemu
   output: '{{user `output_directory`}}/{{user `vm_name`}}.raw.gz'
   type: compress
-- inline_shebang: '/bin/sh -e'
+- inline_shebang: /bin/sh -e
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
