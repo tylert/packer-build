@@ -41,13 +41,28 @@ is currently done on systems that have amd64/x86_64-family processors.
 The QEMU and VirtualBox versions used for Linux testing are always the "stock"
 ones provided by the official Debian repositories.
 
-* Packer https://packer.io/ (0.9.0)
-* Vagrant https://vagrantup.com/ (1.8.1)
-* VirtualBox https://virtualbox.org/
-  * 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) on Debian Jessie 8.x
-  * 5.0.14 on Mac OS X El Capitan 10.11.x
+* Packer_
+
+  - 0.9.0
+
+.. _Packer: https://packer.io/
+
+* Vagrant_
+
+  - 1.8.1
+
+.. _Vagrant: https://vagrantup.com/
+
+* VirtualBox_
+
+  - 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) on Debian Jessie 8.x
+  - 5.0.16 on Mac OS X El Capitan 10.11.x
+
+.. _VirtualBox: https://virtualbox.org/
+
 * QEMU (qemu-kvm)
-  * 2.1.2 (Debian 1:2.1+dfsg-12+deb8u5a) on Debian Jessie 8.x
+
+  - 2.1.2 (Debian 1:2.1+dfsg-12+deb8u5a) on Debian Jessie 8.x
 
 Currently, Vagrant does not support QEMU as an official provider but there are
 3rd party plugins that add this functionality.
