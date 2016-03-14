@@ -170,6 +170,7 @@ builders:
   ssh_pty: '{{user `ssh_pty`}}'
   ssh_timeout: '{{user `ssh_timeout`}}'
   ssh_username: '{{user `ssh_username`}}'
+  token: '{{user `aws_security_token`}}'
   type: amazon-ebs
 description: '{{user `description`}}'
 min_packer_version: 0.9.0
@@ -230,6 +231,7 @@ variables:
   ami_name: base-{{isotime "2006-01-02-15-04"}}
   aws_access_key: '{{env `AWS_ACCESS_KEY_ID`}}'
   aws_secret_key: '{{env `AWS_SECRET_ACCESS_KEY`}}'
+  aws_security_token: '{{env `AWS_SECURITY_TOKEN`}}'
   boot_wait: 3s
   communicator: ssh
   description: Base box for 64-bit x86 Ubuntu Wily Werewolf 15.10
@@ -239,7 +241,7 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  instance_type: t2.micro
+  instance_type: t2.nano
   iso_checksum: 86aa35a986eba6e5ad30e3d486d57efe6803ae7ea4859b0216953e9e62871131
   iso_checksum_type: sha256
   iso_file: ubuntu-15.10-server-amd64.iso
