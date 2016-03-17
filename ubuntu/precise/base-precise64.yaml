@@ -146,15 +146,15 @@ builders:
 - access_key: '{{user `aws_access_key`}}'
   ami_description: '{{user `description`}}'
   ami_groups: all
-  ami_name: '{{user `ami_name`}}'
+  ami_name: '{{user `aws_ami_name`}}'
   communicator: '{{user `communicator`}}'
-  instance_type: '{{user `instance_type`}}'
+  instance_type: '{{user `aws_instance_type`}}'
   name: aws
-  region: '{{user `region`}}'
+  region: '{{user `aws_region`}}'
   run_tags:
     Name: AMI Builder
   secret_key: '{{user `aws_secret_key`}}'
-  source_ami: '{{user `source_ami`}}'
+  source_ami: '{{user `aws_source_ami`}}'
   ssh_disable_agent: '{{user `ssh_disable_agent`}}'
   ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
   ssh_password: '{{user `sudo_password`}}'
@@ -220,10 +220,13 @@ provisioners:
   - virtualbox
   - qemu
 variables:
-  ami_name: base-{{isotime "2006-01-02-15-04"}}
   aws_access_key: '{{env `AWS_ACCESS_KEY_ID`}}'
+  aws_ami_name: base-{{isotime "2006-01-02-15-04"}}
+  aws_instance_type: t2.nano
+  aws_region: us-east-1
   aws_secret_key: '{{env `AWS_SECRET_ACCESS_KEY`}}'
   aws_security_token: '{{env `AWS_SECURITY_TOKEN`}}'
+  aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
   description: Base box for 64-bit x86 Ubuntu Precise Pangolin 12.04.x LTS
@@ -233,7 +236,6 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  instance_type: t2.nano
   iso_checksum: af224223de99e2a730b67d7785b657f549be0d63221188e105445f75fb8305c9
   iso_checksum_type: sha256
   iso_file: ubuntu-12.04.5-server-amd64.iso
@@ -244,9 +246,7 @@ variables:
   preseed_file: ubuntu/precise/base-precise64.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
-  region: us-east-1
   shutdown_timeout: 5m
-  source_ami: foo
   ssh_disable_agent: 'false'
   ssh_file_transfer_method: 'scp'
   ssh_handshake_attempts: '10'
