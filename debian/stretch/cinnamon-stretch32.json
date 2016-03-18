@@ -3,8 +3,8 @@
     {
       "boot_command": [
         "<esc><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "/install.386/vmlinuz ",
+        "initrd=/install.386/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
@@ -55,8 +55,8 @@
     {
       "boot_command": [
         "<esc><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "/install.386/vmlinuz ",
+        "initrd=/install.386/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
@@ -68,7 +68,7 @@
       "disk_size": "{{user `disk_size`}}",
       "format": "ova",
       "guest_additions_mode": "disable",
-      "guest_os_type": "Debian_64",
+      "guest_os_type": "Debian",
       "hard_drive_interface": "sata",
       "headless": "{{user `headless`}}",
       "http_directory": "{{user `http_directory`}}",
@@ -110,12 +110,6 @@
           "{{.Name}}",
           "--cpus",
           "1"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--firmware",
-          "efi"
         ]
       ],
       "virtualbox_version_file": "/tmp/.vbox_version",
@@ -125,8 +119,8 @@
       "accelerator": "kvm",
       "boot_command": [
         "<esc><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "/install.386/vmlinuz ",
+        "initrd=/install.386/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
@@ -259,20 +253,6 @@
       "binary": false,
       "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
-        "echo 'FS0:\\EFI\\debian\\grubx64.efi' > /boot/efi/startup.nsh"
-      ],
-      "inline_shebang": "/bin/sh -e",
-      "only": [
-        "virtualbox"
-      ],
-      "skip_clean": false,
-      "start_retry_timeout": "5m",
-      "type": "shell"
-    },
-    {
-      "binary": false,
-      "execute_command": "echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
-      "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
@@ -324,7 +304,7 @@
     "aws_source_ami": "foo",
     "boot_wait": "3s",
     "communicator": "ssh",
-    "description": "Cinnamon encrypted box for 64-bit x86 Debian Stretch 9.x",
+    "description": "Cinnamon box for 32-bit x86 Debian Stretch 9.x",
     "disk_size": "7500",
     "domain": "",
     "headless": "false",
@@ -338,7 +318,7 @@
     "iso_path_internal": "http://localhost/debian",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
-    "preseed_file": "debian/stretch/cinnamon-crypt-efi-stretch64.preseed",
+    "preseed_file": "debian/stretch/cinnamon-stretch32.preseed",
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "shutdown_timeout": "5m",
@@ -352,9 +332,9 @@
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
     "sudo_password": "1ma63b0rk3d",
-    "vagrantfile_template": "debian/stretch/cinnamon-crypt-efi-stretch64.vagrant",
+    "vagrantfile_template": "debian/stretch/cinnamon-stretch32.vagrant",
     "version": "0.0.0",
-    "vm_name": "cinnamon-crypt-efi-stretch64",
+    "vm_name": "cinnamon-stretch32",
     "vnc_port_max": "6000",
     "vnc_port_min": "5900"
   }

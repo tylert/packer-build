@@ -3,8 +3,8 @@ _ALIASES:
 - &builder_options
   boot_command:
   - '<esc><wait>'
-  - '/install.amd/vmlinuz '
-  - 'initrd=/install.amd/initrd.gz '
+  - '/install.386/vmlinuz '
+  - 'initrd=/install.386/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
   - 'hostname={{user `vm_name`}} '
@@ -64,7 +64,7 @@ builders:
 # guest_additions_path: (string)
 # guest_additions_sha256: (string)
 # guest_additions_url (string)
-  guest_os_type: Debian_64
+  guest_os_type: Debian
   hard_drive_interface: sata
   iso_interface: sata
   name: virtualbox
@@ -111,7 +111,7 @@ builders:
 #  disk_additional_size: (array of integers)
 #  disk_type_id: 1
 #  fusion_app_path: (string)
-#  guest_os_type: debian8-64
+#  guest_os_type: debian8
 #  name: vmware
 #  remote_cache_datastore: (string)
 #  remote_cache_directory: (string)
@@ -224,7 +224,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
-  description: Cinnamon encrypted box for 64-bit x86 Debian Stretch 9.x
+  description: Cinnamon box for 32-bit x86 Debian Stretch 9.x
   disk_size: '7500'
   domain: ''
   headless: 'false'
@@ -238,7 +238,7 @@ variables:
   iso_path_internal: http://localhost/debian
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: debian/stretch/cinnamon-crypt-stretch64.preseed
+  preseed_file: debian/stretch/cinnamon-stretch32.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -252,8 +252,8 @@ variables:
   ssh_timeout: 60m
   ssh_username: ghost
   sudo_password: 1ma63b0rk3d
-  vagrantfile_template: debian/stretch/cinnamon-crypt-stretch64.vagrant
+  vagrantfile_template: debian/stretch/cinnamon-stretch32.vagrant
   version: 0.0.0
-  vm_name: cinnamon-crypt-stretch64
+  vm_name: cinnamon-stretch32
   vnc_port_max: '6000'
   vnc_port_min: '5900'

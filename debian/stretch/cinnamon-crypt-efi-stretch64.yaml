@@ -233,7 +233,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
-  description: Cinnamon encrypted box for 64-bit x86 Debian Stretch 8.x
+  description: Cinnamon encrypted box for 64-bit x86 Debian Stretch 9.x
   disk_size: '7500'
   domain: ''
   headless: 'false'

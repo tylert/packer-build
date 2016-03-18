@@ -224,7 +224,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
-  description: Cinnamon encrypted box for 64-bit x86 Debian Stretch 9.x
+  description: Cinnamon box for 64-bit x86 Debian Stretch 9.x
   disk_size: '7500'
   domain: ''
   headless: 'false'
@@ -238,7 +238,7 @@ variables:
   iso_path_internal: http://localhost/debian
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: debian/stretch/cinnamon-crypt-stretch64.preseed
+  preseed_file: debian/stretch/cinnamon-stretch64.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -252,8 +252,8 @@ variables:
   ssh_timeout: 60m
   ssh_username: ghost
   sudo_password: 1ma63b0rk3d
-  vagrantfile_template: debian/stretch/cinnamon-crypt-stretch64.vagrant
+  vagrantfile_template: debian/stretch/cinnamon-stretch64.vagrant
   version: 0.0.0
-  vm_name: cinnamon-crypt-stretch64
+  vm_name: cinnamon-stretch64
   vnc_port_max: '6000'
   vnc_port_min: '5900'
