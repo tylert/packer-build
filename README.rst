@@ -46,12 +46,14 @@ ones provided by the official Debian repositories.
   - 0.9.0
 
 .. _Packer: https://packer.io/
+.. _Packer_download: https://releases.hashicorp.com/packer/
 
 * Vagrant_
 
   - 1.8.1
 
 .. _Vagrant: https://vagrantup.com/
+.. _Vagrant_download: https://releases.hashicorp.com/vagrant/
 
 * VirtualBox_
 
@@ -59,6 +61,7 @@ ones provided by the official Debian repositories.
   - 5.0.16 on Mac OS X El Capitan 10.11.x
 
 .. _VirtualBox: https://virtualbox.org/
+.. _VirtualBox_download: http://download.virtualbox.org/virtualbox/
 
 * QEMU (qemu-kvm)
 
@@ -309,14 +312,22 @@ Why did you use the Ubuntu Server installer to create desktop systems?
 Offical ISO Files
 -----------------
 
-* http://cdimage.debian.org/cdimage
-* http://releases.ubuntu.com
-* https://cdimage.ubuntu.com
+Debian_
+~~~~~~
+
+* Testing;  http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/
+* Stable;  http://cdimage.debian.org/cdimage/release/current/multi-arch/iso-cd/
+* Oldstable;  http://cdimage.debian.org/cdimage/archive/latest-oldstable/multi-arch/iso-cd/
+
+Ubuntu_
+~~~~~~
+
+* Released;  http://releases.ubuntu.com
+* Pending;  http://cdimage.ubuntu.com/ubuntu-server/daily/current/
 
 
 Distro Release Names
 --------------------
-
 
 Debian_
 ~~~~~~
