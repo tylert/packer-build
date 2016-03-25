@@ -134,6 +134,14 @@ builders:
 #    - '{{user `ram_size`}}'
 #  - - 'numvcpus'
 #    - '1'
+#    MemTrimRate: '0'
+#    mainMem.partialLazyRestore: 'FALSE'
+#    mainMem.partialLazySave: 'FALSE'
+#    mainMem.useNamedFile: 'FALSE'
+#    prefvmx.minVmMemPct: '100'
+#    sched.mem.pshare.enable: 'FALSE'
+#    prefvmx.useRecommendedLockedMemSize: 'TRUE'
+#    MemAllowAutoScaleDown: 'FALSE'
 #  vmx_data_post: (object of key/value strings)
 #  vmx_template_path: (string)
 #  vnc_port_max: '{{user `vnc_port_max`}}'
