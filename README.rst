@@ -167,12 +167,13 @@ Then, simply make sure you point your Vagrantfile at this version payload::
 * https://www.nopsec.com/news-and-resources/blog/2015/3/27/private-vagrant-box-hosting-easy-versioning/
 
 
-Making Bootable USB Drives
---------------------------
+Making Bootable Drives
+----------------------
 
-Be sure to use the Packer QEMU "kvm" builder when trying to create bootable USB
-images.  This allows the use of the "raw" block device format which is ideal
-for writing directly to USB drives.  Alternately, you may use "qemu-img
+For best results, you should use the Packer QEMU "kvm" builder when trying to
+create bootable images to be used on real hardware.  This allows the use of the
+"raw" block device format which is ideal for writing directly directly to USB
+and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
     packer build -only=qemu debian/jessie/base-64.json
@@ -181,7 +182,7 @@ convert" to convert an exiting image in another format to raw mode::
 
 ... Or, if you just want to "boot" it::
 
-    qemu-system-x86_64 build/2015-06-31-12-34/base-jessie-64.raw
+    qemu-system-x86_64 -m 512 build/2015-06-31-12-34/base-jessie-64.raw
 
 
 Overriding Local ISO Cache Location
