@@ -28,14 +28,14 @@
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `sudo_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
-      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
-      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
       "vm_name": "{{user `vm_name`}}"
     },
     {
       "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
       "ssh_password": "{{user `sudo_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_pty": "{{user `ssh_pty`}}",
