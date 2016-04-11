@@ -239,10 +239,10 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 27ad08eeaf5ba3a05414312143eb0c1b478e8f5ab027daddbaecfe8998ae18549c0eca034e51cb59dd5e0b61aca82b835ce1b5ebaf9f347309c2d590e165498a
+  iso_checksum: 7ca2e18a7275a862b783cedc6f63ca5a0938799337d33dfe0a389f896d89d7be511fddee6ade3a92292ed7e5546a97bd1cbb9ce0ad991e0117f006e39948a199
   iso_checksum_type: sha512
-  iso_file: debian-7.9.0-amd64-i386-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/release/7.9.0/multi-arch/iso-cd
+  iso_file: debian-7.10.0-amd64-i386-netinst.iso
+  iso_path_external: http://cdimage.debian.org/cdimage/release/7.10.0/multi-arch/iso-cd
   iso_path_internal: http://localhost/debian
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
