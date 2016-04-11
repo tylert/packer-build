@@ -25,7 +25,7 @@ _ALIASES:
   - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
   - '{{user `iso_path_external`}}/{{user `iso_file`}}'
   output_directory: '{{user `output_directory`}}'
-  shutdown_command: echo '{{user `sudo_password`}}' | sudo -E -S poweroff
+  shutdown_command: echo '{{user `ssh_password`}}' | sudo -E -S poweroff
   shutdown_timeout: '{{user `shutdown_timeout`}}'
   vm_name: '{{user `vm_name`}}'
 - &ssh_communicator_options
@@ -40,7 +40,7 @@ _ALIASES:
 # ssh_host: (string)
   ssh_host_port_max: '{{user `ssh_host_port_max`}}'
   ssh_host_port_min: '{{user `ssh_host_port_min`}}'
-  ssh_password: '{{user `sudo_password`}}'
+  ssh_password: '{{user `ssh_password`}}'
   ssh_port: '{{user `ssh_port`}}'
 # ssh_private_key_file: (string)
   ssh_pty: '{{user `ssh_pty`}}'
@@ -49,7 +49,7 @@ _ALIASES:
 - &shell_provisioner_options
   binary: false
 # environment_vars: (array of strings)
-  execute_command: echo '{{user `sudo_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
+  execute_command: echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'
   inline_shebang: /bin/sh -e
 # remote_path: /tmp/script_nnn.sh
   skip_clean: false
@@ -160,7 +160,7 @@ builders:
   source_ami: '{{user `aws_source_ami`}}'
   ssh_disable_agent: '{{user `ssh_disable_agent`}}'
   ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
-  ssh_password: '{{user `sudo_password`}}'
+  ssh_password: '{{user `ssh_password`}}'
   ssh_port: '{{user `ssh_port`}}'
   ssh_pty: '{{user `ssh_pty`}}'
   ssh_timeout: '{{user `ssh_timeout`}}'
@@ -252,14 +252,15 @@ variables:
   shutdown_timeout: 5m
   ssh_disable_agent: 'false'
   ssh_file_transfer_method: 'scp'
+  ssh_fullname: 'Ghost Writer'
   ssh_handshake_attempts: '10'
   ssh_host_port_max: '4444'
   ssh_host_port_min: '2222'
+  ssh_password: 1ma63b0rk3d
   ssh_port: '22'
   ssh_pty: 'false'
   ssh_timeout: 60m
   ssh_username: ghost
-  sudo_password: 1ma63b0rk3d
   vagrantfile_template: debian/wheezy/xfce-crypt-wheezy32.vagrant
   version: 0.0.0
   vm_name: xfce-crypt-wheezy32
