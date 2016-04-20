@@ -324,7 +324,6 @@
     "shutdown_timeout": "5m",
     "ssh_disable_agent": "false",
     "ssh_file_transfer_method": "scp",
-    "ssh_fullname": "Ghost Writer",
     "ssh_handshake_attempts": "10",
     "ssh_host_port_max": "4444",
     "ssh_host_port_min": "2222",

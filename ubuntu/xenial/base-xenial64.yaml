@@ -236,6 +236,7 @@ provisioners:
   - virtualbox
   - qemu
 variables:
+# apt-cache-url: http://localhost:3142
   aws_access_key: '{{env `AWS_ACCESS_KEY_ID`}}'
   aws_ami_name: base-{{isotime "2006-01-02-15-04"}}
   aws_instance_type: t2.nano
@@ -264,8 +265,8 @@ variables:
   ram_size: '512'
   shutdown_timeout: 5m
   ssh_disable_agent: 'false'
-  ssh_file_transfer_method: 'scp'
-  ssh_fullname: 'Ghost Writer'
+  ssh_file_transfer_method: scp
+# ssh_fullname: Ghost Writer
   ssh_handshake_attempts: '10'
   ssh_host_port_max: '4444'
   ssh_host_port_min: '2222'

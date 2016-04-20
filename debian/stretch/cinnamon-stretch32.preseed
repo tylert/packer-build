@@ -32,6 +32,7 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.ca.debian.org
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
+#d-i mirror/http/proxy string http://localhost:3142
 d-i apt-setup/contrib boolean true
 d-i apt-setup/non-free boolean true
 tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, cinnamon-desktop
