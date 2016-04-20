@@ -270,6 +270,21 @@ Serving Local Files via HTTP
     ./sow.py
 
 
+Caching Debian/Ubuntu Packages
+------------------------------
+
+If you wish to speed up fetching lots of Debian and/or Ubuntu packages, you
+should probably install "apt-cacher-ng" on a machine and then add the following
+to each machine that should use the new cache::
+
+    echo "Acquire::http::Proxy 'http://localhost:3142';" >>\
+        /etc/apt/apt.conf.d/99apt-cacher-ng
+
+You must re-run "apt-cache update" each time you add or remove a proxy.  If you
+populate the "d-i http/proxy string" value in your preseed file, all this stuff
+will have been done for you already.
+
+
 Preseed Documentation
 ---------------------
 
