@@ -240,9 +240,9 @@ variables:
   http_port_max: '9000'
   http_port_min: '8000'
   iso_checksum_type: sha512
-  iso_checksum_url: http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/SHA512SUMS
-  iso_file: debian-testing-amd64-i386-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd 
+  iso_checksum_url: http://cdimage.debian.org/cdimage/stretch_di_alpha5/multi-arch/iso-cd/SHA512SUMS
+  iso_file: debian-stretch-DI-alpha5-amd64-i386-netinst.iso
+  iso_path_external: http://cdimage.debian.org/cdimage/stretch_di_alpha5/multi-arch/iso-cd 
   iso_path_internal: http://localhost/debian
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
