@@ -6,6 +6,3 @@ Debian
 
 * Find out if partman-crypto will allow passphrase-crypted
 * Skip past "Force UEFI Install" installer prompt
-* [stretch] bug #814343 -> "chroot /target apt-get -fy install" to continue
-    (or switch back to "daily" build, if alpha6 takes too long to materialize)
-    https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=814343
