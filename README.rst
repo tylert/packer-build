@@ -331,12 +331,16 @@ Offical ISO Files
 Debian_
 ~~~~~~
 
+.. _Debian: https://www.debian.org
+
 * Testing;  http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/
 * Stable;  http://cdimage.debian.org/cdimage/release/current/multi-arch/iso-cd/
 * Oldstable;  http://cdimage.debian.org/cdimage/archive/latest-oldstable/multi-arch/iso-cd/
 
 Ubuntu_
 ~~~~~~
+
+.. _Ubuntu: http://ubuntu.com
 
 * Released;  http://releases.ubuntu.com
 * Pending;  http://cdimage.ubuntu.com/ubuntu-server/daily/current/
@@ -345,22 +349,22 @@ Ubuntu_
 Distro Release Names
 --------------------
 
-Debian_
-~~~~~~
+Debian_releases_
+~~~~~~~~~~~~~~~
 
-.. _Debian: https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table
+.. _Debian_releases: https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table
 
 * Buster (10.x);  released on 20??-??-??, supported until 20??-??
 * Stretch (9.x);  released on 20??-??-??, supported until 20??-??
 * Jessie (8.x);  released on 2015-04-25, supported until 2020-0[45]
 * Wheezy (7.x);  released on 2013-05-04, supported until 2018-05
 
-Ubuntu_
-~~~~~~
+Ubuntu_releases_
+~~~~~~~~~~~~~~~
 
-.. _Ubuntu: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
+.. _Ubuntu_releases: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
-* Yakkety Yak (16.10);  released on 2016-10-??, supported until 20??-??
+* Yakkety Yak (16.10);  released on 2016-10-20, supported until 2017-07
 * Xenial Xerus (16.04 LTS);  released on 2016-04-21, supported until 2021-04
 * Trusty Tahr (14.04 LTS);  released on 2014-04-17, supported until 2019-04
 * Precise Pangolin (12.04 LTS);  released on 2012-04-26, supported until 2017-04-26
