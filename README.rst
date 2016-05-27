@@ -43,14 +43,14 @@ ones provided by the official Debian repositories.
 
 * Packer_ (Packer_download_)
 
-  - 0.9.0
+  - 0.9.0 or newer
 
 .. _Packer: https://packer.io/
 .. _Packer_download: https://releases.hashicorp.com/packer/
 
 * Vagrant_ (Vagrant_download_)
 
-  - 1.8.1
+  - 1.8.1 or newer
 
 .. _Vagrant: https://vagrantup.com/
 .. _Vagrant_download: https://releases.hashicorp.com/vagrant/
@@ -58,7 +58,7 @@ ones provided by the official Debian repositories.
 * VirtualBox_ (VirtualBox_download_)
 
   - 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) on Debian Jessie 8.x
-  - 5.0.16 on Mac OS X El Capitan 10.11.x
+  - 5.0.20 on Mac OS X El Capitan 10.11.x
 
 .. _VirtualBox: https://virtualbox.org/
 .. _VirtualBox_download: http://download.virtualbox.org/virtualbox/
