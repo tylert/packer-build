@@ -1,0 +1,381 @@
+{
+  "_ALIASES": [
+    {
+      "boot_command": [
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "initrd=/install/initrd.gz ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "language=en ",
+        "country=CA ",
+        "locale=en_CA.UTF-8 ",
+        "hostname={{user `vm_name`}} ",
+        "domain={{user `domain`}} ",
+        "console-setup/ask_detect=false ",
+        "keyboard-configuration/layoutcode=us ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "communicator": "{{user `communicator`}}",
+      "disk_size": "{{user `disk_size`}}",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
+      "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
+      "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
+      "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": "{{user `ssh_pty`}}",
+      "ssh_timeout": "{{user `ssh_timeout`}}",
+      "ssh_username": "{{user `ssh_username`}}"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline_shebang": "/bin/sh -e",
+      "skip_clean": false,
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    }
+  ],
+  "builders": [
+    {
+      "boot_command": [
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "initrd=/install/initrd.gz ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "language=en ",
+        "country=CA ",
+        "locale=en_CA.UTF-8 ",
+        "hostname={{user `vm_name`}} ",
+        "domain={{user `domain`}} ",
+        "console-setup/ask_detect=false ",
+        "keyboard-configuration/layoutcode=us ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "communicator": "{{user `communicator`}}",
+      "disk_size": "{{user `disk_size`}}",
+      "format": "ova",
+      "guest_additions_mode": "disable",
+      "guest_os_type": "Ubuntu",
+      "hard_drive_interface": "sata",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_interface": "sata",
+      "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
+      "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
+      "name": "virtualbox",
+      "output_directory": "{{user `output_directory`}}",
+      "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
+      "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
+      "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": "{{user `ssh_pty`}}",
+      "ssh_skip_nat_mapping": false,
+      "ssh_timeout": "{{user `ssh_timeout`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "{{user `ram_size`}}"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ],
+      "virtualbox_version_file": "/tmp/.vbox_version",
+      "vm_name": "{{user `vm_name`}}"
+    },
+    {
+      "accelerator": "kvm",
+      "boot_command": [
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "initrd=/install/initrd.gz ",
+        "auto=true ",
+        "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
+        "language=en ",
+        "country=CA ",
+        "locale=en_CA.UTF-8 ",
+        "hostname={{user `vm_name`}} ",
+        "domain={{user `domain`}} ",
+        "console-setup/ask_detect=false ",
+        "keyboard-configuration/layoutcode=us ",
+        "vga=788 noprompt quiet --<enter>"
+      ],
+      "boot_wait": "{{user `boot_wait`}}",
+      "communicator": "{{user `communicator`}}",
+      "disk_cache": "writeback",
+      "disk_compression": false,
+      "disk_discard": "ignore",
+      "disk_image": false,
+      "disk_interface": "scsi",
+      "disk_size": "{{user `disk_size`}}",
+      "format": "raw",
+      "headless": "{{user `headless`}}",
+      "http_directory": "{{user `http_directory`}}",
+      "http_port_max": "{{user `http_port_max`}}",
+      "http_port_min": "{{user `http_port_min`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_skip_cache": false,
+      "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
+      "iso_urls": [
+        "{{user `iso_path_internal`}}/{{user `iso_file`}}",
+        "{{user `iso_path_external`}}/{{user `iso_file`}}"
+      ],
+      "machine_type": "pc",
+      "name": "qemu",
+      "net_device": "virtio-net",
+      "output_directory": "{{user `output_directory`}}",
+      "qemu_binary": "{{user `qemu_binary`}}",
+      "qemuargs": [
+        [
+          "-m",
+          "{{user `ram_size`}}M"
+        ],
+        [
+          "-smp",
+          "1"
+        ]
+      ],
+      "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
+      "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "skip_compaction": true,
+      "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
+      "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
+      "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": "{{user `ssh_pty`}}",
+      "ssh_timeout": "{{user `ssh_timeout`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "type": "qemu",
+      "vm_name": "{{user `vm_name`}}",
+      "vnc_port_max": "{{user `vnc_port_max`}}",
+      "vnc_port_min": "{{user `vnc_port_min`}}"
+    },
+    {
+      "access_key": "{{user `aws_access_key`}}",
+      "ami_description": "{{user `description`}}",
+      "ami_groups": "all",
+      "ami_name": "{{user `aws_ami_name`}}",
+      "communicator": "{{user `communicator`}}",
+      "instance_type": "{{user `aws_instance_type`}}",
+      "name": "aws",
+      "region": "{{user `aws_region`}}",
+      "run_tags": {
+        "Name": "AMI Builder"
+      },
+      "secret_key": "{{user `aws_secret_key`}}",
+      "source_ami": "{{user `aws_source_ami`}}",
+      "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
+      "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_port": "{{user `ssh_port`}}",
+      "ssh_pty": "{{user `ssh_pty`}}",
+      "ssh_timeout": "{{user `ssh_timeout`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "token": "{{user `aws_security_token`}}",
+      "type": "amazon-ebs"
+    }
+  ],
+  "description": "{{user `description`}}",
+  "min_packer_version": "0.9.0",
+  "post-processors": [
+    {
+      "compression_level": 6,
+      "keep_input_artifact": true,
+      "only": [
+        "virtualbox"
+      ],
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box",
+      "type": "vagrant",
+      "vagrantfile_template": "{{user `vagrantfile_template`}}"
+    },
+    {
+      "compression_level": 6,
+      "keep_input_artifact": true,
+      "only": [
+        "qemu"
+      ],
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz",
+      "type": "compress"
+    },
+    {
+      "inline": [
+        "echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo 'name: {{user `vm_name`}}' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo 'description: {{user `description`}}' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo 'versions:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '- version: {{user `version`}}' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '  providers:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '  - name: virtualbox' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-'$PACKER_BUILD_NAME'.box' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '    checksum_type: sha256' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '    checksum: DEADBEEF' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "only": [
+        "virtualbox"
+      ],
+      "type": "shell-local"
+    }
+  ],
+  "provisioners": [
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
+        "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "only": [
+        "virtualbox",
+        "qemu"
+      ],
+      "skip_clean": false,
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "apt-get clean"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "skip_clean": false,
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
+        "dd if=/dev/zero of=/ZEROFILL bs=4M",
+        "rm /ZEROFILL",
+        "sync"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "only": [
+        "virtualbox",
+        "qemu"
+      ],
+      "skip_clean": false,
+      "start_retry_timeout": "5m",
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_ami_name": "base-{{isotime \"2006-01-02-15-04\"}}",
+    "aws_instance_type": "t2.nano",
+    "aws_region": "us-east-1",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "aws_security_token": "{{env `AWS_SECURITY_TOKEN`}}",
+    "aws_source_ami": "foo",
+    "boot_wait": "3s",
+    "communicator": "ssh",
+    "description": "Base box for 32-bit x86 Ubuntu Yakkety Yak 16.10",
+    "disk_size": "7500",
+    "domain": "",
+    "headless": "false",
+    "http_directory": ".",
+    "http_port_max": "9000",
+    "http_port_min": "8000",
+    "iso_checksum_type": "sha256",
+    "iso_checksum_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS",
+    "iso_file": "yakkety-server-i386.iso",
+    "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current",
+    "iso_path_internal": "http://localhost/ubuntu",
+    "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
+    "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
+    "preseed_file": "ubuntu/yakkety/base-yakkety32.preseed",
+    "qemu_binary": "qemu-system-x86_64",
+    "ram_size": "512",
+    "shutdown_timeout": "5m",
+    "ssh_disable_agent": "false",
+    "ssh_file_transfer_method": "scp",
+    "ssh_handshake_attempts": "10",
+    "ssh_host_port_max": "4444",
+    "ssh_host_port_min": "2222",
+    "ssh_password": "1ma63b0rk3d",
+    "ssh_port": "22",
+    "ssh_pty": "false",
+    "ssh_timeout": "60m",
+    "ssh_username": "ghost",
+    "vagrantfile_template": "ubuntu/yakkety/base-yakkety32.vagrant",
+    "version": "0.0.0",
+    "vm_name": "base-yakkety32",
+    "vnc_port_max": "6000",
+    "vnc_port_min": "5900"
+  }
+}
+
