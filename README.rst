@@ -76,14 +76,14 @@ Using Packer Templates
 
 Usage::
 
-    ./vbox.sh [PACKER_OPTIONS] PACKER_TEMPLATE
-    ./qemu.sh [PACKER_OPTIONS] PACKER_TEMPLATE
+    ./scripts/vbox.sh [PACKER_OPTIONS] PACKER_TEMPLATE
+    ./scripts/qemu.sh [PACKER_OPTIONS] PACKER_TEMPLATE
 
 Examples::
 
-    ./vbox.sh ubuntu/trusty/base-trusty64.json
-    ./vbox.sh -var vm_name=test debian/jessie/base-jessie64.json
-    ./qemu.sh -var version=2.0.0 debian/stretch/base-stretch32.json
+    ./scripts/vbox.sh ubuntu/trusty/base-trusty64.json
+    ./scripts/vbox.sh -var vm_name=test debian/jessie/base-jessie64.json
+    ./scripts/qemu.sh -var version=2.0.0 debian/stretch/base-stretch32.json
 
     AWS_ACCESS_KEY_ID=foo AWS_SECRET_ACCESS_KEY=bar packer build \
         -only=aws debian/jessie/base-jessie64.json
@@ -104,7 +104,7 @@ Contents of example file ``my_vars.json`` used above::
 To verify your templates, force them to be re-sorted and/or to upgrade your
 templates whenever the version of Packer changes::
 
-    ./generate_templates.sh
+    ./scripts/generate_templates.sh
 
 
 Using Vagrant Box Files
@@ -267,7 +267,7 @@ Serving Local Files via HTTP
 
 ::
 
-    ./sow.py
+    ./scripts/sow.py
 
 
 Caching Debian/Ubuntu Packages

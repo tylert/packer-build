@@ -1,5 +1,4 @@
 Make sure to use comparable cpus and cores_per_cpu for qemu and vbox
-Check whether shutdown_timeout and start_retry_timeout are the same "thing"
 
 Debian
 ------

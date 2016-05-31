@@ -60,7 +60,7 @@
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline_shebang": "/bin/sh -e",
       "skip_clean": false,
-      "start_retry_timeout": "5m",
+      "start_retry_timeout": "{{user `start_retry_timeout`}}",
       "type": "shell"
     }
   ],
@@ -301,7 +301,7 @@
         "qemu"
       ],
       "skip_clean": false,
-      "start_retry_timeout": "5m",
+      "start_retry_timeout": "{{user `start_retry_timeout`}}",
       "type": "shell"
     },
     {
@@ -312,7 +312,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "skip_clean": false,
-      "start_retry_timeout": "5m",
+      "start_retry_timeout": "{{user `start_retry_timeout`}}",
       "type": "shell"
     },
     {
@@ -329,7 +329,7 @@
         "qemu"
       ],
       "skip_clean": false,
-      "start_retry_timeout": "5m",
+      "start_retry_timeout": "{{user `start_retry_timeout`}}",
       "type": "shell"
     }
   ],
@@ -371,6 +371,7 @@
     "ssh_pty": "false",
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
+    "start_retry_timeout": "5m",
     "vagrantfile_template": "ubuntu/yakkety/base-yakkety32.vagrant",
     "version": "0.0.0",
     "vm_name": "base-yakkety32",
