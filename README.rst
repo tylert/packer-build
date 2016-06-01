@@ -110,7 +110,7 @@ templates whenever the version of Packer changes::
 Using Vagrant Box Files
 -----------------------
 
-A Vagrant box file is actually a regular gzippped tar archive containing...
+A Vagrant box file is actually a regular gzipped tar archive containing...
 
 * box.ovf - Open Virtualization Format XML descriptor file
 * nameofmachine-disk1.vmdk - a virtual hard drive image file
@@ -124,7 +124,7 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    packer build -only=vbox -var version=1.0.0 debian/jessie/base-jessie64.json
+    ./scripts/vbox.sh -var version=1.0.0 debian/jessie/base-jessie64.json
     vagrant box add myname/jessie64 build/2015-06-31-12-34/base-jessie64-1.0.0.virtualbox.box
     vagrant init myname/jessie64
     vagrant up
@@ -176,7 +176,7 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    packer build -only=qemu debian/jessie/base-64.json
+    ./scripts/qemu.sh debian/jessie/base-64.json
     zcat build/2015-06-31-12-34/base-jessie-64.raw.gz | dd of=/dev/sdb bs=4M
     grub-install /dev/sdb
 
@@ -192,6 +192,11 @@ You may override the default directory used instead of 'packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
     PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base-64.json
+
+.. note::  You must *always* specify the PACKER_CACHE_DIR when using the
+    provided templates due to a problem in packer where the PACKER_CACHE_DIR is
+    not provided to the template if one was not provided;  In this case, it
+    will fall back to the default value of "./packer_cache".
 
 
 Disabling Hashicorp Checkpoint Version Checks
