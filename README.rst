@@ -153,6 +153,8 @@ a JSON file containing the following::
       ]
     }
 
+.. note::  SHA256 hashes are the largest ones that Vagrant supports, currently.
+
 Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure(2) do |config|
@@ -176,13 +178,13 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    ./scripts/qemu.sh debian/jessie/base-64.json
-    zcat build/2015-06-31-12-34/base-jessie-64.raw.gz | dd of=/dev/sdb bs=4M
+    ./scripts/qemu.sh debian/jessie/base-jessie64.json
+    zcat build/2099-06-31-12-34/base-jessie64.raw.gz | dd of=/dev/sdb bs=4M
     grub-install /dev/sdb
 
 ... Or, if you just want to "boot" it::
 
-    qemu-system-x86_64 -m 512 build/2015-06-31-12-34/base-jessie-64.raw
+    qemu-system-x86_64 -m 512 build/2015-06-31-12-34/base-jessie64.raw
 
 
 Overriding Local ISO Cache Location
@@ -191,7 +193,8 @@ Overriding Local ISO Cache Location
 You may override the default directory used instead of 'packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
-    PACKER_CACHE_DIR=/tmp packer build -only=vbox debian/jessie/base-64.json
+    PACKER_CACHE_DIR=/tmp packer build -only=vbox \
+        debian/jessie/base-jessie64.json
 
 .. note::  You must *always* specify the PACKER_CACHE_DIR when using the
     provided templates due to a problem in packer where the PACKER_CACHE_DIR is
