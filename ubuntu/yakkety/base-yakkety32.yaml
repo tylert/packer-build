@@ -246,6 +246,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
+# country: CA
   description: Base box for 32-bit x86 Ubuntu Yakkety Yak 16.10
   disk_size: '7500'
   domain: ''
@@ -258,6 +259,9 @@ variables:
   iso_file: yakkety-server-i386.iso
   iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
   iso_path_internal: http://localhost/ubuntu
+# language: en
+# locale: en_CA.UTF-8
+# keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: ubuntu/yakkety/base-yakkety32.preseed
@@ -276,6 +280,8 @@ variables:
   ssh_timeout: 60m
   ssh_username: ghost
   start_retry_timeout: 5m
+# system_clock_in_utc: 'true'
+# timezone: UTC
   vagrantfile_template: ubuntu/yakkety/base-yakkety32.vagrant
   version: 0.0.0
   vm_name: base-yakkety32

@@ -233,6 +233,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
+# country: CA
   description: Cinnamon box for 32-bit x86 Debian Jessie 8.x
   disk_size: '7500'
   domain: ''
@@ -245,6 +246,9 @@ variables:
   iso_file: debian-8.4.0-amd64-i386-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/release/8.4.0/multi-arch/iso-cd
   iso_path_internal: http://localhost/debian
+# language: en
+# locale: en_CA.UTF-8
+# keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: debian/jessie/cinnamon-jessie32.preseed
@@ -263,6 +267,8 @@ variables:
   ssh_timeout: 60m
   ssh_username: ghost
   start_retry_timeout: 5m
+# system_clock_in_utc: 'true'
+# timezone: UTC
   vagrantfile_template: debian/jessie/cinnamon-jessie32.vagrant
   version: 0.0.0
   vm_name: cinnamon-jessie32

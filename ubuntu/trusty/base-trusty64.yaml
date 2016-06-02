@@ -238,6 +238,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
+# country: CA
   description: Base box for 64-bit x86 Ubuntu Trusty Tahr 14.04.x LTS
   disk_size: '7500'
   domain: ''
@@ -250,6 +251,9 @@ variables:
   iso_file: ubuntu-14.04.4-server-amd64.iso
   iso_path_external: http://releases.ubuntu.com/14.04.4
   iso_path_internal: http://localhost/ubuntu
+# language: en
+# locale: en_CA.UTF-8
+# keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: ubuntu/trusty/base-trusty64.preseed
@@ -268,6 +272,8 @@ variables:
   ssh_timeout: 60m
   ssh_username: ghost
   start_retry_timeout: 5m
+# system_clock_in_utc: 'true'
+# timezone: UTC
   vagrantfile_template: ubuntu/trusty/base-trusty64.vagrant
   version: 0.0.0
   vm_name: base-trusty64
