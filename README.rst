@@ -180,11 +180,10 @@ convert" to convert an exiting image in another format to raw mode::
 
     ./scripts/qemu.sh debian/jessie/base-jessie64.json
     zcat build/2099-06-31-12-34/base-jessie64.raw.gz | dd of=/dev/sdb bs=4M
-    grub-install /dev/sdb
 
 ... Or, if you just want to "boot" it::
 
-    qemu-system-x86_64 -m 512 build/2015-06-31-12-34/base-jessie64.raw
+    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm build/2015-06-31-12-34/base-jessie64.raw
 
 
 Overriding Local ISO Cache Location
