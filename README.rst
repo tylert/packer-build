@@ -43,29 +43,29 @@ ones provided by the official Debian repositories.
 
 * Packer_ (Packer_download_)
 
-  - 0.9.0 or newer
+  - 0.10.1 or newer
 
 .. _Packer: https://packer.io/
 .. _Packer_download: https://releases.hashicorp.com/packer/
 
 * Vagrant_ (Vagrant_download_)
 
-  - 1.8.1 or newer
+  - 1.8.4 or newer
 
 .. _Vagrant: https://vagrantup.com/
 .. _Vagrant_download: https://releases.hashicorp.com/vagrant/
 
 * VirtualBox_ (VirtualBox_download_)
 
-  - 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) on Debian Jessie 8.x
-  - 5.0.20 on Mac OS X El Capitan 10.11.x
+  - 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) or newer on Debian Jessie 8.x
+  - 5.0.22 or newer on Mac OS X El Capitan 10.11.x
 
 .. _VirtualBox: https://virtualbox.org/
 .. _VirtualBox_download: http://download.virtualbox.org/virtualbox/
 
 * QEMU (qemu-kvm)
 
-  - 2.1.2 (Debian 1:2.1+dfsg-12+deb8u5a) on Debian Jessie 8.x
+  - 2.1.2 (Debian 1:2.1+dfsg-12+deb8u5a) or newer on Debian Jessie 8.x
 
 Currently, Vagrant does not support QEMU as an official provider but there are
 3rd party plugins that add this functionality.
@@ -83,7 +83,7 @@ Examples::
 
     ./scripts/vbox.sh ubuntu/trusty/base-trusty64.json
     ./scripts/vbox.sh -var vm_name=test debian/jessie/base-jessie64.json
-    ./scripts/qemu.sh -var version=2.0.0 debian/stretch/base-stretch32.json
+    ./scripts/qemu.sh -var version=2.0.0 debian/stretch/base-stretch64.json
 
     AWS_ACCESS_KEY_ID=foo AWS_SECRET_ACCESS_KEY=bar packer build \
         -only=aws debian/jessie/base-jessie64.json
