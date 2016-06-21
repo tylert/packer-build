@@ -244,7 +244,7 @@ variables:
   iso_checksum: beb38b3d84bb69a4151829c10314cfa3cbbca1853b0957eca5ade149070c847735d1f3f9a059547a9b9f7fb1c7931d7c7781c2c810e2297c0d95b724a98cb679
   iso_checksum_type: sha512
   iso_file: debian-7.11.0-amd64-i386-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/release/7.11.0/multi-arch/iso-cd
+  iso_path_external: http://cdimage.debian.org/cdimage/archive/7.11.0/multi-arch/iso-cd
   iso_path_internal: http://localhost/debian
 # language: en
 # locale: en_CA.UTF-8
