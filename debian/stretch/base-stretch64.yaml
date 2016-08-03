@@ -144,6 +144,7 @@ builders:
 #    MemAllowAutoScaleDown: 'FALSE'
 #  vmx_data_post: (object of key/value strings)
 #  vmx_template_path: (string)
+#  vnc_bind_address: '{{user `vnc_bind_address`}}'
 #  vnc_port_max: '{{user `vnc_port_max`}}'
 #  vnc_port_min: '{{user `vnc_port_min`}}'
 - access_key: '{{user `aws_access_key`}}'
@@ -272,5 +273,6 @@ variables:
   vagrantfile_template: debian/stretch/base-stretch64.vagrant
   version: 0.0.0
   vm_name: base-stretch64
+# vnc_bind_address: '127.0.0.1'
   vnc_port_max: '6000'
   vnc_port_min: '5900'
