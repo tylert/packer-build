@@ -50,7 +50,7 @@ ones provided by the official Debian repositories.
 
 * Vagrant_ (Vagrant_download_)
 
-  - 1.8.4 or newer
+  - 1.8.5 or newer
 
 .. _Vagrant: https://vagrantup.com/
 .. _Vagrant_download: https://releases.hashicorp.com/vagrant/
