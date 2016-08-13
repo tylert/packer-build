@@ -357,6 +357,7 @@
     "iso_file": "yakkety-server-amd64.iso",
     "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current",
     "iso_path_internal": "http://localhost/ubuntu",
+    "min_vagrant_version": "1.8.5",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
     "preseed_file": "ubuntu/yakkety/base-yakkety64.preseed",

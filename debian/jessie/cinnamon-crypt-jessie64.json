@@ -318,6 +318,7 @@
     "iso_file": "debian-8.5.0-amd64-i386-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/release/8.5.0/multi-arch/iso-cd",
     "iso_path_internal": "http://localhost/debian",
+    "min_vagrant_version": "1.8.5",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
     "preseed_file": "debian/jessie/cinnamon-crypt-jessie64.preseed",
