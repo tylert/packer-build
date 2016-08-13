@@ -1,7 +1,0 @@
-Make sure to use comparable cpus and cores_per_cpu for qemu and vbox
-
-Debian
-------
-
-* Find out if partman-crypto will allow passphrase-crypted
-* Skip past "Force UEFI Install" installer prompt

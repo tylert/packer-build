@@ -20,35 +20,41 @@ phased out of Debian/Ubuntu "real soon now".
 What dependencies does this have?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These templates are tested regularly on Linux (Debian Jessie 8.x) and Mac OS
-(El Capitan 10.11.x) using recent versions of Packer and Vagrant.  All testing
-is currently done on systems that have amd64/x86_64-family processors.
+These templates are tested semi-regularly on Linux (Debian) and Mac OS hosts
+using recent versions of Packer and Vagrant.  All testing is currently done on
+systems that have amd64/x86_64-family processors.
 
 The QEMU and VirtualBox versions used for Linux testing are always the "stock"
 ones provided by the official Debian repositories.
 
 Even though Packer supports QEMU as an officially-supported provider, Vagrant,
 for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt"
-provides the missing QEMU support for Vagrant.
+provides the missing QEMU support for Vagrant.  We are unable at this time to
+confirm this fact due to the following errors encountered while trying to run
+"vagrant up"::
+
+    Error while connecting to libvirt: Error making a connection to libvirt URI qemu:///system?no_verify=1&keyfile=/home/whoa/.ssh/id_rsa:
+    Call to virConnectOpen failed: Failed to connect socket to '/var/run/libvirt/libvirt-sock': No such file or directory
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 0.10.1 or newer
+  - 0.10.1 on Debian Jessie 8.x (with VirtualBox and QEMU)
+  - 0.10.1 on Mac OS El Capitan 10.11.x (with VirtualBox)
 
 .. _Packer: https://packer.io
 .. _Packer_download: https://releases.hashicorp.com/packer
 
 * REQUIRED:  VirtualBox_ (VirtualBox_download_)
 
-  - 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) on Debian Jessie 8.x or newer
-  - 5.1.2 on Mac OS El Capitan 10.11.x or newer
+  - 4.3.36 r105129 [4.3.36-dfsg-1+deb8u1] on Debian Jessie 8.x
+  - 5.1.2 on Mac OS El Capitan 10.11.x
 
 .. _VirtualBox: https://virtualbox.org
 .. _VirtualBox_download: http://download.virtualbox.org/virtualbox
 
 * OPTIONAL:  QEMU_ (kvm_)
 
-  - 2.1.2 (Debian 1:2.1+dfsg-12+deb8u6) or newer on Debian Jessie 8.x
+  - 2.1.2 [Debian 1:2.1+dfsg-12+deb8u6] or newer on Debian Jessie 8.x
   - not tested on Mac OS (does this even work?)
 
 .. _QEMU: http://qemu.org
@@ -56,17 +62,28 @@ provides the missing QEMU support for Vagrant.
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 1.8.5 or newer
+  - 1.8.5 on Debian Jessie 8.x (with VirtualBox)
+  - 1.8.5 on Mac OS El Capitan 10.11.x (with VirtualBox)
 
 .. _Vagrant: https://vagrantup.com
 .. _Vagrant_download: https://releases.hashicorp.com/vagrant
 
-* OPTIONAL:  vagrant-libvirt_ plugin (for QEMU support in Vagrant)
+* BIG, BIG MAYBE:  vagrant-libvirt_ plugin (for QEMU support in Vagrant)
 
   - Please refer to their page for version information, instructions for
     installation and dependencies.
 
 .. _vagrant-libvirt: https://github.com/vagrant-libvirt/vagrant-libvirt
+
+
+TODO Items
+~~~~~~~~~~
+
+* Get proper templating working for the preseed and vagrant files
+* Replace Ruby json2yaml and yaml2json scripts with non-ugly Python ones
+* Make sure to use comparable cpus and cores_per_cpu for qemu and vbox
+* [Debian preseeds] Find out if partman-crypto will allow passphrase-crypted
+* [Debian preseeds] Skip past "Force UEFI Install" installer prompt
 
 
 Using Packer Templates
@@ -79,24 +96,20 @@ Usage::
 
 Examples::
 
-    ./scripts/vbox.sh ubuntu/trusty/base-trusty64.json
-    ./scripts/vbox.sh -var vm_name=test debian/jessie/base-jessie64.json
-    ./scripts/qemu.sh -var version=2.0.0 debian/stretch/base-stretch64.json
+    ./scripts/vbox.sh debian/stretch/base-stretch64.json
+    ./scripts/vbox.sh -var ssh_password=somekindapassword \
+        -var ssh_username=placeholder -var vm_name=test -var version=1.0.0 \
+        debian/stretch/base-stretch64.json
+    ./scripts/qemu.sh -var-file=variables.json \
+        debian/stretch/base-stretch64.json
 
-    AWS_ACCESS_KEY_ID=foo AWS_SECRET_ACCESS_KEY=bar packer build \
-        -only=aws debian/jessie/base-jessie64.json
-
-    packer build -var aws_access_key=foo -var aws_secret_key=bar \
-        -only=aws debian/jessie/base-jessie64.json
-
-    packer build -var-file=my_vars.json \
-        -only=aws debian/jessie/base-jessie64.json
-
-Contents of example file ``my_vars.json`` used above::
+Contents of example file ``variables.json`` used above::
 
     {
-      "aws_access_key": "foo",
-      "aws_secret_key": "bar"
+      "ssh_password": "somekindapassword",
+      "ssh_username": "placeholder",
+      "version": "1.0.0"
+      "vm_name": "test"
     }
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
@@ -122,9 +135,9 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    ./scripts/vbox.sh -var version=1.0.0 debian/jessie/base-jessie64.json
-    vagrant box add myname/jessie64 build/2015-06-31-12-34/base-jessie64-1.0.0.virtualbox.box
-    vagrant init myname/jessie64
+    ./scripts/vbox.sh -var version=1.0.0 debian/stretch/base-stretch64.json
+    vagrant box add myname/stretch64 build/2015-06-31-12-34/base-stretch64-1.0.0.virtualbox.box
+    vagrant init myname/stretch64
     vagrant up
     vagrant ssh
     ...
@@ -134,15 +147,15 @@ In order to version things and self-host the box files, you will need to create
 a JSON file containing the following::
 
     {
-      "name": "base-jessie64",
-      "description": "Base box for 64-bit x86 Debian Jessie 8.x",
+      "name": "base-stretch64",
+      "description": "Base box for 64-bit x86 Debian Stretch 9.x",
       "versions": [
         {
           "version": "1.0.0",
           "providers": [
             {
               "name": "virtualbox",
-              "url": "http://server/vm/base-jessie64/base-jessie64-1.0.0-virtualbox.box",
+              "url": "http://server/vm/base-stretch64/base-stretch64-1.0.0-virtualbox.box",
               "checksum_type": "sha256",
               "checksum": "THESHA256SUMOFTHEBOXFILE"
             }
@@ -151,13 +164,13 @@ a JSON file containing the following::
       ]
     }
 
-.. note::  SHA256 hashes are the largest ones that Vagrant supports, currently.
+SHA256 hashes are the largest ones that Vagrant supports, currently.
 
 Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure(2) do |config|
-      config.vm.box = "base-jessie64"
-      config.vm.box_url = "http://server/vm/base-jessie64/base-jessie64.json"
+      config.vm.box = "base-stretch64"
+      config.vm.box_url = "http://server/vm/base-stretch64/base-stretch64.json"
 
       config.vm.synced_folder ".", "/vagrant", disabled: true
     end
@@ -176,27 +189,27 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    ./scripts/qemu.sh debian/jessie/base-jessie64.json
-    zcat build/2099-06-31-12-34/base-jessie64.raw.gz | dd of=/dev/sdb bs=4M
+    ./scripts/qemu.sh debian/stretch/base-stretch64.json
+    zcat build/2099-06-31-12-34/base-stretch64.raw.gz | dd of=/dev/sdb bs=4M
 
 ... Or, if you just want to "boot" it::
 
-    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm build/2015-06-31-12-34/base-jessie64.raw
+    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm build/2015-06-31-12-34/base-stretch64.raw
 
 
 Overriding Local ISO Cache Location
 -----------------------------------
 
-You may override the default directory used instead of 'packer_cache' by
+You may override the default directory used instead of './packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
     PACKER_CACHE_DIR=/tmp packer build -only=vbox \
-        debian/jessie/base-jessie64.json
+        debian/stretch/base-stretch64.json
 
-.. note::  You must *always* specify the PACKER_CACHE_DIR when using the
-    provided templates due to a problem in packer where the PACKER_CACHE_DIR is
-    not provided to the template if one was not provided;  In this case, it
-    will fall back to the default value of "./packer_cache".
+You must *always* specify the PACKER_CACHE_DIR when using the provided
+templates due to a problem in packer where the PACKER_CACHE_DIR is not provided
+to the template if one was not provided;  In this case, it will fall back to
+the default value of "./packer_cache".
 
 
 Disabling Hashicorp Checkpoint Version Checks
