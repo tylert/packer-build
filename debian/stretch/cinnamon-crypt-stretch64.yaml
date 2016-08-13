@@ -234,7 +234,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
-# country: CA
+  country: CA
   description: Cinnamon encrypted box for 64-bit x86 Debian Stretch 9.x
   disk_size: '7500'
   domain: ''
@@ -247,11 +247,11 @@ variables:
   iso_file: debian-testing-amd64-i386-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd
   iso_path_internal: http://localhost/debian
-# language: en
-# locale: en_CA.UTF-8
+  language: en
+  locale: en_CA.UTF-8
   min_vagrant_version: 1.8.5
 # mirror: ftp.ca.debian.org
-# keyboard: us
+  keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: debian/stretch/cinnamon-crypt-stretch64.preseed

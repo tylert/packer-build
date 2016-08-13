@@ -7,13 +7,13 @@ _ALIASES:
   - 'initrd=/install/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
-  - 'language=en '
-  - 'country=CA '
-  - 'locale=en_CA.UTF-8 '
+  - 'language={{user `language`}} '
+  - 'country={{user `country`}} '
+  - 'locale={{user `locale`}} '
   - 'hostname={{user `vm_name`}} '
   - 'domain={{user `domain`}} '
   - 'console-setup/ask_detect=false '
-  - 'keyboard-configuration/layoutcode=us '
+  - 'keyboard-configuration/layoutcode={{user `keyboard`}} '
   - vga=788 noprompt quiet --<enter>
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
@@ -239,7 +239,7 @@ variables:
   aws_source_ami: foo
   boot_wait: 3s
   communicator: ssh
-# country: CA
+  country: CA
   description: Base box for 64-bit x86 Ubuntu Precise Pangolin 12.04.x LTS
   disk_size: '7500'
   domain: ''
@@ -252,11 +252,11 @@ variables:
   iso_file: ubuntu-12.04.5-server-amd64.iso
   iso_path_external: http://releases.ubuntu.com/12.04.5
   iso_path_internal: http://localhost/ubuntu
-# language: en
-# locale: en_CA.UTF-8
+  language: en
+  locale: en_CA.UTF-8
   min_vagrant_version: 1.8.5
 # mirror: ftp.ca.debian.org
-# keyboard: us
+  keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: ubuntu/precise/base-precise64.preseed
