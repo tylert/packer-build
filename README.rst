@@ -2,73 +2,71 @@ packer-build
 ============
 
 
-Why does this exist?
-~~~~~~~~~~~~~~~~~~~~
-
-Because.
-
-
 What does this do?
 ~~~~~~~~~~~~~~~~~~
 
-These Packer templates and associated files may be used to build fresh virtual
-machine images for Vagrant, VirtualBox and QEMU.
+These Packer templates and associated files may be used to build fresh Debian
+and Ubuntu virtual machine images for Vagrant, VirtualBox and QEMU.
 
-The resulting virtual machine image files may be used as bootable systems on
-real machines and the provided preseed files may also be used to install
-identical systems on bare metal as well.
+The resulting image files may be used as bootable systems on real machines and
+the provided preseed files may also be used to install identical systems on
+bare metal as well.
 
-
-Who needs this?
-~~~~~~~~~~~~~~~
-
-Everyone.
-
-
-How does this work?
-~~~~~~~~~~~~~~~~~~~
-
-Magic.
+While there are no limitations running 32-bit x86 guests on 64-bit x86 hosts,
+this functionality has been deprecated here since 32-bit support is being
+phased out of Debian/Ubuntu "real soon now".
 
 
 What dependencies does this have?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These templates are tested regularly on Linux (Debian Jessie 8.x) and Mac OS X
+These templates are tested regularly on Linux (Debian Jessie 8.x) and Mac OS
 (El Capitan 10.11.x) using recent versions of Packer and Vagrant.  All testing
 is currently done on systems that have amd64/x86_64-family processors.
 
 The QEMU and VirtualBox versions used for Linux testing are always the "stock"
 ones provided by the official Debian repositories.
 
-* Packer_ (Packer_download_)
+Even though Packer supports QEMU as an officially-supported provider, Vagrant,
+for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt"
+provides the missing QEMU support for Vagrant.
+
+* REQUIRED:  Packer_ (Packer_download_)
 
   - 0.10.1 or newer
 
-.. _Packer: https://packer.io/
-.. _Packer_download: https://releases.hashicorp.com/packer/
+.. _Packer: https://packer.io
+.. _Packer_download: https://releases.hashicorp.com/packer
 
-* Vagrant_ (Vagrant_download_)
+* REQUIRED:  VirtualBox_ (VirtualBox_download_)
+
+  - 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) on Debian Jessie 8.x or newer
+  - 5.1.2 on Mac OS El Capitan 10.11.x or newer
+
+.. _VirtualBox: https://virtualbox.org
+.. _VirtualBox_download: http://download.virtualbox.org/virtualbox
+
+* OPTIONAL:  QEMU_ (kvm_)
+
+  - 2.1.2 (Debian 1:2.1+dfsg-12+deb8u6) or newer on Debian Jessie 8.x
+  - not tested on Mac OS (does this even work?)
+
+.. _QEMU: http://qemu.org
+.. _kvm: http://linux-kvm.org
+
+* OPTIONAL:  Vagrant_ (Vagrant_download_)
 
   - 1.8.5 or newer
 
-.. _Vagrant: https://vagrantup.com/
-.. _Vagrant_download: https://releases.hashicorp.com/vagrant/
+.. _Vagrant: https://vagrantup.com
+.. _Vagrant_download: https://releases.hashicorp.com/vagrant
 
-* VirtualBox_ (VirtualBox_download_)
+* OPTIONAL:  vagrant-libvirt_ plugin (for QEMU support in Vagrant)
 
-  - 4.3.36 r105129 (4.3.36-dfsg-1+deb8u1) or newer on Debian Jessie 8.x
-  - 5.0.22 or newer on Mac OS X El Capitan 10.11.x
+  - Please refer to their page for version information, instructions for
+    installation and dependencies.
 
-.. _VirtualBox: https://virtualbox.org/
-.. _VirtualBox_download: http://download.virtualbox.org/virtualbox/
-
-* QEMU (qemu-kvm)
-
-  - 2.1.2 (Debian 1:2.1+dfsg-12+deb8u5a) or newer on Debian Jessie 8.x
-
-Currently, Vagrant does not support QEMU as an official provider but there are
-3rd party plugins that add this functionality.
+.. _vagrant-libvirt: https://github.com/vagrant-libvirt/vagrant-libvirt
 
 
 Using Packer Templates

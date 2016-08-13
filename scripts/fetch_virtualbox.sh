@@ -5,11 +5,12 @@
 # This script attempts to get local copies of all the stuff you might need.
 
 base_url='http://download.virtualbox.org/virtualbox'
+desired_version="${1}"
 
-if [ -z "${1}" ]; then
+if [ -z "${desired_version}" ]; then
     version="$(wget --quiet --output-document=- ${base_url}/LATEST.TXT)"
 else
-    version="${1}"
+    version="${desired_version}"
 fi
 
 files="
@@ -30,10 +31,15 @@ done
 mv SHA256SUMS SHA256SUMS-VBoxGuestAdditions_${version}.txt
 mv UserManual.pdf UserManual-${version}.pdf
 
-# Fetch filenames that have silly SVN revision ids in them like:
+# Some filenames have silly SVN revision ids in them like:
 #VirtualBox-${version}-${revision}-OSX.dmg
+#VirtualBox-${version}-${revision}-Linux_amd64.run
+
 wget --recursive --timestamping --no-directories --continue \
     --level=1 --no-parent --accept '*.dmg' ${base_url}/${version}
+
+wget --recursive --timestamping --no-directories --continue \
+    --level=1 --no-parent --accept '*.amd64.run' ${base_url}/${version}
 
 rm robots.txt
 
