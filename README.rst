@@ -96,18 +96,15 @@ Usage::
 
 Examples::
 
-    ./scripts/vbox.sh debian/stretch/base-stretch64.json
-    ./scripts/vbox.sh -var ssh_password=somekindapassword \
-        -var ssh_username=placeholder -var vm_name=test -var version=1.0.0 \
-        debian/stretch/base-stretch64.json
+    ./scripts/vbox.sh debian/stretch/base-stretch.json
+    ./scripts/vbox.sh -var vm_name=test -var version=1.0.0 \
+        debian/stretch/base-stretch.json
     ./scripts/qemu.sh -var-file=variables.json \
-        debian/stretch/base-stretch64.json
+        debian/stretch/base-stretch.json
 
 Contents of example file ``variables.json`` used above::
 
     {
-      "ssh_password": "somekindapassword",
-      "ssh_username": "placeholder",
       "version": "1.0.0"
       "vm_name": "test"
     }
@@ -135,9 +132,9 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    ./scripts/vbox.sh -var version=1.0.0 debian/stretch/base-stretch64.json
-    vagrant box add myname/stretch64 build/2015-06-31-12-34/base-stretch64-1.0.0.virtualbox.box
-    vagrant init myname/stretch64
+    ./scripts/vbox.sh -var version=1.0.0 debian/stretch/base-stretch.json
+    vagrant box add myname/stretch build/2015-06-31-12-34/base-stretch-1.0.0.virtualbox.box
+    vagrant init myname/stretch
     vagrant up
     vagrant ssh
     ...
@@ -147,7 +144,7 @@ In order to version things and self-host the box files, you will need to create
 a JSON file containing the following::
 
     {
-      "name": "base-stretch64",
+      "name": "base-stretch",
       "description": "Base box for 64-bit x86 Debian Stretch 9.x",
       "versions": [
         {
@@ -155,7 +152,7 @@ a JSON file containing the following::
           "providers": [
             {
               "name": "virtualbox",
-              "url": "http://server/vm/base-stretch64/base-stretch64-1.0.0-virtualbox.box",
+              "url": "http://server/vm/base-stretch/base-stretch-1.0.0-virtualbox.box",
               "checksum_type": "sha256",
               "checksum": "THESHA256SUMOFTHEBOXFILE"
             }
@@ -169,8 +166,8 @@ SHA256 hashes are the largest ones that Vagrant supports, currently.
 Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure(2) do |config|
-      config.vm.box = "base-stretch64"
-      config.vm.box_url = "http://server/vm/base-stretch64/base-stretch64.json"
+      config.vm.box = "base-stretch"
+      config.vm.box_url = "http://server/vm/base-stretch/base-stretch.json"
 
       config.vm.synced_folder ".", "/vagrant", disabled: true
     end
@@ -189,12 +186,12 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    ./scripts/qemu.sh debian/stretch/base-stretch64.json
-    zcat build/2099-06-31-12-34/base-stretch64.raw.gz | dd of=/dev/sdb bs=4M
+    ./scripts/qemu.sh debian/stretch/base-stretch.json
+    zcat build/2099-06-31-12-34/base-stretch.raw.gz | dd of=/dev/sdb bs=4M
 
 ... Or, if you just want to "boot" it::
 
-    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm build/2015-06-31-12-34/base-stretch64.raw
+    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm build/2015-06-31-12-34/base-stretch.raw
 
 
 Overriding Local ISO Cache Location
@@ -204,7 +201,7 @@ You may override the default directory used instead of './packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
     PACKER_CACHE_DIR=/tmp packer build -only=vbox \
-        debian/stretch/base-stretch64.json
+        debian/stretch/base-stretch.json
 
 You must *always* specify the PACKER_CACHE_DIR when using the provided
 templates due to a problem in packer where the PACKER_CACHE_DIR is not provided
