@@ -348,9 +348,9 @@ Debian_
 
 .. _Debian: https://www.debian.org
 
-* Testing;  http://cdimage.debian.org/cdimage/weekly-builds/multi-arch/iso-cd/
-* Stable;  http://cdimage.debian.org/cdimage/release/current/multi-arch/iso-cd/
-* Oldstable;  http://cdimage.debian.org/cdimage/archive/latest-oldstable/multi-arch/iso-cd/
+* Testing;  http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
+* Stable;  http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
+* Oldstable;  http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
 
 Ubuntu_
 ~~~~~~
