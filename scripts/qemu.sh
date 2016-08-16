@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-packer_cache_dir="${HOME}/packer_cache"
+packer_cache_dir="packer_cache"
 
 if [ ! -d "${packer_cache_dir}" ]; then
     mkdir -p "${packer_cache_dir}"
