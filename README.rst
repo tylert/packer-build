@@ -30,7 +30,7 @@ ones provided by the official Debian repositories.
 Even though Packer supports QEMU as an officially-supported provider, Vagrant,
 for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt"
 provides the missing QEMU support for Vagrant.  We are unable at this time to
-confirm this fact due to the following errors encountered while trying to run
+verify this fact due to the following errors encountered while trying to run
 "vagrant up"::
 
     Error while connecting to libvirt: Error making a connection to libvirt URI qemu:///system?no_verify=1&keyfile=/home/whoa/.ssh/id_rsa:
@@ -44,15 +44,15 @@ confirm this fact due to the following errors encountered while trying to run
 .. _Packer: https://packer.io
 .. _Packer_download: https://releases.hashicorp.com/packer
 
-* REQUIRED:  VirtualBox_ (VirtualBox_download_)
+* REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
   - 4.3.36 r105129 [4.3.36-dfsg-1+deb8u1] on Debian Jessie 8.x
-  - 5.1.2 on Mac OS El Capitan 10.11.x
+  - 5.1.4 r110228 on Mac OS El Capitan 10.11.x
 
 .. _VirtualBox: https://virtualbox.org
 .. _VirtualBox_download: http://download.virtualbox.org/virtualbox
 
-* OPTIONAL:  QEMU_ (kvm_)
+* REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
   - 2.1.2 [Debian 1:2.1+dfsg-12+deb8u6] or newer on Debian Jessie 8.x
   - not tested on Mac OS (does this even work?)
