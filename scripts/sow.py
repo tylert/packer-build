@@ -3,7 +3,7 @@
 # https://docs.python.org/3.5/library/http.server.html
 # https://docs.python.org/2.7/library/simplehttpserver.html
 
-
+from __future__ import print_function
 import sys
 
 if sys.version_info[:1] == 3:
