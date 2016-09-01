@@ -111,47 +111,6 @@ builders:
   type: qemu
   vnc_port_max: '{{user `vnc_port_max`}}'
   vnc_port_min: '{{user `vnc_port_min`}}'
-#- <<: *builder_options
-#  <<: *ssh_communicator_options
-#  disk_additional_size: (array of integers)
-#  disk_type_id: 1
-#  fusion_app_path: (string)
-#  guest_os_type: ubuntu-64
-#  name: vmware
-#  remote_cache_datastore: (string)
-#  remote_cache_directory: (string)
-#  remote_datastore: (string)
-#  remote_host: (string)
-#  remote_password: (string)
-#  remote_private_key_file: (string)
-#  remote_type: (string)
-#  remote_username: (string)
-#  skip_compaction: false
-#  tools_upload_flavor: linux
-#  tools_upload_path: '{{.Flavor}}.iso'
-#  type: vmware-iso
-#  version: 9
-#  vmdk_name: '{{user `vm_name`}}'
-#  vmx_data:
-#  - - 'cpuid.coresPerSocket'
-#    - '1'
-#  - - 'memsize'
-#    - '{{user `ram_size`}}'
-#  - - 'numvcpus'
-#    - '1'
-#    MemTrimRate: '0'
-#    mainMem.partialLazyRestore: 'FALSE'
-#    mainMem.partialLazySave: 'FALSE'
-#    mainMem.useNamedFile: 'FALSE'
-#    prefvmx.minVmMemPct: '100'
-#    sched.mem.pshare.enable: 'FALSE'
-#    prefvmx.useRecommendedLockedMemSize: 'TRUE'
-#    MemAllowAutoScaleDown: 'FALSE'
-#  vmx_data_post: (object of key/value strings)
-#  vmx_template_path: (string)
-#  vnc_bind_address: '{{user `vnc_bind_address`}}'
-#  vnc_port_max: '{{user `vnc_port_max`}}'
-#  vnc_port_min: '{{user `vnc_port_min`}}'
 - access_key: '{{user `aws_access_key`}}'
   ami_description: '{{user `description`}}'
   ami_groups: all
