@@ -7,6 +7,8 @@ d-i debian-installer/country string CA
 d-i debian-installer/locale string en_CA.UTF-8
 #d-i debian-installer/locale string {{locale}}
 # must be passed in on the init line as well
+# Extra workaround step needed only on 12.04.x
+d-i pkgsel/install-language-support boolean true
 
 # Keyboard Setup
 # must be passed in on the init line as well
