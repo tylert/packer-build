@@ -58,7 +58,7 @@ _ALIASES:
 builders:
 - <<: *builder_options
   <<: *ssh_communicator_options
-# export_options: (array of strings)
+# export_opts: (array of strings)
   format: ova
   guest_additions_mode: disable
 # guest_additions_path: (string)

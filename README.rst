@@ -20,21 +20,12 @@ phased out of Debian/Ubuntu "real soon now".
 What dependencies does this have?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These templates are tested semi-regularly on Linux (Debian) and Mac OS hosts
+These templates are tested semi-regularly on Linux (Debian and Ubuntu) hosts
 using recent versions of Packer and Vagrant.  All testing is currently done on
 systems that have amd64/x86_64-family processors.
 
-The QEMU and VirtualBox versions used for Linux testing are always the "stock"
-ones provided by the official Debian repositories.
-
-Even though Packer supports QEMU as an officially-supported provider, Vagrant,
-for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt"
-provides the missing QEMU support for Vagrant.  We are unable at this time to
-verify this fact due to the following errors encountered while trying to run
-"vagrant up"::
-
-    Error while connecting to libvirt: Error making a connection to libvirt URI qemu:///system?no_verify=1&keyfile=/home/whoa/.ssh/id_rsa:
-    Call to virConnectOpen failed: Failed to connect socket to '/var/run/libvirt/libvirt-sock': No such file or directory
+The QEMU and VirtualBox versions used for Linux testing are normally the
+"stock" ones provided by the official Debian repositories.
 
 * REQUIRED:  Packer_ (Packer_download_)
 
@@ -70,10 +61,19 @@ verify this fact due to the following errors encountered while trying to run
 
 * BIG, BIG MAYBE:  vagrant-libvirt_ plugin (for QEMU support in Vagrant)
 
-  - Please refer to their page for version information, instructions for
-    installation and dependencies.
+  - Please refer to their page for version information, installation
+    instructions and dependencies.
 
 .. _vagrant-libvirt: https://github.com/vagrant-libvirt/vagrant-libvirt
+
+Even though Packer supports QEMU as an officially-supported provider, Vagrant,
+for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt"
+provides the missing QEMU support for Vagrant.  We are unable at this time to
+verify this fact due to the following errors encountered while trying to run
+"vagrant up"::
+
+    Error while connecting to libvirt: Error making a connection to libvirt URI qemu:///system?no_verify=1&keyfile=/home/whoa/.ssh/id_rsa:
+    Call to virConnectOpen failed: Failed to connect socket to '/var/run/libvirt/libvirt-sock': No such file or directory
 
 
 TODO Items
@@ -379,6 +379,7 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
+* Z Z (17.04);  released on 2017-04-??, supported until 2018-??
 * Yakkety Yak (16.10);  released on 2016-10-20, supported until 2017-07
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04
 * Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04

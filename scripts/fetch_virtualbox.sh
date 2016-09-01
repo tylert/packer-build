@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # If you are using a Mac OS X machine, you won't have a nice, simple command
-# to magically get VirtualBox for you like you do on Ubuntu/Debian systems.
+# to magically get VirtualBox for you like you do on Debian/Ubuntu systems.
 # This script attempts to get local copies of all the stuff you might need.
 
 base_url='http://download.virtualbox.org/virtualbox'
