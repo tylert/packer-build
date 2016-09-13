@@ -105,8 +105,8 @@ Examples::
 Contents of example file ``variables.json`` used above::
 
     {
+      "vm_name": "test",
       "version": "1.0.0"
-      "vm_name": "test"
     }
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
