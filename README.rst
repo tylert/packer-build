@@ -369,18 +369,19 @@ Debian_releases_
 
 .. _Debian_releases: https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table
 
-* Buster (10.x);  released on 20??-??-??, supported until 20??-??
-* Stretch (9.x);  released on 20??-??-??, supported until 20??-??
-* Jessie (8.x);  released on 2015-04-25, supported until 2020-0[45]
-* Wheezy (7.x);  released on 2013-05-04, supported until 2018-05
+* Bullseye (11.x);  released on 20??-??-??, supported until 20??-??-??
+* Buster (10.x);  released on 20??-??-??, supported until 20??-??-??
+* Stretch (9.x);  released on 20??-??-??, supported until 20??-??-??
+* Jessie (8.x);  released on 2015-04-26, supported until 2020-0[45]-??
+* Wheezy (7.x);  released on 2013-05-04, supported until 2018-05-??
 
 Ubuntu_releases_
 ~~~~~~~~~~~~~~~
 
 .. _Ubuntu_releases: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
-* Z Z (17.04);  released on 2017-04-??, supported until 2018-??
-* Yakkety Yak (16.10);  released on 2016-10-20, supported until 2017-07
-* Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04
-* Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04
+* Z Z (17.04);  released on 2017-04-??, supported until 2018-??-??
+* Yakkety Yak (16.10);  released on 2016-10-20, supported until 2017-07-??
+* Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-??
+* Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-??
 * Precise Pangolin (12.04.x LTS);  released on 2012-04-26, supported until 2017-04-26
