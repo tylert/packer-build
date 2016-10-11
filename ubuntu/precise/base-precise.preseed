@@ -47,6 +47,7 @@ d-i user-setup/encrypt-home boolean false
 
 # Package Setup
 d-i hw-detect/load_firmware boolean false
+d-i hw-detect/load_media boolean false
 d-i mirror/http/proxy string
 #d-i mirror/http/proxy string {{apt-cache-url}}
 d-i pkgsel/update-policy select none

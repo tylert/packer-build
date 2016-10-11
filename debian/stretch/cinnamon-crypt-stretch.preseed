@@ -39,6 +39,7 @@ d-i passwd/root-login boolean false
 
 # Package Setup
 d-i hw-detect/load_firmware boolean false
+d-i hw-detect/load_media boolean false
 d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.ca.debian.org
 #d-i mirror/http/hostname string {{mirror}}

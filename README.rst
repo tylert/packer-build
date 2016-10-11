@@ -20,16 +20,16 @@ phased out of Debian/Ubuntu "real soon now".
 What dependencies does this have?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These templates are tested semi-regularly on Linux (Debian and Ubuntu) hosts
-using recent versions of Packer and Vagrant.  All testing is currently done on
-systems that have amd64/x86_64-family processors.
+These templates are tested semi-regularly on Linux (Debian) hosts using recent
+versions of Packer and Vagrant.  All testing is currently done on systems that
+have amd64/x86_64-family processors.
 
 The QEMU and VirtualBox versions used for Linux testing are normally the
 "stock" ones provided by the official Debian repositories.
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 0.10.1 on Debian Jessie 8.x (with VirtualBox and QEMU)
+  - 0.10.2 on Debian Jessie 8.x (with VirtualBox and QEMU)
   - 0.10.1 on Mac OS El Capitan 10.11.x (with VirtualBox)
 
 .. _Packer: https://packer.io
@@ -53,7 +53,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 1.8.5 on Debian Jessie 8.x (with VirtualBox)
+  - 1.8.6 on Debian Jessie 8.x (with VirtualBox)
   - 1.8.5 on Mac OS El Capitan 10.11.x (with VirtualBox)
 
 .. _Vagrant: https://vagrantup.com
