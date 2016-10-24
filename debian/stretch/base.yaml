@@ -194,7 +194,7 @@ variables:
   boot_wait: 3s
   communicator: ssh
   country: CA
-  description: Cinnamon box for 64-bit x86 Debian Stretch 9.x
+  description: Base box for 64-bit x86 Debian Stretch 9.x
   disk_size: '7500'
   domain: ''
   headless: 'false'
@@ -213,7 +213,7 @@ variables:
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: debian/stretch/cinnamon-stretch.preseed
+  preseed_file: debian/stretch/base.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -231,9 +231,9 @@ variables:
   start_retry_timeout: 5m
 # system_clock_in_utc: 'true'
 # timezone: UTC
-  vagrantfile_template: debian/stretch/cinnamon-stretch.vagrant
+  vagrantfile_template: debian/stretch/base.vagrant
   version: 0.0.0
-  vm_name: cinnamon-stretch
+  vm_name: base-stretch
 # vnc_bind_address: '127.0.0.1'
   vnc_port_max: '6000'
   vnc_port_min: '5900'

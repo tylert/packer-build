@@ -18,8 +18,8 @@ _ALIASES:
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
   http_port_min: '{{user `http_port_min`}}'
+  iso_checksum: '{{user `iso_checksum`}}'
   iso_checksum_type: '{{user `iso_checksum_type`}}'
-  iso_checksum_url: '{{user `iso_checksum_url`}}'
   iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
   iso_urls:
   - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
@@ -194,17 +194,17 @@ variables:
   boot_wait: 3s
   communicator: ssh
   country: CA
-  description: Cinnamon encrypted box for 64-bit x86 Debian Stretch 9.x
+  description: XFCE encrypted box for 64-bit x86 Debian Wheezy 7.x
   disk_size: '7500'
   domain: ''
   headless: 'false'
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
+  iso_checksum: a6323a048e17270caec2ba2719694e82b7c8a1ab997f427ce5315fa4384a23e62e6d65c701e5c98d784b7ad98e3697fabb294bf67aee864084abe92bb87f20a5
   iso_checksum_type: sha512
-  iso_checksum_url: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS
-  iso_file: debian-testing-amd64-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd
+  iso_file: debian-7.11.0-amd64-netinst.iso
+  iso_path_external: http://cdimage.debian.org/cdimage/archive/7.11.0/amd64/iso-cd
   iso_path_internal: http://localhost/debian
   language: en
   locale: en_CA.UTF-8
@@ -213,7 +213,7 @@ variables:
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: debian/stretch/cinnamon-crypt-stretch.preseed
+  preseed_file: debian/wheezy/xfce-crypt.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -231,9 +231,9 @@ variables:
   start_retry_timeout: 5m
 # system_clock_in_utc: 'true'
 # timezone: UTC
-  vagrantfile_template: debian/stretch/cinnamon-crypt-stretch.vagrant
+  vagrantfile_template: debian/wheezy/xfce-crypt.vagrant
   version: 0.0.0
-  vm_name: cinnamon-crypt-stretch
+  vm_name: xfce-crypt-wheezy
 # vnc_bind_address: '127.0.0.1'
   vnc_port_max: '6000'
   vnc_port_min: '5900'

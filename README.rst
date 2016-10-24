@@ -96,11 +96,11 @@ Usage::
 
 Examples::
 
-    ./scripts/vbox.sh debian/stretch/base-stretch.json
+    ./scripts/vbox.sh debian/stretch/base.json
     ./scripts/vbox.sh -var vm_name=test -var version=1.0.0 \
-        debian/stretch/base-stretch.json
+        debian/stretch/base.json
     ./scripts/qemu.sh -var-file=variables.json \
-        debian/stretch/base-stretch.json
+        debian/stretch/base.json
 
 Contents of example file ``variables.json`` used above::
 
@@ -132,7 +132,7 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    ./scripts/vbox.sh -var version=1.0.0 debian/stretch/base-stretch.json
+    ./scripts/vbox.sh -var version=1.0.0 debian/stretch/base.json
     vagrant box add myname/stretch build/2015-06-31-12-34/base-stretch-1.0.0.virtualbox.box
     vagrant init myname/stretch
     vagrant up
@@ -186,7 +186,7 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    ./scripts/qemu.sh debian/stretch/base-stretch.json
+    ./scripts/qemu.sh debian/stretch/base.json
     zcat build/2099-06-31-12-34/base-stretch.raw.gz | dd of=/dev/sdb bs=4M
 
 ... Or, if you just want to "boot" it::
@@ -201,7 +201,7 @@ You may override the default directory used instead of './packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
     PACKER_CACHE_DIR=/tmp packer build -only=vbox \
-        debian/stretch/base-stretch.json
+        debian/stretch/base.json
 
 You must *always* specify the PACKER_CACHE_DIR when using the provided
 templates due to a problem in packer where the PACKER_CACHE_DIR is not provided

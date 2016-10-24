@@ -79,10 +79,6 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '1'
-  - - modifyvm
-    - '{{.Name}}'
-    - '--firmware'
-    - efi
 # vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
 # vrdp_port_max: (integer)
@@ -169,11 +165,6 @@ post-processors:
 provisioners:
 - <<: *shell_provisioner_options
   inline:
-  - echo 'FS0:\EFI\debian\grubx64.efi' > /boot/efi/startup.nsh
-  only:
-  - virtualbox
-- <<: *shell_provisioner_options
-  inline:
   - 'echo ''{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL'' > /etc/sudoers.d/99{{user
     `ssh_username`}}'
   - chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}
@@ -222,7 +213,7 @@ variables:
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: debian/stretch/cinnamon-crypt-efi-stretch.preseed
+  preseed_file: debian/stretch/cinnamon-crypt.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -240,9 +231,9 @@ variables:
   start_retry_timeout: 5m
 # system_clock_in_utc: 'true'
 # timezone: UTC
-  vagrantfile_template: debian/stretch/cinnamon-crypt-efi-stretch.vagrant
+  vagrantfile_template: debian/stretch/cinnamon-crypt.vagrant
   version: 0.0.0
-  vm_name: cinnamon-crypt-efi-stretch
+  vm_name: cinnamon-crypt-stretch
 # vnc_bind_address: '127.0.0.1'
   vnc_port_max: '6000'
   vnc_port_min: '5900'

@@ -2,18 +2,13 @@
 _ALIASES:
 - &builder_options
   boot_command:
-  - '<esc><esc><enter><wait>'
-  - '/install/vmlinuz '
-  - 'initrd=/install/initrd.gz '
+  - '<esc><wait>'
+  - '/install.amd/vmlinuz '
+  - 'initrd=/install.amd/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
-  - 'language={{user `language`}} '
-  - 'country={{user `country`}} '
-  - 'locale={{user `locale`}} '
   - 'hostname={{user `vm_name`}} '
   - 'domain={{user `domain`}} '
-  - 'console-setup/ask_detect=false '
-  - 'keyboard-configuration/layoutcode={{user `keyboard`}} '
   - vga=788 noprompt quiet --<enter>
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
@@ -63,13 +58,13 @@ _ALIASES:
 builders:
 - <<: *builder_options
   <<: *ssh_communicator_options
-# export_options: (array of strings)
+# export_opts: (array of strings)
   format: ova
   guest_additions_mode: disable
 # guest_additions_path: (string)
 # guest_additions_sha256: (string)
 # guest_additions_url (string)
-  guest_os_type: Ubuntu_64
+  guest_os_type: Debian_64
   hard_drive_interface: sata
   iso_interface: sata
   name: virtualbox
@@ -199,18 +194,18 @@ variables:
   boot_wait: 3s
   communicator: ssh
   country: CA
-  description: Base box for 64-bit x86 Ubuntu Precise Pangolin 12.04.x LTS
+  description: Cinnamon box for 64-bit x86 Debian Jessie 8.x
   disk_size: '7500'
   domain: ''
   headless: 'false'
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: af224223de99e2a730b67d7785b657f549be0d63221188e105445f75fb8305c9
-  iso_checksum_type: sha256
-  iso_file: ubuntu-12.04.5-server-amd64.iso
-  iso_path_external: http://releases.ubuntu.com/12.04.5
-  iso_path_internal: http://localhost/ubuntu
+  iso_checksum: 6c3b53d2a33e34644153683f4492a7773340812c540eb3c5fdeee61e0c8dbafb2f9d634db0d2518b44fbf16770ec15f80561b49c280e27984e887ac71bfb3c3a
+  iso_checksum_type: sha512
+  iso_file: debian-8.6.0-amd64-netinst.iso
+  iso_path_external: http://cdimage.debian.org/cdimage/release/8.6.0/amd64/iso-cd
+  iso_path_internal: http://localhost/debian
   language: en
   locale: en_CA.UTF-8
 # min_vagrant_version: 1.8.6
@@ -218,7 +213,7 @@ variables:
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: ubuntu/precise/base-precise.preseed
+  preseed_file: debian/jessie/cinnamon.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -236,9 +231,9 @@ variables:
   start_retry_timeout: 5m
 # system_clock_in_utc: 'true'
 # timezone: UTC
-  vagrantfile_template: ubuntu/precise/base-precise.vagrant
+  vagrantfile_template: debian/jessie/cinnamon.vagrant
   version: 0.0.0
-  vm_name: base-precise
+  vm_name: cinnamon-jessie
 # vnc_bind_address: '127.0.0.1'
   vnc_port_max: '6000'
   vnc_port_min: '5900'
