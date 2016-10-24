@@ -322,7 +322,6 @@
     "keyboard": "us",
     "language": "en",
     "locale": "en_CA.UTF-8",
-    "min_vagrant_version": "1.8.5",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
     "preseed_file": "debian/jessie/cinnamon-jessie.preseed",
