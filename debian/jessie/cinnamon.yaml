@@ -128,9 +128,10 @@ builders:
   token: '{{user `aws_security_token`}}'
   type: amazon-ebs
 description: '{{user `description`}}'
-min_packer_version: 0.10.2
+min_packer_version: 0.11.0
 post-processors:
 - compression_level: 6
+# include: (array of strings)
   keep_input_artifact: true
   only:
   - virtualbox
@@ -143,8 +144,17 @@ post-processors:
   only:
   - qemu
   output: '{{user `output_directory`}}/{{user `vm_name`}}.raw.gz'
+- checksum_types:
+  - sha256
+  only:
+  - virtualbox
+  - qemu
+  output: '{{user `output_directory`}}/SHA256SUMS'
+  type: checksum
   type: compress
 - inline_shebang: /bin/sh -e
+# environment_vars: (array of strings)
+# execute_command: (string)
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
