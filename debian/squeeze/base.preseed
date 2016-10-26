@@ -7,6 +7,7 @@ d-i debian-installer/locale string en_CA.UTF-8
 #d-i debian-installer/locale string {{locale}}
 
 # Keyboard Setup
+d-i console-keymaps-at/keymap select us
 d-i keyboard-configuration/xkb-keymap select us
 #d-i keyboard-configuration/xkb-keymap select {{keyboard}}
 
