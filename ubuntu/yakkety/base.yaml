@@ -153,6 +153,7 @@ post-processors:
   type: vagrant
   vagrantfile_template: '{{user `vagrantfile_template`}}'
 - compression_level: 6
+  format: .gz
   keep_input_artifact: true
   only:
   - qemu
@@ -167,7 +168,7 @@ post-processors:
   type: checksum
 - inline_shebang: /bin/sh -e
 # environment_vars: (array of strings)
-# execute_command: (string)
+# execute_command: chmod +x {{.Script}}; {{.Vars}} {{.Script}} {{.Artifact}}
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'

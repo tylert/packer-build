@@ -228,6 +228,7 @@
     },
     {
       "compression_level": 6,
+      "format": ".gz",
       "keep_input_artifact": true,
       "only": [
         "qemu"
