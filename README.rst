@@ -380,8 +380,10 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
-* Z Z (17.04);  released on 2017-04-??, supported until 2018-??-??
-* Yakkety Yak (16.10);  released on 2016-10-20, supported until 2017-07-??
+* ? ? (18.04.x LTS);  released on 2018-04-??, supported until 2023-??-??
+* ? ? (17.10);  released on 2017-10-??, supported until 2018-??-??
+* Zesty Zapus (17.04);  released on 2017-04-??, supported until 2018-??-??
+* Yakkety Yak (16.10);  released on 2016-10-13, supported until 2017-07-??
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-??
 * Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-??
 * Precise Pangolin (12.04.x LTS);  released on 2012-04-26, supported until 2017-04-26
