@@ -133,7 +133,7 @@ builders:
   token: '{{user `aws_security_token`}}'
   type: amazon-ebs
 description: '{{user `description`}}'
-min_packer_version: 0.11.0
+min_packer_version: 0.12.0
 post-processors:
 - compression_level: 6
 # include: (array of strings)
@@ -224,7 +224,7 @@ variables:
   iso_path_internal: http://localhost/ubuntu
   language: en
   locale: en_CA.UTF-8
-# min_vagrant_version: 1.8.6
+# min_vagrant_version: 1.8.7
 # mirror: ftp.ca.debian.org
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}

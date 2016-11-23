@@ -29,7 +29,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 0.11.0 on Debian Jessie 8.x (with VirtualBox and QEMU)
+  - 0.12.0 on Debian Stretch 9.x (with VirtualBox and QEMU)
   - not currently being tested on macOS
 
 .. _Packer: https://packer.io
@@ -37,7 +37,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
-  - 4.3.36 r105129 [4.3.36-dfsg-1+deb8u1] on Debian Jessie 8.x
+  - 5.1.8_Debian r111374 [5.1.8-dfsg-6] on Debian Stretch 9.x
   - not currently being tested on macOS
 
 .. _VirtualBox: https://virtualbox.org
@@ -45,7 +45,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
-  - 2.1.2 [Debian 1:2.1+dfsg-12+deb8u6] or newer on Debian Jessie 8.x
+  - 2.7.0 [Debian 1:2.7+dfsg-3+b1] or newer on Debian Stretch 9.x
   - not currently being tested on macOS
 
 .. _QEMU: http://qemu.org
@@ -53,7 +53,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 1.8.6 on Debian Jessie 8.x (with VirtualBox)
+  - 1.8.7 on Debian Stretch 9.x (with VirtualBox)
   - not currently being tested on macOS
 
 .. _Vagrant: https://vagrantup.com
