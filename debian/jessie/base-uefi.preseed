@@ -19,7 +19,7 @@ d-i clock-setup/utc boolean true
 # set above to false if making a bootable USB to run on same system as Windows
 
 # Network Setup
-d-i netcfg/get_hostname string base-efi-jessie
+d-i netcfg/get_hostname string base-uefi-jessie
 #d-i netcfg/get_hostname string {{vm_name}}
 d-i netcfg/get_domain string
 

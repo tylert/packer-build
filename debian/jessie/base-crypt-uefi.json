@@ -110,6 +110,12 @@
           "{{.Name}}",
           "--cpus",
           "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--firmware",
+          "efi"
         ]
       ],
       "virtualbox_version_file": "/tmp/.vbox_version",
@@ -267,6 +273,20 @@
       "binary": false,
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
       "inline": [
+        "echo 'FS0:\\EFI\\debian\\grubx64.efi' > /boot/efi/startup.nsh"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "only": [
+        "virtualbox"
+      ],
+      "skip_clean": false,
+      "start_retry_timeout": "{{user `start_retry_timeout`}}",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
@@ -319,7 +339,7 @@
     "boot_wait": "3s",
     "communicator": "ssh",
     "country": "CA",
-    "description": "Cinnamon box (encrypted) for 64-bit x86 Debian Jessie 8.x",
+    "description": "Base box (encrypted UEFI) for 64-bit x86 Debian Jessie 8.x",
     "disk_size": "7500",
     "domain": "",
     "headless": "false",
@@ -336,7 +356,7 @@
     "locale": "en_CA.UTF-8",
     "output_directory": "build/{{isotime \"2006-01-02-15-04\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
-    "preseed_file": "debian/jessie/cinnamon-crypt.preseed",
+    "preseed_file": "debian/jessie/base-crypt-uefi.preseed",
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "shutdown_timeout": "5m",
@@ -351,9 +371,9 @@
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
     "start_retry_timeout": "5m",
-    "vagrantfile_template": "debian/jessie/cinnamon-crypt.vagrant",
+    "vagrantfile_template": "debian/jessie/base-crypt-uefi.vagrant",
     "version": "0.0.0",
-    "vm_name": "cinnamon-crypt-jessie",
+    "vm_name": "base-crypt-uefi-jessie",
     "vnc_port_max": "6000",
     "vnc_port_min": "5900"
   }

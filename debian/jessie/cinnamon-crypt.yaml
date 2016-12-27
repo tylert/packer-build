@@ -205,7 +205,7 @@ variables:
   boot_wait: 3s
   communicator: ssh
   country: CA
-  description: Cinnamon encrypted box for 64-bit x86 Debian Jessie 8.x
+  description: Cinnamon box (encrypted) for 64-bit x86 Debian Jessie 8.x
   disk_size: '7500'
   domain: ''
   headless: 'false'
