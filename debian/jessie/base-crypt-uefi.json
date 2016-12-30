@@ -44,7 +44,7 @@
     },
     {
       "binary": false,
-      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "inline_shebang": "/bin/sh -e",
       "skip_clean": false,
       "start_retry_timeout": "{{user `start_retry_timeout`}}",
@@ -271,7 +271,7 @@
   "provisioners": [
     {
       "binary": false,
-      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "inline": [
         "echo 'FS0:\\EFI\\debian\\grubx64.efi' > /boot/efi/startup.nsh"
       ],
@@ -285,7 +285,7 @@
     },
     {
       "binary": false,
-      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
@@ -301,7 +301,7 @@
     },
     {
       "binary": false,
-      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "inline": [
         "apt-get clean"
       ],
@@ -312,7 +312,7 @@
     },
     {
       "binary": false,
-      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S sh '{{.Path}}'",
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "inline": [
         "dd if=/dev/zero of=/ZEROFILL bs=4M",
         "rm /ZEROFILL",
