@@ -221,10 +221,10 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 892e5b64f81a637101404fb6e2caa44b497cf98e4d6cdab71dfec440c56d8544972ba17bc0ad1cef93b8b6eed1e41b8c9c771d09b0738b27514ff63f6dc2f51c
+  iso_checksum: 534795785d2706e64e3a4dff9648fd0302a1272c668a99a81ba3a984695986ac814d8193c5335bd13dce0592fc470eebe9fc4a6c9991f87a6686329a667ac30d
   iso_checksum_type: sha512
-  iso_file: debian-8.7.0-amd64-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/release/8.7.0/amd64/iso-cd
+  iso_file: debian-8.7.1-amd64-netinst.iso
+  iso_path_external: http://cdimage.debian.org/cdimage/release/8.7.1/amd64/iso-cd
   iso_path_internal: http://localhost/debian
   language: en
   locale: en_CA.UTF-8
