@@ -33,6 +33,7 @@
       "http_port_min": "{{user `http_port_min`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_checksum_url": "{{user `iso_checksum_url`}}",
+      "iso_target_extension": "iso",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
         "{{user `iso_path_internal`}}/{{user `iso_file`}}",
@@ -105,6 +106,7 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_checksum_url": "{{user `iso_checksum_url`}}",
       "iso_interface": "sata",
+      "iso_target_extension": "iso",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
         "{{user `iso_path_internal`}}/{{user `iso_file`}}",
@@ -184,6 +186,7 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "iso_checksum_url": "{{user `iso_checksum_url`}}",
       "iso_skip_cache": false,
+      "iso_target_extension": "iso",
       "iso_target_path": "{{user `packer_cache_dir`}}/{{user `iso_file`}}",
       "iso_urls": [
         "{{user `iso_path_internal`}}/{{user `iso_file`}}",
