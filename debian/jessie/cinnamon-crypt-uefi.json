@@ -86,6 +86,7 @@
         "{{user `iso_path_internal`}}/{{user `iso_file`}}",
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
+      "keep_registered": false,
       "name": "virtualbox",
       "output_directory": "{{user `output_directory`}}",
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",

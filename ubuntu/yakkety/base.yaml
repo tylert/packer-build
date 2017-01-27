@@ -84,6 +84,7 @@ builders:
   hard_drive_interface: sata
   hard_drive_nonrotational: false
   iso_interface: sata
+  keep_registered: false
   name: virtualbox
   ssh_skip_nat_mapping: false
   type: virtualbox-iso
