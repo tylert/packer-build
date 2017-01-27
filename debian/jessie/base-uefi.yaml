@@ -66,7 +66,9 @@ builders:
 # guest_additions_sha256: (string)
 # guest_additions_url (string)
   guest_os_type: Debian_64
+  hard_drive_discard: false
   hard_drive_interface: sata
+  hard_drive_nonrotational: false
   iso_interface: sata
   name: virtualbox
   ssh_skip_nat_mapping: false
