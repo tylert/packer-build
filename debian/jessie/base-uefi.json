@@ -184,6 +184,7 @@
       "ssh_timeout": "{{user `ssh_timeout`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "type": "qemu",
+      "use_default_display": false,
       "vm_name": "{{user `vm_name`}}",
       "vnc_port_max": "{{user `vnc_port_max`}}",
       "vnc_port_min": "{{user `vnc_port_min`}}"
