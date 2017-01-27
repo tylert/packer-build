@@ -99,6 +99,7 @@
       "keep_registered": false,
       "name": "virtualbox",
       "output_directory": "{{user `output_directory`}}",
+      "post_shutdown_delay": "0s",
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "ssh_disable_agent": "{{user `ssh_disable_agent`}}",

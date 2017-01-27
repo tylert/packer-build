@@ -73,6 +73,7 @@ builders:
   iso_interface: sata
   keep_registered: false
   name: virtualbox
+  post_shutdown_delay: 0s
   ssh_skip_nat_mapping: false
   type: virtualbox-iso
   vboxmanage:
