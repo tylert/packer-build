@@ -29,7 +29,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 0.12.1 on Debian Stretch 9.x (with VirtualBox and QEMU)
+  - 0.12.2 on Debian Stretch 9.x (with VirtualBox and QEMU)
   - not currently being tested on macOS
 
 .. _Packer: https://packer.io
@@ -133,7 +133,8 @@ VirtualBox will get confused).
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
     ./scripts/vbox.sh -var version=1.0.0 debian/stretch/base.json
-    vagrant box add myname/stretch build/2015-06-31-12-34/base-stretch-1.0.0.virtualbox.box
+    vagrant box add myname/stretch \
+        build/2038-01-19-03-14/base-stretch-1.0.0.virtualbox.box
     vagrant init myname/stretch
     vagrant up
     vagrant ssh
@@ -187,11 +188,12 @@ and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
     ./scripts/qemu.sh debian/stretch/base.json
-    zcat build/2099-06-31-12-34/base-stretch.raw.gz | dd of=/dev/sdb bs=4M
+    zcat build/2038-01-19-03-14/base-stretch.raw.gz | dd of=/dev/sdb bs=4M
 
 ... Or, if you just want to "boot" it::
 
-    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm build/2015-06-31-12-34/base-stretch.raw
+    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm \
+        build/2038-01-19-03-14/base-stretch.raw
 
 
 Overriding Local ISO Cache Location
