@@ -19,6 +19,7 @@ _ALIASES:
   communicator: '{{user `communicator`}}'
   disk_size: '{{user `disk_size`}}'
 # floppy_files: (array of strings)
+# floppy_dirs: (array of strings)
   headless: '{{user `headless`}}'
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
