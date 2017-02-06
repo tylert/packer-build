@@ -92,6 +92,7 @@
       "post_shutdown_delay": "0s",
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
+      "skip_export": false,
       "ssh_disable_agent": "{{user `ssh_disable_agent`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
@@ -119,7 +120,10 @@
         ]
       ],
       "virtualbox_version_file": "/tmp/.vbox_version",
-      "vm_name": "{{user `vm_name`}}"
+      "vm_name": "{{user `vm_name`}}",
+      "vrdp_bind_address": "{{user `vnc_vrdp_bind_address`}}",
+      "vrdp_port_max": "{{user `vnc_vrdp_port_max`}}",
+      "vrdp_port_min": "{{user `vnc_vrdp_port_min`}}"
     },
     {
       "accelerator": "kvm",
@@ -186,8 +190,9 @@
       "type": "qemu",
       "use_default_display": false,
       "vm_name": "{{user `vm_name`}}",
-      "vnc_port_max": "{{user `vnc_port_max`}}",
-      "vnc_port_min": "{{user `vnc_port_min`}}"
+      "vnc_bind_address": "{{user `vnc_vrdp_bind_address`}}",
+      "vnc_port_max": "{{user `vnc_vrdp_port_max`}}",
+      "vnc_port_min": "{{user `vnc_vrdp_port_min`}}"
     },
     {
       "access_key": "{{user `aws_access_key`}}",
@@ -362,8 +367,9 @@
     "vagrantfile_template": "debian/wheezy/base.vagrant",
     "version": "0.0.0",
     "vm_name": "base-wheezy",
-    "vnc_port_max": "6000",
-    "vnc_port_min": "5900"
+    "vnc_vrdp_bind_address": "127.0.0.1",
+    "vnc_vrdp_port_max": "6000",
+    "vnc_vrdp_port_min": "5900"
   }
 }
 

@@ -74,6 +74,7 @@ builders:
   keep_registered: false
   name: virtualbox
   post_shutdown_delay: 0s
+  skip_export: false
   ssh_skip_nat_mapping: false
   type: virtualbox-iso
   vboxmanage:
@@ -91,8 +92,9 @@ builders:
     - efi
 # vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
-# vrdp_port_max: (integer)
-# vrdp_port_min: (integer)
+  vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
+  vrdp_port_max: '{{user `vnc_vrdp_port_max`}}'
+  vrdp_port_min: '{{user `vnc_vrdp_port_min`}}'
 - <<: *builder_options
   <<: *ssh_communicator_options
   accelerator: kvm
@@ -115,8 +117,9 @@ builders:
   skip_compaction: true
   type: qemu
   use_default_display: false
-  vnc_port_max: '{{user `vnc_port_max`}}'
-  vnc_port_min: '{{user `vnc_port_min`}}'
+  vnc_bind_address: '{{user `vnc_vrdp_bind_address`}}'
+  vnc_port_max: '{{user `vnc_vrdp_port_max`}}'
+  vnc_port_min: '{{user `vnc_vrdp_port_min`}}'
 - access_key: '{{user `aws_access_key`}}'
   ami_description: '{{user `description`}}'
   ami_groups: all
@@ -261,6 +264,6 @@ variables:
   vagrantfile_template: debian/stretch/cinnamon-crypt-uefi.vagrant
   version: 0.0.0
   vm_name: cinnamon-crypt-uefi-stretch
-# vnc_bind_address: '127.0.0.1'
-  vnc_port_max: '6000'
-  vnc_port_min: '5900'
+  vnc_vrdp_bind_address: '127.0.0.1'
+  vnc_vrdp_port_max: '6000'
+  vnc_vrdp_port_min: '5900'
