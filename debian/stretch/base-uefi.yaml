@@ -86,6 +86,10 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '1'
+  - - modifyvm
+    - '{{.Name}}'
+    - '--firmware'
+    - efi
 # vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'

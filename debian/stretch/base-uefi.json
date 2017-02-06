@@ -117,6 +117,12 @@
           "{{.Name}}",
           "--cpus",
           "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--firmware",
+          "efi"
         ]
       ],
       "virtualbox_version_file": "/tmp/.vbox_version",
