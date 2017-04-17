@@ -29,7 +29,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 1.0.0-rc1 on Debian Stretch 9.x (with VirtualBox and QEMU)
+  - 1.0.0 on Debian Stretch 9.x (with VirtualBox and QEMU)
   - not currently being tested on macOS
 
 .. _Packer: https://packer.io
