@@ -53,7 +53,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 1.9.3 on Debian Stretch 9.x (with VirtualBox)
+  - 1.9.4 on Debian Stretch 9.x (with VirtualBox)
   - not currently being tested on macOS
 
 .. _Vagrant: https://vagrantup.com
@@ -383,9 +383,9 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
 
-* ? ? (18.04.x LTS);  released on 2018-04-??, supported until 2023-??-??
-* ? ? (17.10);  released on 2017-10-??, supported until 2018-??-??
-* Zesty Zapus (17.04);  released on 2017-04-13, supported until 2018-??-??
+* ? ? (18.04.x LTS);  released on 2018-04-??, supported until 2023-04-??
+* Artful Aardvark (17.10);  released on 2017-10-19, supported until 2018-07-??
+* Zesty Zapus (17.04);  released on 2017-04-13, supported until 2018-01-??
 * Yakkety Yak (16.10);  released on 2016-10-13, supported until 2017-07-??
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-??
 * Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-??

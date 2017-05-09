@@ -226,14 +226,14 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 534795785d2706e64e3a4dff9648fd0302a1272c668a99a81ba3a984695986ac814d8193c5335bd13dce0592fc470eebe9fc4a6c9991f87a6686329a667ac30d
+  iso_checksum: 27e41f13ce0f71e0fc503da41f3afa87285e0fc2e8ffb8d7ff4f572e26451dafd1a6f220c9256731d451400893437b0dfc17534c441f2a29a81130c59f790a50
   iso_checksum_type: sha512
-  iso_file: debian-8.7.1-amd64-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/release/8.7.1/amd64/iso-cd
+  iso_file: debian-8.8.0-amd64-netinst.iso
+  iso_path_external: http://cdimage.debian.org/cdimage/release/8.8.0/amd64/iso-cd
   iso_path_internal: http://localhost/debian
   language: en
   locale: en_CA.UTF-8
-# min_vagrant_version: 1.9.3
+# min_vagrant_version: 1.9.4
 # mirror: ftp.ca.debian.org
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04"}}
