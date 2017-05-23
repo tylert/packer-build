@@ -53,7 +53,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 1.9.4 on Debian Stretch 9.x (with VirtualBox)
+  - 1.9.5 on Debian Stretch 9.x (with VirtualBox)
   - not currently being tested on macOS
 
 .. _Vagrant: https://vagrantup.com
