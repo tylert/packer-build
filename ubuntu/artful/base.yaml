@@ -65,7 +65,10 @@ _ALIASES:
   binary: false
 # environment_vars: (array of strings)
   execute_command: echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'
+  expect_disconnect: true
   inline_shebang: /bin/sh -e
+# remote_file: script_nnn.sh
+# remote_folder: /tmp
 # remote_path: /tmp/script_nnn.sh
   skip_clean: false
   start_retry_timeout: '{{user `start_retry_timeout`}}'
@@ -178,7 +181,7 @@ post-processors:
   type: checksum
 - inline_shebang: /bin/sh -e
 # environment_vars: (array of strings)
-# execute_command: chmod +x {{.Script}}; {{.Vars}} {{.Script}} {{.Artifact}}
+  execute_command: chmod +x "{{.Script}}"; {{.Vars}} "{{.Script}}"
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
@@ -210,7 +213,7 @@ provisioners:
   - apt-get clean
 - <<: *shell_provisioner_options
   inline:
-  - dd if=/dev/zero of=/ZEROFILL bs=4M
+  - 'dd if=/dev/zero of=/ZEROFILL bs=16M || true'
   - rm /ZEROFILL
   - sync
   only:
@@ -271,3 +274,4 @@ variables:
   vnc_vrdp_bind_address: '127.0.0.1'
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'
+...

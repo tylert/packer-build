@@ -46,6 +46,7 @@
     {
       "binary": false,
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
+      "expect_disconnect": true,
       "inline_shebang": "/bin/sh -e",
       "skip_clean": false,
       "start_retry_timeout": "{{user `start_retry_timeout`}}",
@@ -261,6 +262,7 @@
       "type": "checksum"
     },
     {
+      "execute_command": "chmod +x \"{{.Script}}\"; {{.Vars}} \"{{.Script}}\"",
       "inline": [
         "echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml",
         "echo 'name: {{user `vm_name`}}' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
@@ -285,6 +287,7 @@
     {
       "binary": false,
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
+      "expect_disconnect": true,
       "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
@@ -301,6 +304,7 @@
     {
       "binary": false,
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
+      "expect_disconnect": true,
       "inline": [
         "apt-get clean"
       ],
@@ -312,8 +316,9 @@
     {
       "binary": false,
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
+      "expect_disconnect": true,
       "inline": [
-        "dd if=/dev/zero of=/ZEROFILL bs=4M",
+        "dd if=/dev/zero of=/ZEROFILL bs=16M || true",
         "rm /ZEROFILL",
         "sync"
       ],
