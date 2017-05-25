@@ -12,24 +12,25 @@ The resulting image files may be used as bootable systems on real machines and
 the provided preseed files may also be used to install identical systems on
 bare metal as well.
 
-While there are no limitations running 32-bit x86 guests on 64-bit x86 hosts,
-this functionality has been deprecated here since 32-bit support is being
-phased out of Debian/Ubuntu "real soon now".
+While there are no limitations for running 32-bit x86 guests on 64-bit x86
+hosts, this functionality has been deprecated here since 32-bit support is
+being phased out of Debian/Ubuntu "real soon now".
 
 
 What dependencies does this have?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These templates are tested semi-regularly on Linux (Debian) hosts using recent
-versions of Packer and Vagrant.  All testing is currently done on systems that
-have amd64/x86_64-family processors.
+These templates are tested semi-regularly on recent Linux (Debian and/or
+Ubuntu) hosts using recent versions of Packer and Vagrant.  All testing is
+currently done on systems that have amd64/x86_64-family processors.
 
-The QEMU and VirtualBox versions used for Linux testing are normally the
-"stock" ones provided by the official Debian repositories.
+The VirtualBox and QEMU versions used for Linux testing are normally the
+"stock" ones provided by the official distribution repositories.
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 1.0.0 on Debian Stretch 9.x (with VirtualBox and QEMU)
+  - 1.0.0 on Debian Stretch 9.x (VirtualBox and QEMU)
+  - 1.0.0 on Ubuntu Zesty 17.04 (VirtualBox and QEMU)
   - not currently being tested on macOS
 
 .. _Packer: https://packer.io
@@ -38,6 +39,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
   - 5.1.8_Debian r111374 [5.1.8-dfsg-6] on Debian Stretch 9.x
+  - 5.1.18_Ubuntu r114002 [5.1.18-dfsg-1build1] on Ubuntu Zesty 17.04
   - not currently being tested on macOS
 
 .. _VirtualBox: https://virtualbox.org
@@ -45,7 +47,7 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
-  - 2.7.0 [Debian 1:2.7+dfsg-3+b1] or newer on Debian Stretch 9.x
+  - 2.7.0 [Debian 1:2.7+dfsg-3+b1] on Debian Stretch 9.x
   - not currently being tested on macOS
 
 .. _QEMU: http://qemu.org
@@ -53,13 +55,13 @@ The QEMU and VirtualBox versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 1.9.5 on Debian Stretch 9.x (with VirtualBox)
+  - 1.9.5 on Debian Stretch 9.x (VirtualBox)
   - not currently being tested on macOS
 
 .. _Vagrant: https://vagrantup.com
 .. _Vagrant_download: https://releases.hashicorp.com/vagrant
 
-* BIG, BIG MAYBE:  vagrant-libvirt_ plugin (for QEMU support in Vagrant)
+* BIG, BIG MAYBE:  vagrant-libvirt_ plugin (QEMU provider for Vagrant)
 
   - Please refer to their page for version information, installation
     instructions and dependencies.
@@ -79,11 +81,15 @@ verify this fact due to the following errors encountered while trying to run
 TODO Items
 ~~~~~~~~~~
 
+* EASY Fix filename for vagrant manifest file + use provider name
 * Get proper templating working for the preseed and vagrant files
 * Replace Ruby json2yaml and yaml2json scripts with non-ugly Python ones
 * Make sure to use comparable cpus and cores_per_cpu for qemu and vbox
-* [Debian preseeds] Find out if partman-crypto will allow passphrase-crypted
-* [Debian preseeds] Skip past "Force UEFI Install" installer prompt
+* [preseed debian] Find out if partman-crypto will allow passphrase-crypted
+* [preseed debian] Skip past "Force UEFI Install" installer prompt
+* [template ubuntu] Clean up boot commands to make them shorter to type
+* [template qemu] Correct generated filenames for images to end in .img{,.gz}
+* [template vagrant] Dump checksum into vagrant manifest file + convert to JSON
 
 
 Using Packer Templates
