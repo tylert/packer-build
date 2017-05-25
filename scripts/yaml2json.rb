@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# yaml2json.rb
+
 require 'yaml'
 require 'json'
 
