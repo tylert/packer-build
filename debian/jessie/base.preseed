@@ -22,6 +22,7 @@ d-i clock-setup/utc boolean true
 d-i netcfg/get_hostname string base-jessie
 #d-i netcfg/get_hostname string {{vm_name}}
 d-i netcfg/get_domain string
+d-i netcfg/choose_interface select auto
 
 # User Setup
 d-i passwd/user-fullname string Ghost Writer

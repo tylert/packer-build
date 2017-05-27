@@ -29,6 +29,7 @@ d-i netcfg/get_hostname string base-trusty
 #d-i netcfg/get_hostname string {{vm_name}}
 d-i netcfg/get_domain string
 # must be passed in on the init line as well
+d-i netcfg/choose_interface select auto
 
 # User Setup
 d-i passwd/user-fullname string Ghost Writer
