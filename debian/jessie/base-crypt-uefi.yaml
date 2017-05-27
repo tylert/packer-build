@@ -93,6 +93,10 @@ builders:
     - '{{.Name}}'
     - '--firmware'
     - efi
+# - - modifyvm
+#   - '{{.Name}}'
+#   - '--nic2'
+#   - 'intnet'
 # vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
@@ -117,6 +121,7 @@ builders:
     - '{{user `ram_size`}}M'
   - - '-smp'
     - '1'
+# - - '-net'
   skip_compaction: true
   type: qemu
   use_default_display: false
