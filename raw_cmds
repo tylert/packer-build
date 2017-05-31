@@ -1,0 +1,12 @@
+/usr/bin/qemu-system-x86_64 \
+    -name base-artful \
+    -netdev user,id=user.0,hostfwd=tcp::2546-:22 \
+    -vnc 127.0.0.1:47 \
+    -cdrom packer_cache/artful-server-amd64.iso \
+    -smp 1 \
+    -drive file=build/2017-05-30-16-48/base-artful,if=scsi,cache=writeback,discard=ignore,format=raw \
+    -boot once=d \
+    -machine type=pc,accel=kvm \
+    -display sdl \
+    -device virtio-net,netdev=user.0 \
+    -m 512M
