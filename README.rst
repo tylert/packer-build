@@ -87,7 +87,6 @@ TODO Items
 * Make sure to use comparable cpus and cores_per_cpu for qemu and vbox
 * [preseed debian] Find out if partman-crypto will allow passphrase-crypted
 * [preseed debian] Skip past "Force UEFI Install" installer prompt
-* [template ubuntu] Clean up boot commands to make them shorter to type
 * [template qemu] Correct generated filenames for images to end in .img{,.gz}
 * [template vagrant] Dump checksum into vagrant manifest file + convert to JSON
 

@@ -20,6 +20,7 @@
         "locale={{user `locale`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
+        "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
         "vga=788 noprompt quiet --<enter>"
@@ -87,6 +88,7 @@
         "locale={{user `locale`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
+        "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
         "vga=788 noprompt quiet --<enter>"
@@ -173,6 +175,7 @@
         "locale={{user `locale`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
+        "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
         "vga=788 noprompt quiet --<enter>"

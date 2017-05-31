@@ -9,6 +9,7 @@
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
+        "interface=auto ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
@@ -63,6 +64,7 @@
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
+        "interface=auto ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
@@ -142,6 +144,7 @@
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
+        "interface=auto ",
         "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
