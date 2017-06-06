@@ -246,7 +246,7 @@ variables:
   aws_access_key: '{{env `AWS_ACCESS_KEY_ID`}}'
   aws_ami_name: base-{{isotime "2006-01-02-15-04-05"}}
   aws_instance_type: t2.nano
-  aws_region: us-east-1
+  aws_region: ca-central-1
   aws_secret_key: '{{env `AWS_SECRET_ACCESS_KEY`}}'
   aws_security_token: '{{env `AWS_SECURITY_TOKEN`}}'
   aws_source_ami: foo
