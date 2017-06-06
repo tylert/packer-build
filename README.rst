@@ -30,25 +30,26 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 * REQUIRED:  Packer_ (Packer_download_)
 
   - 1.0.0 on Debian Stretch 9.x (VirtualBox and QEMU)
-  - 1.0.0 on Ubuntu Zesty 17.04 (VirtualBox and QEMU)
-  - not currently being tested on macOS
+  - 1.0.0 on Ubuntu Zesty Zapus 17.04 (VirtualBox and QEMU)
+  - not currently being tested on macOS but used to work fine
 
 .. _Packer: https://packer.io
 .. _Packer_download: https://releases.hashicorp.com/packer
 
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
-  - 5.1.8_Debian r111374 [5.1.8-dfsg-6] on Debian Stretch 9.x
-  - 5.1.18_Ubuntu r114002 [5.1.18-dfsg-1build1] on Ubuntu Zesty 17.04
-  - not currently being tested on macOS
+  - 5.1.22 r115126 [5.1.22-115126~Debian~stretch] on Debian Stretch 9.x
+  - 5.1.22 r115126 [5.1.22-dfsg-0ubuntu1.17.04.1] on Ubuntu Zesty Zapus 17.04
+  - not currently being tested on macOS but used to work fine
 
 .. _VirtualBox: https://virtualbox.org
 .. _VirtualBox_download: http://download.virtualbox.org/virtualbox
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
-  - 2.7.0 [Debian 1:2.7+dfsg-3+b1] on Debian Stretch 9.x
-  - not currently being tested on macOS
+  - 2.8.1 [1:2.8+dfsg-6] on Debian Stretch 9.x
+  - 2.8.0 [1:2.8+dfsg-3ubuntu2.2] on Ubuntu Zesty Zapus 17.04
+  - not currently being tested on macOS but used to work fine
 
 .. _QEMU: http://qemu.org
 .. _kvm: http://linux-kvm.org
@@ -56,7 +57,8 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
   - 1.9.5 on Debian Stretch 9.x (VirtualBox)
-  - not currently being tested on macOS
+  - 1.9.5 on Ubuntu Zesty Zapus 17.04 (VirtualBox)
+  - not currently being tested on macOS but used to work fine
 
 .. _Vagrant: https://vagrantup.com
 .. _Vagrant_download: https://releases.hashicorp.com/vagrant
@@ -178,6 +180,22 @@ Then, simply make sure you point your Vagrantfile at this version payload::
       config.vm.synced_folder ".", "/vagrant", disabled: true
     end
 
+NOTE:  You must ensure you disable the synched folder stuff above or you will
+encounter the following error::
+
+    Vagrant was unable to mount VirtualBox shared folders. This is usually
+    because the filesystem "vboxsf" is not available. This filesystem is
+    made available via the VirtualBox Guest Additions and kernel module.
+    Please verify that these guest additions are properly installed in the
+    guest. This is not a bug in Vagrant and is usually caused by a faulty
+    Vagrant box. For context, the command attempted was:
+
+    mount -t vboxsf -o uid=1000,gid=1000 vagrant /vagrant
+
+    The error output from the command was:
+
+    mount: unknown filesystem type 'vboxsf'
+
 * https://github.com/hollodotme/Helpers/blob/master/Tutorials/vagrant/self-hosted-vagrant-boxes-with-versioning.md
 * http://blog.el-chavez.me/2015/01/31/custom-vagrant-cloud-host/
 * https://www.nopsec.com/news-and-resources/blog/2015/3/27/private-vagrant-box-hosting-easy-versioning/
@@ -193,7 +211,7 @@ and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
     ./scripts/qemu.sh debian/stretch/base.json
-    zcat build/2038-01-19-03-14/base-stretch.raw.gz | dd of=/dev/sdb bs=4M
+    zcat build/2038-01-19-03-14/base-stretch.raw.gz | dd of=/dev/sdz bs=4M
 
 ... Or, if you just want to "boot" it::
 
@@ -214,6 +232,14 @@ You must *always* specify the PACKER_CACHE_DIR when using the provided
 templates due to a problem in packer where the PACKER_CACHE_DIR is not provided
 to the template if one was not provided;  In this case, it will fall back to
 the default value of "./packer_cache".
+
+
+Overriding Local VM Cache Location
+----------------------------------
+
+::
+
+    vboxmanage setproperty machinefolder /home/whoa/vm
 
 
 Disabling Hashicorp Checkpoint Version Checks
@@ -345,6 +371,20 @@ Why did you use the Ubuntu Server installer to create desktop systems?
 
 * http://askubuntu.com/questions/467804/preseeding-does-not-work-properly-in-ubuntu-14-04
 * https://wiki.ubuntu.com/UbiquityAutomation
+
+
+Using a Headless Server
+-----------------------
+
+If you are using these scripts on a "headless" server (i.e.:  no GUI), you must
+set the "headless" variable to "true" or you will encounter the following
+error::
+
+    ...
+    ==> virtualbox: Starting the virtual machine...
+    ==> virtualbox: Error starting VM: VBoxManage error: VBoxManage: error: The virtual machine 'base-stretch' has terminated unexpectedly during startup because of signal 6
+    ==> virtualbox: VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MachineWrap, interface IMachine
+    ...
 
 
 Offical ISO Files
