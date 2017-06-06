@@ -5,6 +5,8 @@ d-i debian-installer/country string CA
 # d-i debian-installer/country string {{country}}
 d-i debian-installer/locale string en_CA.UTF-8
 # d-i debian-installer/locale string {{locale}}
+# d-i localechooser/supported-locales multiselect en_CA.UTF-8 fr_CA.UTF-8 zh_CN.UTF-8
+# d-i pkgsel/install-language-support boolean true
 
 # Keyboard Setup
 d-i console-setup/ask_detect boolean false
