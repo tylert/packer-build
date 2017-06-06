@@ -292,6 +292,21 @@
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "expect_disconnect": true,
       "inline": [
+        "echo 'FS0:\\EFI\\debian\\grubx64.efi' > /boot/efi/startup.nsh"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "only": [
+        "virtualbox"
+      ],
+      "skip_clean": false,
+      "start_retry_timeout": "{{user `start_retry_timeout`}}",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
+      "expect_disconnect": true,
+      "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
@@ -339,7 +354,7 @@
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_ami_name": "base-{{isotime \"2006-01-02-15-04-05\"}}",
     "aws_instance_type": "t2.nano",
-    "aws_region": "us-east-1",
+    "aws_region": "ca-central-1",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "aws_security_token": "{{env `AWS_SECURITY_TOKEN`}}",
     "aws_source_ami": "foo",
