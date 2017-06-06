@@ -173,11 +173,11 @@ SHA256 hashes are the largest ones that Vagrant supports, currently.
 
 Then, simply make sure you point your Vagrantfile at this version payload::
 
-    Vagrant.configure(2) do |config|
-      config.vm.box = "base-stretch"
-      config.vm.box_url = "http://server/vm/base-stretch/base-stretch.json"
+    Vagrant.configure('2') do |config|
+      config.vm.box = 'base-stretch'
+      config.vm.box_url = 'http://server/vm/base-stretch/base-stretch.json'
 
-      config.vm.synced_folder ".", "/vagrant", disabled: true
+      config.vm.synced_folder '.', '/vagrant', disabled: true
     end
 
 NOTE:  You must ensure you disable the synched folder stuff above or you will
