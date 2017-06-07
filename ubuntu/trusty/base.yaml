@@ -95,33 +95,7 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '1'
-# - - modifyvm
-#   - '{{.Name}}'
-#   - '--nic2'
-#   - 'intnet'
-# vboxmanage_post:
-# - - createmedium
-#   - 'disk'
-#   - '--filename'
-#   - '{{user `output_directory`}}/{{.Name}}-data1.vmdk'
-#   - '--size'
-#   - '{{user `disk_size`}}'
-#   - '--format'
-#   - 'VMDK'
-# - - storageattach
-#   - '{{.Name}}'
-#   - '--storagectl'
-#   - 'SATA Controller'
-#   - '--port'
-#   - '1'
-#   - '--device'
-#   - '0'
-#   - '--type'
-#   - 'hdd'
-#   - '--medium'
-#   - '{{user `output_directory`}}/{{.Name}}-data1.vmdk'
-#   - '--nonrotational'
-#   - 'on'
+# vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
   vrdp_port_max: '{{user `vnc_vrdp_port_max`}}'
@@ -145,10 +119,6 @@ builders:
     - '{{user `ram_size`}}M'
   - - '-smp'
     - '1'
-# - - '-netdev'
-#   - 'socket,id=socket.0
-# - - '-device'
-#   - 'virtio-net,netdev=socket.0
   skip_compaction: true
   type: qemu
   use_default_display: false
