@@ -342,6 +342,19 @@
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "expect_disconnect": true,
       "inline": [
+        "apt-get update",
+        "apt-get --yes dist-upgrade"
+      ],
+      "inline_shebang": "/bin/sh -e",
+      "skip_clean": false,
+      "start_retry_timeout": "{{user `start_retry_timeout`}}",
+      "type": "shell"
+    },
+    {
+      "binary": false,
+      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
+      "expect_disconnect": true,
+      "inline": [
         "apt-get clean"
       ],
       "inline_shebang": "/bin/sh -e",
