@@ -21,7 +21,7 @@ d-i clock-setup/utc boolean true
 # set above to false if making a bootable USB to run on same system as Windows
 
 # Network Setup
-d-i netcfg/get_hostname string base-crypt-uefi-stretch
+d-i netcfg/get_hostname string base-crypt-uefi-buster
 # d-i netcfg/get_hostname string {{vm_name}}
 d-i netcfg/get_domain string
 # https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/713385
