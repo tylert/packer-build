@@ -230,10 +230,10 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: f56f72b0cecd620f27ce58b52c027addaefe8c27f0eeaf8446a5646513911277de4fd3b7466fc8a2957906a1f9b28d9a60da7a14d450a0df8918432d3aef94ee
+  iso_checksum: 08a25863ae2369de462e55b539050dab0adb03262a4aefda208e907ef9ea2fff2158a77f6a6eddb4ac7fbd2fcc9cc64edd34f70e211eceac4bb6f308fefc3f0a
   iso_checksum_type: sha512
-  iso_file: debian-stretch-DI-rc5-amd64-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/stretch_di_rc5/amd64/iso-cd
+  iso_file: debian-9.0.0-amd64-netinst.iso
+  iso_path_external: http://cdimage.debian.org/cdimage/release/9.0.0/amd64/iso-cd
   iso_path_internal: http://localhost/debian
   language: en
   locale: en_CA.UTF-8
