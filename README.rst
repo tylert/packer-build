@@ -29,8 +29,8 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 1.0.0 on Debian Stretch 9.x (VirtualBox and QEMU)
-  - 1.0.0 on Ubuntu Zesty Zapus 17.04 (VirtualBox and QEMU)
+  - 1.0.1 on Debian Stretch 9.x (VirtualBox and QEMU)
+  - 1.0.1 on Ubuntu Zesty Zapus 17.04 (VirtualBox and QEMU)
   - not currently being tested on macOS but used to work fine
 
 .. _Packer: https://packer.io
@@ -103,17 +103,19 @@ Usage::
 
 Examples::
 
-    ./scripts/vbox.sh debian/stretch/base.json
-    ./scripts/vbox.sh -var vm_name=test -var version=1.0.0 \
-        debian/stretch/base.json
-    ./scripts/qemu.sh -var-file=variables.json \
-        debian/stretch/base.json
+    ./scripts/vbox.sh debian/buster/base.json
+
+    ./scripts/vbox.sh -var headless=true -var version=1.0.0 -var vm_name=test \
+        debian/buster/base.json
+
+    ./scripts/qemu.sh -var-file=variables.json debian/buster/base.json
 
 Contents of example file ``variables.json`` used above::
 
     {
-      "vm_name": "test",
-      "version": "1.0.0"
+      "headless": true,
+      "version": "1.0.0",
+      "vm_name": "test"
     }
 
 To verify your templates, force them to be re-sorted and/or to upgrade your
@@ -139,10 +141,10 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    ./scripts/vbox.sh -var version=1.0.0 debian/stretch/base.json
-    vagrant box add myname/stretch \
-        build/2038-01-19-03-14/base-stretch-1.0.0.virtualbox.box
-    vagrant init myname/stretch
+    ./scripts/vbox.sh -var version=1.0.0 debian/buster/base.json
+    vagrant box add myname/buster \
+        build/2038-01-19-03-14/base-buster-1.0.0.virtualbox.box
+    vagrant init myname/buster
     vagrant up
     vagrant ssh
     ...
@@ -152,15 +154,15 @@ In order to version things and self-host the box files, you will need to create
 a JSON file containing the following::
 
     {
-      "name": "base-stretch",
-      "description": "Base box for 64-bit x86 Debian Stretch 9.x",
+      "name": "base-buster",
+      "description": "Base box for 64-bit x86 Debian Buster 10.x",
       "versions": [
         {
           "version": "1.0.0",
           "providers": [
             {
               "name": "virtualbox",
-              "url": "http://server/vm/base-stretch/base-stretch-1.0.0-virtualbox.box",
+              "url": "http://server/vm/base-buster/base-buster-1.0.0-virtualbox.box",
               "checksum_type": "sha256",
               "checksum": "THESHA256SUMOFTHEBOXFILE"
             }
@@ -174,8 +176,8 @@ SHA256 hashes are the largest ones that Vagrant supports, currently.
 Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure('2') do |config|
-      config.vm.box = 'base-stretch'
-      config.vm.box_url = 'http://server/vm/base-stretch/base-stretch.json'
+      config.vm.box = 'base-buster'
+      config.vm.box_url = 'http://server/vm/base-buster/base-buster.json'
 
       config.vm.synced_folder '.', '/vagrant', disabled: true
     end
@@ -211,13 +213,13 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    ./scripts/qemu.sh debian/stretch/base.json
-    zcat build/2038-01-19-03-14/base-stretch.raw.gz | dd of=/dev/sdz bs=4M
+    ./scripts/qemu.sh debian/buster/base.json
+    zcat build/2038-01-19-03-14/base-buster.raw.gz | dd of=/dev/sdz bs=4M
 
 ... Or, if you just want to "boot" it::
 
     qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm \
-        build/2038-01-19-03-14/base-stretch.raw
+        build/2038-01-19-03-14/base-buster.raw
 
 
 Overriding Local ISO Cache Location
@@ -227,7 +229,7 @@ You may override the default directory used instead of './packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
     PACKER_CACHE_DIR=/tmp packer build -only=vbox \
-        debian/stretch/base.json
+        debian/buster/base.json
 
 You must *always* specify the PACKER_CACHE_DIR when using the provided
 templates due to a problem in packer where the PACKER_CACHE_DIR is not provided
@@ -383,7 +385,7 @@ error::
 
     ...
     ==> virtualbox: Starting the virtual machine...
-    ==> virtualbox: Error starting VM: VBoxManage error: VBoxManage: error: The virtual machine 'base-stretch' has terminated unexpectedly during startup because of signal 6
+    ==> virtualbox: Error starting VM: VBoxManage error: VBoxManage: error: The virtual machine 'base-buster' has terminated unexpectedly during startup because of signal 6
     ==> virtualbox: VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MachineWrap, interface IMachine
     ...
 
