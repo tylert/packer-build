@@ -147,7 +147,7 @@ builders:
   token: '{{user `aws_security_token`}}'
   type: amazon-ebs
 description: '{{user `description`}}'
-min_packer_version: 1.0.1
+min_packer_version: 1.0.2
 post-processors:
 - compression_level: 6
 # include: (array of strings)
