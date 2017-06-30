@@ -30,7 +30,6 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 * REQUIRED:  Packer_ (Packer_download_)
 
   - 1.0.2 on Debian Stretch 9.x (VirtualBox and QEMU)
-  - 1.0.2 on Ubuntu Zesty Zapus 17.04 (VirtualBox and QEMU)
   - not currently being tested on macOS but used to work fine
 
 .. _Packer: https://packer.io
@@ -39,7 +38,6 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
   - 5.1.22 r115126 [5.1.22-115126~Debian~stretch] on Debian Stretch 9.x
-  - 5.1.22 r115126 [5.1.22-dfsg-0ubuntu1.17.04.1] on Ubuntu Zesty Zapus 17.04
   - not currently being tested on macOS but used to work fine
 
 .. _VirtualBox: https://virtualbox.org
@@ -48,7 +46,6 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
   - 2.8.1 [1:2.8+dfsg-6] on Debian Stretch 9.x
-  - 2.8.0 [1:2.8+dfsg-3ubuntu2.2] on Ubuntu Zesty Zapus 17.04
   - not currently being tested on macOS but used to work fine
 
 .. _QEMU: http://qemu.org
@@ -56,8 +53,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 1.9.5 on Debian Stretch 9.x (VirtualBox)
-  - 1.9.5 on Ubuntu Zesty Zapus 17.04 (VirtualBox)
+  - 1.9.6 on Debian Stretch 9.x (VirtualBox)
   - not currently being tested on macOS but used to work fine
 
 .. _Vagrant: https://vagrantup.com
