@@ -140,26 +140,6 @@ builders:
   vnc_bind_address: '{{user `vnc_vrdp_bind_address`}}'
   vnc_port_max: '{{user `vnc_vrdp_port_max`}}'
   vnc_port_min: '{{user `vnc_vrdp_port_min`}}'
-- <<: *ssh_communicator_options
-  access_key: '{{user `aws_access_key`}}'
-  ami_description: '{{user `description`}}'
-  ami_groups: all
-  ami_name: '{{user `aws_ami_name`}}'
-  communicator: '{{user `communicator`}}'
-  instance_type: '{{user `aws_instance_type`}}'
-  name: aws
-  region: '{{user `aws_region`}}'
-  run_tags:
-    Name: AMI Builder
-  secret_key: '{{user `aws_secret_key`}}'
-  security_group_id: '{{user `aws_security_group_id`}}'
-  source_ami: '{{user `aws_source_ami`}}'
-  ssh_agent_auth: '{{user `aws_ssh_agent_auth`}}'
-  ssh_keypair_name: '{{user `aws_ssh_keypair_name`}}'
-  subnet_id: '{{user `aws_subnet_id`}}'
-  token: '{{user `aws_security_token`}}'
-  type: amazon-ebs
-  vpc_id: '{{user `aws_vpc_id`}}'
 description: '{{user `description`}}'
 min_packer_version: 1.0.2
 post-processors:
@@ -237,17 +217,6 @@ provisioners:
   - qemu
 variables:
 # apt-cache-url: http://localhost:3142
-  aws_access_key: '{{env `AWS_ACCESS_KEY_ID`}}'
-  aws_ami_name: base-{{isotime "2006-01-02-15-04-05"}}
-  aws_instance_type: t2.micro
-  aws_region: ca-central-1
-  aws_secret_key: '{{env `AWS_SECRET_ACCESS_KEY`}}'
-  aws_security_group_id: sg-12345678
-  aws_security_token: '{{env `AWS_SECURITY_TOKEN`}}'
-  aws_source_ami: ami-12345678
-  aws_ssh_agent_auth: 'true'
-  aws_ssh_keypair_name: packer
-  aws_vpc_id: vpc-12345678
   boot_wait: 3s
   communicator: ssh
   country: CA
