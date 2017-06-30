@@ -33,6 +33,7 @@ _ALIASES:
   shutdown_timeout: '{{user `shutdown_timeout`}}'
   vm_name: '{{user `vm_name`}}'
 - &ssh_communicator_options
+# ssh_bastion_agent_auth: (boolean)
 # ssh_bastion_host: (string)
 # ssh_bastion_password: (string)
 # ssh_bastion_port: (integer)
@@ -125,7 +126,8 @@ builders:
   vnc_bind_address: '{{user `vnc_vrdp_bind_address`}}'
   vnc_port_max: '{{user `vnc_vrdp_port_max`}}'
   vnc_port_min: '{{user `vnc_vrdp_port_min`}}'
-- access_key: '{{user `aws_access_key`}}'
+- <<: *ssh_communicator_options
+  access_key: '{{user `aws_access_key`}}'
   ami_description: '{{user `description`}}'
   ami_groups: all
   ami_name: '{{user `aws_ami_name`}}'
@@ -136,16 +138,12 @@ builders:
   run_tags:
     Name: AMI Builder
   secret_key: '{{user `aws_secret_key`}}'
+  security_group_id: '{{user `aws_security_group_id`}}'
   source_ami: '{{user `aws_source_ami`}}'
-  ssh_disable_agent: '{{user `ssh_disable_agent`}}'
-  ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
-  ssh_password: '{{user `ssh_password`}}'
-  ssh_port: '{{user `ssh_port`}}'
-  ssh_pty: '{{user `ssh_pty`}}'
-  ssh_timeout: '{{user `ssh_timeout`}}'
-  ssh_username: '{{user `ssh_username`}}'
+  subnet_id: '{{user `aws_subnet_id`}}'
   token: '{{user `aws_security_token`}}'
   type: amazon-ebs
+  vpc_id: '{{user `aws_vpc_id`}}'
 description: '{{user `description`}}'
 min_packer_version: 1.0.2
 post-processors:
@@ -228,8 +226,11 @@ variables:
   aws_instance_type: t2.micro
   aws_region: ca-central-1
   aws_secret_key: '{{env `AWS_SECRET_ACCESS_KEY`}}'
+  aws_security_group_id: sg-12345678
   aws_security_token: '{{env `AWS_SECURITY_TOKEN`}}'
-  aws_source_ami: foo
+  aws_source_ami: ami-12345678
+  aws_subnet_id: subnet-12345678
+  aws_vpc_id: vpc-12345678
   boot_wait: 3s
   communicator: ssh
   country: CA
