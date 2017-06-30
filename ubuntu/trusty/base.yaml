@@ -142,6 +142,8 @@ builders:
   secret_key: '{{user `aws_secret_key`}}'
   security_group_id: '{{user `aws_security_group_id`}}'
   source_ami: '{{user `aws_source_ami`}}'
+  ssh_agent_auth: '{{user `aws_ssh_agent_auth`}}'
+  ssh_keypair_name: '{{user `aws_ssh_keypair_name`}}'
   subnet_id: '{{user `aws_subnet_id`}}'
   token: '{{user `aws_security_token`}}'
   type: amazon-ebs
@@ -226,6 +228,8 @@ variables:
   aws_security_group_id: sg-12345678
   aws_security_token: '{{env `AWS_SECURITY_TOKEN`}}'
   aws_source_ami: ami-12345678
+  aws_ssh_agent_auth: 'true'
+  aws_ssh_keypair_name: packer
   aws_vpc_id: vpc-12345678
   boot_wait: 3s
   communicator: ssh
