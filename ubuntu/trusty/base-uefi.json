@@ -2,9 +2,8 @@
   "_ALIASES": [
     {
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz ",
-        "initrd=/install/initrd.gz ",
+        "<wait>c<wait>",
+        "linux /install/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "language={{user `language`}} ",
@@ -15,7 +14,9 @@
         "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
-        "vga=788 noprompt quiet --<enter>"
+        "vga=788 noprompt quiet --<enter>",
+        "initrd /install/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
@@ -60,9 +61,8 @@
   "builders": [
     {
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz ",
-        "initrd=/install/initrd.gz ",
+        "<wait>c<wait>",
+        "linux /install/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "language={{user `language`}} ",
@@ -73,7 +73,9 @@
         "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
-        "vga=788 noprompt quiet --<enter>"
+        "vga=788 noprompt quiet --<enter>",
+        "initrd /install/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
@@ -145,9 +147,8 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz ",
-        "initrd=/install/initrd.gz ",
+        "<wait>c<wait>",
+        "linux /install/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "language={{user `language`}} ",
@@ -158,7 +159,9 @@
         "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
-        "vga=788 noprompt quiet --<enter>"
+        "vga=788 noprompt quiet --<enter>",
+        "initrd /install/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",

@@ -2,17 +2,8 @@
 _ALIASES:
 - &builder_options
   boot_command:
-  - '<esc><f6><esc>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs>'
-  - 'initrd=/install/initrd.gz '
+  - '<wait>c<wait>'
+  - 'linux /install/vmlinuz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
   - 'language={{user `language`}} '
@@ -23,7 +14,9 @@ _ALIASES:
   - 'interface=auto '
   - 'console-setup/ask_detect=false '
   - 'keyboard-configuration/layoutcode={{user `keyboard`}} '
-  - vga=788 noprompt quiet --<enter>
+  - 'vga=788 noprompt quiet --<enter>'
+  - 'initrd /install/initrd.gz<enter>'
+  - 'boot<enter>'
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
   disk_size: '{{user `disk_size`}}'

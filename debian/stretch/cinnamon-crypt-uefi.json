@@ -2,15 +2,16 @@
   "_ALIASES": [
     {
       "boot_command": [
-        "<esc><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "<wait>c<wait>",
+        "linux /install.amd/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
         "interface=auto ",
-        "vga=788 noprompt quiet --<enter>"
+        "vga=788 noprompt quiet --<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
@@ -55,15 +56,16 @@
   "builders": [
     {
       "boot_command": [
-        "<esc><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "<wait>c<wait>",
+        "linux /install.amd/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
         "interface=auto ",
-        "vga=788 noprompt quiet --<enter>"
+        "vga=788 noprompt quiet --<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
@@ -135,15 +137,16 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<esc><wait>",
-        "/install.amd/vmlinuz ",
-        "initrd=/install.amd/initrd.gz ",
+        "<wait>c<wait>",
+        "linux /install.amd/vmlinuz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "hostname={{user `vm_name`}} ",
         "domain={{user `domain`}} ",
         "interface=auto ",
-        "vga=788 noprompt quiet --<enter>"
+        "vga=788 noprompt quiet --<enter>",
+        "initrd /install.amd/initrd.gz<enter>",
+        "boot<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
