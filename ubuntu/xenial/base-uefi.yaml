@@ -182,7 +182,7 @@ post-processors:
 provisioners:
 - <<: *shell_provisioner_options
   inline:
-  - echo 'FS0:\EFI\debian\grubx64.efi' > /boot/efi/startup.nsh
+  - echo 'FS0:\EFI\ubuntu\grubx64.efi' > /boot/efi/startup.nsh
   only:
   - virtualbox
 - <<: *shell_provisioner_options
