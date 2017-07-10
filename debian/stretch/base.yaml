@@ -244,7 +244,7 @@ variables:
   iso_path_internal: http://localhost/debian
   language: en
   locale: en_CA.UTF-8
-# min_vagrant_version: 1.9.6
+# min_vagrant_version: 1.9.7
 # mirror: ftp.ca.debian.org
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04-05"}}
