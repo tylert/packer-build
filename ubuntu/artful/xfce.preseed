@@ -51,7 +51,7 @@ d-i mirror/http/proxy string
 # d-i mirror/http/proxy string {{apt-cache-url}}
 d-i pkgsel/update-policy select none
 tasksel tasksel/first multiselect xubuntu-desktop
-d-i pkgsel/include string openssh-server
+d-i pkgsel/include string openssh-server, cloud-init
 d-i pkgsel/upgrade select full-upgrade
 
 # Drive Setup

@@ -57,7 +57,7 @@ d-i apt-setup/contrib boolean true
 d-i apt-setup/non-free boolean true
 tasksel tasksel/first multiselect print-server, ssh-server, standard, desktop, cinnamon-desktop
 lightdm shared/default-x-display-manager select lightdm
-d-i pkgsel/include string sudo, cryptsetup
+d-i pkgsel/include string sudo, cloud-init, cryptsetup
 popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
