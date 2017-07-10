@@ -418,7 +418,7 @@ Debian_releases_
 
 * Bullseye (11.x);  released on 20??-??-??, supported until 20??-??-??
 * Buster (10.x);  released on 20??-??-??, supported until 20??-??-??
-* Stretch (9.x);  released on 2017-06-18, supported until 20??-??-??
+* Stretch (9.x);  released on 2017-06-18, supported until 2022-06-??
 * Jessie (8.x);  released on 2015-04-26, supported until 2020-0[45]-??
 * Wheezy (7.x);  released on 2013-05-04, supported until 2018-05-??
 
