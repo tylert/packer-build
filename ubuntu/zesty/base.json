@@ -237,7 +237,7 @@
     }
   ],
   "description": "{{user `description`}}",
-  "min_packer_version": "1.0.3",
+  "min_packer_version": "1.0.4",
   "post-processors": [
     {
       "compression_level": 6,

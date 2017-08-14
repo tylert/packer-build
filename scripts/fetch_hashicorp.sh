@@ -24,4 +24,4 @@ function fetch_hc_binary {
 # https://releases.hashicorp.com/packer/
 
 # Fetch binaries and install them locally
-fetch_hc_binary  'packer'  '1.0.3'  '/usr/local/bin'
+fetch_hc_binary  'packer'  '1.0.4'  '/usr/local/bin'
