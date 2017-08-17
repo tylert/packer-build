@@ -21,7 +21,5 @@ function fetch_hc_binary {
     sudo cp --verbose ${hc_binary}{,_v${hc_version}_x4} ${target_location}
 }
 
-# https://releases.hashicorp.com/packer/
-
 # Fetch binaries and install them locally
 fetch_hc_binary  'packer'  '1.0.4'  '/usr/local/bin'
