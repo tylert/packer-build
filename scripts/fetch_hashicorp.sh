@@ -21,5 +21,20 @@ function fetch_hc_binary {
     sudo cp --verbose ${hc_binary}{,_v${hc_version}_x4} ${target_location}
 }
 
+function fetch_hc_vagrant {
+    local hc_binary="${1}"
+    local hc_version="${2}"
+
+    wget --continue https://releases.hashicorp.com/${hc_binary}/${hc_version}/${hc_binary}_${hc_version}_SHA256SUMS
+    wget --continue https://releases.hashicorp.com/${hc_binary}/${hc_version}/${hc_binary}_${hc_version}_SHA256SUMS.sig
+    wget --continue https://releases.hashicorp.com/${hc_binary}/${hc_version}/${hc_binary}_${hc_version}_x86_64.deb
+
+    gpg --verify ${hc_binary}_${hc_version}_SHA256SUMS.sig \
+        ${hc_binary}_${hc_version}_SHA256SUMS
+    sha256sum --check <(grep ${hc_binary}_${hc_version}_x86_64.deb \
+        ${hc_binary}_${hc_version}_SHA256SUMS)
+}
+
 # Fetch binaries and install them locally
-fetch_hc_binary  'packer'  '1.0.4'  '/usr/local/bin'
+fetch_hc_binary   'packer'   '1.0.4'  '/usr/local/bin'
+fetch_hc_vagrant  'vagrant'  '1.9.8'
