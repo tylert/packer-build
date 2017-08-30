@@ -218,7 +218,8 @@
       "only": [
         "qemu"
       ],
-      "output": "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz"
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}.raw.gz",
+      "type": "compress"
     },
     {
       "checksum_types": [
@@ -229,7 +230,7 @@
         "qemu"
       ],
       "output": "{{user `output_directory`}}/SHA256SUMS",
-      "type": "compress"
+      "type": "checksum"
     },
     {
       "execute_command": "chmod +x \"{{.Script}}\"; {{.Vars}} \"{{.Script}}\"",
@@ -360,9 +361,3 @@
   }
 }
 
-Error! Fixed template fails to parse: 1 error(s) occurred:
-
-* post-processor 2.1: type is required
-
-This is usually caused by an error in the input template.
-Please fix the error and try again.

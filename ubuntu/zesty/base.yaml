@@ -23,7 +23,7 @@ _ALIASES:
   - 'interface=auto '
   - 'console-setup/ask_detect=false '
   - 'keyboard-configuration/layoutcode={{user `keyboard`}} '
-  - vga=788 noprompt quiet --<enter>
+  - 'vga=788 noprompt quiet --<enter>'
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
   disk_size: '{{user `disk_size`}}'
