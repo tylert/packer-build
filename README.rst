@@ -32,39 +32,39 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
   - 1.0.4 on Debian Stretch 9.x (VirtualBox and QEMU)
   - not currently being tested on macOS but used to work fine
 
-.. _Packer: https://packer.io
-.. _Packer_download: https://releases.hashicorp.com/packer
+.. _Packer:  https://www.packer.io/
+.. _Packer_download:  https://releases.hashicorp.com/packer/
 
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
   - 5.1.22 r115126 [5.1.22-115126~Debian~stretch] on Debian Stretch 9.x
   - not currently being tested on macOS but used to work fine
 
-.. _VirtualBox: https://virtualbox.org
-.. _VirtualBox_download: http://download.virtualbox.org/virtualbox
+.. _VirtualBox:  https://www.virtualbox.org/
+.. _VirtualBox_download:  http://download.virtualbox.org/virtualbox
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
   - 2.8.1 [1:2.8+dfsg-6] on Debian Stretch 9.x
   - not currently being tested on macOS but used to work fine
 
-.. _QEMU: http://qemu.org
-.. _kvm: http://linux-kvm.org
+.. _QEMU:  https://www.qemu.org/
+.. _kvm:  https://www.linux-kvm.org/page/Main_Page
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
   - 1.9.8 on Debian Stretch 9.x (VirtualBox)
   - not currently being tested on macOS but used to work fine
 
-.. _Vagrant: https://vagrantup.com
-.. _Vagrant_download: https://releases.hashicorp.com/vagrant
+.. _Vagrant:  https://www.vagrantup.com/
+.. _Vagrant_download:  https://releases.hashicorp.com/vagrant/
 
 * BIG, BIG MAYBE:  vagrant-libvirt_ plugin (QEMU provider for Vagrant)
 
   - Please refer to their page for version information, installation
     instructions and dependencies.
 
-.. _vagrant-libvirt: https://github.com/vagrant-libvirt/vagrant-libvirt
+.. _vagrant-libvirt:  https://github.com/vagrant-libvirt/vagrant-libvirt
 
 Even though Packer supports QEMU as an officially-supported provider, Vagrant,
 for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt"
@@ -392,7 +392,7 @@ Offical ISO Files
 Debian_
 ~~~~~~
 
-.. _Debian: https://www.debian.org
+.. _Debian:  https://www.debian.org/
 
 * Testing;  http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 * Stable;  http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
@@ -401,10 +401,10 @@ Debian_
 Ubuntu_
 ~~~~~~
 
-.. _Ubuntu: http://ubuntu.com
+.. _Ubuntu:  https://www.ubuntu.com/
 
 * Netboot;  http://cdimage.ubuntu.com/netboot/
-* Released;  http://releases.ubuntu.com
+* Released;  http://releases.ubuntu.com/
 * Pending;  http://cdimage.ubuntu.com/ubuntu-server/daily/current/
 
 
@@ -414,7 +414,7 @@ Distro Release Names
 Debian_releases_
 ~~~~~~~~~~~~~~~
 
-.. _Debian_releases: https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table
+.. _Debian_releases:  https://en.wikipedia.org/wiki/Debian_version_history#Release_table
 
 * Bullseye (11.x);  released on 20??-??-??, supported until 20??-??-??
 * Buster (10.x);  released on 20??-??-??, supported until 20??-??-??
@@ -425,7 +425,7 @@ Debian_releases_
 Ubuntu_releases_
 ~~~~~~~~~~~~~~~
 
-.. _Ubuntu_releases: https://en.wikipedia.org/wiki/List_of_Ubuntu_releases#Table_of_versions
+.. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
 * ? ? (18.04.x LTS);  released on 2018-04-??, supported until 2023-04-??
 * Artful Aardvark (17.10);  released on 2017-10-19, supported until 2018-07-??
