@@ -141,6 +141,7 @@ post-processors:
   only:
   - qemu
   output: '{{user `output_directory`}}/{{user `vm_name`}}.raw.gz'
+  type: compress
 - checksum_types:
   - sha256
   only:
@@ -148,7 +149,6 @@ post-processors:
   - qemu
   output: '{{user `output_directory`}}/SHA256SUMS'
   type: checksum
-  type: compress
 - inline_shebang: /bin/sh -e
 # environment_vars: (array of strings)
   execute_command: chmod +x "{{.Script}}"; {{.Vars}} "{{.Script}}"
