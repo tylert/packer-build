@@ -33,6 +33,8 @@ function fetch_hc_vagrant {
         ${hc_binary}_${hc_version}_SHA256SUMS
     sha256sum --check <(grep ${hc_binary}_${hc_version}_x86_64.deb \
         ${hc_binary}_${hc_version}_SHA256SUMS)
+
+    sudo dpkg --install ${hc_binary}_${hc_version}_x86_64.deb
 }
 
 # Fetch binaries and install them locally
