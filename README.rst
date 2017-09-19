@@ -197,7 +197,6 @@ encounter the following error::
 * https://github.com/hollodotme/Helpers/blob/master/Tutorials/vagrant/self-hosted-vagrant-boxes-with-versioning.md
 * http://blog.el-chavez.me/2015/01/31/custom-vagrant-cloud-host/
 * https://www.nopsec.com/news-and-resources/blog/2015/3/27/private-vagrant-box-hosting-easy-versioning/
-* https://github.com/mitchellh/vagrant/issues/2389
 
 
 Making Bootable Drives
