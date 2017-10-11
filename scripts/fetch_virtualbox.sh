@@ -20,8 +20,8 @@ Oracle_VM_VirtualBox_Extension_Pack-${version}.vbox-extpack
 VBoxGuestAdditions_${version}.iso
 "
 
-#if [ ! -d virtualbox ]; then mkdir virtualbox; fi
-#pushd virtualbox
+# if [ ! -d virtualbox ]; then mkdir virtualbox; fi
+# pushd virtualbox
 
 for file in ${files}; do
     wget --recursive --timestamping --no-directories --continue \
@@ -32,8 +32,8 @@ mv SHA256SUMS SHA256SUMS-VBoxGuestAdditions_${version}.txt
 mv UserManual.pdf UserManual-${version}.pdf
 
 # Some filenames have silly SVN revision ids in them like:
-#VirtualBox-${version}-${revision}-OSX.dmg
-#VirtualBox-${version}-${revision}-Linux_amd64.run
+# VirtualBox-${version}-${revision}-OSX.dmg
+# VirtualBox-${version}-${revision}-Linux_amd64.run
 
 wget --recursive --timestamping --no-directories --continue \
     --level=1 --no-parent --accept '*.dmg' ${base_url}/${version}
@@ -43,4 +43,4 @@ wget --recursive --timestamping --no-directories --continue \
 
 rm robots.txt
 
-#popd
+# popd
