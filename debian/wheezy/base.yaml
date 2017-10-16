@@ -124,7 +124,7 @@ builders:
   vnc_port_max: '{{user `vnc_vrdp_port_max`}}'
   vnc_port_min: '{{user `vnc_vrdp_port_min`}}'
 description: '{{user `description`}}'
-min_packer_version: 1.1.0
+min_packer_version: 1.1.1
 post-processors:
 - compression_level: 6
 # include: (array of strings)
