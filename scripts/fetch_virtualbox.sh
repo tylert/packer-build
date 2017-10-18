@@ -16,6 +16,7 @@ fi
 files="
 SHA256SUMS
 UserManual.pdf
+SDKRef.pdf
 Oracle_VM_VirtualBox_Extension_Pack-${version}.vbox-extpack
 VBoxGuestAdditions_${version}.iso
 "
@@ -29,18 +30,19 @@ for file in ${files}; do
 done
 
 mv SHA256SUMS SHA256SUMS-VBoxGuestAdditions_${version}.txt
-mv UserManual.pdf UserManual-${version}.pdf
+mv UserManual.pdf UserManual_${version}.pdf
+mv SDKRef.pdf SDKRef_${version}.pdf
 
 # Some filenames have silly SVN revision ids in them like:
 # VirtualBox-${version}-${revision}-OSX.dmg
 # VirtualBox-${version}-${revision}-Linux_amd64.run
 
 wget --recursive --timestamping --no-directories --continue \
-    --level=1 --no-parent --accept '*.dmg' ${base_url}/${version}
+    --level=1 --no-parent --accept '*OSX.dmg' ${base_url}/${version}
 
 wget --recursive --timestamping --no-directories --continue \
-    --level=1 --no-parent --accept '*.amd64.run' ${base_url}/${version}
+    --level=1 --no-parent --accept '*Linux_amd64.run' ${base_url}/${version}
 
-rm robots.txt
+rm robots.txt*
 
 # popd
