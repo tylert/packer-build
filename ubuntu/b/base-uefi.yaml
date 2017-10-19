@@ -2,17 +2,8 @@
 _ALIASES:
 - &builder_options
   boot_command:
-  - '<esc><f6><esc>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs>'
-  - 'initrd=/install/initrd.gz '
+  - '<wait>c<wait>'
+  - 'linux /install/vmlinuz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
   - 'language={{user `language`}} '
@@ -24,6 +15,8 @@ _ALIASES:
   - 'console-setup/ask_detect=false '
   - 'keyboard-configuration/layoutcode={{user `keyboard`}} '
   - 'vga=788 noprompt quiet --<enter>'
+  - 'initrd /install/initrd.gz<enter>'
+  - 'boot<enter>'
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
   disk_size: '{{user `disk_size`}}'
@@ -104,6 +97,10 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '1'
+  - - modifyvm
+    - '{{.Name}}'
+    - '--firmware'
+    - efi
 # vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
@@ -185,6 +182,11 @@ post-processors:
 provisioners:
 - <<: *shell_provisioner_options
   inline:
+  - echo 'FS0:\EFI\ubuntu\grubx64.efi' > /boot/efi/startup.nsh
+  only:
+  - virtualbox
+- <<: *shell_provisioner_options
+  inline:
   - 'echo ''{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL'' > /etc/sudoers.d/99{{user
     `ssh_username`}}'
   - chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}
@@ -208,25 +210,20 @@ provisioners:
   - qemu
 variables:
 # apt-cache-url: http://localhost:3142
-  aws_ami_name: base-{{isotime "2006-01-02-15-04-05"}}
-  aws_region: ca-central-1
-  aws_s3_bucket_name: packer-bucket
-  aws_s3_key_name: packer-import-{{timestamp}}
-  aws_skip_clean: 'false'
   boot_wait: 3s
   communicator: ssh
   country: CA
-  description: Base box for 64-bit x86 Ubuntu Artful Aardvark 17.10
+  description: Base box (UEFI) for 64-bit x86 Ubuntu B B 18.04
   disk_size: '7500'
   domain: ''
   headless: 'false'
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: af913c00296eb0cfece99b8a02ae6db035ae173ed240241e780c8d7db96914b1
   iso_checksum_type: sha256
-  iso_file: ubuntu-17.10-server-amd64.iso
-  iso_path_external: http://releases.ubuntu.com/17.10
+  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
+  iso_file: b-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
   iso_path_internal: http://localhost/ubuntu
   language: en
   locale: en_CA.UTF-8
@@ -235,7 +232,7 @@ variables:
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04-05"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: ubuntu/artful/base.preseed
+  preseed_file: ubuntu/b/base-uefi.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -253,9 +250,9 @@ variables:
   start_retry_timeout: 5m
 # system_clock_in_utc: 'true'
 # timezone: UTC
-  vagrantfile_template: ubuntu/artful/base.vagrant
+  vagrantfile_template: ubuntu/b/base-uefi.vagrant
   version: 0.0.0
-  vm_name: base-artful
+  vm_name: base-uefi-b
   vnc_vrdp_bind_address: '127.0.0.1'
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'

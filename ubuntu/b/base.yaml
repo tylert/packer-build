@@ -216,17 +216,17 @@ variables:
   boot_wait: 3s
   communicator: ssh
   country: CA
-  description: Base box for 64-bit x86 Ubuntu Artful Aardvark 17.10
+  description: Base box for 64-bit x86 Ubuntu B B 18.04
   disk_size: '7500'
   domain: ''
   headless: 'false'
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: af913c00296eb0cfece99b8a02ae6db035ae173ed240241e780c8d7db96914b1
   iso_checksum_type: sha256
-  iso_file: ubuntu-17.10-server-amd64.iso
-  iso_path_external: http://releases.ubuntu.com/17.10
+  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
+  iso_file: b-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
   iso_path_internal: http://localhost/ubuntu
   language: en
   locale: en_CA.UTF-8
@@ -235,7 +235,7 @@ variables:
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04-05"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: ubuntu/artful/base.preseed
+  preseed_file: ubuntu/b/base.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -253,9 +253,9 @@ variables:
   start_retry_timeout: 5m
 # system_clock_in_utc: 'true'
 # timezone: UTC
-  vagrantfile_template: ubuntu/artful/base.vagrant
+  vagrantfile_template: ubuntu/b/base.vagrant
   version: 0.0.0
-  vm_name: base-artful
+  vm_name: base-b
   vnc_vrdp_bind_address: '127.0.0.1'
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'

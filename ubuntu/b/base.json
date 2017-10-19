@@ -2,8 +2,17 @@
   "_ALIASES": [
     {
       "boot_command": [
-        "<wait>c<wait>",
-        "linux /install/vmlinuz ",
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "initrd=/install/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "language={{user `language`}} ",
@@ -14,9 +23,7 @@
         "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
-        "vga=788 noprompt quiet --<enter>",
-        "initrd /install/initrd.gz<enter>",
-        "boot<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
@@ -61,8 +68,17 @@
   "builders": [
     {
       "boot_command": [
-        "<wait>c<wait>",
-        "linux /install/vmlinuz ",
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "initrd=/install/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "language={{user `language`}} ",
@@ -73,9 +89,7 @@
         "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
-        "vga=788 noprompt quiet --<enter>",
-        "initrd /install/initrd.gz<enter>",
-        "boot<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
@@ -130,12 +144,6 @@
           "{{.Name}}",
           "--cpus",
           "1"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--firmware",
-          "efi"
         ]
       ],
       "virtualbox_version_file": "/tmp/.vbox_version",
@@ -147,8 +155,17 @@
     {
       "accelerator": "kvm",
       "boot_command": [
-        "<wait>c<wait>",
-        "linux /install/vmlinuz ",
+        "<esc><f6><esc>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "initrd=/install/initrd.gz ",
         "auto=true ",
         "url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} ",
         "language={{user `language`}} ",
@@ -159,9 +176,7 @@
         "interface=auto ",
         "console-setup/ask_detect=false ",
         "keyboard-configuration/layoutcode={{user `keyboard`}} ",
-        "vga=788 noprompt quiet --<enter>",
-        "initrd /install/initrd.gz<enter>",
-        "boot<enter>"
+        "vga=788 noprompt quiet --<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "communicator": "{{user `communicator`}}",
@@ -284,21 +299,6 @@
       "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
       "expect_disconnect": true,
       "inline": [
-        "echo 'FS0:\\EFI\\ubuntu\\grubx64.efi' > /boot/efi/startup.nsh"
-      ],
-      "inline_shebang": "/bin/sh -e",
-      "only": [
-        "virtualbox"
-      ],
-      "skip_clean": false,
-      "start_retry_timeout": "{{user `start_retry_timeout`}}",
-      "type": "shell"
-    },
-    {
-      "binary": false,
-      "execute_command": "echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'",
-      "expect_disconnect": true,
-      "inline": [
         "echo '{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99{{user `ssh_username`}}",
         "chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}"
       ],
@@ -356,27 +356,32 @@
     }
   ],
   "variables": {
+    "aws_ami_name": "base-{{isotime \"2006-01-02-15-04-05\"}}",
+    "aws_region": "ca-central-1",
+    "aws_s3_bucket_name": "packer-bucket",
+    "aws_s3_key_name": "packer-import-{{timestamp}}",
+    "aws_skip_clean": "false",
     "boot_wait": "3s",
     "communicator": "ssh",
     "country": "CA",
-    "description": "Base box (UEFI) for 64-bit x86 Ubuntu Artful Aardvark 17.10",
+    "description": "Base box for 64-bit x86 Ubuntu B B 18.04",
     "disk_size": "7500",
     "domain": "",
     "headless": "false",
     "http_directory": ".",
     "http_port_max": "9000",
     "http_port_min": "8000",
-    "iso_checksum": "af913c00296eb0cfece99b8a02ae6db035ae173ed240241e780c8d7db96914b1",
     "iso_checksum_type": "sha256",
-    "iso_file": "ubuntu-17.10-server-amd64.iso",
-    "iso_path_external": "http://releases.ubuntu.com/17.10",
+    "iso_checksum_url": "http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS",
+    "iso_file": "b-server-amd64.iso",
+    "iso_path_external": "http://cdimage.ubuntu.com/ubuntu-server/daily/current",
     "iso_path_internal": "http://localhost/ubuntu",
     "keyboard": "us",
     "language": "en",
     "locale": "en_CA.UTF-8",
     "output_directory": "build/{{isotime \"2006-01-02-15-04-05\"}}",
     "packer_cache_dir": "{{env `PACKER_CACHE_DIR`}}",
-    "preseed_file": "ubuntu/artful/base-uefi.preseed",
+    "preseed_file": "ubuntu/b/base.preseed",
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "shutdown_timeout": "5m",
@@ -391,9 +396,9 @@
     "ssh_timeout": "60m",
     "ssh_username": "ghost",
     "start_retry_timeout": "5m",
-    "vagrantfile_template": "ubuntu/artful/base-uefi.vagrant",
+    "vagrantfile_template": "ubuntu/b/base.vagrant",
     "version": "0.0.0",
-    "vm_name": "base-uefi-artful",
+    "vm_name": "base-b",
     "vnc_vrdp_bind_address": "127.0.0.1",
     "vnc_vrdp_port_max": "6000",
     "vnc_vrdp_port_min": "5900"
