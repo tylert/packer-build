@@ -33,8 +33,8 @@ _ALIASES:
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
   http_port_min: '{{user `http_port_min`}}'
+  iso_checksum: '{{user `iso_checksum`}}'
   iso_checksum_type: '{{user `iso_checksum_type`}}'
-  iso_checksum_url: '{{user `iso_checksum_url`}}'
   iso_target_extension: iso
   iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
   iso_urls:
