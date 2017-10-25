@@ -208,7 +208,7 @@ provisioners:
   - virtualbox
   - qemu
 variables:
-# apt-cache-url: http://localhost:3142
+# apt-cache-url: http://myserver:3142
   aws_ami_name: base-{{isotime "2006-01-02-15-04-05"}}
   aws_region: ca-central-1
   aws_s3_bucket_name: packer-bucket
@@ -229,7 +229,7 @@ variables:
   iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
   iso_file: b-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
-  iso_path_internal: http://localhost/ubuntu
+  iso_path_internal: http://myserver:8080/ubuntu
   language: en
   locale: en_CA.UTF-8
 # min_vagrant_version: 2.0.0

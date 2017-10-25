@@ -209,7 +209,7 @@ provisioners:
   - virtualbox
   - qemu
 variables:
-# apt-cache-url: http://localhost:3142
+# apt-cache-url: http://myserver:3142
   boot_wait: 3s
   communicator: ssh
   country: CA
@@ -224,7 +224,7 @@ variables:
   iso_checksum_type: sha256
   iso_file: ubuntu-17.04-server-amd64.iso
   iso_path_external: http://releases.ubuntu.com/17.04
-  iso_path_internal: http://localhost/ubuntu
+  iso_path_internal: http://myserver:8080/ubuntu
   language: en
   locale: en_CA.UTF-8
 # min_vagrant_version: 2.0.0

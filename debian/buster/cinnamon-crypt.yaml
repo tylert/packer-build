@@ -195,7 +195,7 @@ provisioners:
   - virtualbox
   - qemu
 variables:
-# apt-cache-url: http://localhost:3142
+# apt-cache-url: http://myserver:3142
   boot_wait: 3s
   communicator: ssh
   country: CA
@@ -211,7 +211,7 @@ variables:
   iso_checksum_url: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS
   iso_file: debian-testing-amd64-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd
-  iso_path_internal: http://localhost/debian
+  iso_path_internal: http://myserver:8080/debian
   language: en
   locale: en_CA.UTF-8
 # min_vagrant_version: 2.0.0

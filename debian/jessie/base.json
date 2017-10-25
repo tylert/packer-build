@@ -336,7 +336,7 @@
     "iso_checksum_type": "sha512",
     "iso_file": "debian-8.9.0-amd64-netinst.iso",
     "iso_path_external": "http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd",
-    "iso_path_internal": "http://localhost/debian",
+    "iso_path_internal": "http://myserver:8080/debian",
     "keyboard": "us",
     "language": "en",
     "locale": "en_CA.UTF-8",

@@ -370,7 +370,7 @@
     "iso_checksum_type": "sha256",
     "iso_file": "ubuntu-14.04.5-server-amd64.iso",
     "iso_path_external": "http://releases.ubuntu.com/14.04.5",
-    "iso_path_internal": "http://localhost/ubuntu",
+    "iso_path_internal": "http://myserver:8080/ubuntu",
     "keyboard": "us",
     "language": "en",
     "locale": "en_CA.UTF-8",
