@@ -415,8 +415,8 @@ Debian_releases_
 
 .. _Debian_releases:  https://en.wikipedia.org/wiki/Debian_version_history#Release_table
 
-* Bullseye (11.x);  released on 20??-??-??, supported until 20??-??-??
-* Buster (10.x);  released on 20??-??-??, supported until 20??-??-??
+* Bullseye (11.x);  released on 2021?-??-??, supported until 2026?-??-??
+* Buster (10.x);  released on 2019?-??-??, supported until 2024?-??-??
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-??
 * Jessie (8.x);  released on 2015-04-26, supported until 2020-0[45]-??
 * Wheezy (7.x);  released on 2013-05-04, supported until 2018-05-??
@@ -426,7 +426,7 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* ? ? (18.04.x LTS);  released on 2018-04-??, supported until 2023-04-??
+* Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-??
 * Artful Aardvark (17.10);  released on 2017-10-19, supported until 2018-07-??
 * Zesty Zapus (17.04);  released on 2017-04-13, supported until 2018-01-??
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-??

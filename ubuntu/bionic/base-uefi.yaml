@@ -214,7 +214,7 @@ variables:
   boot_wait: 3s
   communicator: ssh
   country: CA
-  description: Base box (UEFI) for 64-bit x86 Ubuntu B B 18.04
+  description: Base box (UEFI) for 64-bit x86 Ubuntu Bionic Beaver 18.04.x LTS
   disk_size: '7500'
   domain: ''
   headless: 'false'
@@ -224,7 +224,7 @@ variables:
 # iso_checksum: DEADBEEF
   iso_checksum_type: sha256
   iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
-  iso_file: b-server-amd64.iso
+  iso_file: bionic-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
   iso_path_internal: http://myserver:8080/ubuntu
   language: en
@@ -234,7 +234,7 @@ variables:
   keyboard: us
   output_directory: build/{{isotime "2006-01-02-15-04-05"}}
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: ubuntu/b/base-uefi.preseed
+  preseed_file: ubuntu/bionic/base-uefi.preseed
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
@@ -252,9 +252,9 @@ variables:
   start_retry_timeout: 5m
 # system_clock_in_utc: 'true'
 # timezone: UTC
-  vagrantfile_template: ubuntu/b/base-uefi.vagrant
+  vagrantfile_template: ubuntu/bionic/base-uefi.vagrant
   version: 0.0.0
-  vm_name: base-uefi-b
+  vm_name: base-uefi-bionic
   vnc_vrdp_bind_address: '127.0.0.1'
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'
