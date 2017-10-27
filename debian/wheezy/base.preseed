@@ -56,7 +56,7 @@ d-i mirror/http/proxy string
 d-i apt-setup/contrib boolean true
 d-i apt-setup/non-free boolean true
 tasksel tasksel/first multiselect print-server, ssh-server, standard
-d-i pkgsel/include string sudo, cloud-init, unattended-upgrades
+d-i pkgsel/include string sudo, unattended-upgrades
 popularity-contest popularity-contest/participate boolean false
 
 # Drive Setup
