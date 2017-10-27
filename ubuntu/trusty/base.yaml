@@ -43,7 +43,7 @@ _ALIASES:
 # ssh_bastion_port: (integer)
 # ssh_bastion_private_key_file: (string)
 # ssh_bastion_username: (string)
-  ssh_disable_agent: '{{user `ssh_disable_agent`}}'
+  ssh_disable_agent_forwarding: '{{user `ssh_disable_agent_forwarding`}}'
   ssh_file_transfer_method: '{{user `ssh_file_transfer_method`}}'
   ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
 # ssh_host: (string)
@@ -231,7 +231,7 @@ variables:
   qemu_binary: qemu-system-x86_64
   ram_size: '512'
   shutdown_timeout: 5m
-  ssh_disable_agent: 'false'
+  ssh_disable_agent_forwarding: 'false'
   ssh_file_transfer_method: scp
 # ssh_fullname: Ghost Writer
   ssh_handshake_attempts: '10'
