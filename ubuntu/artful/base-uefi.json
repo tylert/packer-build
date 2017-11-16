@@ -222,7 +222,7 @@
     }
   ],
   "description": "{{user `description`}}",
-  "min_packer_version": "1.1.1",
+  "min_packer_version": "1.1.2",
   "post-processors": [
     {
       "compression_level": 6,
