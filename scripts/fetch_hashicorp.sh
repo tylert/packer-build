@@ -40,5 +40,5 @@ function fetch_hc_vagrant {
 }
 
 # Fetch binaries and install them locally
-fetch_hc_binary   'packer'   '1.1.2'  '/usr/local/bin'
+fetch_hc_binary   'packer'   '1.1.3'  '/usr/local/bin'
 fetch_hc_vagrant  'vagrant'  '2.0.1'
