@@ -428,6 +428,5 @@ Ubuntu_releases_
 
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-??
 * Artful Aardvark (17.10);  released on 2017-10-19, supported until 2018-07-??
-* Zesty Zapus (17.04);  released on 2017-04-13, supported until 2018-01-??
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-??
 * Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-??
