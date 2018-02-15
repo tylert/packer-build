@@ -419,7 +419,6 @@ Debian_releases_
 * Buster (10.x);  released on 2019?-??-??, supported until 2024?-??-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
 * Jessie (8.x);  released on 2015-04-26, supported until 2020-04-01
-* Wheezy (7.x);  released on 2013-05-04, supported until 2018-05-01
 
 Ubuntu_releases_
 ~~~~~~~~~~~~~~~
