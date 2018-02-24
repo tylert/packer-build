@@ -6,7 +6,9 @@ if [ "" == "$(which ruby)" ]; then
 fi
 
 for template in $(find {debian,ubuntu} -name '*.yaml'); do
-    if [ ! -f "${template}" ]; then continue; fi
+    if [ ! -f "${template}" ]; then
+        continue
+    fi
     echo "Generating ${template/yaml/json}"
     ./scripts/yaml2json.rb < "${template}" > "${template/yaml/json}"
     CHECKPOINT_DISABLE=1 packer fix "${template/yaml/json}" \
