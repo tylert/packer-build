@@ -75,6 +75,9 @@ verify this fact due to the following errors encountered while trying to run
     Error while connecting to libvirt: Error making a connection to libvirt URI qemu:///system?no_verify=1&keyfile=/home/whoa/.ssh/id_rsa:
     Call to virConnectOpen failed: Failed to connect socket to '/var/run/libvirt/libvirt-sock': No such file or directory
 
+It may be possible to correct this error by installing the
+`libvirt-daemon-system` package on Debian.
+
 
 TODO Items
 ~~~~~~~~~~
