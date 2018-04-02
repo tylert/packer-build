@@ -1,17 +1,20 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-# https://docs.python.org/3.5/library/http.server.html
-# https://docs.python.org/2.7/library/simplehttpserver.html
+# Create a temporary HTTP server for hosting files
+
+# https://docs.python.org/3/library/http.server.html
+# https://docs.python.org/2/library/simplehttpserver.html
 
 from __future__ import print_function
 import sys
 
-if sys.version_info[:1] == 3:
-    import http.server
-    import socketserver
-else:
+# Make sure this'll run with python 2.x or 3.x
+if sys.version_info[:1] == (2,):
     import SimpleHTTPServer
     import SocketServer
+else:
+    import http.server
+    import socketserver
 
 
 PORT = 8000
