@@ -37,7 +37,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
-  - 5.1.22 r115126 [5.1.22-115126~Debian~stretch] on Debian Stretch 9.x
+  - 5.1.34 r121010 (Qt5.7.1) [5.1.34-121010~Debian~stretch] on Debian Stretch 9.x
   - not currently being tested on macOS but used to work fine
 
 .. _VirtualBox:  https://www.virtualbox.org/
@@ -45,7 +45,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
-  - 2.8.1 [1:2.8+dfsg-6] on Debian Stretch 9.x
+  - 2.8.1(Debian 1:2.8+dfsg-6+deb9u3) [2.8+dfsg-6+deb9u3] on Debian Stretch 9.x
   - not currently being tested on macOS but used to work fine
 
 .. _QEMU:  https://www.qemu.org/
@@ -391,6 +391,7 @@ error::
 Offical ISO Files
 -----------------
 
+
 Debian_
 ~~~~~~
 
@@ -399,6 +400,7 @@ Debian_
 * Testing;  http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 * Stable;  http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
 * Oldstable;  http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
+
 
 Ubuntu_
 ~~~~~~
@@ -413,6 +415,7 @@ Ubuntu_
 Distro Release Names
 --------------------
 
+
 Debian_releases_
 ~~~~~~~~~~~~~~~
 
@@ -422,6 +425,7 @@ Debian_releases_
 * Buster (10.x);  released on 2019?-??-??, supported until 2024?-??-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
 * Jessie (8.x);  released on 2015-04-26, supported until 2020-04-01
+
 
 Ubuntu_releases_
 ~~~~~~~~~~~~~~~
