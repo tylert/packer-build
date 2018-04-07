@@ -77,7 +77,7 @@ builders:
   hard_drive_nonrotational: false
   iso_interface: sata
   keep_registered: false
-  name: virtualbox
+  name: vbox
   post_shutdown_delay: 0s
   skip_export: false
   ssh_host_port_max: '{{user `ssh_host_port_max`}}'
@@ -136,7 +136,7 @@ post-processors:
 # include: (array of strings)
   keep_input_artifact: true
   only:
-  - virtualbox
+  - vbox
   - qemu
   output: '{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box'
   type: vagrant
@@ -151,7 +151,7 @@ post-processors:
 - checksum_types:
   - sha256
   only:
-  - virtualbox
+  - vbox
   - qemu
   output: '{{user `output_directory`}}/SHA256SUMS'
   type: checksum
@@ -172,7 +172,7 @@ post-processors:
   - 'echo ''    checksum_type: sha256'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    checksum: DEADBEEF'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   only:
-  - virtualbox
+  - vbox
   - qemu
   type: shell-local
 provisioners:
@@ -180,14 +180,14 @@ provisioners:
   inline:
   - echo 'FS0:\EFI\debian\grubx64.efi' > /boot/efi/startup.nsh
   only:
-  - virtualbox
+  - vbox
 - <<: *shell_provisioner_options
   inline:
   - 'echo ''{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL'' > /etc/sudoers.d/99{{user
     `ssh_username`}}'
   - chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}
   only:
-  - virtualbox
+  - vbox
   - qemu
 - <<: *shell_provisioner_options
   inline:
@@ -202,7 +202,7 @@ provisioners:
   - rm /ZEROFILL
   - sync
   only:
-  - virtualbox
+  - vbox
   - qemu
 variables:
 # apt-cache-url: http://myserver:3142

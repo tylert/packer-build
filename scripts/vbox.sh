@@ -16,4 +16,4 @@ fi
 # TMPDIR=/tmp \
 CHECKPOINT_DISABLE=1 \
 PACKER_CACHE_DIR="${packer_cache_dir}" \
-packer build -only=virtualbox ${@}
+packer build -only=vbox ${@}

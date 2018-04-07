@@ -90,7 +90,7 @@
         "{{user `iso_path_external`}}/{{user `iso_file`}}"
       ],
       "keep_registered": false,
-      "name": "virtualbox",
+      "name": "vbox",
       "output_directory": "{{user `output_directory`}}",
       "post_shutdown_delay": "0s",
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
@@ -207,7 +207,7 @@
       "compression_level": 6,
       "keep_input_artifact": true,
       "only": [
-        "virtualbox",
+        "vbox",
         "qemu"
       ],
       "output": "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box",
@@ -229,7 +229,7 @@
         "sha256"
       ],
       "only": [
-        "virtualbox",
+        "vbox",
         "qemu"
       ],
       "output": "{{user `output_directory`}}/SHA256SUMS",
@@ -251,7 +251,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
-        "virtualbox",
+        "vbox",
         "qemu"
       ],
       "type": "shell-local"
@@ -268,7 +268,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
-        "virtualbox",
+        "vbox",
         "qemu"
       ],
       "skip_clean": false,
@@ -311,7 +311,7 @@
       ],
       "inline_shebang": "/bin/sh -e",
       "only": [
-        "virtualbox",
+        "vbox",
         "qemu"
       ],
       "skip_clean": false,
