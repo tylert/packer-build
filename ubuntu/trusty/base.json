@@ -162,7 +162,7 @@
       "disk_compression": false,
       "disk_discard": "ignore",
       "disk_image": false,
-      "disk_interface": "scsi",
+      "disk_interface": "virtio-scsi",
       "disk_size": "{{user `disk_size`}}",
       "format": "raw",
       "headless": "{{user `headless`}}",
@@ -225,7 +225,7 @@
         "vbox",
         "qemu"
       ],
-      "output": "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{.Provider}}.box",
+      "output": "{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{build_name}}.box",
       "type": "vagrant",
       "vagrantfile_template": "{{user `vagrantfile_template`}}"
     },
@@ -259,8 +259,8 @@
         "echo 'versions:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
         "echo '- version: {{user `version`}}' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
         "echo '  providers:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
-        "echo '  - name: virtualbox' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
-        "echo '    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-'$PACKER_BUILD_NAME'.box' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '  - name: {{build_type}}' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
+        "echo '    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-'{{build_name}}'.box' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
         "echo '    checksum_type: sha256' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml",
         "echo '    checksum: DEADBEEF' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml"
       ],

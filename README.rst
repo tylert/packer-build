@@ -82,9 +82,7 @@ It may be possible to correct this error by installing the
 TODO Items
 ~~~~~~~~~~
 
-* EASY Fix filename for vagrant manifest file + use provider name
 * Get proper templating working for the preseed and vagrant files
-* Replace Ruby json2yaml and yaml2json scripts with non-ugly Python ones
 * Make sure to use comparable cpus and cores_per_cpu for qemu and vbox
 * [preseed debian] Find out if partman-crypto will allow passphrase-crypted
 * [preseed debian] Skip past "Force UEFI Install" installer prompt
