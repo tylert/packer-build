@@ -171,11 +171,11 @@ post-processors:
   - echo 'versions:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''- version: {{user `version`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - echo '  providers:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
-  - 'echo ''  - name: {{build_type}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''  - name: XXXPROVIDERXXX'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-''{{build_name}}''.box''
     >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    checksum_type: sha256'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
-  - 'echo ''    checksum: DEADBEEF'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''    checksum: XXXCHECKSUMXXX'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   only:
   - vbox
   - qemu
