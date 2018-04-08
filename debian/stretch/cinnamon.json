@@ -225,17 +225,6 @@
       "type": "compress"
     },
     {
-      "checksum_types": [
-        "sha256"
-      ],
-      "only": [
-        "vbox",
-        "qemu"
-      ],
-      "output": "{{user `output_directory`}}/SHA256SUMS",
-      "type": "checksum"
-    },
-    {
       "execute_command": "chmod +x \"{{.Script}}\"; {{.Vars}} \"{{.Script}}\"",
       "inline": [
         "echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml",

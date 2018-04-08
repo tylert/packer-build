@@ -83,7 +83,6 @@ TODO Items
 ~~~~~~~~~~
 
 * Get proper templating working for the preseed and vagrant files
-* Make sure to use comparable cpus and cores_per_cpu for qemu and vbox
 * [preseed debian] Find out if partman-crypto will allow passphrase-crypted
 * [preseed debian] Skip past "Force UEFI Install" installer prompt
 * [template qemu] Correct generated filenames for images to end in .img{,.gz}
