@@ -196,7 +196,7 @@ provisioners:
   - apt-get clean
 - <<: *shell_provisioner_options
   inline:
-  - 'dd if=/dev/zero of=/ZEROFILL bs=16M || true'
+  - dd if=/dev/zero of=/ZEROFILL bs=16M || true
   - rm /ZEROFILL
   - sync
   only:
@@ -253,6 +253,6 @@ variables:
   vagrantfile_template: ubuntu/xenial/base.vagrant
   version: 0.0.0
   vm_name: base-xenial
-  vnc_vrdp_bind_address: '127.0.0.1'
+  vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'
