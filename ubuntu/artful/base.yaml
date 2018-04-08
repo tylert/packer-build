@@ -204,7 +204,7 @@ provisioners:
   - qemu
 variables:
 # apt-cache-url: http://myserver:3142
-  aws_ami_name: base-{{isotime "2006-01-02-15-04-05"}}
+  aws_ami_name: 'base-{{isotime "2006-01-02-15-04-05"}}'
   aws_region: ca-central-1
   aws_s3_bucket_name: packer-bucket
   aws_s3_key_name: packer-import-{{timestamp}}
@@ -230,7 +230,7 @@ variables:
 # min_vagrant_version: 2.0.3
 # mirror: ftp.ca.debian.org
   keyboard: us
-  output_directory: build/{{isotime "2006-01-02-15-04-05"}}
+  output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: ubuntu/artful/base.preseed
   qemu_binary: qemu-system-x86_64

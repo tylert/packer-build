@@ -212,7 +212,7 @@ variables:
 # min_vagrant_version: 2.0.3
 # mirror: ftp.ca.debian.org
   keyboard: us
-  output_directory: build/{{isotime "2006-01-02-15-04-05"}}
+  output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: debian/jessie/cinnamon-crypt.preseed
   qemu_binary: qemu-system-x86_64
