@@ -10,6 +10,10 @@ import json
 import ruamel.yaml as yaml
 
 
-if __name__ == '__main__':
+def main():
     print('---')
     print(yaml.dump(json.load(sys.stdin), Dumper=yaml.RoundTripDumper))
+
+
+if __name__ == '__main__':
+    main()

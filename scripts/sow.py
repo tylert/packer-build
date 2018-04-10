@@ -6,6 +6,7 @@
 # https://docs.python.org/2/library/simplehttpserver.html
 
 from __future__ import print_function
+
 import sys
 
 # Make sure this'll run with python 2.x or 3.x
