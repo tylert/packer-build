@@ -37,6 +37,8 @@
       "ssh_disable_agent_forwarding": "{{user `ssh_disable_agent_forwarding`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
+      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
+      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
       "ssh_password": "{{user `ssh_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_pty": "{{user `ssh_pty`}}",
@@ -119,7 +121,7 @@
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "1"
+          "{{user `cpus`}}"
         ]
       ],
       "virtualbox_version_file": "/tmp/.vbox_version",
@@ -176,7 +178,7 @@
         ],
         [
           "-smp",
-          "1"
+          "{{user `cpus`}}"
         ]
       ],
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
@@ -319,6 +321,7 @@
     "boot_wait": "3s",
     "communicator": "ssh",
     "country": "CA",
+    "cpus": "1",
     "description": "Base box for 64-bit x86 Debian Jessie 8.x",
     "disk_size": "7500",
     "domain": "",

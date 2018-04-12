@@ -49,6 +49,8 @@ _ALIASES:
   ssh_file_transfer_method: '{{user `ssh_file_transfer_method`}}'
   ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
 # ssh_host: (string)
+  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
+  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
   ssh_password: '{{user `ssh_password`}}'
   ssh_port: '{{user `ssh_port`}}'
 # ssh_private_key_file: (string)
@@ -85,8 +87,6 @@ builders:
   name: vbox
   post_shutdown_delay: 0s
   skip_export: false
-  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
-  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
   ssh_skip_nat_mapping: false
   type: virtualbox-iso
   vboxmanage:
@@ -97,7 +97,7 @@ builders:
   - - modifyvm
     - '{{.Name}}'
     - '--cpus'
-    - '1'
+    - '{{user `cpus`}}'
   - - modifyvm
     - '{{.Name}}'
     - '--firmware'
@@ -125,10 +125,8 @@ builders:
   - - '-m'
     - '{{user `ram_size`}}M'
   - - '-smp'
-    - '1'
+    - '{{user `cpus`}}'
   skip_compaction: true
-  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
-  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
   type: qemu
   use_default_display: false
   vnc_bind_address: '{{user `vnc_vrdp_bind_address`}}'
@@ -209,6 +207,7 @@ variables:
   boot_wait: 3s
   communicator: ssh
   country: CA
+  cpus: '1'
   description: Base box (UEFI) for 64-bit x86 Ubuntu Crappy Camel 18.10.x
   disk_size: '7500'
   domain: ''
