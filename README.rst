@@ -371,6 +371,15 @@ Why did you use the Ubuntu Server installer to create desktop systems?
 * https://wiki.ubuntu.com/UbiquityAutomation
 
 
+Building Windows VMs
+--------------------
+
+* http://www.hurryupandwait.io/blog/creating-windows-base-images-for-virtualbox-and-hyper-v-using-packer-boxstarter-and-vagrant
+
+* https://github.com/mwrock/packer-template
+* https://github.com/joefitzgerald/packer-windows
+
+
 Using a Headless Server
 -----------------------
 
