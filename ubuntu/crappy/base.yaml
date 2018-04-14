@@ -57,8 +57,6 @@ _ANCHORS:
   ssh_file_transfer_method: '{{user `ssh_file_transfer_method`}}'
   ssh_handshake_attempts: '{{user `ssh_handshake_attempts`}}'
 # ssh_host: (string)
-  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
-  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
   ssh_keep_alive_interval: '{{user `ssh_keep_alive_interval`}}'
   ssh_password: '{{user `ssh_password`}}'
   ssh_port: '{{user `ssh_port`}}'
@@ -101,6 +99,8 @@ builders:
   name: vbox
   post_shutdown_delay: 0s
   skip_export: false
+  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
+  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
   ssh_skip_nat_mapping: false
   type: virtualbox-iso
   vboxmanage:
@@ -137,6 +137,8 @@ builders:
   - - '-smp'
     - '{{user `cpus`}}'
   skip_compaction: true
+  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
+  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
   type: qemu
   use_default_display: false
   vnc_bind_address: '{{user `vnc_vrdp_bind_address`}}'
