@@ -217,7 +217,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: Base box (UEFI) for 64-bit x86 Ubuntu Trusty Tahr 14.04.x LTS
+  description: 'Base box (UEFI) for 64-bit x86 Ubuntu Trusty Tahr 14.04.x LTS'
   disk_size: '7500'
   domain: ''
   headless: 'false'

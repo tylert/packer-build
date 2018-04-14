@@ -202,7 +202,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: Cinnamon box for 64-bit x86 Debian Jessie 8.x
+  description: 'Cinnamon box for 64-bit x86 Debian Jessie 8.x'
   disk_size: '7500'
   domain: ''
   headless: 'false'

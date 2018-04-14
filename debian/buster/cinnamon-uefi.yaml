@@ -212,7 +212,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: Cinnamon (UEFI) box for 64-bit x86 Debian Buster 10.x
+  description: 'Cinnamon (UEFI) box for 64-bit x86 Debian Buster 10.x'
   disk_size: '7500'
   domain: ''
   headless: 'false'

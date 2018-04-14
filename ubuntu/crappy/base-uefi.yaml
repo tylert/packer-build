@@ -217,7 +217,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: Base box (UEFI) for 64-bit x86 Ubuntu Crappy Camel 18.10.x
+  description: 'Base box (UEFI) for 64-bit x86 Ubuntu Crappy Camel 18.10.x'
   disk_size: '7500'
   domain: ''
   headless: 'false'

@@ -220,7 +220,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: Base box for 64-bit x86 Ubuntu Bionic Beaver 18.04.x LTS
+  description: 'Base box for 64-bit x86 Ubuntu Bionic Beaver 18.04.x LTS'
   disk_size: '7500'
   domain: ''
   headless: 'false'

@@ -202,7 +202,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: Base box (encrypted) for 64-bit x86 Debian Stretch 9.x
+  description: 'Base box (encrypted) for 64-bit x86 Debian Stretch 9.x'
   disk_size: '7500'
   domain: ''
   headless: 'false'
