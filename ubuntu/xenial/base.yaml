@@ -82,7 +82,7 @@ _ANCHORS:
   start_retry_timeout: '{{user `start_retry_timeout`}}'
   type: shell
 builders:
-- <<: *builder_options
+- <<: *builder_common_options
   <<: *ssh_communicator_options
 # export_options: (array of strings)
   format: ova
@@ -117,7 +117,7 @@ builders:
   vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
   vrdp_port_max: '{{user `vnc_vrdp_port_max`}}'
   vrdp_port_min: '{{user `vnc_vrdp_port_min`}}'
-- <<: *builder_options
+- <<: *builder_common_options
   <<: *ssh_communicator_options
   accelerator: kvm
   disk_cache: writeback

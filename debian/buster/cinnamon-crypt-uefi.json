@@ -1,5 +1,5 @@
 {
-  "_ALIASES": [
+  "_ANCHORS": [
     {
       "boot_command": [
         "<wait>c<wait>",
@@ -35,11 +35,11 @@
       "vm_name": "{{user `vm_name`}}"
     },
     {
+      "ssh_agent_auth": "{{user `ssh_agent_false`}}",
       "ssh_disable_agent_forwarding": "{{user `ssh_disable_agent_forwarding`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
-      "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
-      "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_keep_alive_interval": "{{user `ssh_keep_alive_interval`}}",
       "ssh_password": "{{user `ssh_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_pty": "{{user `ssh_pty`}}",
@@ -100,11 +100,13 @@
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "skip_export": false,
+      "ssh_agent_auth": "{{user `ssh_agent_false`}}",
       "ssh_disable_agent_forwarding": "{{user `ssh_disable_agent_forwarding`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
       "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
       "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_keep_alive_interval": "{{user `ssh_keep_alive_interval`}}",
       "ssh_password": "{{user `ssh_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_pty": "{{user `ssh_pty`}}",
@@ -193,11 +195,13 @@
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -E -S poweroff",
       "shutdown_timeout": "{{user `shutdown_timeout`}}",
       "skip_compaction": true,
+      "ssh_agent_auth": "{{user `ssh_agent_false`}}",
       "ssh_disable_agent_forwarding": "{{user `ssh_disable_agent_forwarding`}}",
       "ssh_file_transfer_method": "{{user `ssh_file_transfer_method`}}",
       "ssh_handshake_attempts": "{{user `ssh_handshake_attempts`}}",
       "ssh_host_port_max": "{{user `ssh_host_port_max`}}",
       "ssh_host_port_min": "{{user `ssh_host_port_min`}}",
+      "ssh_keep_alive_interval": "{{user `ssh_keep_alive_interval`}}",
       "ssh_password": "{{user `ssh_password`}}",
       "ssh_port": "{{user `ssh_port`}}",
       "ssh_pty": "{{user `ssh_pty`}}",
@@ -362,11 +366,13 @@
     "qemu_binary": "qemu-system-x86_64",
     "ram_size": "512",
     "shutdown_timeout": "5m",
+    "ssh_agent_auth": "false",
     "ssh_disable_agent_forwarding": "false",
     "ssh_file_transfer_method": "scp",
     "ssh_handshake_attempts": "10",
     "ssh_host_port_max": "4444",
     "ssh_host_port_min": "2222",
+    "ssh_keep_alive_interval": "5s",
     "ssh_password": "1ma63b0rk3d",
     "ssh_port": "22",
     "ssh_pty": "false",
