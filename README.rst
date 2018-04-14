@@ -236,7 +236,7 @@ Overriding Local VM Cache Location
 
 ::
 
-    vboxmanage setproperty machinefolder /home/whoa/vm
+    vboxmanage setproperty machinefolder ${HOME}/vm
 
 
 Disabling Hashicorp Checkpoint Version Checks
