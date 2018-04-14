@@ -95,7 +95,7 @@ builders:
   - - modifyvm
     - '{{.Name}}'
     - '--memory'
-    - '{{user `ram_size`}}'
+    - '{{user `memory`}}'
   - - modifyvm
     - '{{.Name}}'
     - '--cpus'
@@ -125,7 +125,7 @@ builders:
   qemu_binary: '{{user `qemu_binary`}}'
   qemuargs:
   - - '-m'
-    - '{{user `ram_size`}}M'
+    - '{{user `memory`}}M'
   - - '-smp'
     - '{{user `cpus`}}'
   skip_compaction: true
@@ -228,13 +228,13 @@ variables:
   keyboard: us
   language: en
   locale: en_CA.UTF-8
+  memory: '512'
 # min_vagrant_version: 2.0.3
 # mirror: ftp.ca.debian.org
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: debian/stretch/cinnamon-uefi.preseed
   qemu_binary: qemu-system-x86_64
-  ram_size: '512'
   shutdown_timeout: 5m
   ssh_agent_auth: 'false'
   ssh_disable_agent_forwarding: 'false'
