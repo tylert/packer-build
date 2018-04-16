@@ -1,7 +1,7 @@
 .DS_Store
 .*.sw?
-template
-packer_cache
-build
+template/
+packer_cache/
+build/
 Vagrantfile
-.vagrant
+.vagrant/

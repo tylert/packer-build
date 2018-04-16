@@ -8,7 +8,7 @@ fi
 
 # PACKER_CONFIG="${HOME}/.packerconfig" \
 # PACKER_LOG=1 \
-# PACKER_LOG_PATH=vbox.log \
+# PACKER_LOG_PATH=qemu.log \
 # PACKER_NO_COLOR=false \
 # PACKER_PLUGIN_MAX_PORT=25000 \
 # PACKER_PLUGIN_MIN_PORT=10000 \
