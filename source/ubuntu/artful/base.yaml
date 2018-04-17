@@ -46,7 +46,7 @@ _ANCHORS:
   shutdown_timeout: '{{user `shutdown_timeout`}}'
   vm_name: '{{user `vm_name`}}'
 - &ssh_communicator_options
-  ssh_agent_auth: '{{user `ssh_agent_false`}}'
+  ssh_agent_auth: '{{user `ssh_agent_auth`}}'
 # ssh_bastion_agent_auth: false
 # ssh_bastion_host: (string)
 # ssh_bastion_password: (string)
