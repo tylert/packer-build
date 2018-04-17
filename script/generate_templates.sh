@@ -20,4 +20,6 @@ for input in $(find source -name '*.yaml'); do
         > "${output/yaml/json}.new"
 
     mv "${output/yaml/json}.new" "${output/yaml/json}"
+
+    CHECKPOINT_DISABLE=1 packer validate "${output/yaml/json}"
 done
