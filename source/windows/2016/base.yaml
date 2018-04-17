@@ -1,0 +1,51 @@
+---
+builders:
+- boot_wait: '{{user `boot_wait`}}'
+  disk_size: '{{user `disk_size`}}'
+  floppy_files:
+  - '{{user `autounattend`}}'
+  - './scripts/microsoft-updates.bat'
+  - './scripts/win-updates.ps1'
+  - './scripts/openssh.ps1'
+  guest_os_type: Windows2016_64
+  headless: '{{user `headless`}}'
+  iso_checksum: '{{user `iso_checksum`}}'
+  iso_checksum_type: '{{user `iso_checksum_type`}}'
+  iso_url: '{{user `iso_url`}}'
+  shutdown_command: shutdown /s /t 10 /f /d p:4:1 /c "Packer Shutdown"
+  ssh_password: '{{user `ssh_password`}}'
+  ssh_username: '{{user `ssh_username`}}'
+  ssh_wait_timeout: '{{user `ssh_wait_timeout`}}'
+  type: virtualbox-iso
+  vboxmanage:
+  - - modifyvm
+    - '{{.Name}}'
+    - '--memory'
+    - '{{user `memory`}}'
+  - - modifyvm
+    - '{{.Name}}'
+    - '--cpus'
+    - '{{user `cpus`}}'
+provisioners:
+- execute_command: '{{.Vars}} cmd /c C:/Windows/Temp/script.bat'
+  remote_path: '/tmp/script.bat'
+  scripts:
+  - './scripts/vagrant-ssh.bat'
+  - './scripts/disable-auto-logon.bat'
+  - './scripts/enable-rdp.bat'
+  - './scripts/compile-dotnet-assemblies.bat'
+  - './scripts/compact.bat'
+  type: shell
+variables:
+  autounattend: './answer_files/2016/Autounattend.xml'
+  boot_wait: 2m
+  cpus: '2'
+  disk_size: '61440'
+  headless: 'true'
+  iso_checksum: 70721288bbcdfe3239d8f8c0fae55f1f
+  iso_checksum_type: md5
+  iso_url: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC/14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
+  memory: '2048'
+  ssh_password: vagrant
+  ssh_username: vagrant
+  ssh_wait_timeout: 6h
