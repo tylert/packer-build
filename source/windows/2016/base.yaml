@@ -1,21 +1,46 @@
 ---
-builders:
-- boot_wait: '{{user `boot_wait`}}'
+_ANCHORS:
+- &builder_common_options
+# boot_command: (array of strings)
+  boot_wait: '{{user `boot_wait`}}'
+  communicator: '{{user `communicator`}}'
   disk_size: '{{user `disk_size`}}'
+# floppy_dirs: (array of strings)
   floppy_files:
-  - '{{user `autounattend`}}'
+  - './scripts/Autounattend.xml'
   - './scripts/microsoft-updates.bat'
   - './scripts/win-updates.ps1'
   - './scripts/openssh.ps1'
-  guest_os_type: Windows2016_64
   headless: '{{user `headless`}}'
+  http_directory: '{{user `http_directory`}}'
+  http_port_max: '{{user `http_port_max`}}'
+  http_port_min: '{{user `http_port_min`}}'
   iso_checksum: '{{user `iso_checksum`}}'
   iso_checksum_type: '{{user `iso_checksum_type`}}'
-  iso_url: '{{user `iso_url`}}'
+  iso_checksum_url: '{{user `iso_checksum_url`}}'
+  iso_target_extension: iso
+  iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
+  iso_urls:
+  - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
+  - '{{user `iso_path_external`}}/{{user `iso_file`}}'
+  output_directory: '{{user `output_directory`}}'
   shutdown_command: shutdown /s /t 10 /f /d p:4:1 /c "Packer Shutdown"
-  ssh_password: '{{user `ssh_password`}}'
-  ssh_username: '{{user `ssh_username`}}'
-  ssh_wait_timeout: '{{user `ssh_wait_timeout`}}'
+  shutdown_timeout: '{{user `shutdown_timeout`}}'
+  vm_name: '{{user `vm_name`}}'
+- &winrm_communicator_options
+# winrm_host: (string)
+  winrm_insecure: '{{user `winrm_insecure`}}'
+  winrm_password: '{{user `winrm_password`}}'
+# winrm_port: (number)
+  winrm_timeout: '{{user `winrm_timeout`}}'
+  winrm_use_ntlm: '{{user `winrm_use_ntlm`}}'
+  winrm_username: '{{user `winrm_username`}}'
+  winrm_use_ssl: '{{user `winrm_use_ssl`}}'
+builders:
+- <<: *builder_common_options
+  <<: *winrm_communicator_options
+  guest_os_type: Windows2016_64
+  name: vbox
   type: virtualbox-iso
   vboxmanage:
   - - modifyvm
@@ -26,6 +51,73 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '{{user `cpus`}}'
+- <<: *builder_common_options
+  <<: *winrm_communicator_options
+  accelerator: kvm
+  disk_cache: writeback
+  disk_compression: false
+  disk_discard: ignore
+  disk_image: false
+  disk_interface: virtio-scsi
+  format: raw
+  iso_skip_cache: false
+  machine_type: pc
+  name: qemu
+  net_device: virtio-net
+  qemu_binary: '{{user `qemu_binary`}}'
+  qemuargs:
+  - - '-m'
+    - '{{user `memory`}}M'
+  - - '-smp'
+    - '{{user `cpus`}}'
+  skip_compaction: true
+  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
+  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
+  type: qemu
+  use_default_display: false
+  vnc_bind_address: '{{user `vnc_vrdp_bind_address`}}'
+  vnc_port_max: '{{user `vnc_vrdp_port_max`}}'
+  vnc_port_min: '{{user `vnc_vrdp_port_min`}}'
+description: '{{user `description`}}'
+min_packer_version: 1.2.2
+post-processors:
+- compression_level: 6
+# include: (array of strings)
+  keep_input_artifact: true
+  only:
+  - vbox
+  - qemu
+  output: '{{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{build_name}}.box'
+  type: vagrant
+  vagrantfile_template: '{{user `vagrantfile_template`}}'
+- compression_level: 6
+  format: .gz
+  keep_input_artifact: true
+  only:
+  - qemu
+  output: '{{user `output_directory`}}/{{user `vm_name`}}.raw.gz'
+  type: compress
+- inline_shebang: /bin/sh -e
+# environment_vars: (array of strings)
+  execute_command: chmod +x "{{.Script}}"; {{.Vars}} "{{.Script}}"
+  inline:
+  - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
+  - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''description: {{user `description`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - echo 'versions:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
+  - 'echo ''- version: {{user `version`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - echo '  providers:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
+  - 'echo ''  - name: XXXPROVIDER'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-''{{build_name}}''.box''
+    >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''    checksum_type: sha256'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''    checksum: XXXCHECKSUM'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - if [ 'vbox' = '{{build_name}}' ]; then sed -i 's/XXXPROVIDER/virtualbox/' '{{user `output_directory`}}/{{user `vm_name`}}.yaml'; fi
+  - if [ 'qemu' = '{{build_name}}' ]; then sed -i 's/XXXPROVIDER/libvirt/' '{{user `output_directory`}}/{{user `vm_name`}}.yaml'; fi
+  only:
+  - vbox
+  - qemu
+  type: shell-local
 provisioners:
 - execute_command: '{{.Vars}} cmd /c C:/Windows/Temp/script.bat'
   remote_path: '/tmp/script.bat'
@@ -37,15 +129,37 @@ provisioners:
   - './scripts/compact.bat'
   type: shell
 variables:
-  autounattend: './answer_files/2016/Autounattend.xml'
   boot_wait: 2m
+  communicator: winrm
   cpus: '2'
+  description: 'Base box for 64-bit x86 Windows Server 2016'
   disk_size: '61440'
-  headless: 'true'
+  headless: 'false'
+  http_directory: '.'
+  http_port_max: '9000'
+  http_port_min: '8000'
   iso_checksum: 70721288bbcdfe3239d8f8c0fae55f1f
   iso_checksum_type: md5
-  iso_url: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC/14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
+  iso_file: 14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
+  iso_path_external: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC
+  iso_path_internal: http://myserver:8080/windows
   memory: '2048'
-  ssh_password: vagrant
-  ssh_username: vagrant
-  ssh_wait_timeout: 6h
+# min_vagrant_version: 2.0.3
+  output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
+  packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
+  qemu_binary: qemu-system-x86_64
+  shutdown_timeout: 5m
+  ssh_host_port_max: '4444'
+  ssh_host_port_min: '2222'
+  vagrantfile_template: source/windows/2016/base.vagrant
+  version: 0.0.0
+  vm_name: base-win2016
+  vnc_vrdp_bind_address: 127.0.0.1
+  vnc_vrdp_port_max: '6000'
+  vnc_vrdp_port_min: '5900'
+  winrm_insecure: 'true'
+  winrm_password: ghost
+  winrm_timeout: 30m
+  winrm_use_ntlm: 'false'
+  winrm_username: 1ma63b0rk3d
+  winrm_use_ssl: 'false'
