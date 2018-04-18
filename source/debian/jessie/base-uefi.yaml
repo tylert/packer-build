@@ -161,8 +161,7 @@ post-processors:
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
-  - 'echo ''description: {{user `description`}}'' >> {{user `output_directory`}}/{{user
-    `vm_name`}}.yaml'
+  - 'echo ''description: {{user `description`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - echo 'versions:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''- version: {{user `version`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - echo '  providers:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
