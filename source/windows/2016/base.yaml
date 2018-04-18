@@ -7,10 +7,10 @@ _ANCHORS:
   disk_size: '{{user `disk_size`}}'
 # floppy_dirs: (array of strings)
   floppy_files:
-  - './scripts/Autounattend.xml'
-  - './scripts/microsoft-updates.bat'
-  - './scripts/win-updates.ps1'
-  - './scripts/openssh.ps1'
+  - 'source/windows/2016/Autounattend.xml'
+  - 'source/windows/2016/microsoft-updates.bat'
+  - 'source/windows/2016/win-updates.ps1'
+  - 'source/windows/2016/openssh.ps1'
   headless: '{{user `headless`}}'
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
@@ -122,11 +122,11 @@ provisioners:
 - execute_command: '{{.Vars}} cmd /c C:/Windows/Temp/script.bat'
   remote_path: '/tmp/script.bat'
   scripts:
-  - './scripts/vagrant-ssh.bat'
-  - './scripts/disable-auto-logon.bat'
-  - './scripts/enable-rdp.bat'
-  - './scripts/compile-dotnet-assemblies.bat'
-  - './scripts/compact.bat'
+  - 'source/windows/2016/vagrant-ssh.bat'
+  - 'source/windows/2016/disable-auto-logon.bat'
+  - 'source/windows/2016/enable-rdp.bat'
+  - 'source/windows/2016/compile-dotnet-assemblies.bat'
+  - 'source/windows/2016/compact.bat'
   type: shell
 variables:
   boot_wait: 2m
