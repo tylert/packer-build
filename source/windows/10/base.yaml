@@ -40,8 +40,24 @@ _ANCHORS:
 builders:
 - <<: *builder_common_options
   <<: *winrm_communicator_options
+# export_opts: (array of strings)
+  format: ova
+  guest_additions_mode: disable
+# guest_additions_path: (string)
+# guest_additions_sha256: (string)
+# guest_additions_url: (string)
   guest_os_type: Windows10_64
+  hard_drive_discard: false
+  hard_drive_interface: sata
+  hard_drive_nonrotational: false
+  iso_interface: sata
+  keep_registered: false
   name: vbox
+  post_shutdown_delay: 0s
+  skip_export: false
+  ssh_host_port_max: '{{user `ssh_host_port_max`}}'
+  ssh_host_port_min: '{{user `ssh_host_port_min`}}'
+  ssh_skip_nat_mapping: false
   type: virtualbox-iso
   vboxmanage:
   - - modifyvm
@@ -52,6 +68,11 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '{{user `cpus`}}'
+# vboxmanage_post: (array of array of strings)
+  virtualbox_version_file: '/tmp/.vbox_version'
+  vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
+  vrdp_port_max: '{{user `vnc_vrdp_port_max`}}'
+  vrdp_port_min: '{{user `vnc_vrdp_port_min`}}'
 - <<: *builder_common_options
   <<: *winrm_communicator_options
   accelerator: kvm
