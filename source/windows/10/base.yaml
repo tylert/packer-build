@@ -20,10 +20,10 @@ _ANCHORS:
   iso_checksum_type: '{{user `iso_checksum_type`}}'
   iso_checksum_url: '{{user `iso_checksum_url`}}'
   iso_target_extension: iso
-  iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
+  iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file_internal`}}'
   iso_urls:
-  - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
-  - '{{user `iso_path_external`}}/{{user `iso_file`}}'
+  - '{{user `iso_path_internal`}}/{{user `iso_file_internal`}}'
+  - '{{user `iso_path_external`}}/{{user `iso_file_external`}}'
   output_directory: '{{user `output_directory`}}'
   shutdown_command: shutdown /s /t 10 /f /d p:4:1 /c "Packer Shutdown"
   shutdown_timeout: '{{user `shutdown_timeout`}}'
@@ -162,7 +162,8 @@ variables:
   http_port_min: '8000'
   iso_checksum: 56ab095075be28a90bc0b510835280975c6bb2ce
   iso_checksum_type: sha1
-  iso_file: 10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO
+  iso_file_external: 10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO
+  iso_file_internal: windows-10-x64-en-US.iso
   iso_path_external: http://care.dlservice.microsoft.com/dl/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF
   iso_path_internal: http://myserver:8080/windows
   memory: '2048'

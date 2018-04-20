@@ -7,10 +7,10 @@ _ANCHORS:
   disk_size: '{{user `disk_size`}}'
 # floppy_dirs: (array of strings)
   floppy_files:
-  - 'source/windows/2016/Autounattend.xml'
-  - 'source/windows/2016/microsoft-updates.bat'
-  - 'source/windows/2016/win-updates.ps1'
-  - 'source/windows/2016/openssh.ps1'
+  - 'source/windows/server_2016/Autounattend.xml'
+  - 'source/windows/server_2016/microsoft-updates.bat'
+  - 'source/windows/server_2016/win-updates.ps1'
+  - 'source/windows/server_2016/openssh.ps1'
   headless: '{{user `headless`}}'
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
@@ -19,10 +19,10 @@ _ANCHORS:
   iso_checksum_type: '{{user `iso_checksum_type`}}'
   iso_checksum_url: '{{user `iso_checksum_url`}}'
   iso_target_extension: iso
-  iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
+  iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file_internal`}}'
   iso_urls:
-  - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
-  - '{{user `iso_path_external`}}/{{user `iso_file`}}'
+  - '{{user `iso_path_internal`}}/{{user `iso_file_internal`}}'
+  - '{{user `iso_path_external`}}/{{user `iso_file_external`}}'
   output_directory: '{{user `output_directory`}}'
   shutdown_command: shutdown /s /t 10 /f /d p:4:1 /c "Packer Shutdown"
   shutdown_timeout: '{{user `shutdown_timeout`}}'
@@ -143,11 +143,11 @@ provisioners:
 - execute_command: '{{.Vars}} cmd /c C:/Windows/Temp/script.bat'
   remote_path: '/tmp/script.bat'
   scripts:
-  - 'source/windows/2016/vagrant-ssh.bat'
-  - 'source/windows/2016/disable-auto-logon.bat'
-  - 'source/windows/2016/enable-rdp.bat'
-  - 'source/windows/2016/compile-dotnet-assemblies.bat'
-  - 'source/windows/2016/compact.bat'
+  - 'source/windows/server_2016/vagrant-ssh.bat'
+  - 'source/windows/server_2016/disable-auto-logon.bat'
+  - 'source/windows/server_2016/enable-rdp.bat'
+  - 'source/windows/server_2016/compile-dotnet-assemblies.bat'
+  - 'source/windows/server_2016/compact.bat'
   type: shell
 variables:
   boot_wait: 2m
@@ -161,7 +161,8 @@ variables:
   http_port_min: '8000'
   iso_checksum: 70721288bbcdfe3239d8f8c0fae55f1f
   iso_checksum_type: md5
-  iso_file: 14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
+  iso_file_external: 14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
+  iso_file_internal: windows-server-2016-x64-en-US.iso
   iso_path_external: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC
   iso_path_internal: http://myserver:8080/windows
   memory: '2048'
@@ -172,7 +173,7 @@ variables:
   shutdown_timeout: 5m
   ssh_host_port_max: '4444'
   ssh_host_port_min: '2222'
-  vagrantfile_template: source/windows/2016/base.vagrant
+  vagrantfile_template: source/windows/server_2016/base.vagrant
   version: 0.0.0
   vm_name: base-win2016
   vnc_vrdp_bind_address: 127.0.0.1
