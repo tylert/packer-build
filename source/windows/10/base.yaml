@@ -161,8 +161,8 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 56ab095075be28a90bc0b510835280975c6bb2ce
-  iso_checksum_type: sha1
+  iso_checksum: 9b53e1f6ab6259a05d0e8f42db5baad50b57da34da9312783f7e8bd4ae2cd3ca
+  iso_checksum_type: sha256
   iso_file_external: 10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO
   iso_file_internal: windows-10-x64-en-US.iso
   iso_path_external: http://care.dlservice.microsoft.com/dl/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF
@@ -185,5 +185,5 @@ variables:
   winrm_password: ghost
   winrm_timeout: 30m
   winrm_use_ntlm: 'false'
-  winrm_username: 1ma63b0rk3d
   winrm_use_ssl: 'false'
+  winrm_username: 1ma63b0rk3d

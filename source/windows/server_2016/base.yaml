@@ -184,5 +184,5 @@ variables:
   winrm_password: ghost
   winrm_timeout: 30m
   winrm_use_ntlm: 'false'
-  winrm_username: 1ma63b0rk3d
   winrm_use_ssl: 'false'
+  winrm_username: 1ma63b0rk3d
