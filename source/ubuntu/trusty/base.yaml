@@ -90,6 +90,7 @@ builders:
   keep_registered: false
   name: vbox
   post_shutdown_delay: 0s
+  sata_port_count: '1'
   skip_export: false
   ssh_host_port_max: '{{user `ssh_host_port_max`}}'
   ssh_host_port_min: '{{user `ssh_host_port_min`}}'
