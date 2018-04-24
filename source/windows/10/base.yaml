@@ -16,9 +16,9 @@ _ANCHORS:
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
   http_port_min: '{{user `http_port_min`}}'
-  iso_checksum: '{{user `iso_checksum`}}'
-  iso_checksum_type: '{{user `iso_checksum_type`}}'
-  iso_checksum_url: '{{user `iso_checksum_url`}}'
+  iso_checksum: '{{user `input_checksum`}}'
+  iso_checksum_type: '{{user `input_checksum_type`}}'
+  iso_checksum_url: '{{user `input_checksum_url`}}'
   iso_target_extension: iso
   iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file_internal`}}'
   iso_urls:
@@ -51,7 +51,7 @@ builders:
   hard_drive_interface: sata
   hard_drive_nonrotational: false
   iso_interface: sata
-  keep_registered: false
+  keep_registered: '{{user `keep_registered`}}'
   name: vbox
   post_shutdown_delay: 0s
   sata_port_count: '1'
@@ -161,12 +161,13 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 9b53e1f6ab6259a05d0e8f42db5baad50b57da34da9312783f7e8bd4ae2cd3ca
-  iso_checksum_type: sha256
+  input_checksum: 9b53e1f6ab6259a05d0e8f42db5baad50b57da34da9312783f7e8bd4ae2cd3ca
+  input_checksum_type: sha256
   iso_file_external: 10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO
   iso_file_internal: windows-10-x64-en-US.iso
   iso_path_external: http://care.dlservice.microsoft.com/dl/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF
   iso_path_internal: http://myserver:8080/windows
+  keep_registered: 'false'
   memory: '2048'
 # min_vagrant_version: 2.0.4
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'

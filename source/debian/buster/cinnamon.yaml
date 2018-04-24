@@ -20,9 +20,9 @@ _ANCHORS:
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
   http_port_min: '{{user `http_port_min`}}'
-  iso_checksum: '{{user `iso_checksum`}}'
-  iso_checksum_type: '{{user `iso_checksum_type`}}'
-  iso_checksum_url: '{{user `iso_checksum_url`}}'
+  iso_checksum: '{{user `input_checksum`}}'
+  iso_checksum_type: '{{user `input_checksum_type`}}'
+  iso_checksum_url: '{{user `input_checksum_url`}}'
   iso_target_extension: iso
   iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
   iso_urls:
@@ -37,7 +37,7 @@ _ANCHORS:
 # ssh_bastion_agent_auth: false
 # ssh_bastion_host: (string)
 # ssh_bastion_password: (string)
-# ssh_bastion_port: 1
+# ssh_bastion_port: '1'
 # ssh_bastion_private_key_file: (string)
 # ssh_bastion_username: (string)
   ssh_disable_agent_forwarding: '{{user `ssh_disable_agent_forwarding`}}'
@@ -50,10 +50,10 @@ _ANCHORS:
 # ssh_private_key_file: (string)
 # ssh_proxy_host: (string)
 # ssh_proxy_password: (string)
-# ssh_proxy_port: 1080
+# ssh_proxy_port: '1080'
 # ssh_proxy_username: (string)
   ssh_pty: '{{user `ssh_pty`}}'
-# ssh_read_write_timeout: '{{user `ssh_read_write_timeout`}}'
+# ssh_read_write_timeout: (string)
   ssh_timeout: '{{user `ssh_timeout`}}'
   ssh_username: '{{user `ssh_username`}}'
 - &shell_provisioner_options
@@ -82,7 +82,7 @@ builders:
   hard_drive_interface: sata
   hard_drive_nonrotational: false
   iso_interface: sata
-  keep_registered: false
+  keep_registered: '{{user `keep_registered`}}'
   name: vbox
   post_shutdown_delay: 0s
   sata_port_count: '1'
@@ -209,12 +209,13 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: DEADBEEF
-  iso_checksum_type: sha512
-  iso_checksum_url: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS
+# input_checksum: DEADBEEF
+  input_checksum_type: sha512
+  input_checksum_url: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS
   iso_file: debian-testing-amd64-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd
   iso_path_internal: http://myserver:8080/debian
+  keep_registered: 'false'
   keyboard: us
   language: en
   locale: en_CA.UTF-8
