@@ -167,7 +167,7 @@ variables:
   iso_path_external: http://care.dlservice.microsoft.com/dl/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF
   iso_path_internal: http://myserver:8080/windows
   memory: '2048'
-# min_vagrant_version: 2.0.3
+# min_vagrant_version: 2.0.4
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   qemu_binary: qemu-system-x86_64
