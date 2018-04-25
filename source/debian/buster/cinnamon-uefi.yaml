@@ -1,4 +1,9 @@
 ---
+#                   _
+#   __ _ _ __   ___| |__   ___  _ __ ___
+#  / _` | '_ \ / __| '_ \ / _ \| '__/ __|
+# | (_| | | | | (__| | | | (_) | |  \__ \
+#  \__,_|_| |_|\___|_| |_|\___/|_|  |___/
 _ANCHORS:
 - &builder_common_options
   boot_command:
@@ -69,6 +74,11 @@ _ANCHORS:
   skip_clean: false
   start_retry_timeout: '{{user `start_retry_timeout`}}'
   type: shell
+#  _           _ _     _
+# | |__  _   _(_) | __| | ___ _ __ ___
+# | '_ \| | | | | |/ _` |/ _ \ '__/ __|
+# | |_) | |_| | | | (_| |  __/ |  \__ \
+# |_.__/ \__,_|_|_|\__,_|\___|_|  |___/
 builders:
 - <<: *builder_common_options
   <<: *ssh_communicator_options
@@ -139,6 +149,12 @@ builders:
   vnc_port_min: '{{user `vnc_vrdp_port_min`}}'
 description: '{{user `description`}}'
 min_packer_version: 1.2.2
+#                  _
+#  _ __   ___  ___| |_      _ __  _ __ ___   ___ ___  ___ ___  ___  _ __ ___
+# | '_ \ / _ \/ __| __|____| '_ \| '__/ _ \ / __/ _ \/ __/ __|/ _ \| '__/ __|
+# | |_) | (_) \__ \ ||_____| |_) | | | (_) | (_|  __/\__ \__ \ (_) | |  \__ \
+# | .__/ \___/|___/\__|    | .__/|_|  \___/ \___\___||___/___/\___/|_|  |___/
+# |_|                      |_|
 post-processors:
 - compression_level: 6
 # include: (array of strings)
@@ -177,6 +193,12 @@ post-processors:
   - vbox
   - qemu
   type: shell-local
+#                       _     _
+#  _ __  _ __ _____   _(_)___(_) ___  _ __   ___ _ __ ___
+# | '_ \| '__/ _ \ \ / / / __| |/ _ \| '_ \ / _ \ '__/ __|
+# | |_) | | | (_) \ V /| \__ \ | (_) | | | |  __/ |  \__ \
+# | .__/|_|  \___/ \_/ |_|___/_|\___/|_| |_|\___|_|  |___/
+# |_|
 provisioners:
 - <<: *shell_provisioner_options
   inline:
@@ -206,6 +228,11 @@ provisioners:
   only:
   - vbox
   - qemu
+#                  _       _     _
+# __   ____ _ _ __(_) __ _| |__ | | ___  ___
+# \ \ / / _` | '__| |/ _` | '_ \| |/ _ \/ __|
+#  \ V / (_| | |  | | (_| | |_) | |  __/\__ \
+#   \_/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
 variables:
 # apt-cache-url: http://myserver:3142
   boot_wait: 3s
