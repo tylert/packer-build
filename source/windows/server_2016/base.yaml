@@ -20,9 +20,9 @@ _ANCHORS:
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
   http_port_min: '{{user `http_port_min`}}'
-  iso_checksum: '{{user `input_checksum`}}'
-  iso_checksum_type: '{{user `input_checksum_type`}}'
-  iso_checksum_url: '{{user `input_checksum_url`}}'
+  iso_checksum: '{{user `iso_checksum`}}'
+  iso_checksum_type: '{{user `iso_checksum_type`}}'
+  iso_checksum_url: '{{user `iso_checksum_url`}}'
   iso_target_extension: iso
   iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file_internal`}}'
   iso_urls:
@@ -187,8 +187,8 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  input_checksum: 70721288bbcdfe3239d8f8c0fae55f1f
-  input_checksum_type: md5
+  iso_checksum: 70721288bbcdfe3239d8f8c0fae55f1f
+  iso_checksum_type: md5
   iso_file_external: 14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
   iso_file_internal: windows-server-2016-x64-en-US.iso
   iso_path_external: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC

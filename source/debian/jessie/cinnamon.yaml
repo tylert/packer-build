@@ -25,9 +25,9 @@ _ANCHORS:
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
   http_port_min: '{{user `http_port_min`}}'
-  iso_checksum: '{{user `input_checksum`}}'
-  iso_checksum_type: '{{user `input_checksum_type`}}'
-  iso_checksum_url: '{{user `input_checksum_url`}}'
+  iso_checksum: '{{user `iso_checksum`}}'
+  iso_checksum_type: '{{user `iso_checksum_type`}}'
+  iso_checksum_url: '{{user `iso_checksum_url`}}'
   iso_target_extension: iso
   iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
   iso_urls:
@@ -236,9 +236,9 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  input_checksum: 367f99ede326de69f1e434aa6e9e5517a3437ee1239bba76dd0d53c3cb912507c660b684ed41d7ef80fbe93d2099ae1d3209bfca5df3dd90b1b5a486ce9c1369
-  input_checksum_type: sha512
-  input_checksum_url: http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/SHA512SUMS
+  iso_checksum: 367f99ede326de69f1e434aa6e9e5517a3437ee1239bba76dd0d53c3cb912507c660b684ed41d7ef80fbe93d2099ae1d3209bfca5df3dd90b1b5a486ce9c1369
+  iso_checksum_type: sha512
+  iso_checksum_url: http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/SHA512SUMS
   iso_file: debian-8.10.0-amd64-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd
   iso_path_internal: http://myserver:8080/debian
