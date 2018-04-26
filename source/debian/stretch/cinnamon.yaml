@@ -247,7 +247,7 @@ variables:
   language: en
   locale: en_CA.UTF-8
   memory: '512'
-# min_vagrant_version: 2.0.4
+  min_vagrant_version: 2.0.4
 # mirror: ftp.ca.debian.org
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
@@ -257,7 +257,7 @@ variables:
   ssh_agent_auth: 'false'
   ssh_disable_agent_forwarding: 'false'
   ssh_file_transfer_method: scp
-# ssh_fullname: Ghost Writer
+  ssh_fullname: Ghost Writer
   ssh_handshake_attempts: '10'
   ssh_host_port_max: '4444'
   ssh_host_port_min: '2222'
@@ -268,8 +268,8 @@ variables:
   ssh_timeout: 60m
   ssh_username: ghost
   start_retry_timeout: 5m
-# system_clock_in_utc: 'true'
-# timezone: UTC
+  system_clock_in_utc: 'true'
+  timezone: UTC
   vagrantfile_template: source/debian/stretch/cinnamon.vagrant
   version: 0.0.0
   vm_name: cinnamon-stretch

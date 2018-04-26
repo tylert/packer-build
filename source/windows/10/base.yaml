@@ -196,19 +196,21 @@ variables:
   iso_path_internal: http://myserver:8080/windows
   keep_registered: 'false'
   memory: '2048'
-# min_vagrant_version: 2.0.4
+  min_vagrant_version: 2.0.4
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
   ssh_host_port_max: '4444'
   ssh_host_port_min: '2222'
+  timezone: UTC
   vagrantfile_template: source/windows/10/base.vagrant
   version: 0.0.0
   vm_name: base-win10
   vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'
+  winrm_fullname: Ghost Writer
   winrm_insecure: 'true'
   winrm_password: ghost
   winrm_timeout: 30m
