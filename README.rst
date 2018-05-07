@@ -439,6 +439,5 @@ Ubuntu_releases_
 
 * Crappy Camel? (18.10.x);  released on 2018-10-??, supported until 2019?-07?-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
-* Artful Aardvark (17.10.x);  released on 2017-10-19, supported until 2018-07-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01
 * Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-01
