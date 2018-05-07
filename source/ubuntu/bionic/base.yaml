@@ -254,11 +254,11 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 7a1c2966f82268c14560386fbc467d58c3fbd2793f3b1f657baee609b80d39a8
+  iso_checksum: a7f5c7b0cdd0e9560d78f1e47660e066353bb8a79eb78d1fc3f4ea62a07e6cbc
   iso_checksum_type: sha256
-  iso_checksum_url: http://releases.ubuntu.com/18.04/SHA256SUMS
-  iso_file: ubuntu-18.04-live-server-amd64.iso
-  iso_path_external: http://releases.ubuntu.com/18.04
+# iso_checksum_url: http://cdimage.ubuntu.com/releases/bionic/release/SHA256SUMS
+  iso_file: ubuntu-18.04-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/releases/bionic/release
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
@@ -266,7 +266,6 @@ variables:
   locale: en_CA.UTF-8
   memory: '512'
   min_vagrant_version: 2.1.0
-# mirror: ftp.ca.debian.org
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: source/ubuntu/bionic/base.preseed

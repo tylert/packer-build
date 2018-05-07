@@ -238,7 +238,7 @@ variables:
   http_port_min: '8000'
   iso_checksum: 345c4e674dc10476e8c4f1571fbcdba4ce9788aa5584c5e2590ab3e89e7bb9acb370536f41a3ac740eb92b6aebe3cb8eb9734874dd1658c68875981b8351bc38
   iso_checksum_type: sha512
-  iso_checksum_url: http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS
+# iso_checksum_url: http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS
   iso_file: debian-9.4.0-amd64-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd
   iso_path_internal: http://myserver:8080/debian
@@ -248,7 +248,7 @@ variables:
   locale: en_CA.UTF-8
   memory: '512'
   min_vagrant_version: 2.1.0
-# mirror: ftp.ca.debian.org
+  mirror: ftp.ca.debian.org
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: source/debian/stretch/base-crypt.preseed

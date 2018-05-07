@@ -256,7 +256,7 @@ variables:
   http_port_min: '8000'
   iso_checksum: 0a03608988cfd2e50567990dc8be96fb3c501e198e2e6efcb846d89efc7b89f2
   iso_checksum_type: sha256
-  iso_checksum_url: http://releases.ubuntu.com/16.04.4/SHA256SUMS
+# iso_checksum_url: http://releases.ubuntu.com/16.04.4/SHA256SUMS
   iso_file: ubuntu-16.04.4-server-amd64.iso
   iso_path_external: http://releases.ubuntu.com/16.04.4
   iso_path_internal: http://myserver:8080/ubuntu
@@ -266,7 +266,6 @@ variables:
   locale: en_CA.UTF-8
   memory: '512'
   min_vagrant_version: 2.1.0
-# mirror: ftp.ca.debian.org
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: source/ubuntu/xenial/base.preseed
