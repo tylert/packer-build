@@ -53,7 +53,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 2.1.0 on Debian Stretch 9.x (VirtualBox)
+  - 2.1.1 on Debian Stretch 9.x (VirtualBox)
   - not currently being tested on macOS but used to work fine
 
 .. _Vagrant:  https://www.vagrantup.com/
@@ -374,9 +374,9 @@ Building Windows VMs
 --------------------
 
 * http://www.hurryupandwait.io/blog/creating-windows-base-images-for-virtualbox-and-hyper-v-using-packer-boxstarter-and-vagrant
-
 * https://github.com/mwrock/packer-template
 * https://github.com/joefitzgerald/packer-windows
+* https://github.com/mefellows/packer-community-templates
 
 
 Using a Headless Server
