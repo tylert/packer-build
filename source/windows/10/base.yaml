@@ -30,7 +30,7 @@ _ANCHORS:
   - '{{user `iso_path_internal`}}/{{user `iso_file_internal`}}'
   - '{{user `iso_path_external`}}/{{user `iso_file_external`}}'
   output_directory: '{{user `output_directory`}}'
-  shutdown_command: shutdown /s /t 10 /f /d p:4:1 /c "Packer Shutdown"
+  shutdown_command: shutdown /s /t 10 /f /d p:4:1 /c 'Packer Shutdown'
   shutdown_timeout: '{{user `shutdown_timeout`}}'
   vm_name: '{{user `vm_name`}}'
 - &winrm_communicator_options
@@ -138,7 +138,7 @@ post-processors:
   type: compress
 - inline_shebang: /bin/sh -e
 # environment_vars: (array of strings)
-  execute_command: chmod +x "{{.Script}}"; {{.Vars}} "{{.Script}}"
+  execute_command: chmod +x '{{.Script}}'; {{.Vars}} '{{.Script}}'
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''name: {{user `vm_name`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'

@@ -12,11 +12,11 @@ _ANCHORS:
   disk_size: '{{user `disk_size`}}'
 # floppy_dirs: (array of strings)
   floppy_files:
-  - 'source/windows/server_2016/Autounattend.xml'
-  - 'source/windows/server_2016/fixnetwork.ps1'
-  - 'source/windows/server_2016/microsoft-updates.bat'
-  - 'source/windows/server_2016/win-updates.ps1'
-  - 'source/windows/server_2016/openssh.ps1'
+  - 'source/windows/server_2012r2/Autounattend.xml'
+  - 'source/windows/server_2012r2/fixnetwork.ps1'
+  - 'source/windows/server_2012r2/microsoft-updates.bat'
+  - 'source/windows/server_2012r2/win-updates.ps1'
+  - 'source/windows/server_2012r2/openssh.ps1'
   headless: '{{user `headless`}}'
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
@@ -56,7 +56,7 @@ builders:
 # guest_additions_path: (string)
 # guest_additions_sha256: (string)
 # guest_additions_url: (string)
-  guest_os_type: Windows2016_64
+  guest_os_type: Windows2012_64
   hard_drive_discard: false
   hard_drive_interface: sata
   hard_drive_nonrotational: false
@@ -167,11 +167,11 @@ provisioners:
 - execute_command: '{{.Vars}} cmd /c C:/Windows/Temp/script.bat'
   remote_path: '/tmp/script.bat'
   scripts:
-  - 'source/windows/server_2016/vagrant-ssh.bat'
-  - 'source/windows/server_2016/disable-auto-logon.bat'
-  - 'source/windows/server_2016/enable-rdp.bat'
-  - 'source/windows/server_2016/compile-dotnet-assemblies.bat'
-  - 'source/windows/server_2016/compact.bat'
+  - 'source/windows/server_2012r2/vagrant-ssh.bat'
+  - 'source/windows/server_2012r2/disable-auto-logon.bat'
+  - 'source/windows/server_2012r2/enable-rdp.bat'
+  - 'source/windows/server_2012r2/compile-dotnet-assemblies.bat'
+  - 'source/windows/server_2012r2/compact.bat'
   type: shell
 #                  _       _     _
 # __   ____ _ _ __(_) __ _| |__ | | ___  ___
@@ -182,17 +182,17 @@ variables:
   boot_wait: 2m
   communicator: winrm
   cpus: '2'
-  description: 'Base box for 64-bit x86 Windows Server 2016'
+  description: 'Base box for 64-bit x86 Windows Server 2012 R2'
   disk_size: '61440'
   headless: 'false'
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 1ce702a578a3cb1ac3d14873980838590f06d5b7101c5daaccbac9d73f1fb50f
+  iso_checksum: deadbeef
   iso_checksum_type: sha256
-  iso_file_external: 14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
-  iso_file_internal: windows-server-2016-x64-en-US.iso
-  iso_path_external: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC
+  iso_file_external: 9600.16384.WINBLUE_RTM.130821-1623_X64FRE_SERVER_EVAL_EN-US-IRM_SSS_X64FREE_EN-US_DV5.ISO
+  iso_file_internal: windows-server-2012r2-x64-en-US.iso
+  iso_path_external: http://download.microsoft.com/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96
   iso_path_internal: http://myserver:8080/windows
   keep_registered: 'false'
   memory: '2048'
@@ -204,9 +204,9 @@ variables:
   ssh_host_port_max: '4444'
   ssh_host_port_min: '2222'
   timezone: UTC
-  vagrantfile_template: source/windows/server_2016/base.vagrant
+  vagrantfile_template: source/windows/server_2012r2/base.vagrant
   version: 0.0.0
-  vm_name: base-win2016
+  vm_name: base-win2012r2
   vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'
