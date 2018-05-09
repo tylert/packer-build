@@ -188,7 +188,7 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: deadbeef
+  iso_checksum: 6471a3f35b00040f0e6fe773bdbbbe82c74bdb1ead3aeb8e6a414985b39af7a6
   iso_checksum_type: sha256
   iso_file_external: 9600.16384.WINBLUE_RTM.130821-1623_X64FRE_SERVER_EVAL_EN-US-IRM_SSS_X64FREE_EN-US_DV5.ISO
   iso_file_internal: windows-server-2012r2-x64-en-US.iso
