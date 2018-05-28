@@ -357,6 +357,8 @@ Other
 * http://stackoverflow.com/questions/13065576/override-vagrant-configuration-settings-locally-per-dev
 
 * https://djaodjin.com/blog/deploying-on-ec2-with-ansible.blog.html
+* http://jackstromberg.com/2012/12/how-to-export-a-vm-from-amazon-ec2-to-vmware-on-premise/
+* https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html
 
 * https://github.com/jpadilla/juicebox
 * https://github.com/boxcutter/ubuntu
@@ -376,7 +378,10 @@ Building Windows VMs
 * http://www.hurryupandwait.io/blog/creating-windows-base-images-for-virtualbox-and-hyper-v-using-packer-boxstarter-and-vagrant
 * https://github.com/mwrock/packer-template
 * https://github.com/joefitzgerald/packer-windows
+* https://gist.github.com/joefitzgerald/8203265
 * https://github.com/mefellows/packer-community-templates
+* https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/
+* https://github.com/rgl/packer-provisioner-windows-update
 
 
 Using a Headless Server
