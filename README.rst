@@ -431,6 +431,7 @@ Debian_releases_
 
 .. _Debian_releases:  https://en.wikipedia.org/wiki/Debian_version_history#Release_table
 
+* Bookworm (12.x);  released on 2023?-??-??, supported until 2028?-??-01
 * Bullseye (11.x);  released on 2021?-??-??, supported until 2026?-??-01
 * Buster (10.x);  released on 2019?-??-??, supported until 2024?-??-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
@@ -442,7 +443,8 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* Cosmic Cuttlefish (18.10.x);  released on 2018-10-??, supported until 2019?-07?-01
+* Derpy? Dolphin? (19.04.x);  released on 2019-04-??, supported until 2020?-02?-01
+* Cosmic Cuttlefish (18.10.x);  released on 2018-10-??, supported until 2019-07-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01
 * Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-01
