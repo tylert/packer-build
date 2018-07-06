@@ -217,8 +217,6 @@ provisioners:
   inline:
   - apt-get update
   - apt-get --yes dist-upgrade
-- <<: *shell_provisioner_options
-  inline:
   - apt-get clean
 - <<: *shell_provisioner_options
   inline:
