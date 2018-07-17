@@ -100,7 +100,7 @@ builders:
 # guest_additions_path: (string)
 # guest_additions_sha256: (string)
 # guest_additions_url: (string)
-  guest_os_type: Ubuntu_64
+  guest_os_type: '{{user `guest_os_type`}}'
   hard_drive_discard: false
   hard_drive_interface: sata
   hard_drive_nonrotational: false
@@ -248,6 +248,7 @@ variables:
   description: 'Base box for 64-bit x86 Ubuntu Xenial Xerus 16.04.x LTS'
   disk_size: '7500'
   domain: ''
+  guest_os_type: Ubuntu_64
   headless: 'false'
   http_directory: '.'
   http_port_max: '9000'

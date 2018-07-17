@@ -56,7 +56,7 @@ builders:
 # guest_additions_path: (string)
 # guest_additions_sha256: (string)
 # guest_additions_url: (string)
-  guest_os_type: Windows2012_64
+  guest_os_type: '{{user `guest_os_type`}}'
   hard_drive_discard: false
   hard_drive_interface: sata
   hard_drive_nonrotational: false
@@ -184,6 +184,7 @@ variables:
   cpus: '2'
   description: 'Base box for 64-bit x86 Windows Server 2012 R2'
   disk_size: '61440'
+  guest_os_type: Windows2012_64
   headless: 'false'
   http_directory: '.'
   http_port_max: '9000'
