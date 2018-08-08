@@ -252,9 +252,9 @@ variables:
   http_port_min: '8000'
   iso_checksum: dde07d37647a1d2d9247e33f14e91acb10445a97578384896b4e1d985f754cc1
   iso_checksum_type: sha256
-# iso_checksum_url: http://releases.ubuntu.com/14.04.5/SHA256SUMS
+# iso_checksum_url: http://releases.ubuntu.com/14.04/SHA256SUMS
   iso_file: ubuntu-14.04.5-server-amd64.iso
-  iso_path_external: http://releases.ubuntu.com/14.04.5
+  iso_path_external: http://releases.ubuntu.com/14.04
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
