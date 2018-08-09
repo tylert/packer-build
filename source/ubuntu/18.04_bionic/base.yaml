@@ -8,7 +8,7 @@ _ANCHORS:
 - &builder_common_options
   boot_command:
   - '<esc><esc><enter><wait>'
-  - 'initrd=/install/initrd.gz '
+  - 'install initrd=/install/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
   - 'language={{user `language`}} '
