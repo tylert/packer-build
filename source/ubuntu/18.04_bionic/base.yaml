@@ -7,16 +7,7 @@
 _ANCHORS:
 - &builder_common_options
   boot_command:
-  - '<esc><f6><esc>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
-  - '<bs><bs><bs>'
+  - '<esc><esc><enter><wait>'
   - 'initrd=/install/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
