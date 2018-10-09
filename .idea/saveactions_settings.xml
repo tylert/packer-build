@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SaveActionSettings">
+    <option name="actions">
+      <set>
+        <option value="activate" />
+        <option value="fieldCanBeFinal" />
+        <option value="localCanBeFinal" />
+        <option value="methodMayBeStatic" />
+        <option value="unqualifiedFieldAccess" />
+        <option value="unqualifiedMethodAccess" />
+        <option value="customUnqualifiedStaticMemberAccess" />
+        <option value="missingOverrideAnnotation" />
+      </set>
+    </option>
+    <option name="configurationPath" value="" />
+  </component>
+</project>

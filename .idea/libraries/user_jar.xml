@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="user-jar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../runtime/runtime/java/dev-jdk8/jar" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../runtime/runtime/java/dev-jdk8/jar" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../runtime/runtime/java/dev-jdk8/jar" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../runtime/runtime/java/dev-jdk8/jar" recursive="false" type="SOURCES" />
+  </library>
+</component>
