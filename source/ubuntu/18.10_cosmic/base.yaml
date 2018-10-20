@@ -253,11 +253,11 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: DEADBEEF
+  iso_checksum: cf9250781dadd919f23c9d9612212cad653e35fccc2fbcf6853f67ad09e067ba
   iso_checksum_type: sha256
-  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/pending/SHA256SUMS
-  iso_file: cosmic-server-amd64.iso
-  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/pending
+# iso_checksum_url: http://cdimage.ubuntu.com/releases/18.10/release/SHA256SUMS
+  iso_file: ubuntu-18.10-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/releases/18.10/release
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
