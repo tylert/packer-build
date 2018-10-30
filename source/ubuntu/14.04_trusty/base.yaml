@@ -186,7 +186,7 @@ post-processors:
   - 'echo ''    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-''{{build_name}}''.box''
     >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    checksum_type: sha256'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
-  - 'echo ''    checksum: XXXCHECKSUM'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''    checksum: ''$(echo $(sha256sum --binary {{user `output_directory`}}/{{user `vm_name`}}-{{user `version`}}-{{build_name}}.box) | cut -d'' '' -f1) >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - if [ 'vbox' = '{{build_name}}' ]; then sed -i 's/XXXPROVIDER/virtualbox/' '{{user `output_directory`}}/{{user `vm_name`}}.yaml'; fi
   - if [ 'qemu' = '{{build_name}}' ]; then sed -i 's/XXXPROVIDER/libvirt/' '{{user `output_directory`}}/{{user `vm_name`}}.yaml'; fi
   only:
