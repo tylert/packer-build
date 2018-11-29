@@ -264,7 +264,7 @@ variables:
   language: en
   locale: en_CA.UTF-8
   memory: '512'
-  min_vagrant_version: 2.2.1
+  min_vagrant_version: 2.2.2
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: source/ubuntu/18.10_cosmic/base.preseed
