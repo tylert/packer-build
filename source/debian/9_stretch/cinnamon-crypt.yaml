@@ -110,6 +110,15 @@ builders:
     - '{{.Name}}'
     - '--cpus'
     - '{{user `cpus`}}'
+  - - modifyvm
+    - '{{.Name}}'
+    - '--rtcuseutc'
+    - >-
+      {{if user `system_clock_in_utc` | eq `true` -}}
+      on
+      {{- else -}}
+      off
+      {{- end}}
 # vboxmanage_post: (array of array of strings)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
