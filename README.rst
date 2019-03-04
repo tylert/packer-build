@@ -29,7 +29,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 1.3.4 on Debian Stretch 9.x (VirtualBox and QEMU)
+  - 1.3.5 on Debian Stretch 9.x (VirtualBox and QEMU)
   - not currently being tested on macOS but used to work fine
 
 .. _Packer:  https://www.packer.io/
@@ -53,7 +53,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 2.2.3 on Debian Stretch 9.x (VirtualBox)
+  - 2.2.4 on Debian Stretch 9.x (VirtualBox)
   - not currently being tested on macOS but used to work fine
 
 .. _Vagrant:  https://www.vagrantup.com/
@@ -443,7 +443,11 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
+* Earnest? Earwig? (19.10.x);  released on 2019-10-??, supported until 2020?-07?-01
 * Disco Dingo (19.04.x);  released on 2019-04-??, supported until 2020?-02?-01
 * Cosmic Cuttlefish (18.10.x);  released on 2018-10-18, supported until 2019-07-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01
+
+(LTS releases are usually supported for 5 years and non-LTS releases are
+usually supported for 9 to 11 months)
