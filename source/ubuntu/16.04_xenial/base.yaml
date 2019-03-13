@@ -31,6 +31,7 @@ _ANCHORS:
   - 'vga=788 noprompt quiet --<enter>'
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
+  cpus: '{{user `cpus`}}'
   disk_size: '{{user `disk_size`}}'
 # floppy_dirs: (array of strings)
 # floppy_files: (array of strings)
@@ -46,6 +47,7 @@ _ANCHORS:
   iso_urls:
   - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
   - '{{user `iso_path_external`}}/{{user `iso_file`}}'
+  memory: '{{user `memory`}}'
   output_directory: '{{user `output_directory`}}'
   shutdown_command: echo '{{user `ssh_password`}}' | sudo -E -S poweroff
   shutdown_timeout: '{{user `shutdown_timeout`}}'
@@ -117,14 +119,6 @@ builders:
   vboxmanage:
   - - modifyvm
     - '{{.Name}}'
-    - '--memory'
-    - '{{user `memory`}}'
-  - - modifyvm
-    - '{{.Name}}'
-    - '--cpus'
-    - '{{user `cpus`}}'
-  - - modifyvm
-    - '{{.Name}}'
     - '--rtcuseutc'
     - >-
       {{if user `system_clock_in_utc` | eq `true` -}}
@@ -151,11 +145,7 @@ builders:
   name: qemu
   net_device: virtio-net
   qemu_binary: '{{user `qemu_binary`}}'
-  qemuargs:
-  - - '-m'
-    - '{{user `memory`}}M'
-  - - '-smp'
-    - '{{user `cpus`}}'
+# qemuargs:
   skip_compaction: true
   ssh_host_port_max: '{{user `ssh_host_port_max`}}'
   ssh_host_port_min: '{{user `ssh_host_port_min`}}'
