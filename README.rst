@@ -443,7 +443,7 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* Excremental? Elephan? (19.10.x);  released on 2019-10-18?, supported until 2020?-07?-01
+* Eoan? E? (19.10.x);  released on 2019-10-18?, supported until 2020?-07?-01
 * Disco Dingo (19.04.x);  released on 2019-04-18, supported until 2020-01-01
 * Cosmic Cuttlefish (18.10.x);  released on 2018-10-18, supported until 2019-07-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01

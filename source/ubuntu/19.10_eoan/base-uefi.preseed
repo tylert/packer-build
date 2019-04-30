@@ -22,7 +22,7 @@ d-i clock-setup/utc boolean true
 # set above to false if making a bootable USB to run on same system as Windows
 
 # Network Setup
-d-i netcfg/get_hostname string base-excremental
+d-i netcfg/get_hostname string base-uefi-eoan
 # d-i netcfg/get_hostname string {{vm_name}}
 d-i netcfg/get_domain string
 # https://bugs.launchpad.net/ubuntu/+source/netcfg/+bug/713385
@@ -68,7 +68,25 @@ d-i partman-auto-lvm/new_vg_name string primary
 d-i partman-auto-lvm/guided_size string max
 d-i partman-lvm/confirm boolean true
 d-i partman-lvm/confirm_nooverwrite boolean true
-d-i partman-auto/choose_recipe select atomic
+d-i partman-auto/choose_recipe select fling-the-bling
+d-i partman-auto/expert_recipe string fling-the-bling :: \
+  1 1 1 free \
+    $bios_boot{ } method{ biosgrub } \
+  . \
+  256 256 256 fat32 \
+    $primary{ } $lvmignore{ } \
+    method{ efi } format{ } \
+  . \
+  100% 200% 200% linux-swap \
+    $lvmok{ } lv_name{ swap } in_vg{ primary } \
+    method{ swap } format{ } \
+  . \
+  10000 10000 -1 ext4 \
+    $lvmok{ } lv_name{ root } in_vg{ primary } \
+    method{ format } format{ } use_filesystem{ } filesystem{ ext4 } \
+    mountpoint{ / } \
+  . \
+.
 
 # Final Setup
 d-i finish-install/reboot_in_progress note
