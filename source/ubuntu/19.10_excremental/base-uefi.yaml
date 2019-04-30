@@ -241,7 +241,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: 'Base box (UEFI) for 64-bit x86 Ubuntu Disco Dingo 19.04.x'
+  description: 'Base box (UEFI) for 64-bit x86 Ubuntu Excremental Elephant 19.10.x'
   disk_size: '7500'
   domain: ''
   guest_os_type: Ubuntu_64
@@ -249,11 +249,11 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 7e8a0d07522f591dfee9bc9fcd7c05466763161e6cb0117906655bce1750b2fa
+# iso_checksum: deadbeef
   iso_checksum_type: sha256
-# iso_checksum_url: http://cdimage.ubuntu.com/releases/19.04/release/SHA256SUMS
-  iso_file: ubuntu-19.04-server-amd64.iso
-  iso_path_external: http://cdimage.ubuntu.com/releases/19.04/release
+  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily-current/SHA256SUMS
+  iso_file: eoan-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily-current
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
@@ -263,7 +263,7 @@ variables:
   min_vagrant_version: 2.2.4
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: source/ubuntu/19.04_disco/base-uefi.preseed
+  preseed_file: source/ubuntu/19.10_excremental/base-uefi.preseed
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
   ssh_agent_auth: 'false'
@@ -282,9 +282,9 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  vagrantfile_template: source/ubuntu/19.04_disco/base-uefi.vagrant
+  vagrantfile_template: source/ubuntu/19.10_excremental/base-uefi.vagrant
   version: 0.0.0
-  vm_name: base-uefi-disco
+  vm_name: base-uefi-excremental
   vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'

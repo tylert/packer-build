@@ -45,7 +45,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
-  - 2.8.1(Debian 1:2.8+dfsg-6+deb9u3) [2.8+dfsg-6+deb9u3] on Debian Stretch 9.x
+  - 2.8.1 (Debian 1:2.8+dfsg-6+deb9u3) [2.8+dfsg-6+deb9u3] on Debian Stretch 9.x
   - not currently being tested on macOS but used to work fine
 
 .. _QEMU:  https://www.qemu.org/
@@ -443,8 +443,8 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* Earnest? Earwig? (19.10.x);  released on 2019-10-??, supported until 2020?-07?-01
-* Disco Dingo (19.04.x);  released on 2019-04-??, supported until 2020?-02?-01
+* Excremental? Elephan? (19.10.x);  released on 2019-10-18?, supported until 2020?-07?-01
+* Disco Dingo (19.04.x);  released on 2019-04-18, supported until 2020-01-01
 * Cosmic Cuttlefish (18.10.x);  released on 2018-10-18, supported until 2019-07-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01

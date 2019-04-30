@@ -7,8 +7,17 @@
 _ANCHORS:
 - &builder_common_options
   boot_command:
-  - '<wait>c<wait>'
-  - 'linux /install/vmlinuz '
+  - '<esc><f6><esc>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>'
+  - '<bs><bs><bs>'
+  - 'initrd=/install/initrd.gz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
   - 'language={{user `language`}} '
@@ -20,8 +29,6 @@ _ANCHORS:
   - 'console-setup/ask_detect=false '
   - 'keyboard-configuration/layoutcode={{user `keyboard`}} '
   - 'vga=788 noprompt quiet --<enter>'
-  - 'initrd /install/initrd.gz<enter>'
-  - 'boot<enter>'
   boot_wait: '{{user `boot_wait`}}'
   communicator: '{{user `communicator`}}'
   cpus: '{{user `cpus`}}'
@@ -110,10 +117,6 @@ builders:
   ssh_skip_nat_mapping: false
   type: virtualbox-iso
   vboxmanage:
-  - - modifyvm
-    - '{{.Name}}'
-    - '--firmware'
-    - efi
   - - modifyvm
     - '{{.Name}}'
     - '--rtcuseutc'
@@ -206,11 +209,6 @@ post-processors:
 provisioners:
 - <<: *shell_provisioner_options
   inline:
-  - echo 'FS0:\EFI\ubuntu\grubx64.efi' > /boot/efi/startup.nsh
-  only:
-  - vbox
-- <<: *shell_provisioner_options
-  inline:
   - 'echo ''{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL'' > /etc/sudoers.d/99{{user
     `ssh_username`}}'
   - chmod 0440 /etc/sudoers.d/99{{user `ssh_username`}}
@@ -237,11 +235,16 @@ provisioners:
 #   \_/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
 variables:
 # apt-cache-url: http://myserver:3142
+  aws_ami_name: 'base-{{isotime "2006-01-02-15-04-05"}}'
+  aws_region: ca-central-1
+  aws_s3_bucket_name: packer-bucket
+  aws_s3_key_name: packer-import-{{timestamp}}
+  aws_skip_clean: 'false'
   boot_wait: 3s
   communicator: ssh
   country: CA
   cpus: '1'
-  description: 'Base box (UEFI) for 64-bit x86 Ubuntu Disco Dingo 19.04.x'
+  description: 'Base box for 64-bit x86 Ubuntu Excremental Elephant 19.10.x'
   disk_size: '7500'
   domain: ''
   guest_os_type: Ubuntu_64
@@ -249,11 +252,11 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: 7e8a0d07522f591dfee9bc9fcd7c05466763161e6cb0117906655bce1750b2fa
+# iso_checksum: deadbeef
   iso_checksum_type: sha256
-# iso_checksum_url: http://cdimage.ubuntu.com/releases/19.04/release/SHA256SUMS
-  iso_file: ubuntu-19.04-server-amd64.iso
-  iso_path_external: http://cdimage.ubuntu.com/releases/19.04/release
+  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
+  iso_file: eoan-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
@@ -263,7 +266,7 @@ variables:
   min_vagrant_version: 2.2.4
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: source/ubuntu/19.04_disco/base-uefi.preseed
+  preseed_file: source/ubuntu/19.10_excremental/base.preseed
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
   ssh_agent_auth: 'false'
@@ -282,9 +285,9 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  vagrantfile_template: source/ubuntu/19.04_disco/base-uefi.vagrant
+  vagrantfile_template: source/ubuntu/19.10_excremental/base.vagrant
   version: 0.0.0
-  vm_name: base-uefi-disco
+  vm_name: base-excremental
   vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'
