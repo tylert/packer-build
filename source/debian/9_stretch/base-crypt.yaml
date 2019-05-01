@@ -30,7 +30,7 @@ _ANCHORS:
   iso_checksum_type: '{{user `iso_checksum_type`}}'
   iso_checksum_url: '{{user `iso_checksum_url`}}'
   iso_target_extension: iso
-  iso_target_path: '{{user `packer_cache_dir`}}/{{user `iso_file`}}'
+  iso_target_path: '{{user `iso_file`}}'
   iso_urls:
   - '{{user `iso_path_internal`}}/{{user `iso_file`}}'
   - '{{user `iso_path_external`}}/{{user `iso_file`}}'
@@ -248,7 +248,6 @@ variables:
   min_vagrant_version: 2.2.4
   mirror: ftp.ca.debian.org
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
-  packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
   preseed_file: source/debian/9_stretch/base-crypt.preseed
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
