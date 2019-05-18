@@ -251,7 +251,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: 'Base box (UEFI) for x86_64 Ubuntu Eoan E? 19.10.x'
+  description: 'Base box (UEFI) for x86_64 Ubuntu Eoan Ermine 19.10.x'
   disk_size: '7500'
   domain: ''
   guest_os_type: Ubuntu_64
