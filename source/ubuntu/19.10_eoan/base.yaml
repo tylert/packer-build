@@ -273,7 +273,7 @@ variables:
   language: en
   locale: en_CA.UTF-8
   memory: '512'
-  min_vagrant_version: 2.2.4
+  min_vagrant_version: 2.2.5
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   preseed_file: source/ubuntu/19.10_eoan/base.preseed
   qemu_binary: qemu-system-x86_64
