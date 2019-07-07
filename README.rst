@@ -103,12 +103,12 @@ Then, you may run them using one or more of the following::
 
 Examples::
 
-    ./script/vbox.sh template/debian/buster/base.json
+    ./script/vbox.sh template/debian/10_buster/base.json
 
     ./script/vbox.sh -var headless=true -var version=1.0.0 -var vm_name=test \
-        template/debian/buster/base.json
+        template/debian/10_buster/base.json
 
-    ./script/qemu.sh -var-file=variables.json template/debian/buster/base.json
+    ./script/qemu.sh -var-file=variables.json template/debian/10_buster/base.json
 
 Contents of example file ``variables.json`` used above::
 
@@ -136,7 +136,7 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    ./script/vbox.sh -var version=1.0.0 template/debian/buster/base.json
+    ./script/vbox.sh -var version=1.0.0 template/debian/10_buster/base.json
     vagrant box add myname/buster \
         build/2038-01-19-03-14/base-buster-1.0.0.virtualbox.box
     vagrant init myname/buster
@@ -207,7 +207,7 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    ./script/qemu.sh template/debian/buster/base.json
+    ./script/qemu.sh template/debian/10_buster/base.json
     zcat build/2038-01-19-03-14/base-buster.raw.gz | dd of=/dev/sdz bs=4M
 
 ... Or, if you just want to "boot" it::
@@ -223,7 +223,7 @@ You may override the default directory used instead of './packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
     PACKER_CACHE_DIR=/tmp packer build -only=vbox \
-        template/debian/buster/base.json
+        template/debian/10_buster/base.json
 
 You must *always* specify the PACKER_CACHE_DIR when using the provided
 templates due to a problem in packer where the PACKER_CACHE_DIR is not provided
@@ -433,7 +433,7 @@ Debian_releases_
 
 * Bookworm (12.x);  released on 2023?-??-??, supported until 2028?-??-01
 * Bullseye (11.x);  released on 2021?-??-??, supported until 2026?-??-01
-* Buster (10.x);  released on 2019?-??-??, supported until 2024?-??-01
+* Buster (10.x);  released on 2019-07-06, supported until 2024?-??-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
 * Jessie (8.x);  released on 2015-04-26, supported until 2020-04-01
 
