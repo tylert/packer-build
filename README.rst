@@ -433,9 +433,9 @@ Debian_releases_
 
 * Bookworm (12.x);  released on 2023?-??-??, supported until 2028?-??-01
 * Bullseye (11.x);  released on 2021?-??-??, supported until 2026?-??-01
-* Buster (10.x);  released on 2019-07-06, supported until 2024?-??-01
+* Buster (10.x);  released on 2019-07-06, supported until 2024-??-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
-* Jessie (8.x);  released on 2015-04-26, supported until 2020-04-01
+* Jessie (8.x);  released on 2015-04-26, supported until 2020-06-30
 
 
 Ubuntu_releases_
@@ -443,7 +443,7 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* Eoan Ermine (19.10.x);  released on 2019-10-17?, supported until 2020?-07?-01
+* Eoan Ermine (19.10.x);  released on 2019-10-17?, supported until 2020-07-01
 * Disco Dingo (19.04.x);  released on 2019-04-18, supported until 2020-01-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01
