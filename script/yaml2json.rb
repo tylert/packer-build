@@ -5,4 +5,6 @@
 require 'yaml'
 require 'json'
 
-puts JSON.pretty_generate(YAML.load($stdin.read))
+x = YAML.load($stdin.read)
+x.delete('_ANCHORS')
+puts JSON.pretty_generate(x)
