@@ -19,6 +19,9 @@ for input in $(find source -name '*.yaml'); do
     CHECKPOINT_DISABLE=1 packer fix "${output/yaml/json}" \
         > "${output/yaml/json}.new"
 
+    # Save the original just in case we want to diff it later:
+    mv "${output/yaml/json}" "${output/yaml/json}.orig"
+
     mv "${output/yaml/json}.new" "${output/yaml/json}"
 
     CHECKPOINT_DISABLE=1 packer validate "${output/yaml/json}"
