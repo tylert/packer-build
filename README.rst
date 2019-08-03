@@ -98,17 +98,16 @@ You must first generate templates using::
 
 Then, you may run them using one or more of the following::
 
-    ./script/vbox.sh [PACKER_OPTIONS] PACKER_TEMPLATE
-    ./script/qemu.sh [PACKER_OPTIONS] PACKER_TEMPLATE
+    packer [PACKER_OPTIONS] PACKER_TEMPLATE
 
 Examples::
 
-    ./script/vbox.sh template/debian/10_buster/base.json
+    packer build template/debian/10_buster/base.json
 
-    ./script/vbox.sh -var headless=true -var version=1.0.0 -var vm_name=test \
+    packer build -var headless=true -var version=1.0.0 -var vm_name=test \
         template/debian/10_buster/base.json
 
-    ./script/qemu.sh -var-file=variables.json template/debian/10_buster/base.json
+    packer build -var-file=variables.json template/debian/10_buster/base.json
 
 Contents of example file ``variables.json`` used above::
 
@@ -136,7 +135,7 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    ./script/vbox.sh -var version=1.0.0 template/debian/10_buster/base.json
+    packer build -only=vbox -var version=1.0.0 template/debian/10_buster/base.json
     vagrant box add myname/buster \
         build/2038-01-19-03-14/base-buster-1.0.0.virtualbox.box
     vagrant init myname/buster
@@ -207,7 +206,7 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    ./script/qemu.sh template/debian/10_buster/base.json
+    packer build -only=qemu template/debian/10_buster/base.json
     zcat build/2038-01-19-03-14/base-buster.raw.gz | dd of=/dev/sdz bs=4M
 
 ... Or, if you just want to "boot" it::
