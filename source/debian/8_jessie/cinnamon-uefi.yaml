@@ -214,6 +214,7 @@ provisioners:
   - echo 'FS0:\EFI\debian\grubx64.efi' > /boot/efi/startup.nsh
   only:
   - vbox
+  - qemu
 - <<: *shell_provisioner_options
   inline:
   - 'echo ''{{user `ssh_username`}} ALL=(ALL) NOPASSWD: ALL'' > /etc/sudoers.d/99{{user
@@ -227,6 +228,9 @@ provisioners:
   - apt-get update
   - apt-get --yes dist-upgrade
   - apt-get clean
+  only:
+  - vbox
+  - qemu
 - <<: *shell_provisioner_options
   inline:
   - dd if=/dev/zero of=/ZEROFILL bs=16M || true
