@@ -102,9 +102,9 @@ Then, you may run them using one or more of the following::
 
 Examples::
 
-    packer build template/debian/10_buster/base.json
+    packer build -only=vbox template/debian/10_buster/base.json
 
-    packer build -var headless=true -var version=1.0.0 -var vm_name=test \
+    packer build -only=qemu -var=headless=true -var=version=1.0.0 -var=vm_name=test \
         template/debian/10_buster/base.json
 
     packer build -var-file=variables.json template/debian/10_buster/base.json
@@ -135,7 +135,7 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    packer build -only=vbox -var version=1.0.0 template/debian/10_buster/base.json
+    packer build -only=vbox -var=version=1.0.0 template/debian/10_buster/base.json
     vagrant box add myname/buster \
         build/2038-01-19-03-14/base-buster-1.0.0.virtualbox.box
     vagrant init myname/buster
