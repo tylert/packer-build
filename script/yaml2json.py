@@ -12,7 +12,7 @@ import ruamel.yaml as yaml
 
 def main():
     x = yaml.load(sys.stdin, Loader=yaml.Loader)
-    del x['_ANCHORS']
+    del x['_anchors']
     print(json.dumps(x, sort_keys=True,
           indent=2, separators=(',', ': ')))
 
