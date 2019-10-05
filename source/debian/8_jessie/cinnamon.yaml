@@ -247,9 +247,9 @@ variables:
   http_port_min: '8000'
   iso_checksum: 29c73e5b0669c32d15600eb0a0b00eb08a7600fac231decaf85c2cd3d449cea4b48053601277acaa6907cf840a2fe9f22efc8a9a3f5f30ded7260ed4b391768d
   iso_checksum_type: sha512
-# iso_checksum_url: http://cdimage.debian.org/cdimage/archive/latest-oldolostable/amd64/iso-cd/SHA512SUMS
+# iso_checksum_url: http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/SHA512SUMS
   iso_file: debian-8.11.1-amd64-netinst.iso
-  iso_path_external: http://cdimage.debian.org/cdimage/archive/latest-oldolostable/amd64/iso-cd
+  iso_path_external: http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd
   iso_path_internal: http://myserver:8080/debian
   keep_registered: 'false'
   keyboard: us
