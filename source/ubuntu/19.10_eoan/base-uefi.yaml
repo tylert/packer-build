@@ -261,11 +261,11 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: deadbeef
+  iso_checksum: 921fd8b271c04aa86a321cc35b40e677f9b85f7903bf2204efb2389b0f0a64c1
   iso_checksum_type: sha256
-  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
-  iso_file: eoan-server-amd64.iso
-  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
+# iso_checksum_url: http://cdimage.ubuntu.com/releases/19.10/release/SHA256SUMS
+  iso_file: ubuntu-19.10-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/releases/19.10/release
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
