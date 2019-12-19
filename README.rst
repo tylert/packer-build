@@ -29,7 +29,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED:  Packer_ (Packer_download_)
 
-  - 1.4.5 on Debian Stretch 9.x (VirtualBox and QEMU)
+  - 1.5.0 on Debian Buster 10.x (VirtualBox and QEMU)
   - not currently being tested on macOS but used to work fine
 
 .. _Packer:  https://www.packer.io/
@@ -37,7 +37,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
-  - 5.1.34 r121010 (Qt5.7.1) [5.1.34-121010~Debian~stretch] on Debian Stretch 9.x
+  - 5.1.34 r121010 (Qt5.7.1) [5.1.34-121010~Debian~stretch] on Debian Buster 10.x
   - not currently being tested on macOS but used to work fine
 
 .. _VirtualBox:  https://www.virtualbox.org/
@@ -45,7 +45,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
-  - 2.8.1 (Debian 1:2.8+dfsg-6+deb9u3) [2.8+dfsg-6+deb9u3] on Debian Stretch 9.x
+  - 3.1.0 (Debian 1:3.1+dfsg-8+deb10u3) [3.1+dfsg-8+deb10u3] on Debian Buster 10.x
   - not currently being tested on macOS but used to work fine
 
 .. _QEMU:  https://www.qemu.org/
@@ -53,7 +53,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * OPTIONAL:  Vagrant_ (Vagrant_download_)
 
-  - 2.2.6 on Debian Stretch 9.x (VirtualBox)
+  - 2.2.6 on Debian Buster 10.x (VirtualBox)
   - not currently being tested on macOS but used to work fine
 
 .. _Vagrant:  https://www.vagrantup.com/
@@ -102,12 +102,12 @@ Then, you may run them using one or more of the following::
 
 Examples::
 
-    packer build -only=vbox template/debian/10_buster/base.json
+    packer build -only=vbox template/debian/11_bullseye/base.json
 
     packer build -only=qemu -var=headless=true -var=version=1.0.0 -var=vm_name=test \
-        template/debian/10_buster/base.json
+        template/debian/11_bullseye/base.json
 
-    packer build -var-file=variables.json template/debian/10_buster/base.json
+    packer build -var-file=variables.json template/debian/11_bullseye/base.json
 
 Contents of example file ``variables.json`` used above::
 
@@ -135,10 +135,10 @@ VirtualBox will get confused).
 
 To create and use a Vagrant box file without a dedicated Vagrantfile::
 
-    packer build -only=vbox -var=version=1.0.0 template/debian/10_buster/base.json
-    vagrant box add myname/buster \
-        build/2038-01-19-03-14/base-buster-1.0.0.virtualbox.box
-    vagrant init myname/buster
+    packer build -only=vbox -var=version=1.0.0 template/debian/11_bullseye/base.json
+    vagrant box add myname/bullseye \
+        build/2038-01-19-03-14/base-bullseye-1.0.0.virtualbox.box
+    vagrant init myname/bullseye
     vagrant up
     vagrant ssh
     ...
@@ -148,15 +148,15 @@ In order to version things and self-host the box files, you will need to create
 a JSON file containing the following::
 
     {
-      "name": "base-buster",
-      "description": "Base box for 64-bit x86 Debian Buster 10.x",
+      "name": "base-bullseye",
+      "description": "Base box for 64-bit x86 Debian Bullseye 11.x",
       "versions": [
         {
           "version": "1.0.0",
           "providers": [
             {
               "name": "virtualbox",
-              "url": "http://server/vm/base-buster/base-buster-1.0.0-virtualbox.box",
+              "url": "http://server/vm/base-bullseye/base-bullseye-1.0.0-virtualbox.box",
               "checksum_type": "sha256",
               "checksum": "THESHA256SUMOFTHEBOXFILE"
             }
@@ -170,8 +170,8 @@ SHA256 hashes are the largest ones that Vagrant supports, currently.
 Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure('2') do |config|
-      config.vm.box = 'base-buster'
-      config.vm.box_url = 'http://server/vm/base-buster/base-buster.json'
+      config.vm.box = 'base-bullseye'
+      config.vm.box_url = 'http://server/vm/base-bullseye/base-bullseye.json'
 
       config.vm.synced_folder '.', '/vagrant', disabled: true
     end
@@ -206,13 +206,13 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    packer build -only=qemu template/debian/10_buster/base.json
-    zcat build/2038-01-19-03-14/base-buster.raw.gz | dd of=/dev/sdz bs=4M
+    packer build -only=qemu template/debian/11_bullseye/base.json
+    zcat build/2038-01-19-03-14/base-bullseye.raw.gz | dd of=/dev/sdz bs=4M
 
 ... Or, if you just want to "boot" it::
 
     qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm \
-        build/2038-01-19-03-14/base-buster.raw
+        build/2038-01-19-03-14/base-bullseye.raw
 
 
 Overriding Local ISO Cache Location
@@ -222,7 +222,7 @@ You may override the default directory used instead of './packer_cache' by
 specifying it with the environment variable 'PACKER_CACHE_DIR'::
 
     PACKER_CACHE_DIR=/tmp packer build -only=vbox \
-        template/debian/10_buster/base.json
+        template/debian/11_bullseye/base.json
 
 You must *always* specify the PACKER_CACHE_DIR when using the provided
 templates due to a problem in packer where the PACKER_CACHE_DIR is not provided
@@ -392,7 +392,7 @@ error::
 
     ...
     ==> virtualbox: Starting the virtual machine...
-    ==> virtualbox: Error starting VM: VBoxManage error: VBoxManage: error: The virtual machine 'base-buster' has terminated unexpectedly during startup because of signal 6
+    ==> virtualbox: Error starting VM: VBoxManage error: VBoxManage: error: The virtual machine 'base-bullseye' has terminated unexpectedly during startup because of signal 6
     ==> virtualbox: VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MachineWrap, interface IMachine
     ...
 
