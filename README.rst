@@ -436,16 +436,23 @@ Debian_releases_
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
 * Jessie (8.x);  released on 2015-04-26, supported until 2020-06-30
 
+Debian releases seem to occur every 2 years around mid-year and usually receive
+security support for 3 years and long-term support for 5 years.
+
 
 Ubuntu_releases_
 ~~~~~~~~~~~~~~~
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
+* Gargantuan? Guppy? (20.10.x);  releases on 2020-10-??, supported until 2021?-??-??
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23?, supported until 2025-04-01
 * Eoan Ermine (19.10.x);  released on 2019-10-17, supported until 2020-07-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01
 
-(LTS releases are usually supported for 5 years and non-LTS releases are
-usually supported for 9 to 11 months)
+Ubuntu releases traditionally-occur twice a year--in April and October.  LTS
+releases typically come out in April and receive standard support for 5 years
+and extended security maintenance for 10 years.  Non-LTS releases typically
+seem to receive standard support for 9 to 11 months with no extended security
+maintenance.
