@@ -40,7 +40,7 @@ d-i mirror/country string manual
 d-i mirror/http/hostname string {{mirror}}
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
-# d-i mirror/http/proxy string {{apt-cache-url}}
+# d-i mirror/http/proxy string {{apt_cache_url}}
 d-i apt-setup/contrib boolean true
 d-i apt-setup/non-free boolean true
 tasksel tasksel/first multiselect print-server, ssh-server, standard

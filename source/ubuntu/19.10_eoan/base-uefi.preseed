@@ -37,7 +37,7 @@ d-i hw-detect/load_firmware boolean false
 d-i hw-detect/load_media boolean false
 apt-cdrom-setup apt-setup/cdrom/set-first boolean false
 d-i mirror/http/proxy string
-# d-i mirror/http/proxy string {{apt-cache-url}}
+# d-i mirror/http/proxy string {{apt_cache_url}}
 d-i pkgsel/update-policy select none
 tasksel tasksel/first multiselect ubuntu-server
 d-i pkgsel/include string openssh-server, unattended-upgrades
