@@ -245,7 +245,7 @@ provisioners:
 #  \ V / (_| | |  | | (_| | |_) | |  __/\__ \
 #   \_/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
 variables:
-# apt-cache-url: http://myserver:3142
+  apt-cache-url: http://myserver:3142
   aws_ami_name: 'base-{{isotime "2006-01-02-15-04-05"}}'
   aws_region: ca-central-1
   aws_s3_bucket_name: packer-bucket

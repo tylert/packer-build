@@ -248,7 +248,7 @@ provisioners:
 #  \ V / (_| | |  | | (_| | |_) | |  __/\__ \
 #   \_/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
 variables:
-# apt-cache-url: http://myserver:3142
+  apt-cache-url: http://myserver:3142
   boot_wait: 3s
   communicator: ssh
   country: CA
