@@ -6,3 +6,5 @@ build/
 Vagrantfile
 .vagrant/
 .venv/
+__pycache__/
+*.py[co]
