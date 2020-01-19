@@ -1,10 +1,7 @@
-# Vagrant.require_version '>= {{min_vagrant_version}}'
-Vagrant.require_version '>= 2.2.6'
+Vagrant.require_version '>= {{min_vagrant_version}}'
 
 Vagrant.configure('2') do |config|
-  config.ssh.username = 'ghost'
-# config.ssh.username = '{{ssh_username}}'
-  config.ssh.password = '1ma63b0rk3d'
-# config.ssh.password = '{{ssh_password}}'
-# config.vm.communicator = '{{communicator}}'
+  config.ssh.username = '{{ssh_username}}'
+  config.ssh.password = '{{ssh_password}}'
+  config.vm.communicator = '{{communicator}}'
 end

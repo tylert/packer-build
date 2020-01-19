@@ -1,2 +1,8 @@
+autopep8==1.4.4
+Click==7.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+pycodestyle==2.5.0
 ruamel.yaml==0.16.5
 ruamel.yaml.clib==0.2.0
+six==1.14.0

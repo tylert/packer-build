@@ -1,1 +1,6 @@
+autopep8
+Click
+Jinja2
+pycodestyle
 ruamel.yaml
+six
