@@ -94,7 +94,7 @@ Using Packer Templates
 
 You must first generate templates using::
 
-    ./script/generate_templates.sh
+    python generate_templates.py
 
 Then, you may run them using one or more of the following::
 
