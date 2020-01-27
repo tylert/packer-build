@@ -276,7 +276,7 @@ variables:
   memory: '512'
   min_vagrant_version: 2.2.6
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
-  preseed_file: source/ubuntu/20.04_focal/base.preseed
+  preseed_file: template/ubuntu/20.04_focal/base.preseed
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
   ssh_agent_auth: 'false'
@@ -295,7 +295,7 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  vagrantfile_template: source/ubuntu/20.04_focal/base.vagrant
+  vagrantfile_template: template/ubuntu/20.04_focal/base.vagrant
   version: 0.0.0
   vm_name: base-focal
   vnc_vrdp_bind_address: 127.0.0.1

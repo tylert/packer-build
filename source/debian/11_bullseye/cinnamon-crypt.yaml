@@ -259,7 +259,7 @@ variables:
   min_vagrant_version: 2.2.6
   mirror: ftp.ca.debian.org
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
-  preseed_file: source/debian/11_bullseye/cinnamon-crypt.preseed
+  preseed_file: template/debian/11_bullseye/cinnamon-crypt.preseed
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
   ssh_agent_auth: 'false'
@@ -278,7 +278,7 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  vagrantfile_template: source/debian/11_bullseye/cinnamon-crypt.vagrant
+  vagrantfile_template: template/debian/11_bullseye/cinnamon-crypt.vagrant
   version: 0.0.0
   vm_name: cinnamon-crypt-bullseye
   vnc_vrdp_bind_address: 127.0.0.1
