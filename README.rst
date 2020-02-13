@@ -82,11 +82,9 @@ It may be possible to correct this error by installing the
 TODO Items
 ~~~~~~~~~~
 
-* Get proper templating working for the preseed and vagrant files
+* [DRY phase3] Wait until HCL2 stops sucking and convert everything from YAML to HCL2
 * [preseed debian] Find out if partman-crypto will allow passphrase-crypted
 * [preseed debian] Skip past "Force UEFI Install" installer prompt
-* [template qemu] Correct generated filenames for images to end in .img{,.gz}
-* [template vagrant] Dump checksum into vagrant manifest file + convert to JSON
 
 
 Using Packer Templates
