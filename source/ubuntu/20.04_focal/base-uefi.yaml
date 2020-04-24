@@ -150,7 +150,7 @@ builders:
   name: qemu
   net_device: virtio-net
   qemu_binary: '{{user `qemu_binary`}}'
-  qemuargs: '-bios OVMF.fd'
+# qemuargs: [][](string)
   skip_compaction: true
   ssh_host_port_max: '{{user `ssh_host_port_max`}}'
   ssh_host_port_min: '{{user `ssh_host_port_min`}}'
