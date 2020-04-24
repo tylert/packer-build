@@ -8,7 +8,7 @@ _anchors:
 - &builder_common_options
   boot_command:
   - '<wait>c<wait>'
-  - 'linux /install/vmlinuz '
+  - 'linux /casper/vmlinuz '
   - 'auto=true '
   - 'url=http://{{.HTTPIP}}:{{.HTTPPort}}/{{user `preseed_file`}} '
   - 'language={{user `language`}} '
@@ -150,7 +150,7 @@ builders:
   name: qemu
   net_device: virtio-net
   qemu_binary: '{{user `qemu_binary`}}'
-# qemuargs:
+  qemuargs: '-bios OVMF.fd'
   skip_compaction: true
   ssh_host_port_max: '{{user `ssh_host_port_max`}}'
   ssh_host_port_min: '{{user `ssh_host_port_min`}}'
