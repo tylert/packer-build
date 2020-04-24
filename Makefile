@@ -17,7 +17,7 @@ VENV_DIR ?= .venv
 .PRECIOUS: .yaml .preseed .vagrant
 
 .PHONY: all
-all:
+all: build
 
 ACTIVATE_SCRIPT = $(VENV_DIR)/bin/activate
 .PHONY: venv
@@ -38,7 +38,7 @@ venv_upgrade: venv
 # Don't depend on source files, always regenerate templates!!!
 $(TEMPLATE_DIR): venv
 	@source $(ACTIVATE_SCRIPT) && \
-  $(error $(OS_NAME) $(OS_VERSION) $(TEMPLATE))
+  $(PYTHON) generate_template.py
 
 .PHONY: build
 build: $(TEMPLATE_DIR)
@@ -63,8 +63,8 @@ clean:
 
 .PHONY: reallyclean
 reallyclean: clean
-	@rm -rf $(PACKER_CACHE_DIR)
+	@rm -rf $(VENV_DIR)
 
 .PHONY: reallyreallyclean
 reallyreallyclean: reallyclean
-	@rm -rf $(VENV_DIR)
+	@rm -rf $(PACKER_CACHE_DIR)
