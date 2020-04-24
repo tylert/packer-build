@@ -20,8 +20,8 @@ _anchors:
   communicator: '{{user `communicator`}}'
   cpus: '{{user `cpus`}}'
   disk_size: '{{user `disk_size`}}'
-# floppy_dirs: (array of strings)
-# floppy_files: (array of strings)
+# floppy_dirs: [](string)
+# floppy_files: [](string)
   headless: '{{user `headless`}}'
   http_directory: '{{user `http_directory`}}'
   http_port_max: '{{user `http_port_max`}}'
@@ -65,7 +65,7 @@ _anchors:
   ssh_username: '{{user `ssh_username`}}'
 - &provisioner_shell_options
   binary: false
-# environment_vars: (array of strings)
+# environment_vars: [](string)
   execute_command: echo '{{user `ssh_password`}}' | {{.Vars}} sudo -E -S '{{.Path}}'
   expect_disconnect: true
   inline_shebang: /bin/sh -e
@@ -87,7 +87,7 @@ builders:
 #              \ V /| | |  | |_| |_| | (_| | | |_) | (_) >  <_____| \__ \ (_) |
 #               \_/ |_|_|   \__|\__,_|\__,_|_|_.__/ \___/_/\_\    |_|___/\___/
 - <<: [*builder_common_options, *communicator_ssh_options]
-# export_opts: (array of strings)
+# export_opts: [](string)
   format: ova
   guest_additions_mode: disable
 # guest_additions_path: (string)
@@ -117,7 +117,7 @@ builders:
       {{- else -}}
       off
       {{- end}}
-# vboxmanage_post: (array of array of strings)
+# vboxmanage_post: [][](string)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{user `vnc_vrdp_bind_address`}}'
   vrdp_port_max: '{{user `vnc_vrdp_port_max`}}'
@@ -159,7 +159,7 @@ min_packer_version: 1.5.5
 # |_|                      |_|
 post-processors:
 - compression_level: 6
-# include: (array of strings)
+# include: [](string)
   keep_input_artifact: true
   only:
   - vbox
@@ -175,7 +175,7 @@ post-processors:
   output: '{{user `output_directory`}}/{{user `vm_name`}}.raw.gz'
   type: compress
 - inline_shebang: /bin/sh -e
-# environment_vars: (array of strings)
+# environment_vars: [](string)
   execute_command: chmod +x "{{.Script}}"; {{.Vars}} "{{.Script}}"
   inline:
   - echo '---' > {{user `output_directory`}}/{{user `vm_name`}}.yaml
@@ -245,7 +245,7 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: DEADBEEF
+# iso_checksum: deadbeef
   iso_checksum_type: sha512
   iso_checksum_url: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS
   iso_file: debian-testing-amd64-netinst.iso
