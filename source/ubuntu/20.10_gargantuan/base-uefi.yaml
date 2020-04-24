@@ -263,9 +263,9 @@ variables:
   http_port_min: '8000'
 # iso_checksum: deadbeef
   iso_checksum_type: sha256
-  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily-live/current/SHA256SUMS
-  iso_file: gargantuan-live-server-amd64.iso
-  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily-live/current
+  iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
+  iso_file: gargantuan-legacy-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
