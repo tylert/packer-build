@@ -91,7 +91,7 @@ builders:
 #              \ V /| | |  | |_| |_| | (_| | | |_) | (_) >  <_____| \__ \ (_) |
 #               \_/ |_|_|   \__|\__,_|\__,_|_|_.__/ \___/_/\_\    |_|___/\___/
 - <<: [*builder_common_options, *communicator_ssh_options]
-# export_options: [](string)
+# export_opts: [](string)
   format: ova
   guest_additions_mode: disable
 # guest_additions_path: (string)
@@ -189,10 +189,10 @@ post-processors:
   - 'echo ''- version: {{user `version`}}'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - echo '  providers:' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml
   - 'echo ''  - name: XXXPROVIDER'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
-  - 'echo ''    url: http://server/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-''{{build_name}}''.box''
+  - 'echo ''    url: http://myserver/vm/{{user `vm_name`}}/{{user `vm_name`}}-{{user `version`}}-''{{build_name}}''.box''
     >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - 'echo ''    checksum_type: sha256'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
-  - 'echo ''    checksum: XXXCHECKSUM'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
+  - 'echo ''    checksum: deadbeef'' >> {{user `output_directory`}}/{{user `vm_name`}}.yaml'
   - if [ 'vbox' = '{{build_name}}' ]; then sed -i 's/XXXPROVIDER/virtualbox/' '{{user `output_directory`}}/{{user `vm_name`}}.yaml'; fi
   - if [ 'qemu' = '{{build_name}}' ]; then sed -i 's/XXXPROVIDER/libvirt/' '{{user `output_directory`}}/{{user `vm_name`}}.yaml'; fi
   only:

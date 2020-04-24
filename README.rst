@@ -37,7 +37,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
 
-  - 5.1.34 r121010 (Qt5.7.1) [5.1.34-121010~Debian~stretch] on Debian Buster 10.x
+  - 6.1.6 r137129 (Qt5.11.3) on Debian Buster 10.x
   - not currently being tested on macOS but used to work fine
 
 .. _VirtualBox:  https://www.virtualbox.org/
@@ -45,7 +45,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
 
-  - 3.1.0 (Debian 1:3.1+dfsg-8+deb10u3) [3.1+dfsg-8+deb10u3] on Debian Buster 10.x
+  - 3.1.0 (Debian 1:3.1+dfsg-8+deb10u4) on Debian Buster 10.x
   - not currently being tested on macOS but used to work fine
 
 .. _QEMU:  https://www.qemu.org/
@@ -90,22 +90,20 @@ TODO Items
 Using Packer Templates
 ----------------------
 
-You must first generate templates using::
+Generate Templates and Build::
 
-    ./script/generate_templates.sh
-
-Then, you may run them using one or more of the following::
-
-    packer [PACKER_OPTIONS] PACKER_TEMPLATE
+    [environment_variables] make [make_options_variables_and_or_targets]
 
 Examples::
 
-    packer build -only=vbox template/debian/11_bullseye/base.json
-
-    packer build -only=qemu -var=headless=true -var=version=1.0.0 -var=vm_name=test \
-        template/debian/11_bullseye/base.json
-
-    packer build -var-file=variables.json template/debian/11_bullseye/base.json
+    make OS_NAME=debian OS_VERSION=11_bullseye
+    make OS_NAME=ubuntu OS_VERSION=20.04_focal
+    make BUILDER=vbox
+    make BUILDER=qemu
+    make BUILD_OPTS='-var=headless=true -var=version=1.0.0 -var=vm_name=test'
+    make BUILD_OPTS='-var-file=variables.json'
+    make TEMPLATE=cinnamon-uefi
+    PACKER_LOG=1 make
 
 Contents of example file ``variables.json`` used above::
 
@@ -131,9 +129,8 @@ the first 2 files that you would normally see in a Vagrant box file (but the
 OVF file may be named nameofmachine.ovf and it *must* be the first file or
 VirtualBox will get confused).
 
-To create and use a Vagrant box file without a dedicated Vagrantfile::
+To use a locally-built Vagrant box file without a dedicated Vagrantfile::
 
-    packer build -only=vbox -var=version=1.0.0 template/debian/11_bullseye/base.json
     vagrant box add myname/bullseye \
         build/2038-01-19-03-14/base-bullseye-1.0.0.virtualbox.box
     vagrant init myname/bullseye
@@ -147,16 +144,16 @@ a JSON file containing the following::
 
     {
       "name": "base-bullseye",
-      "description": "Base box for 64-bit x86 Debian Bullseye 11.x",
+      "description": "Base box for x86_64 Debian Bullseye 11.x",
       "versions": [
         {
           "version": "1.0.0",
           "providers": [
             {
               "name": "virtualbox",
-              "url": "http://server/vm/base-bullseye/base-bullseye-1.0.0-virtualbox.box",
+              "url": "http://myserver/vm/base-bullseye/base-bullseye-1.0.0-virtualbox.box",
               "checksum_type": "sha256",
-              "checksum": "THESHA256SUMOFTHEBOXFILE"
+              "checksum": "deadbeef"
             }
           ]
         }
@@ -169,7 +166,7 @@ Then, simply make sure you point your Vagrantfile at this version payload::
 
     Vagrant.configure('2') do |config|
       config.vm.box = 'base-bullseye'
-      config.vm.box_url = 'http://server/vm/base-bullseye/base-bullseye.json'
+      config.vm.box_url = 'http://myserver/vm/base-bullseye/base-bullseye.json'
 
       config.vm.synced_folder '.', '/vagrant', disabled: true
     end
@@ -204,28 +201,12 @@ create bootable images to be used on real hardware.  This allows the use of the
 and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
 convert" to convert an exiting image in another format to raw mode::
 
-    packer build -only=qemu template/debian/11_bullseye/base.json
     zcat build/2038-01-19-03-14/base-bullseye.raw.gz | dd of=/dev/sdz bs=4M
 
 ... Or, if you just want to "boot" it::
 
-    qemu-system-x86_64 -m 512M -machine type=pc,accel=kvm \
+    qemu-system-x86_64 -m 768M -machine type=pc,accel=kvm \
         build/2038-01-19-03-14/base-bullseye.raw
-
-
-Overriding Local ISO Cache Location
------------------------------------
-
-You may override the default directory used instead of './packer_cache' by
-specifying it with the environment variable 'PACKER_CACHE_DIR'::
-
-    PACKER_CACHE_DIR=/tmp packer build -only=vbox \
-        template/debian/11_bullseye/base.json
-
-You must *always* specify the PACKER_CACHE_DIR when using the provided
-templates due to a problem in packer where the PACKER_CACHE_DIR is not provided
-to the template if one was not provided;  In this case, it will fall back to
-the default value of "./packer_cache".
 
 
 Overriding Local VM Cache Location
