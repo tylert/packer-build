@@ -404,9 +404,9 @@ Debian_
 
 .. _Debian:  https://www.debian.org/
 
-* Testing;  http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
-* Stable;  http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
-* Oldstable;  http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
+* Testing;  http://cdimage.debian.org/cdimage/weekly-builds/
+* Stable;  http://cdimage.debian.org/cdimage/release/current/
+* Oldstable;  http://cdimage.debian.org/cdimage/archive/latest-oldstable/
 
 
 Ubuntu_
@@ -414,9 +414,8 @@ Ubuntu_
 
 .. _Ubuntu:  https://www.ubuntu.com/
 
-* Netboot;  http://cdimage.ubuntu.com/netboot/
 * Released;  http://releases.ubuntu.com/
-* Pending;  http://cdimage.ubuntu.com/ubuntu-server/daily/current/
+* Pending;  http://cdimage.ubuntu.com/
 
 
 Distro Release Names
@@ -432,7 +431,6 @@ Debian_releases_
 * Bullseye (11.x);  released on 2021?-??-??, supported until 2026?-??-01
 * Buster (10.x);  released on 2019-07-06, supported until 2024-??-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
-* Jessie (8.x);  released on 2015-04-26, supported until 2020-06-30
 
 Debian releases seem to occur every 2 years around mid-year and usually receive
 security support for 3 years and long-term support for 5 years.
@@ -443,9 +441,8 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* Gargantuan? Guppy? (20.10.x);  releases on 2020-10-??, supported until 2021?-??-??
+* Gargantuan? Guppy? (20.10.x);  released on 2020-10-??, supported until 2021?-??-??
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23?, supported until 2025-04-01
-* Eoan Ermine (19.10.x);  released on 2019-10-17, supported until 2020-07-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01
 
