@@ -255,7 +255,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: 'Base box for x86_64 Ubuntu Gargantuan Guppy 20.10.x'
+  description: 'Base box for x86_64 Ubuntu Groovy Gorilla 20.10.x'
   disk_size: '7500'
   domain: ''
   guest_os_type: Ubuntu_64
@@ -266,7 +266,7 @@ variables:
 # iso_checksum: deadbeef
   iso_checksum_type: sha256
   iso_checksum_url: http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS
-  iso_file: gargantuan-legacy-server-amd64.iso
+  iso_file: groovy-legacy-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily/current
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
@@ -277,7 +277,7 @@ variables:
   min_vagrant_version: 2.2.7
   output_directory: 'build/{{isotime "2006-01-02-15-04-05"}}'
   packer_cache_dir: '{{env `PACKER_CACHE_DIR`}}'
-  preseed_file: template/ubuntu/20.10_gargantuan/base.preseed
+  preseed_file: template/ubuntu/20.10_groovy/base.preseed
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
   ssh_agent_auth: 'false'
@@ -296,9 +296,9 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  vagrantfile_template: template/ubuntu/20.10_gargantuan/base.vagrant
+  vagrantfile_template: template/ubuntu/20.10_groovy/base.vagrant
   version: 0.0.0
-  vm_name: base-gargantuan
+  vm_name: base-groovy
   vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'

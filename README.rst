@@ -408,8 +408,8 @@ Debian_releases_
 
 .. _Debian_releases:  https://en.wikipedia.org/wiki/Debian_version_history#Release_table
 
-* Bookworm (12.x);  released on 2023?-??-??, supported until 2028?-??-01
-* Bullseye (11.x);  released on 2021?-??-??, supported until 2026?-??-01
+* Bookworm (12.x);  released on 2023-??-??, supported until 2028-??-01
+* Bullseye (11.x);  released on 2021-??-??, supported until 2026-??-01
 * Buster (10.x);  released on 2019-07-06, supported until 2024-??-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
 
@@ -422,8 +422,8 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* Gargantuan? Guppy? (20.10.x);  released on 2020-10-??, supported until 2021?-??-??
-* Focal Fossa (20.04.x LTS);  released on 2020-04-23?, supported until 2025-04-01
+* Groovy Gorilla (20.10.x);  released on 2020-10-??, supported until 2021-??-01
+* Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-01
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01
 
