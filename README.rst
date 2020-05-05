@@ -343,11 +343,18 @@ Other
 * https://github.com/katzj/ami-creator
 
 
-Why did you use the Ubuntu Server installer to create desktop systems?
-----------------------------------------------------------------------
+Ubuntu Live Server
+------------------
 
-* http://askubuntu.com/questions/467804/preseeding-does-not-work-properly-in-ubuntu-14-04
-* https://wiki.ubuntu.com/UbiquityAutomation
+* https://nickcharlton.net/posts/automating-ubuntu-2004-installs-with-packer.html
+* https://github.com/hashicorp/packer/issues/9115
+* https://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html
+
+
+HCL2
+----
+
+* https://github.com/zmingxie/amzn2-wireguard-ami/blob/master/amzn2-wireguard.pkr.hcl
 
 
 Building Windows VMs
