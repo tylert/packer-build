@@ -8,7 +8,7 @@ _anchors:
 - &builder_common_options
   boot_command:
   - '<enter><enter><f6><esc><wait> '
-  - 'autoinstall ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/'
+  - 'autoinstall ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `userdata_location` }}'
   - '<enter>'
   boot_wait: '{{ user `boot_wait` }}'
   communicator: '{{ user `communicator` }}'
@@ -232,8 +232,8 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: sha256:36f15879bd9dfd061cd588620a164a82972663fdd148cce1f70d57d314c21b73
 # iso_checksum: file:http://releases.ubuntu.com/20.04/SHA256SUMS
+  iso_checksum: sha256:36f15879bd9dfd061cd588620a164a82972663fdd148cce1f70d57d314c21b73
   iso_file: ubuntu-20.04-live-server-amd64.iso
   iso_path_external: http://releases.ubuntu.com/20.04
   iso_path_internal: http://myserver:8080/ubuntu
@@ -261,6 +261,7 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
+  userdata_location: template/ubuntu/20.04_focal
   vagrantfile_template: template/ubuntu/20.04_focal/base.vagrant
   version: 0.0.0
   vm_name: base-focal
