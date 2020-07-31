@@ -27,47 +27,23 @@ currently done on systems that have amd64/x86_64-family processors.
 The VirtualBox and QEMU versions used for Linux testing are normally the
 "stock" ones provided by the official distribution repositories.
 
-* REQUIRED:  Packer_ (Packer_download_)
-
-  - 1.6.1 on Debian Buster 10.x (VirtualBox and QEMU)
-  - not currently being tested on macOS but used to work fine
+* REQUIRED:  Packer_ (Packer_download_) 1.6.1
+* REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_) 6.1.6 r137129 (Qt5.11.3)
+* REQUIRED (if not using VirtualBox):  QEMU_ (kvm_) 3.1.0 (Debian 1:3.1+dfsg-8+deb10u4)
+* OPTIONAL:  Vagrant_ (Vagrant_download_) 2.2.9
 
 .. _Packer:  https://www.packer.io/
 .. _Packer_download:  https://releases.hashicorp.com/packer/
-
-* REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_)
-
-  - 6.1.6 r137129 (Qt5.11.3) on Debian Buster 10.x
-  - not currently being tested on macOS but used to work fine
-
 .. _VirtualBox:  https://www.virtualbox.org/
 .. _VirtualBox_download:  http://download.virtualbox.org/virtualbox
-
-* REQUIRED (if not using VirtualBox):  QEMU_ (kvm_)
-
-  - 3.1.0 (Debian 1:3.1+dfsg-8+deb10u4) on Debian Buster 10.x
-  - not currently being tested on macOS but used to work fine
-
 .. _QEMU:  https://www.qemu.org/
 .. _kvm:  https://www.linux-kvm.org/page/Main_Page
-
-* OPTIONAL:  Vagrant_ (Vagrant_download_)
-
-  - 2.2.9 on Debian Buster 10.x (VirtualBox)
-  - not currently being tested on macOS but used to work fine
-
 .. _Vagrant:  https://www.vagrantup.com/
 .. _Vagrant_download:  https://releases.hashicorp.com/vagrant/
-
-* BIG, BIG MAYBE:  vagrant-libvirt_ plugin (QEMU provider for Vagrant)
-
-  - Please refer to their page for version information, installation
-    instructions and dependencies.
-
 .. _vagrant-libvirt:  https://github.com/vagrant-libvirt/vagrant-libvirt
 
 Even though Packer supports QEMU as an officially-supported provider, Vagrant,
-for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt"
+for some reason, does not.  The 3rd-party plugin named "vagrant-libvirt_"
 provides the missing QEMU support for Vagrant.  We are unable at this time to
 verify this fact due to the following errors encountered while trying to run
 "vagrant up"::
