@@ -322,9 +322,22 @@ Other
 Ubuntu Live Server
 ------------------
 
-* https://nickcharlton.net/posts/automating-ubuntu-2004-installs-with-packer.html
-* https://github.com/hashicorp/packer/issues/9115
+* https://beryju.org/blog/automating-ubuntu-server-20-04-with-packer
 * https://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html
+* https://cloudinit.readthedocs.io/en/latest/topics/network-config.html
+* https://github.com/hashicorp/packer/issues/9115
+* https://github.com/vmware/cloud-init-vmware-guestinfo
+* https://nickcharlton.net/posts/automating-ubuntu-2004-installs-with-packer.html
+* https://packetpushers.net/cloud-init-demystified/
+* https://wiki.archlinux.org/index.php/Cloud-init
+* https://wiki.ubuntu.com/FoundationsTeam/AutomatedServerInstalls
+* https://www.virtualthoughts.co.uk/2020/03/29/rancher-vsphere-network-protocol-profiles-and-static-ip-addresses-for-k8s-nodes/
+* https://www.whiteboardcoder.com/2016/04/cloud-init-nocloud-with-url-for-meta.html
+
+To re-engage cloud-init after it has been used::
+
+    sudo rm -f /etc/machine-id
+    sudo cloud-init clean -s -l
 
 
 HCL2
