@@ -246,8 +246,8 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: sha512:deadbeef
   iso_checksum: file:http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS
+# iso_checksum: sha512:deadbeef
   iso_file: debian-testing-amd64-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd
   iso_path_internal: http://myserver:8080/debian

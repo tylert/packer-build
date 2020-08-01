@@ -250,8 +250,8 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: sha256:e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b
 # iso_checksum: http://cdimage.ubuntu.com/releases/18.04/release/SHA256SUMS
+  iso_checksum: sha256:e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b
   iso_file: ubuntu-18.04.4-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/releases/18.04/release
   iso_path_internal: http://myserver:8080/ubuntu

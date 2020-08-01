@@ -232,8 +232,8 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: sha256:deadbeef
   iso_checksum: file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS
+# iso_checksum: sha256:deadbeef
   iso_file: groovy-live-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending
   iso_path_internal: http://myserver:8080/ubuntu

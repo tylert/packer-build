@@ -264,8 +264,8 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: sha256:16afb1375372c57471ea5e29803a89a5a6bd1f6aabea2e5e34ac1ab7eb9786ac
 # iso_checksum: http://releases.ubuntu.com/16.04/SHA256SUMS
+  iso_checksum: sha256:16afb1375372c57471ea5e29803a89a5a6bd1f6aabea2e5e34ac1ab7eb9786ac
   iso_file: ubuntu-16.04.6-server-amd64.iso
   iso_path_external: http://releases.ubuntu.com/16.04
   iso_path_internal: http://myserver:8080/ubuntu
