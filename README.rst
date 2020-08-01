@@ -418,6 +418,12 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
+* Nasty Newt (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01
+* Mushy Moose (23.10.x);  released on 2023-10-??, supported until 2024-07?-01
+* Lumpy Lemming (23.04.x);  released on 2023-04-??, supported until 2024-01?-01
+* Kinky Kangaroo (22.10.x);  released on 2022-10-??, supported until 2023-07?-01
+* Junky Jaguar (22.04.x LTS);  released on 2022-04-??, supported until 2027-04?-01
+* Itchy Iguana (21.10.x);  released on 2021-10-??, supported until 2022-07?-01
 * Horny Hippo (21.04.x);  released on 2021-04-??, supported until 2022-01?-01
 * Groovy Gorilla (20.10.x);  released on 2020-10-22, supported until 2021-07-01
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-01
