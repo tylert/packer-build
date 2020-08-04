@@ -118,11 +118,11 @@ builders:
     - '{{ .Name }}'
     - '--rtcuseutc'
     - >-
-      {{ if user `system_clock_in_utc` | eq `true` - }}
+      {{ if user `system_clock_in_utc` | eq `true` -}}
       on
-      {{ - else - }}
+      {{- else -}}
       off
-      {{ - end }}
+      {{- end }}
 # vboxmanage_post: ([][]string)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{ user `vnc_vrdp_bind_address` }}'

@@ -150,7 +150,7 @@ def build_templates(ctx, base_dir, os_name, os_template, os_version, var_file):
 
     # Render the destination files (assume everything is a template)
     for file in listdir(path.join(base_dir, os_name, os_version)):
-        if file.endswith(YAML_EXTENSIONS) or path.splitext(file)[0] != os_template:
+        if file.endswith(YAML_EXTENSIONS):
             continue
 
         try:

@@ -113,11 +113,11 @@ builders:
     - '{{ .Name }}'
     - '--rtcuseutc'
     - >-
-      {{ if user `system_clock_in_utc` | eq `true` - }}
+      {{ if user `system_clock_in_utc` | eq `true` -}}
       on
-      {{ - else - }}
+      {{- else -}}
       off
-      {{ - end }}
+      {{- end }}
 # vboxmanage_post: ([][]string)
   virtualbox_version_file: '/tmp/.vbox_version'
   vrdp_bind_address: '{{ user `vnc_vrdp_bind_address` }}'
@@ -247,8 +247,8 @@ variables:
   http_port_max: '9000'
   http_port_min: '8000'
 # iso_checksum: file:http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/SHA512SUMS
-  iso_checksum: sha512:af81de39678db1f814be4ce1b7b64b891f6f59926d6f835842c4b52b462ac7e78c45b5efd8273c196d64ba0b2dd1a0aabfb97c6e4f10702ee11a72e07aec9d67
-  iso_file: debian-9.12.0-amd64-netinst.iso
+  iso_checksum: sha512:4a26730eade45c61f861df9aa872cb4a32099d98677d75437b44f044ebc967a9330e0f4fa60bf48b7daf7e5969b8e06e05fb480c1a7d7240e8ec7aed0d2c476d
+  iso_file: debian-9.13.0-amd64-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd
   iso_path_internal: http://myserver:8080/debian
   keep_registered: 'false'
