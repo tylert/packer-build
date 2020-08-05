@@ -39,6 +39,7 @@ _anchors:
   - '{{ user `iso_path_external` }}/{{ user `iso_file` }}'
   memory: '{{ user `memory` }}'
   output_directory: '{{ user `output_directory` }}'
+# pause_before_connecting: '{{ user `pause_before_connecting` }}'
   shutdown_command: echo '{{ user `ssh_password` }}' | sudo -E -S poweroff
   shutdown_timeout: '{{ user `shutdown_timeout` }}'
   skip_nat_mapping: false
@@ -51,6 +52,8 @@ _anchors:
 # ssh_bastion_port: '1'
 # ssh_bastion_private_key_file: (string)
 # ssh_bastion_username: (string)
+# ssh_ciphers: [ 'aes128-gcm@openssh.com', 'chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', ]
+# ssh_clear_authorized_keys: false
   ssh_disable_agent_forwarding: '{{ user `ssh_disable_agent_forwarding` }}'
   ssh_file_transfer_method: '{{ user `ssh_file_transfer_method` }}'
   ssh_handshake_attempts: '{{ user `ssh_handshake_attempts` }}'
