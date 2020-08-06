@@ -171,27 +171,27 @@ post-processors:
   - qemu
   output: '{{ user `output_directory` }}/{{ user `vm_name` }}.raw.gz'
   type: compress
-- inline_shebang: /bin/sh -e
-# environment_vars: ([]string)
-  execute_command: chmod +x "{{ .Script }}"; {{ .Vars }} "{{ .Script }}"
-  inline:
-  - echo '---' > {{ user `output_directory` }}/{{ user `vm_name` }}.yaml
-  - 'echo ''name: {{ user `vm_name` }}'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
-  - 'echo ''description: {{ user `description` }}'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
-  - echo 'versions:' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml
-  - 'echo ''- version: {{ user `version` }}'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
-  - echo '  providers:' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml
-  - 'echo ''  - name: XXXPROVIDER'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
-  - 'echo ''    url: http://myserver/vm/{{ user `vm_name` }}/{{ user `vm_name` }}-{{ user `version` }}-''{{ build_name }}''.box''
-    >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
-  - 'echo ''    checksum_type: sha256'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
-  - 'echo ''    checksum: deadbeef'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
-  - if [ 'vbox' = '{{ build_name }}' ]; then sed -i 's/XXXPROVIDER/virtualbox/' '{{ user `output_directory` }}/{{ user `vm_name` }}.yaml'; fi
-  - if [ 'qemu' = '{{ build_name }}' ]; then sed -i 's/XXXPROVIDER/libvirt/' '{{ user `output_directory` }}/{{ user `vm_name` }}.yaml'; fi
-  only:
-  - vbox
-  - qemu
-  type: shell-local
+# - inline_shebang: /bin/sh -e
+# # environment_vars: ([]string)
+#   execute_command: chmod +x "{{ .Script }}"; {{ .Vars }} "{{ .Script }}"
+#   inline:
+#   - echo '---' > {{ user `output_directory` }}/{{ user `vm_name` }}.yaml
+#   - 'echo ''name: {{ user `vm_name` }}'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
+#   - 'echo ''description: {{ user `description` }}'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
+#   - echo 'versions:' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml
+#   - 'echo ''- version: {{ user `version` }}'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
+#   - echo '  providers:' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml
+#   - 'echo ''  - name: XXXPROVIDER'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
+#   - 'echo ''    url: http://myserver/vm/{{ user `vm_name` }}/{{ user `vm_name` }}-{{ user `version` }}-''{{ build_name }}''.box''
+#     >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
+#   - 'echo ''    checksum_type: sha256'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
+#   - 'echo ''    checksum: deadbeef'' >> {{ user `output_directory` }}/{{ user `vm_name` }}.yaml'
+#   - if [ 'vbox' = '{{ build_name }}' ]; then sed -i 's/XXXPROVIDER/virtualbox/' '{{ user `output_directory` }}/{{ user `vm_name` }}.yaml'; fi
+#   - if [ 'qemu' = '{{ build_name }}' ]; then sed -i 's/XXXPROVIDER/libvirt/' '{{ user `output_directory` }}/{{ user `vm_name` }}.yaml'; fi
+#   only:
+#   - vbox
+#   - qemu
+#   type: shell-local
 #                       _     _
 #  _ __  _ __ _____   _(_)___(_) ___  _ __   ___ _ __ ___
 # | '_ \| '__/ _ \ \ / / / __| |/ _ \| '_ \ / _ \ '__/ __|
