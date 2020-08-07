@@ -98,10 +98,12 @@ builders:
 #              \ V /| | |  | |_| |_| | (_| | | |_) | (_) >  <_____| \__ \ (_) |
 #               \_/ |_|_|   \__|\__,_|\__,_|_|_.__/ \___/_/\_\    |_|___/\___/
 - <<: [*builder_common_options, *communicator_ssh_options]
+  bundle_iso: false
 # export_opts: ([]string)
   format: ova
+# guest_additions_interface: sata
   guest_additions_mode: disable
-# guest_additions_path: (string)
+# guest_additions_path: VBoxGuestAdditions.iso
 # guest_additions_sha256: (string)
 # guest_additions_url: (string)
   guest_os_type: '{{ user `guest_os_type` }}'
