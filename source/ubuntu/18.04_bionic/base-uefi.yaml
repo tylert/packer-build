@@ -55,11 +55,11 @@ _anchors:
 # ssh_bastion_agent_auth: false
 # ssh_bastion_host: (string)
 # ssh_bastion_password: (string)
-# ssh_bastion_port: '1'
+# ssh_bastion_port: '22'
 # ssh_bastion_private_key_file: (string)
 # ssh_bastion_username: (string)
 # ssh_ciphers: [ 'aes128-gcm@openssh.com', 'chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', ]
-# ssh_clear_authorized_keys: false
+  ssh_clear_authorized_keys: '{{ user `ssh_clear_authorized_keys` }}'
   ssh_disable_agent_forwarding: '{{ user `ssh_disable_agent_forwarding` }}'
   ssh_file_transfer_method: '{{ user `ssh_file_transfer_method` }}'
   ssh_handshake_attempts: '{{ user `ssh_handshake_attempts` }}'
@@ -188,6 +188,13 @@ post-processors:
   - qemu
   output: '{{ user `output_directory` }}/{{ user `vm_name` }}.raw.gz'
   type: compress
+# - - files:
+#     - '{{ user `output_directory` }}/{{ user `vm_name` }}*.box'
+#     keep_input_artifact: true
+#     only:
+#     - vbox
+#     type: artifice
+# XXX CHECKSUM
 # - inline_shebang: /bin/sh -e
 # # environment_vars: ([]string)
 #   execute_command: chmod +x "{{ .Script }}"; {{ .Vars }} "{{ .Script }}"
@@ -267,7 +274,7 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: http://cdimage.ubuntu.com/releases/18.04/release/SHA256SUMS
+# iso_checksum: file:http://cdimage.ubuntu.com/releases/18.04/release/SHA256SUMS
   iso_checksum: sha256:e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b
   iso_file: ubuntu-18.04.4-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/releases/18.04/release
@@ -284,6 +291,7 @@ variables:
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
   ssh_agent_auth: 'false'
+  ssh_clear_authorized_keys: 'false'
   ssh_disable_agent_forwarding: 'false'
   ssh_file_transfer_method: scp
   ssh_fullname: Ghost Writer
