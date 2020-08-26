@@ -95,7 +95,7 @@ builders:
 #              \ V /| | |  | |_| |_| | (_| | | |_) | (_) >  <_____| \__ \ (_) |
 #               \_/ |_|_|   \__|\__,_|\__,_|_|_.__/ \___/_/\_\    |_|___/\___/
 - <<: [*builder_common_options, *communicator_ssh_options]
-  bundle_iso: false
+  bundle_iso: '{{ user `bundle_iso` }}'
 # export_opts: ([]string)
   format: ova
 # guest_additions_interface: sata
@@ -112,7 +112,7 @@ builders:
   name: vbox
   post_shutdown_delay: 0s
   sata_port_count: '1'
-  skip_export: false
+  skip_export: '{{ user `skip_export` }}'
   type: virtualbox-iso
   vboxmanage:
   - - modifyvm
@@ -258,6 +258,7 @@ provisioners:
 variables:
   apt_cache_url: http://myserver:3142
   boot_wait: 3s
+  bundle_iso: 'false'
   communicator: ssh
   country: CA
   cpus: '1'
@@ -281,13 +282,14 @@ variables:
   language: en
   locale: en_CA.UTF-8
   memory: '512'
-  min_vagrant_version: 2.2.9
+  min_vagrant_version: 2.2.10
   mirror: ftp.ca.debian.org
   output_directory: 'build/{{ isotime "2006-01-02-15-04-05" }}'
   packer_cache_dir: '{{ env `PACKER_CACHE_DIR` }}'
   preseed_file: template/debian/9_stretch/base-uefi.preseed
   qemu_binary: qemu-system-x86_64
   shutdown_timeout: 5m
+  skip_export: 'false'
   ssh_agent_auth: 'false'
   ssh_clear_authorized_keys: 'false'
   ssh_disable_agent_forwarding: 'false'

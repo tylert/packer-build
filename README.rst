@@ -30,7 +30,7 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 * REQUIRED:  Packer_ (Packer_download_) 1.6.1
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_) 6.1.6 r137129 (Qt5.11.3)
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_) 3.1.0 (Debian 1:3.1+dfsg-8+deb10u4)
-* OPTIONAL:  Vagrant_ (Vagrant_download_) 2.2.9
+* OPTIONAL:  Vagrant_ (Vagrant_download_) 2.2.10
 
 .. _Packer:  https://www.packer.io/
 .. _Packer_download:  https://releases.hashicorp.com/packer/
@@ -73,7 +73,7 @@ Generate Templates and Build::
 Examples::
 
     make OS_NAME=debian OS_VERSION=11_bullseye
-    make OS_NAME=ubuntu OS_VERSION=20.04_focal
+    make OS_NAME=ubuntu OS_VERSION=20.04_focal TEMPLATE=base
     make BUILDER=vbox
     make BUILDER=qemu
     make BUILD_OPTS='-var=headless=true -var=version=1.0.0 -var=vm_name=test'
