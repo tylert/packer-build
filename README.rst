@@ -27,7 +27,7 @@ currently done on systems that have amd64/x86_64-family processors.
 The VirtualBox and QEMU versions used for Linux testing are normally the
 "stock" ones provided by the official distribution repositories.
 
-* REQUIRED:  Packer_ (Packer_download_) 1.6.1
+* REQUIRED:  Packer_ (Packer_download_) 1.6.2
 * REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_) 6.1.6 r137129 (Qt5.11.3)
 * REQUIRED (if not using VirtualBox):  QEMU_ (kvm_) 3.1.0 (Debian 1:3.1+dfsg-8+deb10u4)
 * OPTIONAL:  Vagrant_ (Vagrant_download_) 2.2.10
@@ -284,11 +284,11 @@ populate the "d-i http/proxy string" value in your preseed file, all this stuff
 will have been done for you already.
 
 
-Preseed Documentation
----------------------
+Installer Documentation
+-----------------------
 
 * https://www.debian.org/releases/stable/amd64/
-* https://help.ubuntu.com/lts/installation-guide/amd64/index.html
+* https://ubuntu.com/server/docs
 
 
 Other
@@ -344,18 +344,6 @@ HCL2
 ----
 
 * https://github.com/zmingxie/amzn2-wireguard-ami/blob/master/amzn2-wireguard.pkr.hcl
-
-
-Building Windows VMs
---------------------
-
-* http://www.hurryupandwait.io/blog/creating-windows-base-images-for-virtualbox-and-hyper-v-using-packer-boxstarter-and-vagrant
-* https://github.com/mwrock/packer-template
-* https://github.com/joefitzgerald/packer-windows
-* https://gist.github.com/joefitzgerald/8203265
-* https://github.com/mefellows/packer-community-templates
-* https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/
-* https://github.com/rgl/packer-provisioner-windows-update
 
 
 Using a Headless Server
