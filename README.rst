@@ -58,6 +58,7 @@ It may be possible to correct this error by installing the
 TODO Items
 ~~~~~~~~~~
 
+* Fix the boot commands in the Ubuntu 20.04 and 20.10 UEFI templates (non-UEFI ones work fine)
 * [DRY phase3] Wait until HCL2 stops sucking and convert everything from YAML to HCL2
 * [preseed debian] Find out if partman-crypto will allow passphrase-crypted
 
