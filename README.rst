@@ -60,7 +60,6 @@ TODO Items
 
 * [DRY phase3] Wait until HCL2 stops sucking and convert everything from YAML to HCL2
 * [preseed debian] Find out if partman-crypto will allow passphrase-crypted
-* [preseed debian] Skip past "Force UEFI Install" installer prompt
 
 
 Using Packer Templates
