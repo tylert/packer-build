@@ -12,10 +12,6 @@ The resulting image files may be used as bootable systems on real machines and
 the provided preseed files may also be used to install identical systems on
 bare metal as well.
 
-While there are no limitations for running 32-bit x86 guests on 64-bit x86
-hosts, this functionality has been deprecated here since 32-bit support is
-being phased out of Debian/Ubuntu "real soon now".
-
 
 What dependencies does this have?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
