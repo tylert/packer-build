@@ -246,10 +246,10 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS
-# iso_checksum: sha256:deadbeef
-  iso_file: groovy-live-server-amd64.iso
-  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending
+# iso_checksum: file:http://releases.ubuntu.com/20.10/SHA256SUMS
+  iso_checksum: sha256:defdc1ad3af7b661fe2b4ee861fb6fdb5f52039389ef56da6efc05e6adfe3d45
+  iso_file: ubuntu-20.10-live-server-amd64.iso
+  iso_path_external: http://releases.ubuntu.com/20.10
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
