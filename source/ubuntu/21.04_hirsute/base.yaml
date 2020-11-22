@@ -256,7 +256,7 @@ variables:
   language: en
   locale: en_CA.UTF-8
   memory: '1024'
-  min_vagrant_version: 2.2.13
+  min_vagrant_version: 2.2.14
   output_directory: 'build/{{ isotime "2006-01-02-15-04-05" }}'
   packer_cache_dir: '{{ env `PACKER_CACHE_DIR` }}'
   qemu_binary: qemu-system-x86_64
