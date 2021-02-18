@@ -273,8 +273,8 @@ variables:
   http_port_max: '9000'
   http_port_min: '8000'
 # iso_checksum: file:http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS
-  iso_checksum: sha512:cb6795ca61326e9fa58099898e53dc6c708f4b1473687fab5679f824adc78bbe1d543f3b4aed9e56613e7b150e27d6be317efc499e25a92efefed1ed623a90a6
-  iso_file: debian-10.7.0-amd64-netinst.iso
+  iso_checksum: sha512:934336d266535c91fcd12cd122c81f8261721efa117fdcb9a31615caa96c5c5ce3454ed5f28f1b25a7b1b5f44631fdfa78a93adb6445e2e2caaf6455ab344cf8
+  iso_file: debian-10.8.0-amd64-netinst.iso
   iso_path_external: http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd
   iso_path_internal: http://myserver:8080/debian
   keep_registered: 'false'
