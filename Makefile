@@ -54,37 +54,11 @@ $(TEMPLATE_DIR): generator
 .PHONY: build
 build: $(TEMPLATE_DIR)
 	@CHECKPOINT_DISABLE=1 PACKER_CACHE_DIR=$(PACKER_CACHE_DIR) \
-  packer build $(BUILD_OPTS) -only=$(BUILDER) -force $(TEMPLATE_DIR)/$(OS_NAME)/$(OS_VERSION)/$(TEMPLATE).json
-
-# .PHONY: build
-# build: builder $(TEMPLATE_DIR)
-# 	@docker run \
-#     --interactive \
-#     --rm \
-#     --volume $(PWD)/$(BUILD_DIR):/tmp/$(BUILD_DIR) \
-#     --volume $(PWD)/$(PACKER_CACHE_DIR):/tmp/$(PACKER_CACHE_DIR) \
-#     --volume $(PWD)/$(TEMPLATE_DIR):/tmp/$(TEMPLATE_DIR) \
-#     builder $(BUILD_OPTS)
-
-.PHONY: clean
-clean:
-	@rm -rf $(TEMPLATE_DIR) $(BUILD_DIR) && \
-  rm -rf Vagrantfile .vagrant
-
-.PHONY: reallyclean
-$(TEMPLATE_DIR): generator
-	@mkdir -p $(PWD)/$(TEMPLATE_DIR) && \
-  docker run \
-    --interactive \
-    --rm \
-    --volume $(PWD)/$(SOURCE_DIR):/tmp/$(SOURCE_DIR) \
-    --volume $(PWD)/$(TEMPLATE_DIR):/tmp/$(TEMPLATE_DIR) \
-    generator $(GEN_OPTS)
-
-.PHONY: build
-build: $(TEMPLATE_DIR)
-	@CHECKPOINT_DISABLE=1 PACKER_CACHE_DIR=$(PACKER_CACHE_DIR) \
-  packer build $(BUILD_OPTS) -only=$(BUILDER) -force $(TEMPLATE_DIR)/$(OS_NAME)/$(OS_VERSION)/$(TEMPLATE).json
+  packer build \
+    $(BUILD_OPTS) \
+    -only=$(BUILDER) \
+    -force \
+    $(TEMPLATE_DIR)/$(OS_NAME)/$(OS_VERSION)/$(TEMPLATE).json
 
 # .PHONY: build
 # build: builder $(TEMPLATE_DIR)
