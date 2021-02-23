@@ -1,15 +1,4 @@
-# docker build \
-#     --build-arg USER=$(shell id -u) \
-#     --file Dockerfile \
-#     --tag namespace/user:tag \
-#     --target ${CONTAINER_NAME} \
-#     .
-# docker run \
-#     --interactive \
-#     --rm \
-#     --volume ${PWD}/source:/tmp/source \
-#     --volume ${PWD}/template:/tmp/template \
-#     namespace/user:tag ${EXTRA_CMD_ARGS}
+# See Makefile for building and usage.
 
 # https://hub.docker.com/_/python/
 # https://hub.docker.com/_/alpine/
@@ -20,7 +9,7 @@ ARG USER=10011001
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
 WORKDIR /tmp/
 COPY requirements.txt /tmp/
-RUN pip install -r /tmp/requirements.txt
+RUN pip install -r requirements.txt
 COPY generate_template.py /tmp/
 USER ${USER}
 ENTRYPOINT ["python", "./generate_template.py"]
