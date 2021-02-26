@@ -103,7 +103,7 @@ def get_base_variables(ctx, base_dir, os_name, os_template, os_version):
         return yaml.load(f)
 
 
-def get_override_variables(var_file):
+def get_override_variables(ctx, var_file):
     '''
     '''
 
@@ -118,7 +118,7 @@ def build_templates(ctx, base_dir, os_name, os_template, os_version, var_file):
     # Validate the desired working directory and change if required
     if not path.isdir(base_dir):
         fail(ctx, 'ERROR Cannot use base_dir of {} as it is not a directory'.format(
-            base_dir))
+             base_dir))
 
     # Load the desired template variables
     config_dict = get_base_variables(ctx, base_dir, os_name, os_template,
@@ -133,14 +133,14 @@ def build_templates(ctx, base_dir, os_name, os_template, os_version, var_file):
     # Attempt to bring in any variable overrides
     override_dict = {}
     if var_file:
-        override_dict = get_override_variables(var_file)
+        override_dict = get_override_variables(ctx, var_file)
     config_dict['variables'].update(override_dict)
 
     # Create the target directory if it does not exist
     target_dir = path.join(getcwd(), 'template', os_name, os_version)
     if path.isfile(target_dir):
         fail(ctx, 'ERROR The target directory ({}) already exists, but is a file. Aborting'.format(
-            target_dir))
+             target_dir))
     if not path.isdir(target_dir):
         makedirs(target_dir)
 
