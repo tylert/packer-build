@@ -7,7 +7,6 @@ from codecs import open as copen
 import click
 from ruamel.yaml import YAML
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
-from six import iteritems
 
 
 YAML_EXTENSIONS = ('yml', 'yaml')

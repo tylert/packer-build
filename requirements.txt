@@ -2,4 +2,3 @@ click==7.1.2
 Jinja2==2.11.3
 MarkupSafe==1.1.1
 ruamel.yaml==0.16.12
-six==1.15.0
