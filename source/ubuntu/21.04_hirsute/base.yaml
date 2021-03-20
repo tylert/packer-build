@@ -279,7 +279,7 @@ variables:
   system_clock_in_utc: 'true'
   timezone: UTC
   userdata_location: template/ubuntu/21.04_hirsute
-  vagrantfile_template: template/ubuntu/21.04_hirsute/base.vagrant
+  vagrantfile_template: template/ubuntu/21.04_hirsute/vagrant.rb.j2
   version: 0.0.0
   vm_name: base-hirsute
   vnc_vrdp_bind_address: 127.0.0.1

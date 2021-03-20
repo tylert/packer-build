@@ -295,7 +295,7 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  vagrantfile_template: template/ubuntu/18.04_bionic/base.vagrant
+  vagrantfile_template: template/ubuntu/18.04_bionic/vagrant.rb.j2
   version: 0.0.0
   vm_name: base-bionic
   vnc_vrdp_bind_address: 127.0.0.1

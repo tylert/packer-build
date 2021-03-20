@@ -279,7 +279,7 @@ variables:
   system_clock_in_utc: 'true'
   timezone: UTC
   userdata_location: template/ubuntu/20.10_groovy
-  vagrantfile_template: template/ubuntu/20.10_groovy/base.vagrant
+  vagrantfile_template: template/ubuntu/20.10_groovy/vagrant.rb.j2
   version: 0.0.0
   vm_name: base-groovy
   vnc_vrdp_bind_address: 127.0.0.1

@@ -279,7 +279,7 @@ variables:
   system_clock_in_utc: 'true'
   timezone: UTC
   userdata_location: template/ubuntu/21.10_idiotic
-  vagrantfile_template: template/ubuntu/21.10_idiotic/base.vagrant
+  vagrantfile_template: template/ubuntu/21.10_idiotic/vagrant.rb.j2
   version: 0.0.0
   vm_name: base-idiotic
   vnc_vrdp_bind_address: 127.0.0.1
