@@ -9,7 +9,9 @@ GEN_OPTS ?=
 OS_NAME ?= debian
 OS_VERSION ?= 10_buster
 PACKER_CACHE_DIR ?= packer_cache
+PYTHON ?= python
 TEMPLATE ?= base-uefi
+VENV_DIR ?= .venv
 
 # PACKER_CACHE_DIR=packer_cache
 # PACKER_CONFIG="${HOME}/.packerconfig"
@@ -32,6 +34,15 @@ TEMPLATE_DIR ?= template
 
 .PHONY: all
 all: build
+
+ACTIVATE = $(VENV_DIR)/bin/activate
+.PHONY: requirements
+requirements:
+	@test -d $(VENV_DIR) || $(PYTHON) -m venv $(VENV_DIR) && \
+    source $(ACTIVATE) && \
+    pip install --requirement requirements_bare.txt && \
+    pip freeze > requirements.txt && \
+    rm -rf $(VENV_DIR)
 
 .PHONY: generator builder
 generator builder: Dockerfile requirements.txt generate_template.py
