@@ -291,26 +291,22 @@ Installer Documentation
 Other
 -----
 
+* https://github.com/elasticdog/packer-arch/blob/master/arch-template.json
 * http://www.preining.info/blog/2014/05/usb-stick-tails-systemrescuecd/
-
 * https://5pi.de/2015/03/13/building-aws-amis-from-scratch/
 * http://www.scalehorizontally.com/2013/02/24/introduction-to-cloud-init/
 * https://julien.danjou.info/blog/2013/cloud-init-utils-debian
 * http://thornelabs.net/2014/04/07/create-a-kvm-based-debian-7-openstack-cloud-image.html
-
 * http://blog.codeship.com/packer-ansible/
 * https://servercheck.in/blog/server-vm-images-ansible-and-packer
-
 * http://ariya.ofilabs.com/2013/11/using-packer-to-create-vagrant-boxes.html
 * http://blog.codeship.io/2013/11/07/building-vagrant-machines-with-packer.html
 * https://groups.google.com/forum/#!msg/packer-tool/4lB4OqhILF8/NPoMYeew0sEJ
 * http://pretengineer.com/post/packer-vagrant-infra/
 * http://stackoverflow.com/questions/13065576/override-vagrant-configuration-settings-locally-per-dev
-
 * https://djaodjin.com/blog/deploying-on-ec2-with-ansible.blog.html
 * http://jackstromberg.com/2012/12/how-to-export-a-vm-from-amazon-ec2-to-vmware-on-premise/
 * https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html
-
 * https://github.com/jpadilla/juicebox
 * https://github.com/boxcutter/ubuntu
 * https://github.com/katzj/ami-creator
