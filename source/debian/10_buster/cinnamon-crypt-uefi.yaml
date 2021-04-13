@@ -305,7 +305,7 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  vagrantfile_template: template/debian/10_buster/cinnamon-crypt-uefi.vagrant
+  vagrantfile_template: template/debian/10_buster/vagrant.rb.j2
   version: 0.0.0
   vm_name: cinnamon-crypt-uefi-buster
   vnc_vrdp_bind_address: 127.0.0.1
