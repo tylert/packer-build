@@ -258,10 +258,10 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-  iso_checksum: file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS
-# iso_checksum: sha256:deadbeef
-  iso_file: hirsute-live-server-amd64.iso
-  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending
+# iso_checksum: file:http://releases.ubuntu.com/21.04/SHA256SUMS
+  iso_checksum: sha256:e4089c47104375b59951bad6c7b3ee5d9f6d80bfac4597e43a716bb8f5c1f3b0
+  iso_file: ubuntu-21.04-live-server-amd64.iso
+  iso_path_external: http://releases.ubuntu.com/21.04
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
