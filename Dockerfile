@@ -3,7 +3,7 @@
 # https://hub.docker.com/_/python/
 # https://hub.docker.com/_/alpine/
 
-ARG PYTHON_IMAGE=python:3.9.3-alpine
+ARG PYTHON_IMAGE=python:3.9.4-alpine
 FROM ${PYTHON_IMAGE} AS generator
 ARG USER=10011001
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
