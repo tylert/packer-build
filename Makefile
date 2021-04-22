@@ -8,6 +8,7 @@ BUILD_OPTS ?=
 GEN_OPTS ?=
 OS_NAME ?= debian
 OS_VERSION ?= 10_buster
+PACKER ?= packer
 PACKER_CACHE_DIR ?= packer_cache
 PYTHON ?= python
 TEMPLATE ?= base-uefi
@@ -65,7 +66,7 @@ $(TEMPLATE_DIR): generator
 .PHONY: build
 build: $(TEMPLATE_DIR)
 	@CHECKPOINT_DISABLE=1 PACKER_CACHE_DIR=$(PACKER_CACHE_DIR) \
-  packer build \
+  $(PACKER) build \
     $(BUILD_OPTS) \
     -only=$(BUILDER) \
     -force \
