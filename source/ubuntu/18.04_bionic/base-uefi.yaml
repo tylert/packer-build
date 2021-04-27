@@ -7,7 +7,7 @@
 _anchors:
 - &builder_common_options
   boot_command:
-  - '<wait>c<wait>'
+  - '<wait><wait><wait>c<wait><wait><wait>'
   - 'linux /install/vmlinuz '
   - 'auto=true '
   - 'url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `preseed_file` }} '

@@ -7,7 +7,7 @@
 _anchors:
 - &builder_common_options
   boot_command:
-  - '<esc><wait>'
+  - '<wait><wait><wait><esc><wait><wait><wait>'
   - '/install.amd/vmlinuz '
   - 'initrd=/install.amd/initrd.gz '
   - 'auto=true '
