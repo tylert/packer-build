@@ -111,6 +111,10 @@ builders:
   vboxmanage:
   - - modifyvm
     - '{{ .Name }}'
+    - '--firmware'
+    - efi
+  - - modifyvm
+    - '{{ .Name }}'
     - '--rtcuseutc'
     - >-
       {{ if user `system_clock_in_utc` | eq `true` -}}
@@ -141,7 +145,9 @@ builders:
   name: qemu
   net_device: virtio-net
   qemu_binary: '{{ user `qemu_binary` }}'
-# qemuargs: ([][]string)
+  qemuargs:
+  - - -bios
+    - OVMF.fd
   skip_compaction: true
   type: qemu
   use_default_display: false
@@ -210,6 +216,12 @@ post-processors:
 provisioners:
 - <<: *provisioner_shell_options
   inline:
+  - echo 'FS0:\EFI\ubuntu\grubx64.efi' > /boot/efi/startup.nsh
+  only:
+  - vbox
+  - qemu
+- <<: *provisioner_shell_options
+  inline:
   - apt-get update
   - apt-get --yes dist-upgrade
   - apt-get clean
@@ -236,7 +248,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: 'Base box for x86_64 Ubuntu Ignoble Impala 21.10.x'
+  description: 'Base box (UEFI) for x86_64 Ubuntu Impish Indri 21.10.x'
   disk_size: '7500'
   domain: ''
   guest_os_type: Ubuntu_64
@@ -248,7 +260,7 @@ variables:
   http_port_min: '8000'
   iso_checksum: file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS
 # iso_checksum: sha256:deadbeef
-  iso_file: idiotic-live-server-amd64.iso
+  iso_file: impish-live-server-amd64.iso
   iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
@@ -278,10 +290,10 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  userdata_location: template/ubuntu/21.10_idiotic
-  vagrantfile_template: template/ubuntu/21.10_idiotic/vagrant.rb.j2
+  userdata_location: template/ubuntu/21.10_impish
+  vagrantfile_template: template/ubuntu/21.10_impish/vagrant.rb.j2
   version: 0.0.0
-  vm_name: base-idiotic
+  vm_name: base-uefi-impish
   vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'

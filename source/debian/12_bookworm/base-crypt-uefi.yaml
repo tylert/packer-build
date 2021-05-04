@@ -7,7 +7,7 @@
 _anchors:
 - &builder_common_options
   boot_command:
-  - '<wait>c<wait>'
+  - '<wait><wait><wait>c<wait><wait><wait>'
   - 'linux /install.amd/vmlinuz '
   - 'auto=true '
   - 'url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `preseed_file` }} '
@@ -281,7 +281,7 @@ variables:
   keyboard: us
   language: en
   locale: en_CA.UTF-8
-  memory: '768'
+  memory: '1024'
   min_vagrant_version: 2.2.16
   mirror: ftp.ca.debian.org
   output_directory: 'build/{{ isotime "2006-01-02-15-04-05" }}'
