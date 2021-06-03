@@ -41,8 +41,8 @@ ACTIVATE = $(VENV_DIR)/bin/activate
 requirements:
 	@test -d $(VENV_DIR) || $(PYTHON) -m venv $(VENV_DIR) && \
     source $(ACTIVATE) && \
-    pip install --requirement requirements_bare.txt && \
-    pip freeze > requirements.txt && \
+    $(PYTHON) -m pip install --requirement requirements_bare.txt && \
+    $(PYTHON) -m pip freeze > requirements.txt && \
     rm -rf $(VENV_DIR)
 
 .PHONY: generator builder

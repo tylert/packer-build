@@ -385,6 +385,7 @@ Debian_releases_
 
 .. _Debian_releases:  https://en.wikipedia.org/wiki/Debian_version_history#Release_table
 
+* ? (16.x);  released on 2031-??-??, supported until 2036-??-01
 * ? (15.x);  released on 2029-??-??, supported until 2034-??-01
 * ? (14.x);  released on 2027-??-??, supported until 2032-??-01
 * Trixie (13.x);  released on 2025-??-??, supported until 2030-??-01
@@ -402,20 +403,26 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* Wicked? Walrus? (28.10.x);  released on 2028-10-??, supported until 2029-07?-01
-* Vapid? Vulture? (28.04.x LTS);  released on 2028-04-??, supported until 2033-04?-01
-* Useless? Urchin? (27.10.x);  released on 2027-10-??, supported until 2028-07?-01
-* Terrible? Termite? (27.04.x);  released on 2027-04-??, supported until 2028-01?-01
-* Sloppy? Salamander? (26.10.x);  released on 2026-10-??, supported until 2027-07?-01
-* Randy? Rooster? (26.04.x LTS);  released on 2026-04-??, supported until 2031-04?-01
-* Questionable? Quail? (25.10.x);  released on 2025-10-??, supported until 2026-07?-01
-* Putrid? Porpoise? (25.04.x);  released on 2025-04-??, supported until 2026-01?-01
-* Ornery? Ostrich? (24.10.x);  released on 2024-10-??, supported until 2025-07?-01
-* Nasty? Newt? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01
-* Mushy? Moose? (23.10.x);  released on 2023-10-??, supported until 2024-07?-01
-* Lumpy? Lemming? (23.04.x);  released on 2023-04-??, supported until 2024-01?-01
-* Kinky? Kangaroo? (22.10.x);  released on 2022-10-??, supported until 2023-07?-01
-* Junky? Jaguar? (22.04.x LTS);  released on 2022-04-??, supported until 2027-04?-01
+* ? ? (31.10.x);  released on 2031-10-??, supported until 2032-07?-01
+* ? ? (31.04.x);  released on 2031-04-??, supported until 2032-01?-01
+* ? ? (30.10.x);  released on 2030-10-??, supported until 2031-07?-01
+* ? ? (30.04.x LTS);  released on 2030-04-??, supported until 2035-04?-01
+* ? ? (29.10.x);  released on 2029-10-??, supported until 2030-07?-01
+* ? ? (29.04.x);  released on 2029-04-??, supported until 2030-01?-01
+* ? ? (28.10.x);  released on 2028-10-??, supported until 2029-07?-01
+* ? ? (28.04.x LTS);  released on 2028-04-??, supported until 2033-04?-01
+* ? ? (27.10.x);  released on 2027-10-??, supported until 2028-07?-01
+* ? ? (27.04.x);  released on 2027-04-??, supported until 2028-01?-01
+* ? ? (26.10.x);  released on 2026-10-??, supported until 2027-07?-01
+* ? ? (26.04.x LTS);  released on 2026-04-??, supported until 2031-04?-01
+* ? ? (25.10.x);  released on 2025-10-??, supported until 2026-07?-01
+* ? ? (25.04.x);  released on 2025-04-??, supported until 2026-01?-01
+* ? ? (24.10.x);  released on 2024-10-??, supported until 2025-07?-01
+* ? ? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01
+* ? ? (23.10.x);  released on 2023-10-??, supported until 2024-07?-01
+* ? ? (23.04.x);  released on 2023-04-??, supported until 2024-01?-01
+* ? ? (22.10.x);  released on 2022-10-??, supported until 2023-07?-01
+* ? ? (22.04.x LTS);  released on 2022-04-??, supported until 2027-04?-01
 * Impish Indri (21.10.x);  released on 2021-10-??, supported until 2022-07?-01
 * Hirsute Hippo (21.04.x);  released on 2021-04-22, supported until 2022-01-01
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-01

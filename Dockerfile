@@ -3,7 +3,7 @@
 # https://hub.docker.com/_/python/
 # https://hub.docker.com/_/alpine/
 
-ARG PYTHON_IMAGE=python:3.9.4-alpine
+ARG PYTHON_IMAGE=python:3.9.5-alpine
 FROM ${PYTHON_IMAGE} AS generator
 ARG USER=10011001
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
@@ -15,7 +15,7 @@ USER ${USER}
 ENTRYPOINT ["python", "./generate_template.py"]
 CMD ["--os_name=all"]
 
-FROM alpine:latest AS fetcher
+FROM alpine:edge AS fetcher
 ARG PACKER_VERSION=1.7.2
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
 WORKDIR /tmp/
@@ -23,7 +23,7 @@ USER ${USER}
 RUN wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip && \
     unzip packer_${PACKER_VERSION}_linux_amd64.zip
 
-FROM alpine:latest AS builder
+FROM alpine:edge AS builder
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
 WORKDIR /tmp/
 COPY --from=fetcher /tmp/packer /usr/local/bin
