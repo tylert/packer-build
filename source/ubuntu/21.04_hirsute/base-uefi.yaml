@@ -155,7 +155,7 @@ builders:
   vnc_port_max: '{{ user `vnc_vrdp_port_max` }}'
   vnc_port_min: '{{ user `vnc_vrdp_port_min` }}'
 description: '{{ user `description` }}'
-min_packer_version: 1.7.2
+min_packer_version: 1.7.3
 #                  _
 #  _ __   ___  ___| |_      _ __  _ __ ___   ___ ___  ___ ___  ___  _ __ ___
 # | '_ \ / _ \/ __| __|____| '_ \| '__/ _ \ / __/ _ \/ __/ __|/ _ \| '__/ __|
