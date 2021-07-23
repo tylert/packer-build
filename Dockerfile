@@ -3,7 +3,7 @@
 # https://hub.docker.com/_/python/
 # https://hub.docker.com/_/alpine/
 
-ARG PYTHON_IMAGE=python:3.9.5-alpine
+ARG PYTHON_IMAGE=python:3.9-alpine
 FROM ${PYTHON_IMAGE} AS generator
 ARG USER=10011001
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
@@ -16,7 +16,7 @@ ENTRYPOINT ["python", "./generate_template.py"]
 CMD ["--os_name=all"]
 
 FROM alpine:edge AS fetcher
-ARG PACKER_VERSION=1.7.2
+ARG PACKER_VERSION=1.7.4
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
 WORKDIR /tmp/
 USER ${USER}
