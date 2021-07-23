@@ -38,7 +38,7 @@ all: build
 
 ACTIVATE = $(VENV_DIR)/bin/activate
 .PHONY: requirements
-requirements:
+requirements: requirements_bare.txt
 	@test -d $(VENV_DIR) || $(PYTHON) -m venv $(VENV_DIR) && \
     source $(ACTIVATE) && \
     $(PYTHON) -m pip install --requirement requirements_bare.txt && \
