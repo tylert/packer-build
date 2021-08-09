@@ -8,3 +8,4 @@ Vagrantfile
 .venv/
 __pycache__/
 *.py[co]
+.dockerignore

@@ -46,13 +46,21 @@ requirements: requirements_bare.txt
     rm -rf $(VENV_DIR)
 
 .PHONY: generator builder
-generator builder: Dockerfile requirements.txt generate_template.py
+generator builder: Dockerfile requirements.txt generate_template.py .dockerignore
 	@docker build \
     --build-arg USER=$(shell id -u) \
     --file Dockerfile \
     --tag $@ \
     --target $@ \
     .
+
+.dockerignore:
+	touch .dockerignore
+	echo "$(PACKER_CACHE_DIR)" >> .dockerignore
+	echo "$(BUILD_DIR)" >> .dockerignore
+	echo "$(TEMPLATE_DIR)" >> .dockerignore
+	echo "Vagrantfile" >> .dockerignore
+	echo ".vagrant" >> .dockerignore
 
 $(TEMPLATE_DIR): generator
 	@mkdir -p $(PWD)/$(TEMPLATE_DIR) && \
@@ -84,7 +92,7 @@ build: $(TEMPLATE_DIR)
 
 .PHONY: clean
 clean:
-	@rm -rf $(TEMPLATE_DIR) $(BUILD_DIR) && \
+	@rm -rf $(TEMPLATE_DIR) $(BUILD_DIR) .dockerignore && \
   rm -rf Vagrantfile .vagrant
 
 .PHONY: reallyclean
