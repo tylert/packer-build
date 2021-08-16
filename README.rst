@@ -391,8 +391,8 @@ Debian_releases_
 * ? (14.x);  released on 2027-??-??, supported until 2032-??-01
 * Trixie (13.x);  released on 2025-??-??, supported until 2030-??-01
 * Bookworm (12.x);  released on 2023-??-??, supported until 2028-??-01
-* Bullseye (11.x);  released on 2021-08-14, supported until 2026-??-01
-* Buster (10.x);  released on 2019-07-06, supported until 2024-??-01
+* Bullseye (11.x);  released on 2021-08-14, supported until 2026-06?-01
+* Buster (10.x);  released on 2019-07-06, supported until 2024-06-01
 * Stretch (9.x);  released on 2017-06-18, supported until 2022-06-01
 
 Debian releases seem to occur every 2 years around mid-year and usually receive
