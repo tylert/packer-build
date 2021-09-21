@@ -9,7 +9,7 @@ ARG USER=10011001
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
 WORKDIR /tmp/
 COPY requirements.txt /tmp/
-RUN pip install -r requirements.txt
+RUN pip install --requirement requirements.txt
 COPY generate_template.py /tmp/
 USER ${USER}
 ENTRYPOINT ["python", "./generate_template.py"]
