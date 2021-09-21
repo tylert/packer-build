@@ -258,14 +258,6 @@ Hex Result::
     000001c
 
 
-Serving Local Files via HTTP
-----------------------------
-
-::
-
-    ./script/sow.py
-
-
 Caching Debian/Ubuntu Packages
 ------------------------------
 
@@ -407,30 +399,39 @@ Ubuntu_releases_
 * ? ? (31.10.x);  released on 2031-10-??, supported until 2032-07?-01
 * ? ? (31.04.x);  released on 2031-04-??, supported until 2032-01?-01
 * ? ? (30.10.x);  released on 2030-10-??, supported until 2031-07?-01
-* ? ? (30.04.x LTS);  released on 2030-04-??, supported until 2035-04?-01
+* ? ? (30.04.x LTS);  released on 2030-04-??, supported until 2035-04?-01 (ESM 2040-04?-01)
 * ? ? (29.10.x);  released on 2029-10-??, supported until 2030-07?-01
 * ? ? (29.04.x);  released on 2029-04-??, supported until 2030-01?-01
 * ? ? (28.10.x);  released on 2028-10-??, supported until 2029-07?-01
-* ? ? (28.04.x LTS);  released on 2028-04-??, supported until 2033-04?-01
+* ? ? (28.04.x LTS);  released on 2028-04-??, supported until 2033-04?-01 (ESM 2037-04?-01)
 * ? ? (27.10.x);  released on 2027-10-??, supported until 2028-07?-01
 * ? ? (27.04.x);  released on 2027-04-??, supported until 2028-01?-01
 * ? ? (26.10.x);  released on 2026-10-??, supported until 2027-07?-01
-* ? ? (26.04.x LTS);  released on 2026-04-??, supported until 2031-04?-01
+* ? ? (26.04.x LTS);  released on 2026-04-??, supported until 2031-04?-01 (ESM 2035-04?-01)
 * ? ? (25.10.x);  released on 2025-10-??, supported until 2026-07?-01
 * ? ? (25.04.x);  released on 2025-04-??, supported until 2026-01?-01
 * ? ? (24.10.x);  released on 2024-10-??, supported until 2025-07?-01
-* ? ? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01
+* ? ? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01 (ESM 2034-04?-01)
 * ? ? (23.10.x);  released on 2023-10-??, supported until 2024-07?-01
 * ? ? (23.04.x);  released on 2023-04-??, supported until 2024-01?-01
 * ? ? (22.10.x);  released on 2022-10-??, supported until 2023-07?-01
-* ? ? (22.04.x LTS);  released on 2022-04-??, supported until 2027-04?-01
-* Impish Indri (21.10.x);  released on 2021-10-??, supported until 2022-07?-01
+* ? ? (22.04.x LTS);  released on 2022-04-??, supported until 2027-04?-01 (ESM 2032-04?-01)
+* Impish Indri (21.10.x);  released on 2021-10-??, supported until 2022-07-01
 * Hirsute Hippo (21.04.x);  released on 2021-04-22, supported until 2022-01-01
-* Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-01
-* Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01
+* Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-01 (ESM 2030-04-01)
+* Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01 (ESM 2028-04-01)
+* Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01 (ESM 2024-04-01)
+* Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-25 (ESM 2022-04-01)
 
 Ubuntu releases traditionally-occur twice a year--in April and October.  LTS
 releases typically come out in April and receive standard support for 5 years
-and extended security maintenance for 10 years.  Non-LTS releases typically
+and Extended Security Maintenance for 10 years.  Non-LTS releases typically
 seem to receive standard support for 9 to 11 months with no extended security
 maintenance.
+
+Extended Security Maintenance (ESM_) support for LTS releases is available to
+individuals on "up to 3 machines" or up to 50 machines for
+officially-recognized Ubuntu community members_.
+
+.. _ESM:  https://ubuntu.com/security/esm
+.. _members:  https://wiki.ubuntu.com/Membership

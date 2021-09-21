@@ -16,7 +16,7 @@ ENTRYPOINT ["python", "./generate_template.py"]
 CMD ["--os_name=all"]
 
 FROM alpine:edge AS fetcher
-ARG PACKER_VERSION=1.7.4
+ARG PACKER_VERSION=1.7.5
 LABEL maintainer="Tyler Tidman <tyler.tidman@draak.ca>"
 WORKDIR /tmp/
 USER ${USER}
