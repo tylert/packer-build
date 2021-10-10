@@ -416,12 +416,12 @@ Ubuntu_releases_
 * ? ? (23.04.x);  released on 2023-04-??, supported until 2024-01?-01
 * ? ? (22.10.x);  released on 2022-10-??, supported until 2023-07?-01
 * ? ? (22.04.x LTS);  released on 2022-04-??, supported until 2027-04?-01 (ESM 2032-04?-01)
-* Impish Indri (21.10.x);  released on 2021-10-??, supported until 2022-07-01
-* Hirsute Hippo (21.04.x);  released on 2021-04-22, supported until 2022-01-01
-* Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-01 (ESM 2030-04-01)
-* Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-01 (ESM 2028-04-01)
-* Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-01 (ESM 2024-04-01)
-* Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-25 (ESM 2022-04-01)
+* Impish Indri (21.10.x);  released on 2021-10-14, supported until 2022-07-14
+* Hirsute Hippo (21.04.x);  released on 2021-04-22, supported until 2022-01-20
+* Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-23 (ESM 2030-04-23)
+* Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-26 (ESM 2028-04-26)
+* Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-30 (ESM 2026-04-23)
+* Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-25 (ESM 2024-04-25)
 
 Ubuntu releases traditionally-occur twice a year--in April and October.  LTS
 releases typically come out in April and receive standard support for 5 years
