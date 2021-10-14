@@ -248,7 +248,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: 'Base box (UEFI) for x86_64 Ubuntu Impish Indri 21.10.x'
+  description: 'Base box (UEFI) for x86_64 Ubuntu Jerky Jackalope 22.04.x'
   disk_size: '7500'
   domain: ''
   guest_os_type: Ubuntu_64
@@ -258,10 +258,10 @@ variables:
   http_directory: '.'
   http_port_max: '9000'
   http_port_min: '8000'
-# iso_checksum: file:http://releases.ubuntu.com/21.10/SHA256SUMS
-  iso_checksum: sha256:e84f546dfc6743f24e8b1e15db9cc2d2c698ec57d9adfb852971772d1ce692d4
-  iso_file: ubuntu-21.10-live-server-amd64.iso
-  iso_path_external: http://releases.ubuntu.com/21.10
+  iso_checksum: file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS
+# iso_checksum: sha256:deadbeef
+  iso_file: jerky-live-server-amd64.iso
+  iso_path_external: http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending
   iso_path_internal: http://myserver:8080/ubuntu
   keep_registered: 'false'
   keyboard: us
@@ -290,10 +290,10 @@ variables:
   start_retry_timeout: 5m
   system_clock_in_utc: 'true'
   timezone: UTC
-  userdata_location: template/ubuntu/21.10_impish
-  vagrantfile_template: template/ubuntu/21.10_impish/vagrant.rb.j2
+  userdata_location: template/ubuntu/22.04_jerky
+  vagrantfile_template: template/ubuntu/22.04_jerky/vagrant.rb.j2
   version: 0.0.0
-  vm_name: base-uefi-impish
+  vm_name: base-uefi-jerky
   vnc_vrdp_bind_address: 127.0.0.1
   vnc_vrdp_port_max: '6000'
   vnc_vrdp_port_min: '5900'
