@@ -248,7 +248,7 @@ variables:
   communicator: ssh
   country: CA
   cpus: '1'
-  description: 'Base box (UEFI) for x86_64 Ubuntu Jerky Jackalope 22.04.x'
+  description: 'Base box (UEFI) for x86_64 Ubuntu Jerky Jackalope 22.04.x LTS'
   disk_size: '7500'
   domain: ''
   guest_os_type: Ubuntu_64
