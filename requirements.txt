@@ -1,5 +1,0 @@
-click==8.0.1
-Jinja2==3.0.1
-MarkupSafe==2.0.1
-ruamel.yaml==0.17.16
-ruamel.yaml.clib==0.2.6
