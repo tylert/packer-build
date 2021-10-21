@@ -287,109 +287,109 @@ locals {
 source "qemu" "kvm" {
   accelerator                  = "kvm"
   boot_command                 = ["<wait><wait><wait>c<wait><wait><wait>", "linux /install.amd/vmlinuz ", "auto=true ", "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ", "hostname=${var.vm_name} ", "domain=${var.domain} ", "interface=auto ", "vga=788 noprompt quiet --<enter>", "initrd /install.amd/initrd.gz<enter>", "boot<enter>"]
-  boot_wait                    = "${var.boot_wait}"
-  communicator                 = "${var.communicator}"
-  cpus                         = "${var.cpus}"
+  boot_wait                    = var.boot_wait
+  communicator                 = var.communicator
+  cpus                         = var.cpus
   disk_cache                   = "writeback"
   disk_compression             = false
   disk_discard                 = "ignore"
   disk_image                   = false
   disk_interface               = "virtio-scsi"
-  disk_size                    = "${var.disk_size}"
+  disk_size                    = var.disk_size
   format                       = "raw"
-  headless                     = "${var.headless}"
-  host_port_max                = "${var.host_port_max}"
-  host_port_min                = "${var.host_port_min}"
-  http_directory               = "${var.http_directory}"
-  http_port_max                = "${var.http_port_max}"
-  http_port_min                = "${var.http_port_min}"
-  iso_checksum                 = "${var.iso_checksum}"
+  headless                     = var.headless
+  host_port_max                = var.host_port_max
+  host_port_min                = var.host_port_min
+  http_directory               = var.http_directory
+  http_port_max                = var.http_port_max
+  http_port_min                = var.http_port_min
+  iso_checksum                 = var.iso_checksum
   iso_skip_cache               = false
   iso_target_extension         = "iso"
   iso_target_path              = "${var.packer_cache_dir}/${var.iso_file}"
   iso_urls                     = ["${var.iso_path_internal}/${var.iso_file}", "${var.iso_path_external}/${var.iso_file}"]
   machine_type                 = "pc"
-  memory                       = "${var.memory}"
+  memory                       = var.memory
   net_device                   = "virtio-net"
-  output_directory             = "${local.output_directory}"
-  qemu_binary                  = "${var.qemu_binary}"
+  output_directory             = local.output_directory
+  qemu_binary                  = var.qemu_binary
   qemuargs                     = [["-bios", "OVMF.fd"]]
   shutdown_command             = "echo '${var.ssh_password}' | sudo -E -S poweroff"
-  shutdown_timeout             = "${var.shutdown_timeout}"
+  shutdown_timeout             = var.shutdown_timeout
   skip_compaction              = true
   skip_nat_mapping             = false
-  ssh_agent_auth               = "${var.ssh_agent_auth}"
-  ssh_clear_authorized_keys    = "${var.ssh_clear_authorized_keys}"
-  ssh_disable_agent_forwarding = "${var.ssh_disable_agent_forwarding}"
-  ssh_file_transfer_method     = "${var.ssh_file_transfer_method}"
-  ssh_handshake_attempts       = "${var.ssh_handshake_attempts}"
-  ssh_keep_alive_interval      = "${var.ssh_keep_alive_interval}"
-  ssh_password                 = "${var.ssh_password}"
-  ssh_port                     = "${var.ssh_port}"
-  ssh_pty                      = "${var.ssh_pty}"
-  ssh_timeout                  = "${var.ssh_timeout}"
-  ssh_username                 = "${var.ssh_username}"
+  ssh_agent_auth               = var.ssh_agent_auth
+  ssh_clear_authorized_keys    = var.ssh_clear_authorized_keys
+  ssh_disable_agent_forwarding = var.ssh_disable_agent_forwarding
+  ssh_file_transfer_method     = var.ssh_file_transfer_method
+  ssh_handshake_attempts       = var.ssh_handshake_attempts
+  ssh_keep_alive_interval      = var.ssh_keep_alive_interval
+  ssh_password                 = var.ssh_password
+  ssh_port                     = var.ssh_port
+  ssh_pty                      = var.ssh_pty
+  ssh_timeout                  = var.ssh_timeout
+  ssh_username                 = var.ssh_username
   use_default_display          = false
-  vm_name                      = "${var.vm_name}"
-  vnc_bind_address             = "${var.vnc_vrdp_bind_address}"
-  vnc_port_max                 = "${var.vnc_vrdp_port_max}"
-  vnc_port_min                 = "${var.vnc_vrdp_port_min}"
+  vm_name                      = var.vm_name
+  vnc_bind_address             = var.vnc_vrdp_bind_address
+  vnc_port_max                 = var.vnc_vrdp_port_max
+  vnc_port_min                 = var.vnc_vrdp_port_min
 }
 
 source "virtualbox-iso" "vbox" {
   boot_command                 = ["<wait><wait><wait>c<wait><wait><wait>", "linux /install.amd/vmlinuz ", "auto=true ", "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ", "hostname=${var.vm_name} ", "domain=${var.domain} ", "interface=auto ", "vga=788 noprompt quiet --<enter>", "initrd /install.amd/initrd.gz<enter>", "boot<enter>"]
-  boot_wait                    = "${var.boot_wait}"
-  bundle_iso                   = "${var.bundle_iso}"
-  communicator                 = "${var.communicator}"
-  cpus                         = "${var.cpus}"
-  disk_size                    = "${var.disk_size}"
+  boot_wait                    = var.boot_wait
+  bundle_iso                   = var.bundle_iso
+  communicator                 = var.communicator
+  cpus                         = var.cpus
+  disk_size                    = var.disk_size
   format                       = "ova"
   guest_additions_mode         = "disable"
-  guest_os_type                = "${var.guest_os_type}"
+  guest_os_type                = var.guest_os_type
   hard_drive_discard           = false
   hard_drive_interface         = "sata"
   hard_drive_nonrotational     = false
-  headless                     = "${var.headless}"
-  host_port_max                = "${var.host_port_max}"
-  host_port_min                = "${var.host_port_min}"
-  http_directory               = "${var.http_directory}"
-  http_port_max                = "${var.http_port_max}"
-  http_port_min                = "${var.http_port_min}"
-  iso_checksum                 = "${var.iso_checksum}"
+  headless                     = var.headless
+  host_port_max                = var.host_port_max
+  host_port_min                = var.host_port_min
+  http_directory               = var.http_directory
+  http_port_max                = var.http_port_max
+  http_port_min                = var.http_port_min
+  iso_checksum                 = var.iso_checksum
   iso_interface                = "sata"
   iso_target_extension         = "iso"
   iso_target_path              = "${var.packer_cache_dir}/${var.iso_file}"
   iso_urls                     = ["${var.iso_path_internal}/${var.iso_file}", "${var.iso_path_external}/${var.iso_file}"]
-  keep_registered              = "${var.keep_registered}"
-  memory                       = "${var.memory}"
-  output_directory             = "${local.output_directory}"
+  keep_registered              = var.keep_registered
+  memory                       = var.memory
+  output_directory             = local.output_directory
   post_shutdown_delay          = "0s"
   sata_port_count              = "1"
   shutdown_command             = "echo '${var.ssh_password}' | sudo -E -S poweroff"
-  shutdown_timeout             = "${var.shutdown_timeout}"
-  skip_export                  = "${var.skip_export}"
+  shutdown_timeout             = var.shutdown_timeout
+  skip_export                  = var.skip_export
   skip_nat_mapping             = false
-  ssh_agent_auth               = "${var.ssh_agent_auth}"
-  ssh_clear_authorized_keys    = "${var.ssh_clear_authorized_keys}"
-  ssh_disable_agent_forwarding = "${var.ssh_disable_agent_forwarding}"
-  ssh_file_transfer_method     = "${var.ssh_file_transfer_method}"
-  ssh_handshake_attempts       = "${var.ssh_handshake_attempts}"
-  ssh_keep_alive_interval      = "${var.ssh_keep_alive_interval}"
-  ssh_password                 = "${var.ssh_password}"
-  ssh_port                     = "${var.ssh_port}"
-  ssh_pty                      = "${var.ssh_pty}"
-  ssh_timeout                  = "${var.ssh_timeout}"
-  ssh_username                 = "${var.ssh_username}"
+  ssh_agent_auth               = var.ssh_agent_auth
+  ssh_clear_authorized_keys    = var.ssh_clear_authorized_keys
+  ssh_disable_agent_forwarding = var.ssh_disable_agent_forwarding
+  ssh_file_transfer_method     = var.ssh_file_transfer_method
+  ssh_handshake_attempts       = var.ssh_handshake_attempts
+  ssh_keep_alive_interval      = var.ssh_keep_alive_interval
+  ssh_password                 = var.ssh_password
+  ssh_port                     = var.ssh_port
+  ssh_pty                      = var.ssh_pty
+  ssh_timeout                  = var.ssh_timeout
+  ssh_username                 = var.ssh_username
   vboxmanage                   = [["modifyvm", "{{ .Name }}", "--firmware", "efi"], ["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]]
   virtualbox_version_file      = "/tmp/.vbox_version"
-  vm_name                      = "${var.vm_name}"
-  vrdp_bind_address            = "${var.vnc_vrdp_bind_address}"
-  vrdp_port_max                = "${var.vnc_vrdp_port_max}"
-  vrdp_port_min                = "${var.vnc_vrdp_port_min}"
+  vm_name                      = var.vm_name
+  vrdp_bind_address            = var.vnc_vrdp_bind_address
+  vrdp_port_max                = var.vnc_vrdp_port_max
+  vrdp_port_min                = var.vnc_vrdp_port_min
 }
 
 build {
-  description = "${var.description}"
+  description = var.description
 
   sources = ["source.qemu.kvm", "source.virtualbox-iso.vbox"]
 
@@ -401,7 +401,7 @@ build {
     inline_shebang      = "/bin/sh -e"
     only                = ["vbox", "qemu"]
     skip_clean          = false
-    start_retry_timeout = "${var.start_retry_timeout}"
+    start_retry_timeout = var.start_retry_timeout
   }
 
   provisioner "shell" {
@@ -412,7 +412,7 @@ build {
     inline_shebang      = "/bin/sh -e"
     only                = ["vbox", "qemu"]
     skip_clean          = false
-    start_retry_timeout = "${var.start_retry_timeout}"
+    start_retry_timeout = var.start_retry_timeout
   }
 
   provisioner "shell" {
@@ -423,7 +423,7 @@ build {
     inline_shebang      = "/bin/sh -e"
     only                = ["vbox", "qemu"]
     skip_clean          = false
-    start_retry_timeout = "${var.start_retry_timeout}"
+    start_retry_timeout = var.start_retry_timeout
   }
 
   provisioner "shell" {
@@ -434,7 +434,7 @@ build {
     inline_shebang      = "/bin/sh -e"
     only                = ["vbox", "qemu"]
     skip_clean          = false
-    start_retry_timeout = "${var.start_retry_timeout}"
+    start_retry_timeout = var.start_retry_timeout
   }
 
   post-processor "vagrant" {
@@ -442,7 +442,7 @@ build {
     keep_input_artifact  = true
     only                 = ["vbox", "qemu"]
     output               = "${local.output_directory}/${var.vm_name}-${var.version}-${build.name}.box"
-    vagrantfile_template = "${var.vagrantfile_template}"
+    vagrantfile_template = var.vagrantfile_template
   }
 
   post-processor "compress" {
