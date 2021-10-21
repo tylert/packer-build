@@ -1,5 +1,16 @@
 packer {
-  required_version = ">= 1.7.7"
+  required_version = "~> 1.7.7"
+
+  required_providers {
+    qemu = {
+      source  = "github.com/hashicorp/packer-plugin-qemu"
+      version = "~> 1.0.1"
+    }
+    virtualbox = {
+      source  = "github.com/hashicorp/packer-plugin-virtualbox"
+      version = "~> 1.0.0"
+    }
+  }
 }
 
 variable "apt_cache_url" {
