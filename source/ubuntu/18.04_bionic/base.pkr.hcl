@@ -1,16 +1,16 @@
 packer {
   required_version = "~> 1.7.7"
 
-# required_providers {
-#   qemu = {
-#     source  = "github.com/hashicorp/packer-plugin-qemu"
-#     version = "~> 1.0.1"
-#   }
-#   virtualbox = {
-#     source  = "github.com/hashicorp/packer-plugin-virtualbox"
-#     version = "~> 1.0.0"
-#   }
-# }
+  # required_providers {
+  #   qemu = {
+  #     source  = "github.com/hashicorp/packer-plugin-qemu"
+  #     version = "~> 1.0.1"
+  #   }
+  #   virtualbox = {
+  #     source  = "github.com/hashicorp/packer-plugin-virtualbox"
+  #     version = "~> 1.0.0"
+  #   }
+  # }
 }
 
 variable "apt_cache_url" {
@@ -273,13 +273,15 @@ variable "vnc_vrdp_port_min" {
   type    = string
   default = "5900"
 }
-# The "legacy_isotime" function has been provided for backwards compatability, but we recommend switching to the timestamp and formatdate functions.
+
+# The "legacy_isotime" function has been provided for backwards compatability,
+# but we recommend switching to the timestamp and formatdate functions.
 
 locals {
   output_directory = "build/${legacy_isotime("2006-01-02-15-04-05")}"
 }
 
-source "qemu" "kvm" {
+source "qemu" "qemu" {
   accelerator                  = "kvm"
   boot_command                 = ["<wait><wait><wait><esc><esc><enter><wait><wait><wait>", "install initrd=/install/initrd.gz ", "auto=true ", "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ", "language=${var.language} ", "country=${var.country} ", "locale=${var.locale} ", "hostname=${var.vm_name} ", "domain=${var.domain} ", "interface=auto ", "console-setup/ask_detect=false ", "keyboard-configuration/layoutcode=${var.keyboard} ", "vga=788 noprompt quiet --<enter>"]
   boot_wait                    = var.boot_wait
@@ -383,9 +385,9 @@ source "virtualbox-iso" "vbox" {
 }
 
 build {
-  description = var.description
+  description = "Can't use variables here yet!"
 
-  sources = ["source.qemu.kvm", "source.virtualbox-iso.vbox"]
+  sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
 
   provisioner "shell" {
     binary              = false
@@ -393,7 +395,7 @@ build {
     expect_disconnect   = true
     inline              = ["echo '${var.ssh_username} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99${var.ssh_username}", "chmod 0440 /etc/sudoers.d/99${var.ssh_username}"]
     inline_shebang      = "/bin/sh -e"
-    only                = ["vbox", "qemu"]
+    only                = ["qemu", "vbox"]
     skip_clean          = false
     start_retry_timeout = var.start_retry_timeout
   }
@@ -404,7 +406,7 @@ build {
     expect_disconnect   = true
     inline              = ["apt-get update", "apt-get --yes dist-upgrade", "apt-get clean"]
     inline_shebang      = "/bin/sh -e"
-    only                = ["vbox", "qemu"]
+    only                = ["qemu", "vbox"]
     skip_clean          = false
     start_retry_timeout = var.start_retry_timeout
   }
@@ -415,7 +417,7 @@ build {
     expect_disconnect   = true
     inline              = ["dd if=/dev/zero of=/ZEROFILL bs=16M || true", "rm /ZEROFILL", "sync"]
     inline_shebang      = "/bin/sh -e"
-    only                = ["vbox", "qemu"]
+    only                = ["qemu", "vbox"]
     skip_clean          = false
     start_retry_timeout = var.start_retry_timeout
   }
@@ -423,7 +425,7 @@ build {
   post-processor "vagrant" {
     compression_level    = 6
     keep_input_artifact  = true
-    only                 = ["vbox", "qemu"]
+    only                 = ["qemu", "vbox"]
     output               = "${local.output_directory}/${var.vm_name}-${var.version}-${build.name}.box"
     vagrantfile_template = var.vagrantfile_template
   }
