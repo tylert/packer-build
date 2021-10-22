@@ -23,17 +23,17 @@ currently done on systems that have amd64/x86_64-family processors.
 The VirtualBox and QEMU versions used for Linux testing are normally the
 "stock" ones provided by the official distribution repositories.
 
-* REQUIRED:  Packer_ (Packer_download_) 1.7.7
-* REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_) 6.1.6 r137129 (Qt5.11.3)
-* REQUIRED (if not using VirtualBox):  QEMU_ (kvm_) 3.1.0 (Debian 1:3.1+dfsg-8+deb10u4)
-* OPTIONAL:  Vagrant_ (Vagrant_download_) 2.2.18
+* REQUIRED:  Packer_ (Packer_download_) 1.7.7 or newer
+* REQUIRED (if not using VirtualBox):  QEMU_ (KVM_) 3.1.0 (Debian 1:3.1+dfsg-8+deb10u4) or newer
+* REQUIRED (if not using QEMU):  VirtualBox_ (VirtualBox_download_) 6.1.6 r137129 (Qt5.11.3) or newer
+* OPTIONAL:  Vagrant_ (Vagrant_download_) 2.2.18 or newer
 
 .. _Packer:  https://www.packer.io/
 .. _Packer_download:  https://releases.hashicorp.com/packer/
 .. _VirtualBox:  https://www.virtualbox.org/
 .. _VirtualBox_download:  http://download.virtualbox.org/virtualbox
 .. _QEMU:  https://www.qemu.org/
-.. _kvm:  https://www.linux-kvm.org/page/Main_Page
+.. _KVM:  https://www.linux-kvm.org/page/Main_Page
 .. _Vagrant:  https://www.vagrantup.com/
 .. _Vagrant_download:  https://releases.hashicorp.com/vagrant/
 .. _vagrant-libvirt:  https://github.com/vagrant-libvirt/vagrant-libvirt
@@ -55,7 +55,6 @@ TODO Items
 ~~~~~~~~~~
 
 * Fix the boot commands in the Ubuntu cloud-init UEFI templates (non-UEFI ones work fine)
-* Wait until HCL2 stops sucking and convert everything from YAML to HCL2
 * Find out if partman-crypto will allow passphrase-crypted
 * Continue investigating best way to handle non-interactive encrypted images (dropbear, likely)
 
@@ -63,28 +62,7 @@ TODO Items
 Using Packer Templates
 ----------------------
 
-Generate Templates and Build::
-
-    [environment_variables] make [make_options_variables_and_or_targets]
-
-Examples::
-
-    make OS_NAME=debian OS_VERSION=11_bullseye
-    make OS_NAME=ubuntu OS_VERSION=20.04_focal TEMPLATE=base
-    make BUILDER=vbox
-    make BUILDER=qemu
-    make BUILD_OPTS='-var=headless=true -var=version=1.0.0 -var=vm_name=test'
-    make BUILD_OPTS='-var-file=variables.json'
-    make TEMPLATE=cinnamon-uefi
-    PACKER_LOG=1 make
-
-Contents of example file ``variables.json`` used above::
-
-    {
-      "headless": true,
-      "version": "1.0.0",
-      "vm_name": "test"
-    }
+XXX FIXME TODO THIS SECTION NEEDS TO BE REWRITTEN ONCE THE HCL TEMPLATES ARE WORKING!!!
 
 
 Using Vagrant Box Files
@@ -323,12 +301,6 @@ To re-engage cloud-init after it has been used::
 
     sudo rm -f /etc/machine-id
     sudo cloud-init clean -s -l
-
-
-HCL2
-----
-
-* https://github.com/zmingxie/amzn2-wireguard-ami/blob/master/amzn2-wireguard.pkr.hcl
 
 
 Using a Headless Server
