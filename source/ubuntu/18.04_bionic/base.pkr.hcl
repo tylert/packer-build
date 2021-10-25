@@ -282,29 +282,46 @@ locals {
 }
 
 source "qemu" "qemu" {
-  accelerator                  = "kvm"
-  boot_command                 = ["<wait><wait><wait><esc><esc><enter><wait><wait><wait>", "install initrd=/install/initrd.gz ", "auto=true ", "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ", "language=${var.language} ", "country=${var.country} ", "locale=${var.locale} ", "hostname=${var.vm_name} ", "domain=${var.domain} ", "interface=auto ", "console-setup/ask_detect=false ", "keyboard-configuration/layoutcode=${var.keyboard} ", "vga=788 noprompt quiet --<enter>"]
-  boot_wait                    = var.boot_wait
-  communicator                 = var.communicator
-  cpus                         = var.cpus
-  disk_cache                   = "writeback"
-  disk_compression             = false
-  disk_discard                 = "ignore"
-  disk_image                   = false
-  disk_interface               = "virtio-scsi"
-  disk_size                    = var.disk_size
-  format                       = "raw"
-  headless                     = var.headless
-  host_port_max                = var.host_port_max
-  host_port_min                = var.host_port_min
-  http_directory               = var.http_directory
-  http_port_max                = var.http_port_max
-  http_port_min                = var.http_port_min
-  iso_checksum                 = var.iso_checksum
-  iso_skip_cache               = false
-  iso_target_extension         = "iso"
-  iso_target_path              = "${var.packer_cache_dir}/${var.iso_file}"
-  iso_urls                     = ["${var.iso_path_internal}/${var.iso_file}", "${var.iso_path_external}/${var.iso_file}"]
+  accelerator = "kvm"
+  boot_command = [
+    "<wait><wait><wait><esc><esc><enter><wait><wait><wait>",
+    "install initrd=/install/initrd.gz ",
+    "auto=true ",
+    "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ",
+    "language=${var.language} ",
+    "country=${var.country} ",
+    "locale=${var.locale} ",
+    "hostname=${var.vm_name} ",
+    "domain=${var.domain} ",
+    "interface=auto ",
+    "console-setup/ask_detect=false ",
+    "keyboard-configuration/layoutcode=${var.keyboard} ",
+    "vga=788 noprompt quiet --<enter>"
+  ]
+  boot_wait            = var.boot_wait
+  communicator         = var.communicator
+  cpus                 = var.cpus
+  disk_cache           = "writeback"
+  disk_compression     = false
+  disk_discard         = "ignore"
+  disk_image           = false
+  disk_interface       = "virtio-scsi"
+  disk_size            = var.disk_size
+  format               = "raw"
+  headless             = var.headless
+  host_port_max        = var.host_port_max
+  host_port_min        = var.host_port_min
+  http_directory       = var.http_directory
+  http_port_max        = var.http_port_max
+  http_port_min        = var.http_port_min
+  iso_checksum         = var.iso_checksum
+  iso_skip_cache       = false
+  iso_target_extension = "iso"
+  iso_target_path      = "${var.packer_cache_dir}/${var.iso_file}"
+  iso_urls = [
+    "${var.iso_path_internal}/${var.iso_file}",
+    "${var.iso_path_external}/${var.iso_file}"
+  ]
   machine_type                 = "pc"
   memory                       = var.memory
   net_device                   = "virtio-net"
@@ -333,29 +350,46 @@ source "qemu" "qemu" {
 }
 
 source "virtualbox-iso" "vbox" {
-  boot_command                 = ["<wait><wait><wait><esc><esc><enter><wait><wait><wait>", "install initrd=/install/initrd.gz ", "auto=true ", "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ", "language=${var.language} ", "country=${var.country} ", "locale=${var.locale} ", "hostname=${var.vm_name} ", "domain=${var.domain} ", "interface=auto ", "console-setup/ask_detect=false ", "keyboard-configuration/layoutcode=${var.keyboard} ", "vga=788 noprompt quiet --<enter>"]
-  boot_wait                    = var.boot_wait
-  bundle_iso                   = var.bundle_iso
-  communicator                 = var.communicator
-  cpus                         = var.cpus
-  disk_size                    = var.disk_size
-  format                       = "ova"
-  guest_additions_mode         = "disable"
-  guest_os_type                = var.guest_os_type
-  hard_drive_discard           = false
-  hard_drive_interface         = "sata"
-  hard_drive_nonrotational     = false
-  headless                     = var.headless
-  host_port_max                = var.host_port_max
-  host_port_min                = var.host_port_min
-  http_directory               = var.http_directory
-  http_port_max                = var.http_port_max
-  http_port_min                = var.http_port_min
-  iso_checksum                 = var.iso_checksum
-  iso_interface                = "sata"
-  iso_target_extension         = "iso"
-  iso_target_path              = "${var.packer_cache_dir}/${var.iso_file}"
-  iso_urls                     = ["${var.iso_path_internal}/${var.iso_file}", "${var.iso_path_external}/${var.iso_file}"]
+  boot_command = [
+    "<wait><wait><wait><esc><esc><enter><wait><wait><wait>",
+    "install initrd=/install/initrd.gz ",
+    "auto=true ",
+    "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ",
+    "language=${var.language} ",
+    "country=${var.country} ",
+    "locale=${var.locale} ",
+    "hostname=${var.vm_name} ",
+    "domain=${var.domain} ",
+    "interface=auto ",
+    "console-setup/ask_detect=false ",
+    "keyboard-configuration/layoutcode=${var.keyboard} ",
+    "vga=788 noprompt quiet --<enter>"
+  ]
+  boot_wait                = var.boot_wait
+  bundle_iso               = var.bundle_iso
+  communicator             = var.communicator
+  cpus                     = var.cpus
+  disk_size                = var.disk_size
+  format                   = "ova"
+  guest_additions_mode     = "disable"
+  guest_os_type            = var.guest_os_type
+  hard_drive_discard       = false
+  hard_drive_interface     = "sata"
+  hard_drive_nonrotational = false
+  headless                 = var.headless
+  host_port_max            = var.host_port_max
+  host_port_min            = var.host_port_min
+  http_directory           = var.http_directory
+  http_port_max            = var.http_port_max
+  http_port_min            = var.http_port_min
+  iso_checksum             = var.iso_checksum
+  iso_interface            = "sata"
+  iso_target_extension     = "iso"
+  iso_target_path          = "${var.packer_cache_dir}/${var.iso_file}"
+  iso_urls = [
+    "${var.iso_path_internal}/${var.iso_file}",
+    "${var.iso_path_external}/${var.iso_file}"
+  ]
   keep_registered              = var.keep_registered
   memory                       = var.memory
   output_directory             = local.output_directory
@@ -376,12 +410,14 @@ source "virtualbox-iso" "vbox" {
   ssh_pty                      = var.ssh_pty
   ssh_timeout                  = var.ssh_timeout
   ssh_username                 = var.ssh_username
-  vboxmanage                   = [["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]]
-  virtualbox_version_file      = "/tmp/.vbox_version"
-  vm_name                      = var.vm_name
-  vrdp_bind_address            = var.vnc_vrdp_bind_address
-  vrdp_port_max                = var.vnc_vrdp_port_max
-  vrdp_port_min                = var.vnc_vrdp_port_min
+  vboxmanage = [
+    ["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]
+  ]
+  virtualbox_version_file = "/tmp/.vbox_version"
+  vm_name                 = var.vm_name
+  vrdp_bind_address       = var.vnc_vrdp_bind_address
+  vrdp_port_max           = var.vnc_vrdp_port_max
+  vrdp_port_min           = var.vnc_vrdp_port_min
 }
 
 build {
@@ -390,10 +426,13 @@ build {
   sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["echo '${var.ssh_username} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99${var.ssh_username}", "chmod 0440 /etc/sudoers.d/99${var.ssh_username}"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "echo '${var.ssh_username} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/99${var.ssh_username}",
+      "chmod 0440 /etc/sudoers.d/99${var.ssh_username}"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
@@ -401,10 +440,14 @@ build {
   }
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["apt-get update", "apt-get --yes dist-upgrade", "apt-get clean"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "apt-get update",
+      "apt-get --yes dist-upgrade",
+      "apt-get clean"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
@@ -412,10 +455,13 @@ build {
   }
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["dd if=/dev/zero of=/ZEROFILL bs=16M || true", "rm /ZEROFILL", "sync"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "dd if=/dev/zero of=/ZEROFILL bs=16M || true",
+      "rm /ZEROFILL", "sync"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
