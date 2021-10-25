@@ -30,10 +30,10 @@ The VirtualBox and QEMU versions used for Linux testing are normally the
 
 .. _Packer:  https://www.packer.io/
 .. _Packer_download:  https://releases.hashicorp.com/packer/
-.. _VirtualBox:  https://www.virtualbox.org/
-.. _VirtualBox_download:  http://download.virtualbox.org/virtualbox
 .. _QEMU:  https://www.qemu.org/
 .. _KVM:  https://www.linux-kvm.org/page/Main_Page
+.. _VirtualBox:  https://www.virtualbox.org/
+.. _VirtualBox_download:  http://download.virtualbox.org/virtualbox
 .. _Vagrant:  https://www.vagrantup.com/
 .. _Vagrant_download:  https://releases.hashicorp.com/vagrant/
 .. _vagrant-libvirt:  https://github.com/vagrant-libvirt/vagrant-libvirt
@@ -148,11 +148,12 @@ encounter the following error::
 Making Bootable Drives
 ----------------------
 
-For best results, you should use the Packer QEMU "kvm" builder when trying to
-create bootable images to be used on real hardware.  This allows the use of the
-"raw" block device format which is ideal for writing directly directly to USB
-and SATA drives.  Alternately, you may use "qemu-img convert" or "vbox-img
-convert" to convert an exiting image in another format to raw mode::
+For best results, you should use the Packer QEMU builder "kvm" accelerator when
+trying to create bootable images to be used on real hardware.  This allows the
+use of the "raw" block device format which is ideal for writing directly
+directly to USB and SATA drives.  Alternately, you may use "qemu-img convert"
+or "vbox-img convert" to convert an exiting image in another format to raw
+mode::
 
     zcat build/2038-01-19-03-14/base-bullseye.raw.gz | dd of=/dev/sdz bs=4M
 
@@ -269,19 +270,15 @@ Other
 * http://www.scalehorizontally.com/2013/02/24/introduction-to-cloud-init/
 * https://julien.danjou.info/blog/2013/cloud-init-utils-debian
 * http://thornelabs.net/2014/04/07/create-a-kvm-based-debian-7-openstack-cloud-image.html
-* http://blog.codeship.com/packer-ansible/
-* https://servercheck.in/blog/server-vm-images-ansible-and-packer
 * http://ariya.ofilabs.com/2013/11/using-packer-to-create-vagrant-boxes.html
 * http://blog.codeship.io/2013/11/07/building-vagrant-machines-with-packer.html
 * https://groups.google.com/forum/#!msg/packer-tool/4lB4OqhILF8/NPoMYeew0sEJ
 * http://pretengineer.com/post/packer-vagrant-infra/
 * http://stackoverflow.com/questions/13065576/override-vagrant-configuration-settings-locally-per-dev
-* https://djaodjin.com/blog/deploying-on-ec2-with-ansible.blog.html
 * http://jackstromberg.com/2012/12/how-to-export-a-vm-from-amazon-ec2-to-vmware-on-premise/
 * https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html
 * https://github.com/jpadilla/juicebox
 * https://github.com/boxcutter/ubuntu
-* https://github.com/katzj/ami-creator
 
 
 Ubuntu Live Server

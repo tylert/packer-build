@@ -278,7 +278,9 @@ variable "vnc_vrdp_port_min" {
   type    = string
   default = "5900"
 }
-# The "legacy_isotime" function has been provided for backwards compatability, but we recommend switching to the timestamp and formatdate functions.
+
+# The "legacy_isotime" function has been provided for backwards compatability,
+# but we recommend switching to the timestamp and formatdate functions.
 
 locals {
   output_directory = "build/${legacy_isotime("2006-01-02-15-04-05")}"
