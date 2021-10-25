@@ -64,6 +64,8 @@ Using Packer Templates
 
 XXX FIXME TODO THIS SECTION NEEDS TO BE REWRITTEN ONCE THE HCL TEMPLATES ARE WORKING!!!
 
+* https://www.hashicorp.com/blog/using-template-files-with-hashicorp-packer
+
 
 Using Vagrant Box Files
 -----------------------
