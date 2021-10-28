@@ -1,5 +1,5 @@
 packer {
-  required_version = "~> 1.7.7"
+  required_version = "~> 1.7.8"
 
   # required_providers {
   #   qemu = {
