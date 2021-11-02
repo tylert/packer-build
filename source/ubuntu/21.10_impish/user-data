@@ -1,14 +1,14 @@
 #cloud-config
 autoinstall:
   version: 1
-  locale: {{ locale }}
+  locale: ${var.locale}
   keyboard:
-    layout: {{ language }}
-    variant: {{ keyboard }}
+    layout: ${var.language}
+    variant: ${var.keyboard}
   identity:
-    hostname: {{ vm_name }}
-    username: {{ ssh_username }}
-    password: {{ ssh_password_crypted }}
+    hostname: ${var.vm_name}
+    username: ${var.ssh_username}
+    password: ${var.ssh_password_crypted}
   ssh:
     install-server: true
     allow-pw: yes
