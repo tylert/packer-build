@@ -45,7 +45,7 @@ variable "cpus" {
 
 variable "description" {
   type    = string
-  default = "Base box for x86_64 Ubuntu Jerky Jackalope 22.04.x LTS"
+  default = "Base box for x86_64 Ubuntu Jammy Jellyfish 22.04.x LTS"
 }
 
 variable "disk_size" {
@@ -101,7 +101,7 @@ variable "iso_checksum" {
 
 variable "iso_file" {
   type    = string
-  default = "jerky-live-server-amd64.iso"
+  default = "jammy-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
@@ -246,12 +246,12 @@ variable "timezone" {
 
 variable "userdata_location" {
   type    = string
-  default = "template/ubuntu/22.04_jerky"
+  default = "template/ubuntu/22.04_jammy"
 }
 
 variable "vagrantfile_template" {
   type    = string
-  default = "template/ubuntu/22.04_jerky/vagrant.rb.j2"
+  default = "template/ubuntu/22.04_jammy/vagrant.rb.j2"
 }
 
 variable "version" {
@@ -261,7 +261,7 @@ variable "version" {
 
 variable "vm_name" {
   type    = string
-  default = "base-jerky"
+  default = "base-jammy"
 }
 
 variable "vnc_vrdp_bind_address" {
