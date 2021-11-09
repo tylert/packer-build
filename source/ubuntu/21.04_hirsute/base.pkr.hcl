@@ -141,7 +141,7 @@ variable "memory" {
 
 variable "min_vagrant_version" {
   type    = string
-  default = "2.2.18"
+  default = "2.2.19"
 }
 
 variable "packer_cache_dir" {
