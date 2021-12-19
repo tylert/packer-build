@@ -388,7 +388,6 @@ Ubuntu_releases_
 * ? ? (22.10.x);  released on 2022-10-??, supported until 2023-07?-01
 * Jammy Jellyfish (22.04.x LTS);  released on 2022-04-21, supported until 2027-04-21 (ESM 2032-04-21)
 * Impish Indri (21.10.x);  released on 2021-10-14, supported until 2022-07-14
-* Hirsute Hippo (21.04.x);  released on 2021-04-22, supported until 2022-01-20
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-23 (ESM 2030-04-23)
 * Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-26 (ESM 2028-04-26)
 * Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-30 (ESM 2026-04-23)
