@@ -95,13 +95,13 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha512:02257c3ec27e45d9f022c181a69b59da67e5c72871cdb4f9a69db323a1fad58093f2e69702d29aa98f5f65e920e0b970d816475a5a936e1f3bf33832257b7e92"
+  default = "sha512:c685b85cf9f248633ba3cd2b9f9e781fa03225587e0c332aef2063f6877a1f0622f56d44cf0690087b0ca36883147ecb5593e3da6f965968402cdbdf12f6dd74"
   # default = "file:http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS"
 }
 
 variable "iso_file" {
   type    = string
-  default = "debian-11.1.0-amd64-netinst.iso"
+  default = "debian-11.2.0-amd64-netinst.iso"
 }
 
 variable "iso_path_external" {
