@@ -78,11 +78,6 @@ variable "host_port_min" {
   default = "2222"
 }
 
-variable "http_directory" {
-  type    = string
-  default = "."
-}
-
 variable "http_port_max" {
   type    = string
   default = "9000"
@@ -244,9 +239,9 @@ variable "timezone" {
   default = "UTC"
 }
 
-variable "userdata_location" {
+variable "user_data_location" {
   type    = string
-  default = "template/ubuntu/22.04_jammy"
+  default = "template/ubuntu/22.04_jammy/user-data"
 }
 
 variable "vagrantfile_template" {
@@ -291,7 +286,7 @@ source "qemu" "qemu" {
   boot_command = [
     "<wait><wait><wait><esc><esc><esc><enter><wait><wait><wait>",
     "/casper/vmlinuz root=/dev/sr0 initrd=/casper/initrd autoinstall ",
-    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.userdata_location}/",
+    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.user_data_location}/",
     "<enter>"
   ]
   boot_wait            = var.boot_wait
@@ -307,7 +302,7 @@ source "qemu" "qemu" {
   headless             = var.headless
   host_port_max        = var.host_port_max
   host_port_min        = var.host_port_min
-  http_directory       = var.http_directory
+  http_content         = { "/user-data" = templatefile(var.user_data_location, { var = var }) }
   http_port_max        = var.http_port_max
   http_port_min        = var.http_port_min
   iso_checksum         = var.iso_checksum
@@ -350,7 +345,7 @@ source "virtualbox-iso" "vbox" {
   boot_command = [
     "<wait><wait><wait><esc><esc><esc><enter><wait><wait><wait>",
     "/casper/vmlinuz root=/dev/sr0 initrd=/casper/initrd autoinstall ",
-    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.userdata_location}/",
+    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.user_data_location}/",
     "<enter>"
   ]
   boot_wait                = var.boot_wait
@@ -367,7 +362,7 @@ source "virtualbox-iso" "vbox" {
   headless                 = var.headless
   host_port_max            = var.host_port_max
   host_port_min            = var.host_port_min
-  http_directory           = var.http_directory
+  http_content             = { "/user-data" = templatefile(var.user_data_location, { var = var }) }
   http_port_max            = var.http_port_max
   http_port_min            = var.http_port_min
   iso_checksum             = var.iso_checksum

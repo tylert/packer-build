@@ -78,11 +78,6 @@ variable "host_port_min" {
   default = "2222"
 }
 
-variable "http_directory" {
-  type    = string
-  default = "."
-}
-
 variable "http_port_max" {
   type    = string
   default = "9000"
@@ -244,9 +239,9 @@ variable "timezone" {
   default = "UTC"
 }
 
-variable "userdata_location" {
+variable "user_data_location" {
   type    = string
-  default = "template/ubuntu/22.04_jammy"
+  default = "template/ubuntu/22.04_jammy/user-data"
 }
 
 variable "vagrantfile_template" {
@@ -291,7 +286,7 @@ source "qemu" "qemu" {
   boot_command = [
     "<wait><wait><wait><esc><esc><esc><enter><wait><wait><wait>",
     "/casper/vmlinuz root=/dev/sr0 initrd=/casper/initrd autoinstall ",
-    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.userdata_location}/",
+    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.user_data_location}/",
     "<enter>"
   ]
   boot_wait            = var.boot_wait
@@ -307,7 +302,7 @@ source "qemu" "qemu" {
   headless             = var.headless
   host_port_max        = var.host_port_max
   host_port_min        = var.host_port_min
-  http_directory       = var.http_directory
+  http_content         = { "/user-data" = templatefile(var.user_data_location, { var = var }) }
   http_port_max        = var.http_port_max
   http_port_min        = var.http_port_min
   iso_checksum         = var.iso_checksum
@@ -349,7 +344,7 @@ source "virtualbox-iso" "vbox" {
   boot_command = [
     "<wait><wait><wait><esc><esc><esc><enter><wait><wait><wait>",
     "/casper/vmlinuz root=/dev/sr0 initrd=/casper/initrd autoinstall ",
-    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.userdata_location}/",
+    "ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.user_data_location}/",
     "<enter>"
   ]
   boot_wait                = var.boot_wait
@@ -366,7 +361,7 @@ source "virtualbox-iso" "vbox" {
   headless                 = var.headless
   host_port_max            = var.host_port_max
   host_port_min            = var.host_port_min
-  http_directory           = var.http_directory
+  http_content             = { "/user-data" = templatefile(var.user_data_location, { var = var }) }
   http_port_max            = var.http_port_max
   http_port_min            = var.http_port_min
   iso_checksum             = var.iso_checksum
@@ -397,12 +392,14 @@ source "virtualbox-iso" "vbox" {
   ssh_pty                      = var.ssh_pty
   ssh_timeout                  = var.ssh_timeout
   ssh_username                 = var.ssh_username
-  vboxmanage                   = [["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]]
-  virtualbox_version_file      = "/tmp/.vbox_version"
-  vm_name                      = var.vm_name
-  vrdp_bind_address            = var.vnc_vrdp_bind_address
-  vrdp_port_max                = var.vnc_vrdp_port_max
-  vrdp_port_min                = var.vnc_vrdp_port_min
+  vboxmanage = [
+    ["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]
+  ]
+  virtualbox_version_file = "/tmp/.vbox_version"
+  vm_name                 = var.vm_name
+  vrdp_bind_address       = var.vnc_vrdp_bind_address
+  vrdp_port_max           = var.vnc_vrdp_port_max
+  vrdp_port_min           = var.vnc_vrdp_port_min
 }
 
 build {

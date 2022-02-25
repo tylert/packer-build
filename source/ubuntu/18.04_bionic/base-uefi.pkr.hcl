@@ -78,11 +78,6 @@ variable "host_port_min" {
   default = "2222"
 }
 
-variable "http_directory" {
-  type    = string
-  default = "."
-}
-
 variable "http_port_max" {
   type    = string
   default = "9000"
@@ -313,7 +308,7 @@ source "qemu" "qemu" {
   headless             = var.headless
   host_port_max        = var.host_port_max
   host_port_min        = var.host_port_min
-  http_directory       = var.http_directory
+  http_content         = { "/preseed.cfg" = templatefile(var.preseed_file, { var = var }) }
   http_port_max        = var.http_port_max
   http_port_min        = var.http_port_min
   iso_checksum         = var.iso_checksum
@@ -383,7 +378,7 @@ source "virtualbox-iso" "vbox" {
   headless                 = var.headless
   host_port_max            = var.host_port_max
   host_port_min            = var.host_port_min
-  http_directory           = var.http_directory
+  http_content             = { "/preseed.cfg" = templatefile(var.preseed_file, { var = var }) }
   http_port_max            = var.http_port_max
   http_port_min            = var.http_port_min
   iso_checksum             = var.iso_checksum

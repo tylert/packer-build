@@ -78,11 +78,6 @@ variable "host_port_min" {
   default = "2222"
 }
 
-variable "http_directory" {
-  type    = string
-  default = "."
-}
-
 variable "http_port_max" {
   type    = string
   default = "9000"
@@ -312,7 +307,7 @@ source "qemu" "qemu" {
   headless             = var.headless
   host_port_max        = var.host_port_max
   host_port_min        = var.host_port_min
-  http_directory       = var.http_directory
+  http_content         = { "/preseed.cfg" = templatefile(var.preseed_file, { var = var }) }
   http_port_max        = var.http_port_max
   http_port_min        = var.http_port_min
   iso_checksum         = var.iso_checksum
@@ -376,7 +371,7 @@ source "virtualbox-iso" "vbox" {
   headless                 = var.headless
   host_port_max            = var.host_port_max
   host_port_min            = var.host_port_min
-  http_directory           = var.http_directory
+  http_content             = { "/preseed.cfg" = templatefile(var.preseed_file, { var = var }) }
   http_port_max            = var.http_port_max
   http_port_min            = var.http_port_min
   iso_checksum             = var.iso_checksum
@@ -407,12 +402,14 @@ source "virtualbox-iso" "vbox" {
   ssh_pty                      = var.ssh_pty
   ssh_timeout                  = var.ssh_timeout
   ssh_username                 = var.ssh_username
-  vboxmanage                   = [["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]]
-  virtualbox_version_file      = "/tmp/.vbox_version"
-  vm_name                      = var.vm_name
-  vrdp_bind_address            = var.vnc_vrdp_bind_address
-  vrdp_port_max                = var.vnc_vrdp_port_max
-  vrdp_port_min                = var.vnc_vrdp_port_min
+  vboxmanage = [
+    ["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]
+  ]
+  virtualbox_version_file = "/tmp/.vbox_version"
+  vm_name                 = var.vm_name
+  vrdp_bind_address       = var.vnc_vrdp_bind_address
+  vrdp_port_max           = var.vnc_vrdp_port_max
+  vrdp_port_min           = var.vnc_vrdp_port_min
 }
 
 build {
