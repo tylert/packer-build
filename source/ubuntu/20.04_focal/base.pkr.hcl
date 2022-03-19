@@ -90,13 +90,13 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha256:f8e3086f3cea0fb3fefb29937ab5ed9d19e767079633960ccb50e76153effc98"
+  default = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
   # default = "file:http://releases.ubuntu.com/20.04/SHA256SUMS"
 }
 
 variable "iso_file" {
   type    = string
-  default = "ubuntu-20.04.3-live-server-amd64.iso"
+  default = "ubuntu-20.04.4-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
