@@ -408,10 +408,14 @@ build {
   sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["apt-get update", "apt-get --yes dist-upgrade", "apt-get clean"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "apt-get update",
+      "apt-get --yes dist-upgrade",
+      "apt-get clean"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
@@ -419,10 +423,14 @@ build {
   }
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["dd if=/dev/zero of=/ZEROFILL bs=16M || true", "rm /ZEROFILL", "sync"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "dd if=/dev/zero of=/ZEROFILL bs=16M || true",
+      "rm /ZEROFILL",
+      "sync"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false

@@ -45,7 +45,7 @@ variable "cpus" {
 
 variable "description" {
   type    = string
-  default = "Base box for x86_64 Ubuntu Jammy Jellyfish 22.04.x LTS"
+  default = "Base box (UEFI) for x86_64 Ubuntu Krappy Kangaroo 22.10.x"
 }
 
 variable "disk_size" {
@@ -90,18 +90,18 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha256:84aeaf7823c8c61baa0ae862d0a06b03409394800000b3235854a6b38eb4856f"
-  # default = "file:http://releases.ubuntu.com/22.04/SHA256SUMS"
+  default = "file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS"
+  # default = "sha256:0123456789abcdef"
 }
 
 variable "iso_file" {
   type    = string
-  default = "ubuntu-22.04-live-server-amd64.iso"
+  default = "krappy-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
   type    = string
-  default = "http://releasese.ubuntu.com/22.04"
+  default = "http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending"
 }
 
 variable "iso_path_internal" {
@@ -241,12 +241,12 @@ variable "timezone" {
 
 variable "user_data_location" {
   type    = string
-  default = "template/ubuntu/22.04_jammy/user-data"
+  default = "template/ubuntu/22.10_krappy/user-data"
 }
 
 variable "vagrantfile_template" {
   type    = string
-  default = "template/ubuntu/22.04_jammy/vagrant.rb.j2"
+  default = "template/ubuntu/22.10_krappy/vagrant.rb.j2"
 }
 
 variable "version" {
@@ -256,7 +256,7 @@ variable "version" {
 
 variable "vm_name" {
   type    = string
-  default = "base-jammy"
+  default = "base-uefi-krappy"
 }
 
 variable "vnc_vrdp_bind_address" {
@@ -313,11 +313,14 @@ source "qemu" "qemu" {
     "${var.iso_path_internal}/${var.iso_file}",
     "${var.iso_path_external}/${var.iso_file}"
   ]
-  machine_type                 = "pc"
-  memory                       = var.memory
-  net_device                   = "virtio-net"
-  output_directory             = local.output_directory
-  qemu_binary                  = var.qemu_binary
+  machine_type     = "pc"
+  memory           = var.memory
+  net_device       = "virtio-net"
+  output_directory = local.output_directory
+  qemu_binary      = var.qemu_binary
+  qemuargs = [
+    ["-bios", "OVMF.fd"]
+  ]
   shutdown_command             = "echo '${var.ssh_password}' | sudo -E -S poweroff"
   shutdown_timeout             = var.shutdown_timeout
   skip_compaction              = true
@@ -393,6 +396,7 @@ source "virtualbox-iso" "vbox" {
   ssh_timeout                  = var.ssh_timeout
   ssh_username                 = var.ssh_username
   vboxmanage = [
+    ["modifyvm", "{{ .Name }}", "--firmware", "efi"],
     ["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]
   ]
   virtualbox_version_file = "/tmp/.vbox_version"
@@ -406,6 +410,19 @@ build {
   description = "Can't use variables here yet!"
 
   sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
+
+  provisioner "shell" {
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "echo 'FS0:\\EFI\\ubuntu\\grubx64.efi' > /boot/efi/startup.nsh"
+    ]
+    inline_shebang      = "/bin/sh -e"
+    only                = ["qemu", "vbox"]
+    skip_clean          = false
+    start_retry_timeout = var.start_retry_timeout
+  }
 
   provisioner "shell" {
     binary            = false

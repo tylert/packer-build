@@ -90,18 +90,18 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS"
-  # default = "sha256:0123456789abcdef"
+  default = "sha256:84aeaf7823c8c61baa0ae862d0a06b03409394800000b3235854a6b38eb4856f"
+  # default = "file:http://releases.ubuntu.com/22.04/SHA256SUMS"
 }
 
 variable "iso_file" {
   type    = string
-  default = "jammy-live-server-amd64.iso"
+  default = "ubuntu-22.04-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
   type    = string
-  default = "http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending"
+  default = "http://releases.ubuntu.com/22.04"
 }
 
 variable "iso_path_internal" {
@@ -313,12 +313,14 @@ source "qemu" "qemu" {
     "${var.iso_path_internal}/${var.iso_file}",
     "${var.iso_path_external}/${var.iso_file}"
   ]
-  machine_type                 = "pc"
-  memory                       = var.memory
-  net_device                   = "virtio-net"
-  output_directory             = local.output_directory
-  qemu_binary                  = var.qemu_binary
-  qemuargs                     = [["-bios", "OVMF.fd"]]
+  machine_type     = "pc"
+  memory           = var.memory
+  net_device       = "virtio-net"
+  output_directory = local.output_directory
+  qemu_binary      = var.qemu_binary
+  qemuargs = [
+    ["-bios", "OVMF.fd"]
+  ]
   shutdown_command             = "echo '${var.ssh_password}' | sudo -E -S poweroff"
   shutdown_timeout             = var.shutdown_timeout
   skip_compaction              = true
@@ -410,10 +412,12 @@ build {
   sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["echo 'FS0:\\EFI\\ubuntu\\grubx64.efi' > /boot/efi/startup.nsh"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "echo 'FS0:\\EFI\\ubuntu\\grubx64.efi' > /boot/efi/startup.nsh"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
@@ -421,10 +425,14 @@ build {
   }
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["apt-get update", "apt-get --yes dist-upgrade", "apt-get clean"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "apt-get update",
+      "apt-get --yes dist-upgrade",
+      "apt-get clean"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
@@ -432,10 +440,14 @@ build {
   }
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["dd if=/dev/zero of=/ZEROFILL bs=16M || true", "rm /ZEROFILL", "sync"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "dd if=/dev/zero of=/ZEROFILL bs=16M || true",
+      "rm /ZEROFILL",
+      "sync"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false

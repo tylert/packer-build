@@ -313,12 +313,14 @@ source "qemu" "qemu" {
     "${var.iso_path_internal}/${var.iso_file}",
     "${var.iso_path_external}/${var.iso_file}"
   ]
-  machine_type                 = "pc"
-  memory                       = var.memory
-  net_device                   = "virtio-net"
-  output_directory             = local.output_directory
-  qemu_binary                  = var.qemu_binary
-  qemuargs                     = [["-bios", "OVMF.fd"]]
+  machine_type     = "pc"
+  memory           = var.memory
+  net_device       = "virtio-net"
+  output_directory = local.output_directory
+  qemu_binary      = var.qemu_binary
+  qemuargs = [
+    ["-bios", "OVMF.fd"]
+  ]
   shutdown_command             = "echo '${var.ssh_password}' | sudo -E -S poweroff"
   shutdown_timeout             = var.shutdown_timeout
   skip_compaction              = true
@@ -410,10 +412,12 @@ build {
   sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["echo 'FS0:\\EFI\\ubuntu\\grubx64.efi' > /boot/efi/startup.nsh"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "echo 'FS0:\\EFI\\ubuntu\\grubx64.efi' > /boot/efi/startup.nsh"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
@@ -421,10 +425,14 @@ build {
   }
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["apt-get update", "apt-get --yes dist-upgrade", "apt-get clean"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "apt-get update",
+      "apt-get --yes dist-upgrade",
+      "apt-get clean"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false
@@ -432,10 +440,14 @@ build {
   }
 
   provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["dd if=/dev/zero of=/ZEROFILL bs=16M || true", "rm /ZEROFILL", "sync"]
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "dd if=/dev/zero of=/ZEROFILL bs=16M || true",
+      "rm /ZEROFILL",
+      "sync"
+    ]
     inline_shebang      = "/bin/sh -e"
     only                = ["qemu", "vbox"]
     skip_clean          = false

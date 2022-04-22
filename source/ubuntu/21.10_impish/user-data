@@ -12,3 +12,116 @@ autoinstall:
   ssh:
     install-server: true
     allow-pw: yes
+# packages:
+#   - apparmor-utils
+#   - apt-transport-https
+#   - audispd-plugins
+#   - auditd
+#   - ca-certificates
+#   - curl
+#   - libauparse0
+#   - libprelude28
+#   - prelude-utils
+#   - python3-apparmor
+#   - python3-libapparmor
+# storage:
+#   version: 1
+#   # using file method rather than dedicated partition for swap
+#   # add the filename parameter and specify size if swap is required
+#   swap:
+#     size: 0
+#   # note that fstab options are not supported until ubuntu 21.04
+#   # so we will use sed commands later to update fstab options
+#   config:
+#     - type: disk
+#       name: osdisk
+#       id: disk-sda
+#       ptable: gpt
+#       path: /dev/sda
+#       wipe: superblock
+#       preserve: false
+#       grub_device: true
+#     - type: partition
+#       device: disk-sda
+#       size: 1M
+#       flag: bios_grub
+#       number: 1
+#       preserve: false
+#       id: partition-1
+#     - type: partition
+#       device: disk-sda
+#       size: 1G
+#       wipe: superblock
+#       number: 2
+#       preserve: false
+#       id: partition-2
+#     - type: partition
+#       device: disk-sda
+#       size: 59G
+#       wipe: superblock
+#       number: 3
+#       preserve: false
+#       id: partition-3
+#     - type: lvm_volgroup
+#       name: lvm_vg0
+#       devices:
+#         - partition-3
+#       preserve: false
+#       id: vg0
+#     - type: lvm_partition
+#       name: lv_root
+#       size: 24G
+#       wipe: superblock
+#       volgroup: vg0
+#       preserve: false
+#       id: lv_root
+#     - type: lvm_partition
+#       name: lv_home
+#       size: 6G
+#       wipe: superblock
+#       volgroup: vg0
+#       preserve: false
+#       id: lv_home
+#     - type: format
+#       fstype: ext4
+#       volume: partition-2
+#       preserve: false
+#       id: format1
+#     - type: mount
+#       path: /boot
+#       device: format1
+#       id: mount1
+#     - type: format
+#       fstype: xfs
+#       volume: lv_root
+#       preserve: false
+#       id: format2
+#     - type: mount
+#       path: /
+#       device: format2
+#       id: mount2
+#     - type: format
+#       fstype: xfs
+#       volume: lv_home
+#       preserve: false
+#       id: format3
+#     - type: mount
+#       path: /home
+#       device: format3
+#       id: mount3
+# user-data:
+#   hostname: ${var.vm_name}
+#   disable_root: false
+#   users:
+#     - name: root
+#       lock_passwd: false
+#       hashed_passwd: $6$asdfasdf$asdfasdfasdfasdfasdfasdfasdf
+#     - name: ${var.username}
+#       sudo: ALL=(ALL:ALL) NOPASSWD:ALL
+#       primary_group: ${var.username}
+#       shell: /bin/bash
+#       lock_passwd: false
+#       passwd: $6$asdfasdfasdf$asdfasdfasdfasdfasdfasdfasdf
+#   package_update: true
+#   package_upgrade: true
+#   package_reboot_if_required: true

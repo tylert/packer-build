@@ -335,7 +335,7 @@ source "qemu" "qemu" {
   ssh_keep_alive_interval      = var.ssh_keep_alive_interval
   ssh_password                 = var.ssh_password
   ssh_port                     = var.ssh_port
-  ssh_pty                      = var.ssh_pt
+  ssh_pty                      = var.ssh_pty
   ssh_timeout                  = var.ssh_timeout
   ssh_username                 = var.ssh_username
   use_default_display          = false
