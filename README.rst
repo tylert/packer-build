@@ -384,7 +384,7 @@ Ubuntu_releases_
 * ? ? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01 (ESM 2034-04?-01)
 * ? ? (23.10.x);  released on 2023-10-??, supported until 2024-07?-01
 * ? ? (23.04.x);  released on 2023-04-??, supported until 2024-01?-01
-* ? ? (22.10.x);  released on 2022-10-??, supported until 2023-07?-01
+* Kinetic Kudu (22.10.x);  released on 2022-10-20, supported until 2023-07?-01
 * Jammy Jellyfish (22.04.x LTS);  released on 2022-04-21, supported until 2027-04-21 (ESM 2032-04-21)
 * Impish Indri (21.10.x);  released on 2021-10-14, supported until 2022-07-14
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-23 (ESM 2030-04-23)

@@ -45,7 +45,7 @@ variable "cpus" {
 
 variable "description" {
   type    = string
-  default = "Base box for x86_64 Ubuntu Krappy Kangaroo 22.10.x"
+  default = "Base box for x86_64 Ubuntu Kinetic Kudu 22.10.x"
 }
 
 variable "disk_size" {
@@ -96,7 +96,7 @@ variable "iso_checksum" {
 
 variable "iso_file" {
   type    = string
-  default = "krappy-live-server-amd64.iso"
+  default = "kinetic-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
@@ -241,12 +241,12 @@ variable "timezone" {
 
 variable "user_data_location" {
   type    = string
-  default = "template/ubuntu/22.10_krappy/user-data"
+  default = "template/ubuntu/22.10_kinetic/user-data"
 }
 
 variable "vagrantfile_template" {
   type    = string
-  default = "template/ubuntu/22.10_krappy/vagrant.rb.j2"
+  default = "template/ubuntu/22.10_kinetic/vagrant.rb.j2"
 }
 
 variable "version" {
@@ -256,7 +256,7 @@ variable "version" {
 
 variable "vm_name" {
   type    = string
-  default = "base-krappy"
+  default = "base-kinetic"
 }
 
 variable "vnc_vrdp_bind_address" {
