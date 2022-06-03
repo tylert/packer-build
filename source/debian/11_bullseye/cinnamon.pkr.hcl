@@ -313,7 +313,7 @@ source "qemu" "qemu" {
   iso_checksum         = var.iso_checksum
   iso_skip_cache       = false
   iso_target_extension = "iso"
-  iso_target_path      = "${var.packer_cache_dir}/${var.iso_file}"
+  iso_target_path      = "${regex_replace(var.packer_cache_dir, "^$", "/tmp")}/${var.iso_file}"
   iso_urls = [
     "${var.iso_path_internal}/${var.iso_file}",
     "${var.iso_path_external}/${var.iso_file}"
@@ -377,7 +377,7 @@ source "virtualbox-iso" "vbox" {
   iso_checksum             = var.iso_checksum
   iso_interface            = "sata"
   iso_target_extension     = "iso"
-  iso_target_path          = "${var.packer_cache_dir}/${var.iso_file}"
+  iso_target_path          = "${regex_replace(var.packer_cache_dir, "^$", "/tmp")}/${var.iso_file}"
   iso_urls = [
     "${var.iso_path_internal}/${var.iso_file}",
     "${var.iso_path_external}/${var.iso_file}"
