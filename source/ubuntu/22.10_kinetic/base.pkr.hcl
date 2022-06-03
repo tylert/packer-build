@@ -241,12 +241,12 @@ variable "timezone" {
 
 variable "user_data_location" {
   type    = string
-  default = "template/ubuntu/22.10_kinetic/user-data"
+  default = "user-data"
 }
 
 variable "vagrantfile_template" {
   type    = string
-  default = "template/ubuntu/22.10_kinetic/vagrant.rb.j2"
+  default = "vagrant.rb.j2"
 }
 
 variable "version" {
@@ -442,7 +442,7 @@ build {
     keep_input_artifact  = true
     only                 = ["qemu", "vbox"]
     output               = "${local.output_directory}/${var.vm_name}-${var.version}-${build.name}.box"
-    vagrantfile_template = var.vagrantfile_template
+    vagrantfile_template = "${path.root}/${var.vagrantfile_template}"
   }
 
   post-processor "compress" {

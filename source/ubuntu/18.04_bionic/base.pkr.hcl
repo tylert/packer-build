@@ -146,7 +146,7 @@ variable "packer_cache_dir" {
 
 variable "preseed_file" {
   type    = string
-  default = "template/ubuntu/18.04_bionic/base.preseed"
+  default = "base.preseed"
 }
 
 variable "qemu_binary" {
@@ -241,7 +241,7 @@ variable "timezone" {
 
 variable "vagrantfile_template" {
   type    = string
-  default = "template/ubuntu/18.04_bionic/vagrant.rb.j2"
+  default = "vagrant.rb.j2"
 }
 
 variable "version" {
@@ -468,7 +468,7 @@ build {
     keep_input_artifact  = true
     only                 = ["qemu", "vbox"]
     output               = "${local.output_directory}/${var.vm_name}-${var.version}-${build.name}.box"
-    vagrantfile_template = var.vagrantfile_template
+    vagrantfile_template = "${path.root}/${var.vagrantfile_template}"
   }
 
   post-processor "compress" {

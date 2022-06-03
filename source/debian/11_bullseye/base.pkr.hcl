@@ -151,7 +151,7 @@ variable "packer_cache_dir" {
 
 variable "preseed_file" {
   type    = string
-  default = "template/debian/11_bullseye/base.preseed"
+  default = "base.preseed"
 }
 
 variable "qemu_binary" {
@@ -246,7 +246,7 @@ variable "timezone" {
 
 variable "vagrantfile_template" {
   type    = string
-  default = "template/debian/11_bullseye/vagrant.rb.j2"
+  default = "vagrant.rb.j2"
 }
 
 variable "version" {
@@ -415,7 +415,8 @@ source "virtualbox-iso" "vbox" {
 build {
   description = "Can't use variables here yet!"
 
-  sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
+#  sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
+  sources = ["source.qemu.qemu"]
 
   provisioner "shell" {
     binary              = false
@@ -455,7 +456,7 @@ build {
     keep_input_artifact  = true
     only                 = ["qemu", "vbox"]
     output               = "${local.output_directory}/${var.vm_name}-${var.version}-${build.name}.box"
-    vagrantfile_template = var.vagrantfile_template
+    vagrantfile_template = "${path.root}/${var.vagrantfile_template}"
   }
 
   post-processor "compress" {
