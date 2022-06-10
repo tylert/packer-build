@@ -415,8 +415,7 @@ source "virtualbox-iso" "vbox" {
 build {
   description = "Can't use variables here yet!"
 
-#  sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
-  sources = ["source.qemu.qemu"]
+  sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
 
   provisioner "shell" {
     binary              = false
