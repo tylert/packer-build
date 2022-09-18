@@ -1,13 +1,13 @@
 packer {
-  required_version = "~> 1.8.2"
+  required_version = "~> 1.8.3"
 
   required_providers {
     qemu = {
-      source  = "github.com/hashicorp/packer-plugin-qemu"
+      source  = "github.com/hashicorp/qemu"
       version = ">= 1.0.0, < 2.0.0"
     }
     virtualbox = {
-      source  = "github.com/hashicorp/packer-plugin-virtualbox"
+      source  = "github.com/hashicorp/virtualbox"
       version = ">= 1.0.0, < 2.0.0"
     }
   }
@@ -136,7 +136,7 @@ variable "memory" {
 
 variable "min_vagrant_version" {
   type    = string
-  default = "2.2.19"
+  default = "2.3.0"
 }
 
 variable "mirror" {
