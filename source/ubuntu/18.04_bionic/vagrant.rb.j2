@@ -1,7 +1,0 @@
-Vagrant.require_version '>= ${var.min_vagrant_version}'
-
-Vagrant.configure('2') do |config|
-  config.ssh.username = '${var.ssh_username}'
-  config.ssh.password = '${var.ssh_password}'
-  config.vm.communicator = '${var.communicator}'
-end
