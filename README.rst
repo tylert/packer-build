@@ -351,10 +351,10 @@ Debian_releases_
 
 * ? (16.x);  released on 2031-??-??, supported until 2036-??-01
 * ? (15.x);  released on 2029-??-??, supported until 2034-??-01
-* ? (14.x);  released on 2027-??-??, supported until 2032-??-01
-* Trixie (13.x);  released on 2025-??-??, supported until 2030-??-01
-* Bookworm (12.x);  released on 2023-??-??, supported until 2028-??-01
-* Bullseye (11.x);  released on 2021-08-14, supported until 2026-06?-01
+* Forky (14.x);  released on 2027-??-??, supported until 2032?-??-01
+* Trixie (13.x);  released on 2025-??-??, supported until 2030?-??-01
+* Bookworm (12.x);  released on 2023-06-10, supported until 2028?-??-01
+* Bullseye (11.x);  released on 2021-08-14, supported until 2026-06-01
 * Buster (10.x);  released on 2019-07-06, supported until 2024-06-01
 
 Debian releases seem to occur every 2 years around mid-year and usually receive
@@ -366,31 +366,28 @@ Ubuntu_releases_
 
 .. _Ubuntu_releases:  https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
 
-* ? ? (31.10.x);  released on 2031-10-??, supported until 2032-07?-01
-* ? ? (31.04.x);  released on 2031-04-??, supported until 2032-01?-01
-* ? ? (30.10.x);  released on 2030-10-??, supported until 2031-07?-01
-* ? ? (30.04.x LTS);  released on 2030-04-??, supported until 2035-04?-01 (ESM 2040-04?-01)
-* ? ? (29.10.x);  released on 2029-10-??, supported until 2030-07?-01
-* ? ? (29.04.x);  released on 2029-04-??, supported until 2030-01?-01
-* ? ? (28.10.x);  released on 2028-10-??, supported until 2029-07?-01
-* ? ? (28.04.x LTS);  released on 2028-04-??, supported until 2033-04?-01 (ESM 2037-04?-01)
-* ? ? (27.10.x);  released on 2027-10-??, supported until 2028-07?-01
-* ? ? (27.04.x);  released on 2027-04-??, supported until 2028-01?-01
-* ? ? (26.10.x);  released on 2026-10-??, supported until 2027-07?-01
-* ? ? (26.04.x LTS);  released on 2026-04-??, supported until 2031-04?-01 (ESM 2035-04?-01)
-* ? ? (25.10.x);  released on 2025-10-??, supported until 2026-07?-01
-* ? ? (25.04.x);  released on 2025-04-??, supported until 2026-01?-01
-* ? ? (24.10.x);  released on 2024-10-??, supported until 2025-07?-01
-* ? ? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01 (ESM 2034-04?-01)
-* ? ? (23.10.x);  released on 2023-10-??, supported until 2024-07?-01
-* ? ? (23.04.x);  released on 2023-04-??, supported until 2024-01?-01
+* C? C? (31.10.x);  released on 2031-10-??, supported until 2032-07?-01
+* B? B? (31.04.x);  released on 2031-04-??, supported until 2032-01?-01
+* A? A? (30.10.x);  released on 2030-10-??, supported until 2031-07?-01
+* Z? Z? (30.04.x LTS);  released on 2030-04-??, supported until 2035-04?-01 (ESM 2040-04?-01)
+* Y? Y? (29.10.x);  released on 2029-10-??, supported until 2030-07?-01
+* X? X? (29.04.x);  released on 2029-04-??, supported until 2030-01?-01
+* W? W? (28.10.x);  released on 2028-10-??, supported until 2029-07?-01
+* V? V? (28.04.x LTS);  released on 2028-04-??, supported until 2033-04?-01 (ESM 2037-04?-01)
+* U? U? (27.10.x);  released on 2027-10-??, supported until 2028-07?-01
+* T? T? (27.04.x);  released on 2027-04-??, supported until 2028-01?-01
+* S? S? (26.10.x);  released on 2026-10-??, supported until 2027-07?-01
+* R? R? (26.04.x LTS);  released on 2026-04-??, supported until 2031-04?-01 (ESM 2035-04?-01)
+* Q? Q? (25.10.x);  released on 2025-10-??, supported until 2026-07?-01
+* P? P? (25.04.x);  released on 2025-04-??, supported until 2026-01?-01
+* O? O? (24.10.x);  released on 2024-10-??, supported until 2025-07?-01
+* N? N? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01 (ESM 2034-04?-01)
+* Mantic Minotaur (23.10.x);  released on 2023-10-12, supported until 2024-07?-01
+* Lunar Lobster (23.04.x);  released on 2023-04-20, supported until 2024-01-20
 * Kinetic Kudu (22.10.x);  released on 2022-10-20, supported until 2023-07?-01
 * Jammy Jellyfish (22.04.x LTS);  released on 2022-04-21, supported until 2027-04-21 (ESM 2032-04-21)
 * Impish Indri (21.10.x);  released on 2021-10-14, supported until 2022-07-14
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-23 (ESM 2030-04-23)
-* Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-04-26 (ESM 2028-04-26)
-* Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-30 (ESM 2026-04-23)
-* Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-25 (ESM 2024-04-25)
 
 Ubuntu releases traditionally-occur twice a year--in April and October.  LTS
 releases typically come out in April and receive standard support for 5 years
@@ -401,6 +398,10 @@ maintenance.
 Extended Security Maintenance (ESM_) support for LTS releases is available to
 individuals on "up to 3 machines" or up to 50 machines for
 officially-recognized Ubuntu community members_.
+
+* Bionic Beaver (18.04.x LTS);  released on 2018-04-26, supported until 2023-05-31 (ESM 2028-04-26)
+* Xenial Xerus (16.04.x LTS);  released on 2016-04-21, supported until 2021-04-30 (ESM 2026-04-23)
+* Trusty Tahr (14.04.x LTS);  released on 2014-04-17, supported until 2019-04-25 (ESM 2024-04-25)
 
 .. _ESM:  https://ubuntu.com/security/esm
 .. _members:  https://wiki.ubuntu.com/Membership
