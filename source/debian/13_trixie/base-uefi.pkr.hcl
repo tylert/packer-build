@@ -45,7 +45,7 @@ variable "cpus" {
 
 variable "description" {
   type    = string
-  default = "Cinnamon (UEFI) box for x86_64 Debian Bookworm 12.x"
+  default = "Base box (UEFI) for x86_64 Debian Trixie 13.x"
 }
 
 variable "disk_size" {
@@ -90,18 +90,18 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha512:b462643a7a1b51222cd4a569dad6051f897e815d10aa7e42b68adc8d340932d861744b5ea14794daa5cc0ccfa48c51d248eda63f150f8845e8055d0a5d7e58e6"
-  # default = "file:http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS"
+  default = "file:http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS"
+  # default = "sha512:0123456789abcdef"
 }
 
 variable "iso_file" {
   type    = string
-  default = "debian-12.0.0-amd64-netinst.iso"
+  default = "debian-testing-amd64-netinst.iso"
 }
 
 variable "iso_path_external" {
   type    = string
-  default = "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd"
+  default = "http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd"
 }
 
 variable "iso_path_internal" {
@@ -151,7 +151,7 @@ variable "packer_cache_dir" {
 
 variable "preseed_file" {
   type    = string
-  default = "cinnamon-uefi.preseed"
+  default = "base-uefi.preseed"
 }
 
 variable "qemu_binary" {
@@ -256,7 +256,7 @@ variable "version" {
 
 variable "vm_name" {
   type    = string
-  default = "cinnamon-uefi-bookworm"
+  default = "base-uefi-trixie"
 }
 
 variable "vnc_vrdp_bind_address" {

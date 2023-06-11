@@ -45,7 +45,7 @@ variable "cpus" {
 
 variable "description" {
   type    = string
-  default = "Cinnamon (UEFI) box for x86_64 Debian Bookworm 12.x"
+  default = "Base box for x86_64 Debian Trixie 13.x"
 }
 
 variable "disk_size" {
@@ -90,18 +90,18 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha512:b462643a7a1b51222cd4a569dad6051f897e815d10aa7e42b68adc8d340932d861744b5ea14794daa5cc0ccfa48c51d248eda63f150f8845e8055d0a5d7e58e6"
-  # default = "file:http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS"
+  default = "file:http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS"
+  # default = "sha512:0123456789abcdef"
 }
 
 variable "iso_file" {
   type    = string
-  default = "debian-12.0.0-amd64-netinst.iso"
+  default = "debian-testing-amd64-netinst.iso"
 }
 
 variable "iso_path_external" {
   type    = string
-  default = "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd"
+  default = "http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd"
 }
 
 variable "iso_path_internal" {
@@ -151,7 +151,7 @@ variable "packer_cache_dir" {
 
 variable "preseed_file" {
   type    = string
-  default = "cinnamon-uefi.preseed"
+  default = "base.preseed"
 }
 
 variable "qemu_binary" {
@@ -256,7 +256,7 @@ variable "version" {
 
 variable "vm_name" {
   type    = string
-  default = "cinnamon-uefi-bookworm"
+  default = "base-trixie"
 }
 
 variable "vnc_vrdp_bind_address" {
@@ -284,16 +284,15 @@ locals {
 source "qemu" "qemu" {
   accelerator = "kvm"
   boot_command = [
-    "<wait><wait><wait>c<wait><wait><wait>",
-    "linux /install.amd/vmlinuz ",
+    "<wait><wait><wait><esc><wait><wait><wait>",
+    "/install.amd/vmlinuz ",
+    "initrd=/install.amd/initrd.gz ",
     "auto=true ",
     "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ",
     "hostname=${var.vm_name} ",
     "domain=${var.domain} ",
     "interface=auto ",
-    "vga=788 noprompt quiet --<enter>",
-    "initrd /install.amd/initrd.gz<enter>",
-    "boot<enter>"
+    "vga=788 noprompt quiet --<enter>"
   ]
   boot_wait            = var.boot_wait
   communicator         = var.communicator
@@ -324,7 +323,6 @@ source "qemu" "qemu" {
   net_device                   = "virtio-net"
   output_directory             = local.output_directory
   qemu_binary                  = var.qemu_binary
-  qemuargs                     = [["-bios", "OVMF.fd"]]
   shutdown_command             = "echo '${var.ssh_password}' | sudo -E -S poweroff"
   shutdown_timeout             = var.shutdown_timeout
   skip_compaction              = true
@@ -349,16 +347,15 @@ source "qemu" "qemu" {
 
 source "virtualbox-iso" "vbox" {
   boot_command = [
-    "<wait><wait><wait>c<wait><wait><wait>",
-    "linux /install.amd/vmlinuz ",
+    "<wait><wait><wait><esc><wait><wait><wait>",
+    "/install.amd/vmlinuz ",
+    "initrd=/install.amd/initrd.gz ",
     "auto=true ",
     "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/${var.preseed_file} ",
     "hostname=${var.vm_name} ",
     "domain=${var.domain} ",
     "interface=auto ",
-    "vga=788 noprompt quiet --<enter>",
-    "initrd /install.amd/initrd.gz<enter>",
-    "boot<enter>"
+    "vga=788 noprompt quiet --<enter>"
   ]
   boot_wait                = var.boot_wait
   bundle_iso               = var.bundle_iso
@@ -406,7 +403,6 @@ source "virtualbox-iso" "vbox" {
   ssh_timeout                  = var.ssh_timeout
   ssh_username                 = var.ssh_username
   vboxmanage = [
-    ["modifyvm", "{{ .Name }}", "--firmware", "efi"],
     ["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]
   ]
   virtualbox_version_file = "/tmp/.vbox_version"
@@ -420,17 +416,6 @@ build {
   description = "Can't use variables here yet!"
 
   sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
-
-  provisioner "shell" {
-    binary              = false
-    execute_command     = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
-    expect_disconnect   = true
-    inline              = ["echo 'FS0:\\EFI\\debian\\grubx64.efi' > /boot/efi/startup.nsh"]
-    inline_shebang      = "/bin/sh -e"
-    only                = ["qemu", "vbox"]
-    skip_clean          = false
-    start_retry_timeout = var.start_retry_timeout
-  }
 
   provisioner "shell" {
     binary              = false
