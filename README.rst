@@ -384,7 +384,6 @@ Ubuntu_releases_
 * N? N? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01 (ESM 2034-04?-01)
 * Mantic Minotaur (23.10.x);  released on 2023-10-12, supported until 2024-07?-01
 * Lunar Lobster (23.04.x);  released on 2023-04-20, supported until 2024-01-20
-* Kinetic Kudu (22.10.x);  released on 2022-10-20, supported until 2023-07?-01
 * Jammy Jellyfish (22.04.x LTS);  released on 2022-04-21, supported until 2027-04-21 (ESM 2032-04-21)
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-23 (ESM 2030-04-23)
 
