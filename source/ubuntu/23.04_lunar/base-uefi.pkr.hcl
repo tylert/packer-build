@@ -90,18 +90,18 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS"
-  # default = "sha256:0123456789abcdef"
+  default = "sha256:c7cda48494a6d7d9665964388a3fc9c824b3bef0c9ea3818a1be982bc80d346b"
+  # default = "file:http://releases.ubuntu.com/23.04/SHA256SUMS"
 }
 
 variable "iso_file" {
   type    = string
-  default = "lunar-live-server-amd64.iso"
+  default = "ubuntu-23.04-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
   type    = string
-  default = "http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending"
+  default = "http://releases.ubuntu.com/23.04"
 }
 
 variable "iso_path_internal" {
@@ -136,7 +136,7 @@ variable "memory" {
 
 variable "min_vagrant_version" {
   type    = string
-  default = "2.3.0"
+  default = "2.3.7"
 }
 
 variable "packer_cache_dir" {

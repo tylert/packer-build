@@ -90,13 +90,13 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha256:28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
+  default = "sha256:b8f31413336b9393ad5d8ef0282717b2ab19f007df2e9ed5196c13d8f9153c8b"
   # default = "file:http://releases.ubuntu.com/20.04/SHA256SUMS"
 }
 
 variable "iso_file" {
   type    = string
-  default = "ubuntu-20.04.4-live-server-amd64.iso"
+  default = "ubuntu-20.04.6-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
@@ -136,7 +136,7 @@ variable "memory" {
 
 variable "min_vagrant_version" {
   type    = string
-  default = "2.3.0"
+  default = "2.3.7"
 }
 
 variable "packer_cache_dir" {

@@ -136,7 +136,7 @@ variable "memory" {
 
 variable "min_vagrant_version" {
   type    = string
-  default = "2.3.0"
+  default = "2.3.7"
 }
 
 variable "mirror" {
