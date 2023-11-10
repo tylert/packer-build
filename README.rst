@@ -349,13 +349,13 @@ Debian_releases_
 
 .. _Debian_releases:  https://en.wikipedia.org/wiki/Debian_version_history#Release_table
 
-* ? (16.x);  released on 2031-??-??, supported until 2036-??-01
-* ? (15.x);  released on 2029-??-??, supported until 2034-??-01
-* Forky (14.x);  released on 2027-??-??, supported until 2032?-??-01
-* Trixie (13.x);  released on 2025-??-??, supported until 2030?-??-01
-* Bookworm (12.x);  released on 2023-06-10, supported until 2028?-??-01
+* ? (16.x);  released on 2031-??-??, supported until 2036-06?-01
+* ? (15.x);  released on 2029-??-??, supported until 2034-06?-01
+* Forky (14.x);  released on 2027-??-??, supported until 2032?-06?-01
+* Trixie (13.x);  released on 2025-??-??, supported until 2030?-06?-01
+* Bookworm (12.x);  released on 2023-06-10, supported until 2028-06-01
 * Bullseye (11.x);  released on 2021-08-14, supported until 2026-06-01
-* Buster (10.x);  released on 2019-07-06, supported until 2024-06-01
+* Buster (10.x);  released on 2019-07-06, supported until 2024-06-30
 
 Debian releases seem to occur every 2 years around mid-year and usually receive
 security support for 3 years and long-term support for 5 years.
@@ -381,9 +381,8 @@ Ubuntu_releases_
 * Q? Q? (25.10.x);  released on 2025-10-??, supported until 2026-07?-01
 * P? P? (25.04.x);  released on 2025-04-??, supported until 2026-01?-01
 * O? O? (24.10.x);  released on 2024-10-??, supported until 2025-07?-01
-* N? N? (24.04.x LTS);  released on 2024-04-??, supported until 2029-04?-01 (ESM 2034-04?-01)
-* Mantic Minotaur (23.10.x);  released on 2023-10-12, supported until 2024-07?-01
-* Lunar Lobster (23.04.x);  released on 2023-04-20, supported until 2024-01-20
+* Noble Numbat (24.04.x LTS);  released on 2024-04-25, supported until 2029-05-31 (ESM 2034-04-25)
+* Mantic Minotaur (23.10.x);  released on 2023-10-12, supported until 2024-07-01
 * Jammy Jellyfish (22.04.x LTS);  released on 2022-04-21, supported until 2027-04-21 (ESM 2032-04-21)
 * Focal Fossa (20.04.x LTS);  released on 2020-04-23, supported until 2025-04-23 (ESM 2030-04-23)
 

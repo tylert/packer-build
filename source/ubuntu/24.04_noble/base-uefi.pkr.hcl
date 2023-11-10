@@ -45,7 +45,7 @@ variable "cpus" {
 
 variable "description" {
   type    = string
-  default = "Base box for x86_64 Ubuntu Lunar Lobster 23.04.x"
+  default = "Base box (UEFI) for x86_64 Ubuntu Noble Numbat 24.04.x"
 }
 
 variable "disk_size" {
@@ -96,7 +96,7 @@ variable "iso_checksum" {
 
 variable "iso_file" {
   type    = string
-  default = "lunar-live-server-amd64.iso"
+  default = "noble-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
@@ -256,7 +256,7 @@ variable "version" {
 
 variable "vm_name" {
   type    = string
-  default = "base-lunar"
+  default = "base-uefi-noble"
 }
 
 variable "vnc_vrdp_bind_address" {
@@ -313,11 +313,14 @@ source "qemu" "qemu" {
     "${var.iso_path_internal}/${var.iso_file}",
     "${var.iso_path_external}/${var.iso_file}"
   ]
-  machine_type                 = "pc"
-  memory                       = var.memory
-  net_device                   = "virtio-net"
-  output_directory             = local.output_directory
-  qemu_binary                  = var.qemu_binary
+  machine_type     = "pc"
+  memory           = var.memory
+  net_device       = "virtio-net"
+  output_directory = local.output_directory
+  qemu_binary      = var.qemu_binary
+  qemuargs = [
+    ["-bios", "OVMF.fd"]
+  ]
   shutdown_command             = "echo '${var.ssh_password}' | sudo -E -S poweroff"
   shutdown_timeout             = var.shutdown_timeout
   skip_compaction              = true
@@ -393,6 +396,7 @@ source "virtualbox-iso" "vbox" {
   ssh_timeout                  = var.ssh_timeout
   ssh_username                 = var.ssh_username
   vboxmanage = [
+    ["modifyvm", "{{ .Name }}", "--firmware", "efi"],
     ["modifyvm", "{{ .Name }}", "--rtcuseutc", "off"]
   ]
   virtualbox_version_file = "/tmp/.vbox_version"
@@ -406,6 +410,19 @@ build {
   description = "Can't use variables here yet!"
 
   sources = ["source.qemu.qemu", "source.virtualbox-iso.vbox"]
+
+  provisioner "shell" {
+    binary            = false
+    execute_command   = "echo '${var.ssh_password}' | {{ .Vars }} sudo -E -S '{{ .Path }}'"
+    expect_disconnect = true
+    inline = [
+      "echo 'FS0:\\EFI\\ubuntu\\grubx64.efi' > /boot/efi/startup.nsh"
+    ]
+    inline_shebang      = "/bin/sh -e"
+    only                = ["qemu", "vbox"]
+    skip_clean          = false
+    start_retry_timeout = var.start_retry_timeout
+  }
 
   provisioner "shell" {
     binary            = false
