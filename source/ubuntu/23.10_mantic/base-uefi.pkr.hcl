@@ -90,8 +90,7 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha256:d2fb80d9ce77511ed500bcc1f813e6f676d4a3577009dfebce24269ca23346a5"
-  # default = "file:http://releases.ubuntu.com/23.10/SHA256SUMS"
+  default = "file:http://releases.ubuntu.com/23.10/SHA256SUMS"
 }
 
 variable "iso_file" {

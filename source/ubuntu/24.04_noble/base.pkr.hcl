@@ -45,7 +45,7 @@ variable "cpus" {
 
 variable "description" {
   type    = string
-  default = "Base box for x86_64 Ubuntu Mantic Minotaur 23.10.x"
+  default = "Base box for x86_64 Ubuntu Noble Numbat 24.04.x"
 }
 
 variable "disk_size" {
@@ -91,12 +91,11 @@ variable "http_port_min" {
 variable "iso_checksum" {
   type    = string
   default = "file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS"
-  # default = "sha256:0123456789abcdef"
 }
 
 variable "iso_file" {
   type    = string
-  default = "mantic-live-server-amd64.iso"
+  default = "noble-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
@@ -256,7 +255,7 @@ variable "version" {
 
 variable "vm_name" {
   type    = string
-  default = "base-mantic"
+  default = "base-noble"
 }
 
 variable "vnc_vrdp_bind_address" {

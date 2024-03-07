@@ -91,7 +91,6 @@ variable "http_port_min" {
 variable "iso_checksum" {
   type    = string
   default = "file:http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS"
-  # default = "sha512:0123456789abcdef"
 }
 
 variable "iso_file" {

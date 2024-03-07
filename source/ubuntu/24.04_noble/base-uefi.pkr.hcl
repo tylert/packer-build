@@ -91,7 +91,6 @@ variable "http_port_min" {
 variable "iso_checksum" {
   type    = string
   default = "file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS"
-  # default = "sha256:0123456789abcdef"
 }
 
 variable "iso_file" {

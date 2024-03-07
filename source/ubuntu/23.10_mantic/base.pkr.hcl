@@ -90,18 +90,17 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "file:http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/SHA256SUMS"
-  # default = "sha256:0123456789abcdef"
+  default = "file:http://releases.ubuntu.com/23.10/SHA256SUMS"
 }
 
 variable "iso_file" {
   type    = string
-  default = "mantic-live-server-amd64.iso"
+  default = "ubuntu-23.10-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
   type    = string
-  default = "http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending"
+  default = "http://releases.ubuntu.com/23.10"
 }
 
 variable "iso_path_internal" {

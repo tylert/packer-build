@@ -90,13 +90,12 @@ variable "http_port_min" {
 
 variable "iso_checksum" {
   type    = string
-  default = "sha256:5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
-  # default = "file:http://releases.ubuntu.com/22.04/SHA256SUMS"
+  default = "file:http://releases.ubuntu.com/22.04/SHA256SUMS"
 }
 
 variable "iso_file" {
   type    = string
-  default = "ubuntu-22.04.2-live-server-amd64.iso"
+  default = "ubuntu-22.04.4-live-server-amd64.iso"
 }
 
 variable "iso_path_external" {
