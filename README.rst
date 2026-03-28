@@ -1,6 +1,8 @@
 packer-build
 ============
 
+NOTE: This repo has permanently moved to https://codeberg.org/tylert/packer-build
+
 
 What does this do?
 ~~~~~~~~~~~~~~~~~~
